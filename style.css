@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2D2D2D;;
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('./assets/fonts/Roboto-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('./assets/fonts/Roboto-Regular.ttf');
+}
+
+.catalog_header {
+    margin-bottom: 2vh;
+
+    font-family: "Roboto-Medium", sans-serif;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+.list-group-item {
+    margin-top: 1vh;
+    height: 14vh;
+    border-radius: 3vh;
+
+    background-color: #4F4949;
+    color: #FFFFFF;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.list-group-item > a {
+    color: #FFFFFF;
+    text-shadow: 2px 2px black;
+    text-decoration: none;
+
+}
+
+.list-group-item:last-child {
+    border-bottom-left-radius: 3vh;
+    border-bottom-right-radius: 3vh;
+}
