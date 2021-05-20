@@ -1,44 +1,41 @@
 @font-face {
-    font-family: 'Roboto-Medium';
-    src: url('./assets/fonts/Roboto-Medium.ttf');
+    font-family: 'Inter-Medium';
+    src: url("./assets/fonts/Inter-Medium.ttf");
 }
 
-@font-face {
-    font-family: 'Roboto-Regular';
-    src: url('./assets/fonts/Roboto-Regular.ttf');
+html{
+    font-size: 12px;
+    font-weight: 500;
 }
 
 body {
     margin: 0;
     padding: 0;
     background-color: #2D2D2D;;
-    font-family: "Roboto-Regular", sans-serif;
-    font-size: 24px;
-    line-height: 24px;
+    font-family: "Inter-Medium", sans-serif;
+    font-size: 2rem;
+    line-height: 2rem;
 }
 
-.catalog_container{
-    margin-top: 3rem;
-    padding-left: 3vh;
-    padding-right: 3vh;
+.catalog_container {
+    margin-top: 4rem;
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
 }
 
 .catalog_header {
-    margin-bottom: 2vh;
-
-    font-family: "Roboto-Medium", sans-serif;
-    font-weight: normal;
-    font-size: 24px;
-
+    margin-bottom: 2rem;
+    font-family: "Inter-Medium", sans-serif;
+    font-weight: 700;
     color: #FFFFFF;
 }
 
 .list-group-item {
     box-sizing: border-box;
-    height: 14vh;
-    margin-top: 1vh;
-    padding: 1vh;
-    border-radius: 3vh;
+    height: 8.5rem;
+    margin-top: 1.3rem;
+    padding: 4rem 1.3rem;
+    border-radius: 1rem;
 
     background-color: #4F4949;
     color: #FFFFFF;
