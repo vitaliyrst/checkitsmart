@@ -15,29 +15,29 @@
     <div class="catalog_container">
 
         <div class="catalog_header">Каталог</div>
-        <a href="#" class="list-group-item">Комоды и тумбы</a>
-        <a href="./assets/images/test/table.usdz" class="list-group-item">Столы</a>
-        <a href="#" class="list-group-item">Кровати</a>
-        <a href="#" class="list-group-item">Шкафы</a>
-        <a href="./assets/images/test/carpet.usdz" class="list-group-item">Ковры</a>
-
-        <a href="size.html" class="list-group-item size">Размер</a>
+        <a href="https://checkitsmart.com/assets/table.usdz#callToAction=Add%20to%cart">Стол</a>
     </div>
 </div>
+<script src="assets/data.js"></script>
 <script>
+    localStorage.removeItem('categories');
+    localStorage.removeItem('item');
+    localStorage.setItem('categories', JSON.stringify(data));
+
     const catalogContainer = document.querySelector('.catalog_container');
-    const links = document.querySelectorAll('.list-group-item');
 
-    for (let i = 0; i < links.length; i++) {
-        const link = links[i];
-
-        (link.className === 'list-group-item size') ?
-            link.style.backgroundColor = '#000000' :
-            link.style.backgroundImage = `url("assets/images/category/${i + 1}.png")`
-    }
-
-    catalogContainer.addEventListener('click', (eo) => {
-
+    data.categories.map(item => {
+        const link = document.createElement('a');
+        link.dataset.id = item.id;
+        link.href = 'size.html';
+        link.setAttribute('rel', 'ar');
+        link.classList.add('list-group-item');
+        link.style.backgroundImage = `url("${item.image}")`;
+        link.innerHTML = item.title;
+        catalogContainer.append(link);
+        link.addEventListener('click', () => {
+            localStorage.setItem('item', JSON.stringify(item));
+        });
     });
 </script>
 </body>

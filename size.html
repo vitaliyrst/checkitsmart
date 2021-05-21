@@ -16,7 +16,7 @@
         <div class="size_control">
             <div class="size_header">Введите габаритные размеры</div>
             <div class="size_image">
-                <img src="assets/images/size.svg" alt="размеры">
+                <img src="assets/images/figures/size.svg" alt="размеры">
             </div>
             <div class="size_input_list">
                 <div class="input_item">
@@ -53,6 +53,10 @@
     </div>
 </div>
 <script>
+    const item = JSON.parse(localStorage.getItem('item'));
+    const img = document.querySelector('img');
+    img.setAttribute('src', item.figure);
+
     const arButton = document.querySelector('.ar_button');
     const loaderContainer = document.querySelector('.loader_container');
     const sizeContainer = document.querySelector('.size_container');
@@ -61,7 +65,7 @@
         sizeContainer.classList.add('hidden');
         loaderContainer.classList.remove('hidden');
         setTimeout(() => {
-            window.location = './assets/images/test/table_min.usdz';
+            window.location = item.linkSize;
         }, 3000);
     });
 </script>
