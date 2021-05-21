@@ -65,6 +65,8 @@
         sizeContainer.classList.add('hidden');
         loaderContainer.classList.remove('hidden');
         setTimeout(() => {
+            sizeContainer.classList.remove('hidden');
+            loaderContainer.classList.add('hidden');
             window.location = item.linkSize;
         }, 3000);
     });

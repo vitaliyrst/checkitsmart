@@ -5,7 +5,7 @@ data = {
             "title": "Комоды и тумбы",
             "image": "assets/images/category/1.png",
             "linkModel": "#",
-            "linkSize": "./assets/images/models/table/table_min.usdz",
+            "linkSize": "./assets/images/models/table/table_min.usdz#callToAction=Add%20to%20cart&checkoutTitle=commode",
             "figure": "assets/images/figures/size.svg"
         },
         {
