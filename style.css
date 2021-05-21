@@ -20,7 +20,8 @@ body {
 /* catalog */
 
 .catalog_container {
-    margin-top: 4rem;
+    max-width: 40rem;
+    margin: 4rem auto;
     padding-left: 1.8rem;
     padding-right: 1.8rem;
 }
@@ -40,6 +41,7 @@ body {
 
     background-color: #4F4949;
     color: #FFFFFF;
+    text-decoration: none;
 
     background-position: center;
     background-size: cover;
@@ -48,11 +50,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.list-group-item > a {
-    color: #FFFFFF;
-    text-decoration: none;
 }
 
 /* size */

@@ -13,106 +13,32 @@
 <body>
 <div class="root">
     <div class="catalog_container">
+
         <div class="catalog_header">Каталог</div>
+        <a href="#" class="list-group-item">Комоды и тумбы</a>
+        <a href="./assets/images/test/table.usdz" class="list-group-item">Столы</a>
+        <a href="#" class="list-group-item">Кровати</a>
+        <a href="#" class="list-group-item">Шкафы</a>
+        <a href="./assets/images/test/carpet.usdz" class="list-group-item">Ковры</a>
 
-        <div class="list-group-item" style="background-image: url('assets/images/category/Frame 38.png')">
-            <a href="#">
-                Комоды и тумбы
-            </a>
-        </div>
-
-        <div class="list-group-item" style="background-image: url('assets/images/category/Frame 39.png')">
-            <a href="./assets/images/test/table.usdz">
-                Столы
-            </a>
-        </div>
-
-        <div class="list-group-item" style="background-image: url('assets/images/category/Frame 40.png')">
-            <a href="#">
-                Кровати
-            </a>
-        </div>
-
-        <div class="list-group-item" style="background-image: url('assets/images/category/Frame 41.png')">
-            <a href="#">
-                Шкафы
-            </a>
-        </div>
-
-        <div class="list-group-item" style="background-image: url('assets/images/category/Frame 42.png')">
-            <a href="./assets/images/test/carpet.usdz">
-                Ковры
-            </a>
-        </div>
-
-        <div class="list-group-item size" style="background-color: #000000">
-            <a class="size" href="/size.html">
-                Размер
-            </a>
-        </div>
-    </div>
-    <div class="size_container hidden">
-        <div class="size_control">
-            <div class="size_header">Введите габаритные размеры</div>
-            <div class="size_image">
-                <img src="assets/images/size.svg" alt="размеры">
-            </div>
-            <div class="size_input_list">
-                <div class="input_item">
-                    <label for="width">Ширина:</label>
-                    <input id="width" type="number" value="80"><span>см</span>
-                </div>
-                <div class="input_item">
-                    <label for="height">Высота:</label>
-                    <input id="height" type="number" value="77"><span>см</span>
-                </div>
-                <div class="input_item">
-                    <label for="depth">Глубина:</label>
-                    <input id="depth" type="number" value="80"><span>см</span>
-                </div>
-            </div>
-        </div>
-        <div class="size_ar_button">
-            <button class="ar_button" type="button">Примерить в пространстве</button>
-        </div>
-    </div>
-    <div class="loader_container hidden">
-        <div class="lds-roller">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div class="loader_text">Загрузка тестовой модели</div>
-        <div class="loader_subtext">Это может занять несколько минут...</div>
+        <a href="size.html" class="list-group-item size">Размер</a>
     </div>
 </div>
-<!--<script>
+<script>
     const catalogContainer = document.querySelector('.catalog_container');
-    const sizeContainer = document.querySelector('.size_container');
-    const loaderContainer = document.querySelector('.loader_container');
-    const arButton = document.querySelector('.ar_button');
+    const links = document.querySelectorAll('.list-group-item');
 
-    document.addEventListener('click', (eo) => {
-        let target = eo.target;
+    for (let i = 0; i < links.length; i++) {
+        const link = links[i];
 
-        if (target.className === 'size' || target.className === 'list-group-item size') {
-            sizeContainer.classList.remove('hidden');
-            catalogContainer.classList.add('hidden');
-        }
+        (link.className === 'list-group-item size') ?
+            link.style.backgroundColor = '#000000' :
+            link.style.backgroundImage = `url("assets/images/category/${i + 1}.png")`
+    }
 
-        if (target.className === 'ar_button') {
-            sizeContainer.classList.add('hidden');
-            loaderContainer.classList.remove('hidden');
-            setTimeout(() => {
-                window.location = './assets/images/test/table_min.usdz';
-            }, 3000);
-        }
+    catalogContainer.addEventListener('click', (eo) => {
+
     });
-</script>-->
+</script>
 </body>
 </html>

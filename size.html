@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="root">
-    <div class="size_container hidden">
+    <div class="size_container">
         <div class="size_control">
             <div class="size_header">Введите габаритные размеры</div>
             <div class="size_image">
@@ -53,20 +53,16 @@
     </div>
 </div>
 <script>
-    const sizeContainer = document.querySelector('.size_container');
+    const arButton = document.querySelector('.ar_button');
     const loaderContainer = document.querySelector('.loader_container');
+    const sizeContainer = document.querySelector('.size_container');
 
-    document.addEventListener('click', (eo) => {
-        let target = eo.target;
-
-
-        if (target.className === 'ar_button') {
-            sizeContainer.classList.add('hidden');
-            loaderContainer.classList.remove('hidden');
-            setTimeout(() => {
-                window.location = './assets/images/test/table_min.usdz';
-            }, 3000);
-        }
+    arButton.addEventListener('click', () => {
+        sizeContainer.classList.add('hidden');
+        loaderContainer.classList.remove('hidden');
+        setTimeout(() => {
+            window.location = './assets/images/test/table_min.usdz';
+        }, 3000);
     });
 </script>
 </body>
