@@ -36,7 +36,7 @@ data = {
             "id": 5,
             "title": "Ковры",
             "image": "assets/images/category/5.png",
-            "linkModel": "https://example/assets/images/models/carpet/carpet.usdz#applePayButtonType=plain",
+            "linkModel": "https://checkitsmart.com/assets/images/models/carpet/carpet.usdz#applePayButtonType=plain",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg"
         },
