@@ -12,7 +12,7 @@ data = {
             "id": 2,
             "title": "Столы",
             "image": "assets/images/category/2.png",
-            "linkModel": "./assets/images/models/table/table.usdz#applePayButton=plain",
+            "linkModel": "table.usdz#applePayButtonType=plain&checkoutTitle=Retro%20Alarm%20Clock&checkoutSubtitle=With%20built-in%20FM%20tuner&price=$92.50",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg"
         },
@@ -36,7 +36,7 @@ data = {
             "id": 5,
             "title": "Ковры",
             "image": "assets/images/category/5.png",
-            "linkModel": "https://checkitsmart.com/assets/images/models/carpet/carpet.usdz#applePayButtonType=plain",
+            "linkModel": "assets/images/models/table/table.usdz#applePayButtonType=plain&checkoutTitle=Retro%20Alarm%20Clock&checkoutSubtitle=With%20built-in%20FM%20tuner&price=$92.50",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg"
         },
