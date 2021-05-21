@@ -12,7 +12,7 @@ data = {
             "id": 2,
             "title": "Столы",
             "image": "assets/images/category/2.png",
-            "linkModel": "./assets/images/models/table/table.usdz#callToAction=Add%20to%20cart&checkoutTitle=commode",
+            "linkModel": "./assets/images/models/table/table.usdz#callToAction=applePayButton=plain",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg"
         },
@@ -36,7 +36,7 @@ data = {
             "id": 5,
             "title": "Ковры",
             "image": "assets/images/category/5.png",
-            "linkModel": "./assets/images/models/carpet/carpet.usdz",
+            "linkModel": "https://example/assets/images/models/carpet/carpet.usdz#applePayButtonType=plain",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg"
         },
