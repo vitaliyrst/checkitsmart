@@ -12,7 +12,7 @@ data = {
             "id": 2,
             "title": "Столы",
             "image": "assets/images/category/2.png",
-            "linkModel": "./assets/images/models/table/table.usdz#callToAction=applePayButton=plain",
+            "linkModel": "./assets/images/models/table/table.usdz#applePayButton=plain",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg"
         },
