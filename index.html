@@ -5,13 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+          content="Делайте виртуальную примерку предметов интерьера с помощью камеры на вашем телефоне. Дополненная реальность поможет вам точно понять сколько места в пространстве займет та или иная вещь.">
     <link rel="stylesheet" href="style.css">
-    <title>Primer</title>
+    <title>Примерка Мебели Виртуально</title>
 </head>
 <body>
 <div class="root">
     <div class="catalog_container">
-        <h2 class="catalog_header">Каталог</h2>
+        <div class="catalog_header">Каталог</div>
 
         <div class="list-group-item" style="background-image: url('assets/images/category/Frame 38.png')">
             <a href="#">
@@ -43,19 +45,74 @@
             </a>
         </div>
 
-        <div class="list-group-item" style="background-color: #000000">
-            <a href="./assets/images/test/table_min.usdz">
+        <div class="list-group-item size" style="background-color: #000000">
+            <a class="size">
                 Размер
             </a>
         </div>
-
-        <!--<div class="list-group-item" style="background-image: url('assets/images/category/Frame 42.png')">
-            <a href="./assets/images/test/fender_stratocaster.usdz">
-                Гитара
-            </a>
-        </div>-->
+    </div>
+    <div class="size_container hidden">
+        <div class="size_control">
+            <div class="size_header">Введите габаритные размеры</div>
+            <div class="size_image">
+                <img src="assets/images/size.svg" alt="размеры">
+            </div>
+            <div class="size_input_list">
+                <div class="input_item">
+                    <label for="width">Ширина:</label>
+                    <input id="width" type="number" value="80"><span>см</span>
+                </div>
+                <div class="input_item">
+                    <label for="height">Высота:</label>
+                    <input id="height" type="number" value="77"><span>см</span>
+                </div>
+                <div class="input_item">
+                    <label for="depth">Глубина:</label>
+                    <input id="depth" type="number" value="80"><span>см</span>
+                </div>
+            </div>
+        </div>
+        <div class="size_ar_button">
+            <button class="ar_button" type="button">Примерить в пространстве</button>
+        </div>
+    </div>
+    <div class="loader_container hidden">
+        <div class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="loader_text">Загрузка тестовой модели</div>
+        <div class="loader_subtext">Это может занять несколько минут...</div>
     </div>
 </div>
+<script>
+    const catalogContainer = document.querySelector('.catalog_container');
+    const sizeContainer = document.querySelector('.size_container');
+    const loaderContainer = document.querySelector('.loader_container');
+    const arButton = document.querySelector('.ar_button');
 
+    document.addEventListener('click', (eo) => {
+        let target = eo.target;
+
+        if (target.className === 'size' || target.className === 'list-group-item size') {
+            sizeContainer.classList.remove('hidden');
+            catalogContainer.classList.add('hidden');
+        }
+
+        if (target.className === 'ar_button') {
+            sizeContainer.classList.add('hidden');
+            loaderContainer.classList.remove('hidden');
+            setTimeout(() => {
+                window.location = './assets/images/test/table_min.usdz';
+            }, 3000);
+        }
+    });
+</script>
 </body>
 </html>
