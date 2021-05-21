@@ -5,14 +5,14 @@ data = {
             "title": "Комоды и тумбы",
             "image": "assets/images/category/1.png",
             "linkModel": "#",
-            "linkSize": "./assets/images/models/table/table_min.usdz#callToAction=Add%20to%20cart&checkoutTitle=commode",
+            "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg"
         },
         {
             "id": 2,
             "title": "Столы",
             "image": "assets/images/category/2.png",
-            "linkModel": "./assets/images/models/table/table.usdz",
+            "linkModel": "./assets/images/models/table/table.usdz#callToAction=Add%20to%20cart&checkoutTitle=commode",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg"
         },
