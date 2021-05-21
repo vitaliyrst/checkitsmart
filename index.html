@@ -16,10 +16,12 @@
         <div class="catalog_header">Каталог</div>
         <ul class="catalog_list"></ul>
     </div>
-    <a rel="ar" id="CustomAction" href="./assets/images/models/table/table.usdz#callToAction=Browse%20API&checkoutTitle=Kids%20Slide&checkoutSubtitle=Playground%20in%20your%20backyard&price=$145">
+    <a rel="ar" id="CustomAction"
+       href="./assets/images/models/table/table.usdz#callToAction=Browse%20API&checkoutTitle=Kids%20Slide&checkoutSubtitle=Playground%20in%20your%20backyard&price=$145">
         <img src="commodes.png">
     </a>
-    <a rel="ar" id="CustomActions" href="table.usdz#applePayButtonType=plain&checkoutTitle=Retro%20Alarm%20Clock&checkoutSubtitle=With%20built-in%20FM%20tuner&price=$92.50">
+    <a rel="ar" id="CustomActions"
+       href="table.usdz#applePayButtonType=plain&checkoutTitle=Retro%20Alarm%20Clock&checkoutSubtitle=With%20built-in%20FM%20tuner&price=$92.50">
         <img src="commodes.png">
     </a>
 </div>
@@ -39,15 +41,14 @@
         const img = document.createElement('img');
 
         li.classList.add('catalog_item');
-        li.style.backgroundImage = `url(${item.image})`
 
         linkModel.id = item.id;
         linkModel.href = item.linkModel;
         linkModel.classList.add('item_link_model');
         linkModel.setAttribute('rel', 'ar');
         linkModel.innerHTML = item.title;
-       /* arImg.src = item.image;
-        linkModel.append(arImg);*/
+        arImg.src = item.image;
+        linkModel.append(arImg);
 
         linkSize.classList.add('item_link_size');
         linkSize.href = 'size.html';
