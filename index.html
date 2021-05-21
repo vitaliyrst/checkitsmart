@@ -15,6 +15,9 @@
     <div class="catalog_container">
 
         <div class="catalog_header">Каталог</div>
+        <ul class="catalog_list">
+
+        </ul>
         <a href="https://checkitsmart.com/assets/table.usdz#callToAction=Add%20to%cart">Стол</a>
     </div>
 </div>
@@ -24,20 +27,37 @@
     localStorage.removeItem('item');
     localStorage.setItem('categories', JSON.stringify(data));
 
-    const catalogContainer = document.querySelector('.catalog_container');
+    const catalogList = document.querySelector('.catalog_list');
 
     data.categories.map(item => {
-        const link = document.createElement('a');
-        link.dataset.id = item.id;
-        link.href = 'size.html';
-        link.setAttribute('rel', 'ar');
-        link.classList.add('list-group-item');
-        link.style.backgroundImage = `url("${item.image}")`;
-        link.innerHTML = item.title;
-        catalogContainer.append(link);
-        link.addEventListener('click', () => {
+        const li = document.createElement('li');
+        const linkModel = document.createElement('a');
+        const linkSize = document.createElement('a');
+        const img = document.createElement('img');
+
+        li.style.backgroundImage = `url("${item.image}")`;
+        li.classList.add('catalog_item');
+
+        linkModel.href = item.linkModel;
+        linkModel.classList.add('item_link_model');
+        linkModel.innerHTML = item.title;
+
+        linkSize.classList.add('item_link_size');
+        linkSize.href = 'size.html';
+        img.classList.add('item_link_size_img');
+        img.src = './assets/images/figures/size_meter.png';
+        img.setAttribute('width', '50');
+        img.setAttribute('height', '50');
+        linkSize.append(img);
+
+        li.append(linkModel);
+        li.append(linkSize);
+
+        li.addEventListener('click', (eo) => {
             localStorage.setItem('item', JSON.stringify(item));
         });
+
+        catalogList.append(li);
     });
 </script>
 </body>

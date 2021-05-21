@@ -32,15 +32,18 @@ body {
     font-weight: 700;
 }
 
-.list-group-item {
+.catalog_list {
+    list-style: none;
+    padding: 0;
+}
+
+.catalog_item {
     box-sizing: border-box;
     height: 8.5rem;
     margin-top: 1.3rem;
     padding: 4rem 1.3rem;
     border-radius: 1rem;
 
-    background-color: #4F4949;
-    color: #FFFFFF;
     text-decoration: none;
 
     background-position: center;
@@ -48,8 +51,18 @@ body {
     background-repeat: no-repeat;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item_link_model {
+    display: flex;
+    vertical-align: center;
+    width: 20rem;
+    height: 7rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    align-items: center;
 }
 
 /* size */
@@ -78,11 +91,11 @@ body {
     text-align: center;
 }
 
-.size_ar_button{
+.size_ar_button {
     margin-top: 2rem;
 }
 
-.ar_button{
+.ar_button {
     display: inline-block;
 
     width: 26rem;
