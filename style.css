@@ -1,6 +1,13 @@
 @font-face {
-    font-family: 'Inter-Medium';
+    font-family: 'Inter';
     src: url("./assets/fonts/Inter-Medium.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url("./assets/fonts/Inter-Bold.ttf");
+    font-weight: 700;
 }
 
 html {
@@ -11,8 +18,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #2D2D2D;;
-    font-family: "Inter-Medium", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 1.5rem;
+    font-weight: 500;
     line-height: 1.9rem;
     color: #FFFFFF;
 }
@@ -27,7 +35,7 @@ body {
 }
 
 .catalog_header {
-    font-family: "Inter-Medium", sans-serif;
+    font-weight: 700;
     font-size: 2rem;
 }
 
@@ -84,20 +92,25 @@ body {
 /* size */
 
 .size_container {
-    margin-top: 5rem;
-    margin-left: 1.3rem;
-    margin-right: 1.3rem;
-    padding: 1.3rem 1.3rem;
+    margin-top: 6.4rem;
+    margin-left: 2.6rem;
+    margin-right: 2.6rem;
     text-align: center;
+}
+
+.size_control{
+
 }
 
 .size_header {
     font-size: 2rem;
+    font-weight: 700;
     line-height: 3.2rem;
-    margin: 1.3rem 1.3rem;
+    margin-bottom: 1rem;
 }
 
 .size_input_list {
+    font-weight: 700;
     width: 14.3rem;
     font-size: 1.3rem;
     margin: 0 auto;
@@ -106,9 +119,36 @@ body {
     flex-direction: column;
     text-align: center;
 }
+.input_item input {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 5rem;
+    height: 3.3rem;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.input_item {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.input_item label {
+    font-size: 1.3rem;
+    width: 5.15rem;
+}
+
+
+.input_item span{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
 
 .size_ar_button {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .ar_button {
@@ -129,29 +169,7 @@ body {
     background-color: #DF661C;
 }
 
-.input_item {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.input_item input {
-    display: inline-block;
-    width: 5rem;
-    height: 3.3rem;
-    text-align: center;
-    border-radius: 1rem;
-}
-
-.input_item label {
-    font-size: 1.3rem;
-    width: 5.15rem;
-}
-
-.input_item span {
-    font-size: 1.3rem;
-}
 
 /* loader */
 

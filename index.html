@@ -12,19 +12,14 @@
 </head>
 <body>
 <div class="root">
+
     <div class="catalog_container">
         <div class="catalog_header">Каталог</div>
         <ul class="catalog_list"></ul>
     </div>
-<!--    <a rel="ar" id="CustomAction"
-       href="./assets/images/models/table/table.usdz#callToAction=Browse%20API&checkoutTitle=Kids%20Slide&checkoutSubtitle=Playground%20in%20your%20backyard&price=$145">
-        <img src="commodes.png">
-    </a>
-    <a rel="ar" id="CustomActions"
-       href="table.usdz#applePayButtonType=plain&checkoutTitle=Retro%20Alarm%20Clock&checkoutSubtitle=With%20built-in%20FM%20tuner&price=$92.50">
-        <img src="commodes.png">
-    </a>-->
+
 </div>
+
 <script src="assets/data.js"></script>
 <script>
     localStorage.removeItem('categories');
@@ -33,34 +28,9 @@
 
     const catalogList = document.querySelector('.catalog_list');
 
-    data.categories.map(item => {
+    const getCatalogListItem = (linkModel, linkSize, item) => {
         const li = document.createElement('li');
-        const linkModel = document.createElement('a');
-        const linkSize = document.createElement('a');
-        const arImg = document.createElement('img');
-        const img = document.createElement('img');
-        const title = document.createElement('span');
-
         li.classList.add('catalog_item');
-
-        linkModel.id = item.id;
-        linkModel.href = item.linkModel;
-        linkModel.classList.add('item_link_model');
-        linkModel.setAttribute('rel', 'ar');
-        arImg.src = item.image;
-        arImg.classList.add('item_link_model_image');
-        title.innerHTML = item.title;
-        title.classList.add('item_link_model_title');
-        linkModel.append(arImg);
-        linkModel.append(title);
-
-        linkSize.classList.add('item_link_size');
-        linkSize.href = 'size.html';
-        img.classList.add('item_link_size_img');
-        img.src = './assets/images/figures/size_img.png';
-
-        linkSize.append(img);
-
         li.append(linkModel);
         li.append(linkSize);
 
@@ -68,8 +38,52 @@
             localStorage.setItem('item', JSON.stringify(item));
         });
 
-        catalogList.append(li);
+        return li;
+    }
+
+    const getItemLinkModel = (item) => {
+        const linkModel = document.createElement('a');
+        const img = document.createElement('img');
+        const title = document.createElement('span');
+
+        linkModel.id = item.id;
+        linkModel.href = item.linkModel;
+        linkModel.classList.add('item_link_model');
+        linkModel.setAttribute('rel', 'ar');
+
+        img.src = item.image;
+        img.classList.add('item_link_model_image');
+
+        title.innerHTML = item.title;
+        title.classList.add('item_link_model_title');
+
+        linkModel.append(img);
+        linkModel.append(title);
+        return linkModel;
+    }
+
+    const getItemLinkSize = () => {
+        const linkSize = document.createElement('a');
+        const img = document.createElement('img');
+
+        linkSize.classList.add('item_link_size');
+        linkSize.href = 'size.html';
+
+        img.classList.add('item_link_size_img');
+        img.src = './assets/images/figures/size_img.png';
+
+        linkSize.append(img);
+        return linkSize;
+    }
+
+    data.categories.map(item => {
+        const linkModel = getItemLinkModel(item);
+        const linkSize = getItemLinkSize();
+        const listItem = getCatalogListItem(linkModel, linkSize, item);
+        catalogList.append(listItem);
     });
+
+
 </script>
 </body>
 </html>
