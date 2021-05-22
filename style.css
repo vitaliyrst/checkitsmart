@@ -92,7 +92,7 @@ body {
 /* size */
 
 .size_container {
-    margin-top: 6.4rem;
+    margin-top: 4rem;
     margin-left: 2.6rem;
     margin-right: 2.6rem;
     text-align: center;
@@ -175,7 +175,7 @@ body {
 
 .loader_container {
     text-align: center;
-    padding: 17.2rem 9.6rem;
+    padding: 17.2rem 4rem;
 }
 
 .loader_text,
