@@ -74,8 +74,8 @@ body {
 }
 
 .item_link_size{
-    position: absolute;
     right: 0;
+    position: absolute;
 }
 
 .item_link_size img {
