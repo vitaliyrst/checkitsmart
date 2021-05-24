@@ -40,18 +40,18 @@ body {
     align-items: center;
 }
 
-.banner_header{
+.banner_header {
     font-size: 1.5rem;
     font-weight: 700;
 }
 
-.banner_price{
+.banner_price {
     font-size: 2rem;
     font-weight: 700;
 }
 
 .banner_color,
-.banner_size{
+.banner_size {
     font-size: 1.33rem;
 }
 
@@ -67,4 +67,17 @@ body {
     height: 3rem;
     color: #FFFFFF;
     border-radius: 0.5rem;
+}
+
+.banner_href {
+    box-sizing: border-box;
+    display: inline-block;
+    background-color: #DF661C;
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 1rem;
+    outline: none;
+    height: 3rem;
+    border-radius: 0.5rem;
+    color: #FFFFFF;
 }
