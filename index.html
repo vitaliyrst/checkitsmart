@@ -85,12 +85,13 @@
     });
 
     const linksElements = document.querySelectorAll('#ar-link');
-    const spans = document.querySelectorAll('.item_link_model_title');
 
     linksElements.forEach(link => {
-        console.log(link.children[1].textContent)
+        console.log(link.children[1].textContent);
         link.addEventListener('message', (eo) => {
             if (eo.data === "_apple_ar_quicklook_button_tapped") {
+                console.log(eo.data)
+                console.log(1111)
                 data.categories.forEach(item => {
                     if (link.children[1].textContent === item.title) {
                         document.location.href = item.linkBuy;

@@ -4,7 +4,7 @@ data = {
             "id": 1,
             "title": "Комоды и тумбы",
             "image": "assets/images/category/1.png",
-            "linkModel": "./assets/images/models/tumba/tumba2.usdz#callToAction=Добавить%20в%20корзину&checkoutTitle=Комоды%20и%20тумбы",
+            "linkModel": "./assets/images/models/tumba/orex.usdz#callToAction=Добавить%20в%20корзину&checkoutTitle=Комоды%20и%20тумбы",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg",
             "linkBuy": "https://catalog.onliner.by/dresser/sokol/t2rsb"
