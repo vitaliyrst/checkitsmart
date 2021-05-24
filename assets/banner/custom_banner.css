@@ -10,18 +10,6 @@
     font-weight: 700;
 }
 
-@font-face {
-    font-family: 'Roboto';
-    src: url("../fonts/Roboto-Regular.ttf");
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'Roboto';
-    src: url("../fonts/Roboto-bold.ttf");
-    font-weight: 700;
-}
-
 html {
     font-size: 12px;
     font-family: Inter, sans-serif;
@@ -37,7 +25,7 @@ body {
     box-sizing: border-box;
     text-align: center;
     padding: 1.33rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     display: flex;
     flex-direction: column;
     align-content: space-around;
@@ -51,28 +39,25 @@ body {
 }
 
 .banner_container > div {
-    font-family: Roboto, sans-serif;
-    font-weight: 700;
+    font-size: 1.3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .banner_header {
-    font-size: 1.5rem;
     font-weight: 700;
+    font-size: 1.5rem;
 }
 
 .banner_price {
-    font-size: 2rem;
     font-weight: 700;
+    font-size: 1.5rem;
 }
 
 .banner_color,
 .banner_size {
-    font-family: Roboto,sans-serif;
-    font-weight: 400;
-    font-size: 1.33rem;
+    font-size: 1.2rem;
 }
 
 .banner_href_container {
@@ -88,7 +73,7 @@ body {
     background-color: #DF661C;
     text-decoration: none;
     padding: 0.9rem 1rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     outline: none;
     height: 3rem;
     border-radius: 0.5rem;

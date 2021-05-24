@@ -54,7 +54,7 @@
 <script>
     const item = JSON.parse(localStorage.getItem('item'));
     const img = document.querySelector('img');
-    img.setAttribute('src', (item) ? item.figure : './assets/images/figures/size.svg');
+    img.setAttribute('src', item.figure);
 
     const getItemSize = (item) => {
         const linkModel = document.createElement('a');
