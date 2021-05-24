@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="custom_banner.css">
-    <title>Title</title>
 </head>
 <body>
 <div id="wrapper">
     <div id="description">
     </div>
     <div>
-        <a id="link">Просмотр товара</a>
+        <a id="link">Просмотр товараff</a>
     </div>
 </div>
-</body>
 <script>
     const item = JSON.parse(localStorage.getItem('item'));
     const href = document.getElementById('link');
@@ -27,4 +25,7 @@
     description.append(divPrice);
     href.setAttribute('href', item.linkBuy);
 </script>
+</body>
+
+
 </html>
