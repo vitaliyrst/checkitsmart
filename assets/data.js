@@ -31,7 +31,7 @@ data = {
             "id": 4,
             "title": "Шкафы",
             "image": "assets/images/category/4.png",
-            "linkModel": "./assets/images/models/dresser/dresser.usdz#callToAction=Добавить%20в%20корзину&checkoutTitle=Шкафы",
+            "linkModel": "./assets/images/models/dresser/dresser.usdz#callToAction=Add%20to%20cart",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg",
             "linkBuy": "https://catalog.onliner.by/wine_cabinets/liebherr/ewtgb3583"
@@ -40,7 +40,7 @@ data = {
             "id": 5,
             "title": "Ковры",
             "image": "assets/images/category/5.png",
-            "linkModel": "./assets/images/models/carpet/krug1x1.usdz#callToAction=Добавить%20в%20корзину&checkoutTitle=Ковры",
+            "linkModel": "./assets/images/models/carpet/krug1x1.usdz#applePayButtonType=plain&checkoutTitle=Retro%20Alarm%20Clock&checkoutSubtitle=With%20built-in%20FM%20tuner&price=$92.50",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg",
             "linkBuy": "https://jysk.by/kover-irbis-522-166-1079-by.html?gclid=Cj0KCQjwna2FBhDPARIsACAEc_Vp2FExssLntFe--DIukpUAula3DCxod-Qmu7VAQXQxj4a1RozAv24aAlWEEALw_wcB"
