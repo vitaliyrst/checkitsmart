@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Inter';
-    src: url("../fonts/Inter-Meduim.ttf");
+    src: url("../fonts/Inter-Medium.ttf");
     font-weight: 500;
 }
 
@@ -14,10 +14,16 @@ html {
     font-size: 12px;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .wrapper {
     box-sizing: border-box;
     text-align: center;
-    padding: 1.33rem;
+    padding-left: 1.33rem;
+    padding-right: 1.33rem;
     font-size: 1.5rem;
 }
 
