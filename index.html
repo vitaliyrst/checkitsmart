@@ -89,6 +89,8 @@
     linksElements.forEach(link => {
         link.addEventListener('message', (eo) => {
             console.log(eo.target)
+            console.log(eo)
+            console.log(eo.data)
             if (eo.data === "_apple_ar_quicklook_button_tapped") {
                 data.categories.forEach(item => {
                     if (link.children[1].textContent === item.title) {
