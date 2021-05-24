@@ -4,7 +4,7 @@ data = {
             "id": 1,
             "title": "Комоды и тумбы",
             "image": "assets/images/category/1.png",
-            "linkModel": "./assets/images/models/tumba/tumba.usdz#applePayButtonType=plain&checkoutTitle=Retro%20Alarm%20Clock&checkoutSubtitle=With%20built-in%20FM%20tuner&price=$92.50",
+            "linkModel": "./assets/images/models/tumba/tumba2.usdz#applePayButtonType=plain&checkoutTitle=Retro%20Alarm%20Clock&checkoutSubtitle=With%20built-in%20FM%20tuner&price=$92.50",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg"
         },
@@ -20,7 +20,7 @@ data = {
             "id": 3,
             "title": "Кровати",
             "image": "assets/images/category/3.png",
-            "linkModel": "/assets/images/models/bed/bed.usdz#applePayButtonType=plain&checkoutTitle=Retro%20Alarm%20Clock&checkoutSubtitle=With%20built-in%20FM%20tuner&price=$92.50",
+            "linkModel": "/assets/images/models/bed/Anrex_LINATE.usdz#applePayButtonType=plain&checkoutTitle=Retro%20Alarm%20Clock&checkoutSubtitle=With%20built-in%20FM%20tuner&price=$92.50",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg"
         },
@@ -36,7 +36,7 @@ data = {
             "id": 5,
             "title": "Ковры",
             "image": "assets/images/category/5.png",
-            "linkModel": "./assets/images/models/carpet/carpet.usdz#applePayButtonType=plain&checkoutTitle=Retro%20Alarm%20Clock&checkoutSubtitle=With%20built-in%20FM%20tuner&price=$92.50",
+            "linkModel": "./assets/images/models/carpet/krug1x1.usdz#applePayButtonType=plain&checkoutTitle=Retro%20Alarm%20Clock&checkoutSubtitle=With%20built-in%20FM%20tuner&price=$92.50",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg"
         },
