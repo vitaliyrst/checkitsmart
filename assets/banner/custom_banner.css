@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'Inter';
+    src: url("../fonts/Inter-Meduim.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url("../fonts/Inter-Bold.ttf");
+    font-weight: 700;
+}
+
+html {
+    font-size: 12px;
+}
+
+.wrapper {
+    box-sizing: border-box;
+    text-align: center;
+    padding: 1.33rem;
+    font-size: 1.5rem;
+}
+
+.banner_description {
+    background-color: #2D2D2D;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+.banner_button {
+    display: inline-block;
+    width: 100%;
+    background-color: #DF661C;
+    outline: none;
+    border: none;
+    font-size: 1.33rem;
+    margin-top: 1.33rem;
+    height: 4rem;
+    color: #FFFFFF;
+    border-radius: 0.5rem;
+}
