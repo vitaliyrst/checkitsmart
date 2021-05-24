@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="custom_banner.css">
+    <title>Title</title>
+</head>
+<body>
+<div id="wrapper">
+    <div id="description">
+
+    </div>
+
+    <div>
+        <img id="chat">
+        <a id="link" href=""></a>
+    </div>
+</div>
+</body>
+<script>
+    const item = localStorage.getItem('item');
+    const href = document.getElementById('link');
+    const description = document.getElementById('description');
+
+    const divTitle = document.createElement('div');
+    divTitle.innerHTML = item.title;
+    const divPrice = document.createElement('div');
+    divPrice.innerHTML = '339 BYN';
+
+    description.append(divTitle);
+    description.append(divPrice);
+
+    href.setAttribute('href', item.linkBuy);
+</script>
+</html>
