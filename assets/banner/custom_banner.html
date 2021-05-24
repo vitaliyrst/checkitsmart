@@ -8,23 +8,11 @@
 <div id="wrapper">
     <div id="description">
     </div>
-    <div>
+    <input>
         <a id="link">Просмотр товараff</a>
+        <input type="button" value="test">
     </div>
 </div>
-<script>
-    const item = JSON.parse(localStorage.getItem('item'));
-    const href = document.getElementById('link');
-    const description = document.getElementById('description');
-    const divTitle = document.createElement('div');
-    divTitle.innerHTML = item.title;
-    const divPrice = document.createElement('div');
-    divPrice.innerHTML = '339 BYN';
-
-    description.append(divTitle);
-    description.append(divPrice);
-    href.setAttribute('href', item.linkBuy);
-</script>
 </body>
 
 

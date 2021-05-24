@@ -40,7 +40,7 @@ data = {
             "id": 5,
             "title": "Ковры",
             "image": "assets/images/category/5.png",
-            "linkModel": "./assets/images/models/carpet/krug1x1.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner.html&customHeight=medium",
+            "linkModel": "./assets/images/models/carpet/meter2x3.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner.html&customHeight=medium",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg",
             "linkBuy": "https://jysk.by/kover-irbis-522-166-1079-by.html?gclid=Cj0KCQjwna2FBhDPARIsACAEc_Vp2FExssLntFe--DIukpUAula3DCxod-Qmu7VAQXQxj4a1RozAv24aAlWEEALw_wcB"
