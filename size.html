@@ -34,7 +34,6 @@
             </div>
         </div>
         <div class="size_ar_button">
-            <button class="ar_button" type="button">Примерить в пространстве</button>
         </div>
     </div>
     <div class="loader_container hidden">
@@ -55,7 +54,26 @@
 <script>
     const item = JSON.parse(localStorage.getItem('item'));
     const img = document.querySelector('img');
-    img.setAttribute('src', item.figure);
+    img.setAttribute('src', (item) ? item.figure : './assets/images/figures/size.svg');
+
+    const getItemSize = (item) => {
+        const linkModel = document.createElement('a');
+        const img = document.createElement('img');
+
+        linkModel.id = item.id;
+        linkModel.href = item.linkSize;
+        linkModel.classList.add('size_ar_link');
+        linkModel.setAttribute('rel', 'ar');
+        linkModel.setAttribute('id', 'ar-link-size');
+
+        img.src = './assets/images/figures/btn.png';
+        img.classList.add('size_ar_link_image');
+
+        linkModel.append(img);
+        document.querySelector('.size_ar_button').append(linkModel)
+    }
+
+    getItemSize(item);
 
     const arButton = document.querySelector('.ar_button');
     const loaderContainer = document.querySelector('.loader_container');

@@ -23,7 +23,6 @@
 <script src="assets/data.js"></script>
 <script>
     localStorage.removeItem('categories');
-    localStorage.removeItem('item');
     localStorage.setItem('categories', JSON.stringify(data));
 
     const catalogList = document.querySelector('.catalog_list');
@@ -85,7 +84,8 @@
     });
 
     const linksElements = document.querySelectorAll('#ar-link');
-
+    console.log(document.referrer)
+    console.log(window.history)
     linksElements.forEach(link => {
         link.addEventListener('message', (eo) => {
             console.log(eo.target)
@@ -93,6 +93,7 @@
             console.log(eo.data)
             console.log(window.location);
             console.log(location.href);
+
             /*if (eo.data === "_apple_ar_quicklook_button_tapped") {
                 data.categories.forEach(item => {
                     if (link.children[1].textContent === item.title) {
