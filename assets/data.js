@@ -13,7 +13,7 @@ data = {
             "id": 2,
             "title": "Столы",
             "image": "assets/images/category/2.png",
-            "linkModel": "./assets/images/models/table/table.usdz#callToAction=Добавить%20в%20корзину&checkoutTitle=Столы",
+            "linkModel": "./assets/images/models/table/table.usdz#callToAction=Add%20to%20cart&checkoutTitle=Desk",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg",
             "linkBuy": "https://shop.anrex.by/product/stol_razdvizhnoy_jagger/"
@@ -22,7 +22,7 @@ data = {
             "id": 3,
             "title": "Кровати",
             "image": "assets/images/category/3.png",
-            "linkModel": "/assets/images/models/bed/Anrex_LINATE.usdz#callToAction=Добавить%20в%20корзину&checkoutTitle=Кровати",
+            "linkModel": "/assets/images/models/bed/Anrex_LINATE.usdz#callToAction=Добавить%20в%20корзину",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "assets/images/figures/size.svg",
             "linkBuy": "https://catalog.onliner.by/bed/ikea/70395244"
