@@ -8,19 +8,16 @@
 <body>
 <div id="wrapper">
     <div id="description">
-
     </div>
-
     <div>
         <a id="link">Просмотр товара</a>
     </div>
 </div>
 </body>
 <script>
-    const item = localStorage.getItem('item');
+    const item = JSON.parse(localStorage.getItem('item'));
     const href = document.getElementById('link');
     const description = document.getElementById('description');
-
     const divTitle = document.createElement('div');
     divTitle.innerHTML = item.title;
     const divPrice = document.createElement('div');
@@ -28,7 +25,6 @@
 
     description.append(divTitle);
     description.append(divPrice);
-    console.log(item)
     href.setAttribute('href', item.linkBuy);
 </script>
 </html>
