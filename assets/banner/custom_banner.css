@@ -57,22 +57,28 @@ body {
     font-size: 1.33rem;
 }
 
-.banner_href_container{
+.banner_href_container {
     margin-top: 1rem;
     display: flex;
     justify-content: space-around;
 }
 
-.banner_href {
+.banner_href_size,
+.banner_href_buy {
     box-sizing: border-box;
     display: inline-block;
     background-color: #DF661C;
     text-decoration: none;
-    padding: 1rem;
+    padding: 0.9rem 1rem;
     font-size: 1.1rem;
     outline: none;
     height: 3rem;
     border-radius: 0.5rem;
     color: #FFFFFF;
     flex-basis: 45%;
+}
+
+.banner_href_size {
+    background-color: #E7E3E9;
+    color: #000000;
 }
