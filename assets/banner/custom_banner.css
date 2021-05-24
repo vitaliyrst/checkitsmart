@@ -22,8 +22,7 @@ body {
 .wrapper {
     box-sizing: border-box;
     text-align: center;
-    padding-left: 1.33rem;
-    padding-right: 1.33rem;
+    padding: 1.33rem;
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
@@ -32,7 +31,7 @@ body {
 
 .banner_container {
     text-align: left;
-    color: #000000;
+    color: #FFFFFF;
     border-radius: 0.5rem;
     padding: 0.2rem;
 }
@@ -59,9 +58,9 @@ body {
 }
 
 .banner_href_container{
+    margin-top: 1rem;
     display: flex;
     justify-content: space-around;
-
 }
 
 .banner_href {
