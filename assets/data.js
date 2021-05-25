@@ -44,7 +44,7 @@ data = {
             "id": 5,
             "title": "Ковры",
             "image": "assets/images/category/carpet.png",
-            "linkModel": "./assets/images/models/carpe t/carpet.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_carpet.html&customHeight=large",
+            "linkModel": "./assets/images/models/carpet/carpet.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_carpet.html&customHeight=large",
             "linkSize": "./assets/images/models/carpet/carpet_min.usdz",
             "figure": "./assets/images/models/carpet/carpet_size.svg",
             "linkBuy": "https://kvartal-e.ru/kover/vitebsk/hitset/manhatten/tproduct/158136639-444528739794-3727a6",
