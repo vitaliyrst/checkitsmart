@@ -117,6 +117,8 @@ body {
 }
 
 .input_item input {
+    font-size: 1.33rem;
+    font-weight: 500;
     box-sizing: border-box;
     width: 4rem;
     height: 2.5rem;
