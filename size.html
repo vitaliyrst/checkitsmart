@@ -93,6 +93,16 @@
             linkModel.addEventListener('click', handleClick);
         }
         getItemSize(item);
+
+        const linksElements = document.querySelectorAll('#ar-link-size');
+
+        linksElements.forEach(link => {
+            link.addEventListener('message', (eo) => {
+                if (eo.data === "_apple_ar_quicklook_button_tapped") {
+                    document.location.href = 'https://checkitsmart.com/size.html';
+                }
+            });
+        });
     }
 </script>
 </body>
