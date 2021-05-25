@@ -48,7 +48,7 @@ data = {
             "linkSize": "./assets/images/models/carpet/carpet_min.usdz#custom=https://checkitsmart.com/assets/banner/size/custom_banner_size_carpet.html&customHeight=medium",
             "figure": "./assets/images/models/carpet/carpet_size.svg",
             "linkBuy": "https://kvartal-e.ru/kover/vitebsk/hitset/manhatten/tproduct/158136639-444528739794-3727a6",
-            "sizes": {w: 200, h: 300, d: 0.07}
+            "sizes": {w: 200, h: 300}
         },
     ]
 };

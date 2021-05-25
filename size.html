@@ -19,18 +19,6 @@
                 <img class="image">
             </div>
             <div class="size_input_list">
-                <div class="input_item">
-                    <label for="width">Ширина:</label>
-                    <input id="width" type="number" inputmode="decimal"><span>см</span>
-                </div>
-                <div class="input_item">
-                    <label for="height">Высота:</label>
-                    <input id="height" type="number" inputmode="decimal"><span>см</span>
-                </div>
-                <div class="input_item">
-                    <label for="depth">Глубина:</label>
-                    <input id="depth" type="number" inputmode="decimal"><span>см</span>
-                </div>
             </div>
         </div>
 
@@ -61,15 +49,48 @@
         const img = document.querySelector('.image');
         img.setAttribute('src', item.figure);
 
-        const sizes = document.querySelectorAll('input[type=number]');
-        sizes.forEach(input => {
-            const id = input.getAttribute('id');
-            (id === 'width') ?
-                input.value = item.sizes.w :
-                (id === 'height') ?
-                    input.value = item.sizes.h :
-                    input.value = item.sizes.d
-        });
+        const getInputs = () => {
+            const container = document.querySelector('.size_input_list');
+
+            const keys = Object.keys(item.sizes);
+            keys.forEach(key => {
+                console.log(key)
+                const div = document.createElement('div');
+                div.classList.add('input_item');
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.inputMode = 'decimal';
+
+                const label = document.createElement('label');
+                const span = document.createElement('span');
+                span.textContent = 'см';
+
+                if (key === 'w') {
+                    input.setAttribute('id', 'width');
+                    input.value = item.sizes.w;
+                    label.htmlFor = 'width';
+                    label.textContent = 'Ширина:'
+                }
+                if (key === 'h') {
+                    input.setAttribute('id', 'height');
+                    input.value = item.sizes.h;
+                    label.htmlFor = 'height';
+                    label.textContent = 'Высота:'
+                }
+                if (key === 'd') {
+                    input.setAttribute('id', 'depth');
+                    input.value = item.sizes.h;
+                    label.htmlFor = 'depth';
+                    label.textContent = 'Глубина:'
+                }
+                div.append(label);
+                div.append(input);
+                div.append(span);
+                container.append(div);
+            });
+        }
+
+        getInputs();
 
         const handleClick = () => {
             const loaderContainer = document.querySelector('.loader_container');
