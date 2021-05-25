@@ -114,7 +114,7 @@ body {
 .input_item input {
     box-sizing: border-box;
     width: 4rem;
-    height: 3rem;
+    height: 2.5rem;
 
     outline: none;
     border: none;
@@ -143,18 +143,21 @@ body {
 }
 
 .size_ar_button {
+    padding: 0;
     margin-top: 2rem;
 }
 
-.size_ar_button img {
+.size_ar_link{
+    display: inline-block;
+    width: 32.5rem;
+    height: 8rem;
+}
+
+.size_ar_link img{
     box-sizing: border-box;
     display: inline-block;
-
-    width: 100%;
-
     outline: none;
     border-radius: 0.5rem;
-    background-size: cover;
 }
 
 /* loader */

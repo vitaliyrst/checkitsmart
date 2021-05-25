@@ -34,6 +34,9 @@
             </div>
         </div>
         <div class="size_ar_button">
+            <a id="ar-link-size" class="size_ar_link" rel="ar">
+                <img class="size_ar_image">
+            </a>
         </div>
     </div>
     <div class="loader_container hidden">
@@ -70,19 +73,13 @@
     }
 
     const getItemSize = (item) => {
-        const linkModel = document.createElement('a');
-        const img = document.createElement('img');
+        const linkModel = document.querySelector('.size_ar_link');
+        const img = document.querySelector('.size_ar_image');
+
         img.src = './assets/images/other/baseAR.svg';
-
-
         linkModel.href = item.linkSize;
-        linkModel.classList.add('size_ar_link');
-        linkModel.setAttribute('rel', 'ar');
-        linkModel.setAttribute('id', 'ar-link-size');
-        linkModel.append(img);
-        linkModel.addEventListener('click', handleClick);
 
-        document.querySelector('.size_ar_button').append(linkModel)
+        linkModel.addEventListener('click', handleClick);
     }
     getItemSize(item);
 </script>

@@ -4,10 +4,10 @@ data = {
             "id": 1,
             "title": "Комоды и тумбы",
             "image": "assets/images/category/bedside.png",
-            "linkModel": "./assets/images/models/bedside/bedside.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_tumba.html&customHeight=large",
+            "linkModel": "./assets/images/models/bedside/bedside.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_bedside.html&customHeight=large",
             "linkSize": "./assets/images/models/bedside/bedside_min.usdz",
             "figure": "./assets/images/models/bedside/bedside_size.svg",
-            "linkBuy": "https://catalog.onliner.by/dresser/sokol/t2rsb"
+            "linkBuy": "https://shop.anrex.by/product/tiffany_tumba_3d1s_orekh_eliya_temnyy/"
         },
         {
             "id": 2,
@@ -34,13 +34,13 @@ data = {
             "linkModel": "./assets/images/models/dresser/dresser.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_dresser.html&customHeight=large",
             "linkSize": "./assets/images/models/dresser/dresser_min.usdz",
             "figure": "./assets/images/models/dresser/dresser_size.svg",
-            "linkBuy": "https://catalog.onliner.by/wine_cabinets/liebherr/ewtgb3583"
+            "linkBuy": "https://shop.anrex.by/product/tiffany_shkaf_1d2s_orekh_eliya_temnyy/"
         },
         {
             "id": 5,
             "title": "Ковры",
             "image": "assets/images/category/carpet.png",
-            "linkModel": "./assets/images/models/carpet/carpet.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_carpet.html&customHeight=large",
+            "linkModel": "./assets/images/models/carpe t/carpet.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_carpet.html&customHeight=large",
             "linkSize": "./assets/images/models/carpet/carpet_min.usdz",
             "figure": "./assets/images/models/carpet/carpet_size.svg",
             "linkBuy": "https://kvartal-e.ru/kover/vitebsk/hitset/manhatten/tproduct/158136639-444528739794-3727a6"
