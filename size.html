@@ -61,8 +61,7 @@
         const img = document.querySelector('.image');
         img.setAttribute('src', item.figure);
 
-        const handleClick = (eo) => {
-            eo.preventDefault();
+        const handleClick = () => {
             const loaderContainer = document.querySelector('.loader_container');
             const sizeContainer = document.querySelector('.size_container');
 
@@ -71,8 +70,7 @@
             setTimeout(() => {
                 sizeContainer.classList.remove('hidden');
                 loaderContainer.classList.add('hidden');
-                window.location = item.linkSize;
-            }, 3000);
+            }, 1000);
         }
 
         const getItemSize = (item) => {
