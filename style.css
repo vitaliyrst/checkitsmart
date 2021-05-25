@@ -152,7 +152,7 @@ body {
     margin-top: 2rem;
 }
 
-.size_ar_link img{
+.size_ar_link img {
 
     width: 28.5rem;
     outline: none;
@@ -284,4 +284,10 @@ body {
 
 .hidden {
     display: none;
+}
+
+.android {
+    padding: 1rem;
+    text-align: center;
+    margin-top: 20rem;
 }

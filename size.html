@@ -54,33 +54,38 @@
     </div>
 </div>
 <script>
-    const item = JSON.parse(localStorage.getItem('item'));
-    const img = document.querySelector('.image');
-    img.setAttribute('src', item.figure);
+    if (/Android|webOS|BlackBerry|BB|PlayBook|IEMobile|Windows Phone/i.test(navigator.userAgent)) {
+        window.location.href = 'https://checkitsmart.com/android.html'
+    } else {
+        const item = JSON.parse(localStorage.getItem('item'));
+        const img = document.querySelector('.image');
+        img.setAttribute('src', item.figure);
 
-    const handleClick = () => {
-        const loaderContainer = document.querySelector('.loader_container');
-        const sizeContainer = document.querySelector('.size_container');
+        const handleClick = (eo) => {
+            eo.preventDefault();
+            const loaderContainer = document.querySelector('.loader_container');
+            const sizeContainer = document.querySelector('.size_container');
 
-        sizeContainer.classList.add('hidden');
-        loaderContainer.classList.remove('hidden');
-        setTimeout(() => {
-            sizeContainer.classList.remove('hidden');
-            loaderContainer.classList.add('hidden');
-            window.location = item.linkSize;
-        }, 3000);
+            sizeContainer.classList.add('hidden');
+            loaderContainer.classList.remove('hidden');
+            setTimeout(() => {
+                sizeContainer.classList.remove('hidden');
+                loaderContainer.classList.add('hidden');
+                window.location = item.linkSize;
+            }, 3000);
+        }
+
+        const getItemSize = (item) => {
+            const linkModel = document.querySelector('.size_ar_link');
+            const img = document.querySelector('.size_ar_image');
+
+            img.src = './assets/images/other/base.svg';
+            linkModel.href = item.linkSize;
+
+            linkModel.addEventListener('click', handleClick);
+        }
+        getItemSize(item);
     }
-
-    const getItemSize = (item) => {
-        const linkModel = document.querySelector('.size_ar_link');
-        const img = document.querySelector('.size_ar_image');
-
-        img.src = './assets/images/other/base.svg';
-        linkModel.href = item.linkSize;
-
-        linkModel.addEventListener('click', handleClick);
-    }
-    getItemSize(item);
 </script>
 </body>
 </html>
