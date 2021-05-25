@@ -5,7 +5,7 @@ data = {
             "title": "Комоды и тумбы",
             "image": "assets/images/category/bedside.png",
             "linkModel": "./assets/images/models/bedside/bedside.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_bedside.html&customHeight=large",
-            "linkSize": "./assets/images/models/bedside/bedside_min.usdz#custom=https://checkitsmart.com/assets/banner/size/custom_banner_size_bedside.html&customHeight=medium",
+            "linkSize": "./assets/images/models/bedside/bedside_min.usdz#custom=https://checkitsmart.com/assets/banner/size/custom_banner_size_bedside.html&customHeight=small",
             "figure": "./assets/images/models/bedside/bedside_size.svg",
             "linkBuy": "https://shop.anrex.by/product/tiffany_tumba_3d1s_orekh_eliya_temnyy/",
             "sizes": {w: 139, h: 91, d: 37}

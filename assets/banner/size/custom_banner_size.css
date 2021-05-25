@@ -22,6 +22,7 @@ body {
 }
 
 .wrapper {
+    color: #FFFFFF;
     box-sizing: border-box;
     text-align: center;
     padding: 0.65rem;
