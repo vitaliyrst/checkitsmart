@@ -25,21 +25,16 @@ body {
     box-sizing: border-box;
     text-align: center;
     padding: 1.33rem;
-    font-size: 1.1rem;
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
 }
 
 .banner_container {
     text-align: left;
-    color: #FFFFFF;
+    color: #000000;
     border-radius: 0.5rem;
-    padding: 0.2rem;
 }
 
 .banner_container > div {
-    font-size: 1.3rem;
+    font-size: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,12 +42,17 @@ body {
 
 .banner_header {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.33rem;
 }
 
 .banner_price {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.33rem;
+}
+
+.banner_color{
+    margin-top: 1rem;
+    margin-bottom: 0.66rem;
 }
 
 .banner_color,
@@ -61,7 +61,7 @@ body {
 }
 
 .banner_href_container {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     display: flex;
     justify-content: space-around;
 }
@@ -78,7 +78,7 @@ body {
     height: 3rem;
     border-radius: 0.5rem;
     color: #FFFFFF;
-    flex-basis: 90%;
+    flex-basis: 100%;
 }
 
 .banner_href_size {
