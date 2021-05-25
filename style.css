@@ -92,9 +92,14 @@ body {
 
 .size_container {
     margin-top: 1rem;
-    margin-left: 2.6rem;
-    margin-right: 2.6rem;
+    margin-left: 1.33rem;
+    margin-right: 1.33rem;
     text-align: center;
+}
+
+.size_control {
+    padding-left: 1.33rem;
+    padding-right: 1.33rem;
 }
 
 .size_header {
@@ -142,20 +147,14 @@ body {
     font-weight: 500;
 }
 
-.size_ar_button {
-    padding: 0;
+.size_ar_link {
+    display: inline-block;
     margin-top: 2rem;
 }
 
-.size_ar_link{
-    display: inline-block;
-    width: 32.5rem;
-    height: 8rem;
-}
-
 .size_ar_link img{
-    box-sizing: border-box;
-    display: inline-block;
+
+    width: 28.5rem;
     outline: none;
     border-radius: 0.5rem;
 }

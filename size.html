@@ -33,11 +33,10 @@
                 </div>
             </div>
         </div>
-        <div class="size_ar_button">
-            <a id="ar-link-size" class="size_ar_link" rel="ar">
-                <img class="size_ar_image">
-            </a>
-        </div>
+
+        <a id="ar-link-size" class="size_ar_link" rel="ar">
+            <img class="size_ar_image">
+        </a>
     </div>
     <div class="loader_container hidden">
         <div class="lds-roller">
@@ -76,7 +75,7 @@
         const linkModel = document.querySelector('.size_ar_link');
         const img = document.querySelector('.size_ar_image');
 
-        img.src = './assets/images/other/baseAR.svg';
+        img.src = './assets/images/other/base.svg';
         linkModel.href = item.linkSize;
 
         linkModel.addEventListener('click', handleClick);
