@@ -7,7 +7,8 @@ data = {
             "linkModel": "./assets/images/models/bedside/bedside.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_bedside.html&customHeight=large",
             "linkSize": "./assets/images/models/bedside/bedside_min.usdz",
             "figure": "./assets/images/models/bedside/bedside_size.svg",
-            "linkBuy": "https://shop.anrex.by/product/tiffany_tumba_3d1s_orekh_eliya_temnyy/"
+            "linkBuy": "https://shop.anrex.by/product/tiffany_tumba_3d1s_orekh_eliya_temnyy/",
+            "sizes": {w: 139, h: 91, d: 37}
         },
         {
             "id": 2,
@@ -16,7 +17,8 @@ data = {
             "linkModel": "./assets/images/models/table/table.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_table.html&customHeight=large",
             "linkSize": "./assets/images/models/table/table_min.usdz",
             "figure": "./assets/images/models/table/table_size.svg",
-            "linkBuy": "https://shop.anrex.by/product/stol_razdvizhnoy_jagger/"
+            "linkBuy": "https://shop.anrex.by/product/stol_razdvizhnoy_jagger/",
+            "sizes": {w: 77, h: 80, d: 132}
         },
         {
             "id": 3,
@@ -25,7 +27,8 @@ data = {
             "linkModel": "/assets/images/models/bed/bed.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_bed.html&customHeight=large",
             "linkSize": "./assets/images/models/bed/bed_min.usdz",
             "figure": "./assets/images/models/bed/bed_size.svg",
-            "linkBuy": "https://shop.anrex.by/product/krovat_linate_160_s_podemnikom_typ_94_01_/"
+            "linkBuy": "https://shop.anrex.by/product/krovat_linate_160_s_podemnikom_typ_94_01_/",
+            "sizes": {w: 164, h: 65, d: 205}
         },
         {
             "id": 4,
@@ -34,7 +37,8 @@ data = {
             "linkModel": "./assets/images/models/dresser/dresser.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_dresser.html&customHeight=large",
             "linkSize": "./assets/images/models/dresser/dresser_min.usdz",
             "figure": "./assets/images/models/dresser/dresser_size.svg",
-            "linkBuy": "https://shop.anrex.by/product/tiffany_shkaf_1d2s_orekh_eliya_temnyy/"
+            "linkBuy": "https://shop.anrex.by/product/tiffany_shkaf_1d2s_orekh_eliya_temnyy/",
+            "sizes": {w: 69, h: 212, d: 39}
         },
         {
             "id": 5,
@@ -43,7 +47,8 @@ data = {
             "linkModel": "./assets/images/models/carpe t/carpet.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_carpet.html&customHeight=large",
             "linkSize": "./assets/images/models/carpet/carpet_min.usdz",
             "figure": "./assets/images/models/carpet/carpet_size.svg",
-            "linkBuy": "https://kvartal-e.ru/kover/vitebsk/hitset/manhatten/tproduct/158136639-444528739794-3727a6"
+            "linkBuy": "https://kvartal-e.ru/kover/vitebsk/hitset/manhatten/tproduct/158136639-444528739794-3727a6",
+            "sizes": {w: 200, h: 300, d: ''}
         },
     ]
 };

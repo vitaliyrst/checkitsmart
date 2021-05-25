@@ -21,15 +21,15 @@
             <div class="size_input_list">
                 <div class="input_item">
                     <label for="width">Ширина:</label>
-                    <input id="width" type="number" inputmode="decimal" value="80"><span>см</span>
+                    <input id="width" type="number" inputmode="decimal"><span>см</span>
                 </div>
                 <div class="input_item">
                     <label for="height">Высота:</label>
-                    <input id="height" type="number" inputmode="decimal" value="77"><span>см</span>
+                    <input id="height" type="number" inputmode="decimal"><span>см</span>
                 </div>
                 <div class="input_item">
                     <label for="depth">Глубина:</label>
-                    <input id="depth" type="number" inputmode="decimal" value="80"><span>см</span>
+                    <input id="depth" type="number" inputmode="decimal"><span>см</span>
                 </div>
             </div>
         </div>
@@ -60,6 +60,16 @@
         const item = JSON.parse(localStorage.getItem('item'));
         const img = document.querySelector('.image');
         img.setAttribute('src', item.figure);
+
+        const sizes = document.querySelectorAll('input[type=number]');
+        sizes.forEach(input => {
+            const id = input.getAttribute('id');
+            (id === 'width') ?
+                input.value = item.sizes.w :
+                (id === 'height') ?
+                    input.value = item.sizes.h :
+                    input.value = item.sizes.d
+        });
 
         const handleClick = () => {
             const loaderContainer = document.querySelector('.loader_container');
