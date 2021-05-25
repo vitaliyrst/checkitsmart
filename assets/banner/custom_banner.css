@@ -25,11 +25,14 @@ body {
     box-sizing: border-box;
     text-align: center;
     padding: 0.65rem;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
 }
 
 .banner_container {
     text-align: left;
-    color: #000000;
+    color: #FFFFFF;
     border-radius: 0.5rem;
 }
 

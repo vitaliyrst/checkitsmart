@@ -117,18 +117,17 @@ body {
 }
 
 .input_item input {
+    width: 4.5rem;
+    height: 3rem;
+
     font-size: 1.33rem;
     font-weight: 500;
-    box-sizing: border-box;
-    width: 4rem;
-    height: 2.5rem;
-
+    background-color: #555456;
+    color: #FFFFFF;
     outline: none;
     border: none;
     border-radius: 1rem;
     text-align: center;
-
-    display: inline-block;
 }
 
 .input_item {
