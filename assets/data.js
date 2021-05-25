@@ -25,7 +25,7 @@ data = {
             "linkModel": "/assets/images/models/bed/bed.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_bed.html&customHeight=large",
             "linkSize": "./assets/images/models/bed/bed_min.usdz",
             "figure": "./assets/images/models/bed/bed_size.svg",
-            "linkBuy": "https://catalog.onliner.by/bed/ikea/70395244"
+            "linkBuy": "https://shop.anrex.by/product/krovat_linate_160_s_podemnikom_typ_94_01_/"
         },
         {
             "id": 4,
@@ -43,7 +43,7 @@ data = {
             "linkModel": "./assets/images/models/carpet/carpet.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_carpet.html&customHeight=large",
             "linkSize": "./assets/images/models/carpet/carpet_min.usdz",
             "figure": "./assets/images/models/carpet/carpet_size.svg",
-            "linkBuy": "https://jysk.by/kover-irbis-522-166-1079-by.html?gclid=Cj0KCQjwna2FBhDPARIsACAEc_Vp2FExssLntFe--DIukpUAula3DCxod-Qmu7VAQXQxj4a1RozAv24aAlWEEALw_wcB"
+            "linkBuy": "https://kvartal-e.ru/kover/vitebsk/hitset/manhatten/tproduct/158136639-444528739794-3727a6"
         },
     ]
 };

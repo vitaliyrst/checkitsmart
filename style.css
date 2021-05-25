@@ -132,12 +132,10 @@ body {
     align-items: center;
 }
 
-
 .input_item label {
     font-size: 1.3rem;
     width: 5.15rem;
 }
-
 
 .input_item span {
     font-size: 1.3rem;
@@ -153,7 +151,6 @@ body {
     display: inline-block;
 
     width: 100%;
-
 
     outline: none;
     border-radius: 0.5rem;
