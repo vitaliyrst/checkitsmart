@@ -22,81 +22,84 @@
 
 <script src="assets/data.js"></script>
 <script>
-    localStorage.removeItem('categories');
-    localStorage.setItem('categories', JSON.stringify(data));
+    if (/Android|webOS|BlackBerry|BB|PlayBook|IEMobile|Windows Phone/i.test(navigator.userAgent)) {
+        window.location.href = 'https://checkitsmart.com/android.html'
+    } else {
+        localStorage.removeItem('categories');
+        localStorage.setItem('categories', JSON.stringify(data));
 
-    const catalogList = document.querySelector('.catalog_list');
+        const catalogList = document.querySelector('.catalog_list');
 
-    const getCatalogListItem = (linkModel, linkSize, item) => {
-        const li = document.createElement('li');
-        li.classList.add('catalog_item');
-        li.append(linkModel);
-        li.append(linkSize);
+        const getCatalogListItem = (linkModel, linkSize, item) => {
+            const li = document.createElement('li');
+            li.classList.add('catalog_item');
+            li.append(linkModel);
+            li.append(linkSize);
 
-        li.addEventListener('click', () => {
-            localStorage.setItem('item', JSON.stringify(item));
+            li.addEventListener('click', () => {
+                localStorage.setItem('item', JSON.stringify(item));
+            });
+
+            return li;
+        }
+
+        const getItemLinkModel = (item) => {
+            const linkModel = document.createElement('a');
+            const img = document.createElement('img');
+            const title = document.createElement('span');
+
+            linkModel.id = item.id;
+            linkModel.href = item.linkModel;
+            linkModel.classList.add('item_link_model');
+            linkModel.setAttribute('rel', 'ar');
+            linkModel.setAttribute('id', 'ar-link');
+
+            img.src = item.image;
+            img.classList.add('item_link_model_image');
+
+            title.innerHTML = item.title;
+            title.classList.add('item_link_model_title');
+
+            linkModel.append(img);
+            linkModel.append(title);
+            return linkModel;
+        }
+
+        const getItemLinkSize = () => {
+            const linkSize = document.createElement('a');
+            const img = document.createElement('img');
+
+            linkSize.classList.add('item_link_size');
+            linkSize.href = 'size.html';
+
+            img.classList.add('item_link_size_img');
+            img.src = './assets/images/other/ruler.png';
+
+            linkSize.append(img);
+            return linkSize;
+        }
+
+        data.categories.map(item => {
+            const linkModel = getItemLinkModel(item);
+            const linkSize = getItemLinkSize();
+            const listItem = getCatalogListItem(linkModel, linkSize, item);
+            catalogList.append(listItem);
         });
 
-        return li;
-    }
+        const linksElements = document.querySelectorAll('#ar-link');
 
-    const getItemLinkModel = (item) => {
-        const linkModel = document.createElement('a');
-        const img = document.createElement('img');
-        const title = document.createElement('span');
-
-        linkModel.id = item.id;
-        linkModel.href = item.linkModel;
-        linkModel.classList.add('item_link_model');
-        linkModel.setAttribute('rel', 'ar');
-        linkModel.setAttribute('id', 'ar-link');
-
-        img.src = item.image;
-        img.classList.add('item_link_model_image');
-
-        title.innerHTML = item.title;
-        title.classList.add('item_link_model_title');
-
-        linkModel.append(img);
-        linkModel.append(title);
-        return linkModel;
-    }
-
-    const getItemLinkSize = () => {
-        const linkSize = document.createElement('a');
-        const img = document.createElement('img');
-
-        linkSize.classList.add('item_link_size');
-        linkSize.href = 'size.html';
-
-        img.classList.add('item_link_size_img');
-        img.src = './assets/images/other/ruler.png';
-
-        linkSize.append(img);
-        return linkSize;
-    }
-
-    data.categories.map(item => {
-        const linkModel = getItemLinkModel(item);
-        const linkSize = getItemLinkSize();
-        const listItem = getCatalogListItem(linkModel, linkSize, item);
-        catalogList.append(listItem);
-    });
-
-    const linksElements = document.querySelectorAll('#ar-link');
-
-    linksElements.forEach(link => {
-        link.addEventListener('message', (eo) => {
-            if (eo.data === "_apple_ar_quicklook_button_tapped") {
-                data.categories.forEach(item => {
-                    if (link.children[1].textContent === item.title) {
-                        document.location.href = item.linkBuy;
-                    }
-                })
-            }
+        linksElements.forEach(link => {
+            link.addEventListener('message', (eo) => {
+                if (eo.data === "_apple_ar_quicklook_button_tapped") {
+                    data.categories.forEach(item => {
+                        if (link.children[1].textContent === item.title) {
+                            document.location.href = item.linkBuy;
+                        }
+                    })
+                }
+            });
         });
-    })
-
+    }
 </script>
 </body>
 </html>
