@@ -287,8 +287,40 @@ body {
     display: none;
 }
 
-.android {
-    padding: 1rem;
+.android_container {
     text-align: center;
-    margin-top: 20rem;
+    margin-top: 25rem;
+    padding: 1.33rem;
+}
+
+.android_browser{
+    font-size: 1.33rem;
+    color: #FFFFFF;
+}
+
+.android_description{
+    font-size: 1.33rem;
+    line-height: 2rem;
+    margin-top: 2.66rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: #D0D0D0;
+}
+
+.android_button{
+    box-sizing: border-box;
+margin-top: 1.33rem;
+    width: 28.5rem;
+    height: 4rem;
+
+    background-color: #DF661C;
+    font-size: 1.33rem;
+    outline: none;
+    border-radius: 0.5rem;
+    color: #FFFFFF;
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
