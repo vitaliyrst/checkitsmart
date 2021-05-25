@@ -3,46 +3,46 @@ data = {
         {
             "id": 1,
             "title": "Комоды и тумбы",
-            "image": "assets/images/category/1.png",
-            "linkModel": "./assets/images/models/tumba/orex.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_tumba.html&customHeight=large",
-            "linkSize": "./assets/images/models/table/table_min.usdz",
-            "figure": "assets/images/figures/size.svg",
+            "image": "assets/images/category/bedside.png",
+            "linkModel": "./assets/images/models/bedside/bedside.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_tumba.html&customHeight=large",
+            "linkSize": "./assets/images/models/bedside/bedside_min.usdz",
+            "figure": "./assets/images/models/bedside/bedside_size.svg",
             "linkBuy": "https://catalog.onliner.by/dresser/sokol/t2rsb"
         },
         {
             "id": 2,
             "title": "Столы",
-            "image": "assets/images/category/2.png",
+            "image": "assets/images/category/table.png",
             "linkModel": "./assets/images/models/table/table.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_table.html&customHeight=large",
             "linkSize": "./assets/images/models/table/table_min.usdz",
-            "figure": "assets/images/figures/size.svg",
+            "figure": "./assets/images/models/table/table_size.svg",
             "linkBuy": "https://shop.anrex.by/product/stol_razdvizhnoy_jagger/"
         },
         {
             "id": 3,
             "title": "Кровати",
-            "image": "assets/images/category/3.png",
-            "linkModel": "/assets/images/models/bed/Anrex_LINATE.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_bed.html&customHeight=large",
-            "linkSize": "./assets/images/models/table/table_min.usdz",
-            "figure": "assets/images/figures/size.svg",
+            "image": "assets/images/category/bed.png",
+            "linkModel": "/assets/images/models/bed/bed.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_bed.html&customHeight=large",
+            "linkSize": "./assets/images/models/bed/bed_min.usdz",
+            "figure": "./assets/images/models/bed/bed_size.svg",
             "linkBuy": "https://catalog.onliner.by/bed/ikea/70395244"
         },
         {
             "id": 4,
             "title": "Шкафы",
-            "image": "assets/images/category/4.png",
+            "image": "assets/images/category/dresser.png",
             "linkModel": "./assets/images/models/dresser/dresser.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_dresser.html&customHeight=large",
-            "linkSize": "./assets/images/models/table/table_min.usdz",
-            "figure": "assets/images/figures/size.svg",
+            "linkSize": "./assets/images/models/dresser/dresser_min.usdz",
+            "figure": "./assets/images/models/dresser/dresser_size.svg",
             "linkBuy": "https://catalog.onliner.by/wine_cabinets/liebherr/ewtgb3583"
         },
         {
             "id": 5,
             "title": "Ковры",
-            "image": "assets/images/category/5.png",
-            "linkModel": "./assets/images/models/carpet/meter2x3.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_carpet.html&customHeight=large",
-            "linkSize": "./assets/images/models/table/table_min.usdz",
-            "figure": "assets/images/figures/size.svg",
+            "image": "assets/images/category/carpet.png",
+            "linkModel": "./assets/images/models/carpet/carpet.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_carpet.html&customHeight=large",
+            "linkSize": "./assets/images/models/carpet/carpet_min.usdz",
+            "figure": "./assets/images/models/carpet/carpet_size.svg",
             "linkBuy": "https://jysk.by/kover-irbis-522-166-1079-by.html?gclid=Cj0KCQjwna2FBhDPARIsACAEc_Vp2FExssLntFe--DIukpUAula3DCxod-Qmu7VAQXQxj4a1RozAv24aAlWEEALw_wcB"
         },
     ]

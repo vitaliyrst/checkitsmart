@@ -16,7 +16,7 @@
         <div class="size_control">
             <div class="size_header">Введите габаритные размеры</div>
             <div class="size_image">
-                <img src="assets/images/figures/size.svg" alt="размеры">
+                <img class="image">
             </div>
             <div class="size_input_list">
                 <div class="input_item">
@@ -53,12 +53,11 @@
 </div>
 <script>
     const item = JSON.parse(localStorage.getItem('item'));
-    const img = document.querySelector('img');
+    const img = document.querySelector('.image');
     img.setAttribute('src', item.figure);
 
     const getItemSize = (item) => {
         const linkModel = document.createElement('a');
-        const img = document.createElement('img');
 
         linkModel.id = item.id;
         linkModel.href = item.linkSize;
@@ -66,10 +65,6 @@
         linkModel.setAttribute('rel', 'ar');
         linkModel.setAttribute('id', 'ar-link-size');
 
-        img.src = './assets/images/figures/btn.png';
-        img.classList.add('size_ar_link_image');
-
-        linkModel.append(img);
         document.querySelector('.size_ar_button').append(linkModel)
     }
 

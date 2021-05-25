@@ -33,7 +33,7 @@
         li.append(linkModel);
         li.append(linkSize);
 
-        li.addEventListener('click', (eo) => {
+        li.addEventListener('click', () => {
             localStorage.setItem('item', JSON.stringify(item));
         });
 
@@ -70,7 +70,7 @@
         linkSize.href = 'size.html';
 
         img.classList.add('item_link_size_img');
-        img.src = './assets/images/figures/size_img.png';
+        img.src = './assets/images/other/ruler.png';
 
         linkSize.append(img);
         return linkSize;
