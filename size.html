@@ -56,25 +56,10 @@
     const img = document.querySelector('.image');
     img.setAttribute('src', item.figure);
 
-    const getItemSize = (item) => {
-        const linkModel = document.createElement('a');
+    const handleClick = () => {
+        const loaderContainer = document.querySelector('.loader_container');
+        const sizeContainer = document.querySelector('.size_container');
 
-        linkModel.id = item.id;
-        linkModel.href = item.linkSize;
-        linkModel.classList.add('size_ar_link');
-        linkModel.setAttribute('rel', 'ar');
-        linkModel.setAttribute('id', 'ar-link-size');
-
-        document.querySelector('.size_ar_button').append(linkModel)
-    }
-
-    getItemSize(item);
-
-    const arButton = document.querySelector('.ar_button');
-    const loaderContainer = document.querySelector('.loader_container');
-    const sizeContainer = document.querySelector('.size_container');
-
-    arButton.addEventListener('click', () => {
         sizeContainer.classList.add('hidden');
         loaderContainer.classList.remove('hidden');
         setTimeout(() => {
@@ -82,7 +67,24 @@
             loaderContainer.classList.add('hidden');
             window.location = item.linkSize;
         }, 3000);
-    });
+    }
+
+    const getItemSize = (item) => {
+        const linkModel = document.createElement('a');
+        const img = document.createElement('img');
+
+        img.src = './assets/images/category/bed.png';
+
+        linkModel.href = item.linkSize;
+        linkModel.classList.add('size_ar_link');
+        linkModel.setAttribute('rel', 'ar');
+        linkModel.setAttribute('id', 'ar-link-size');
+        linkModel.append(img);
+        linkModel.addEventListener('click', handleClick);
+
+        document.querySelector('.size_ar_button').append(linkModel)
+    }
+    getItemSize(item);
 </script>
 </body>
 </html>
