@@ -16,6 +16,7 @@
     <div class="catalog_container">
         <div class="catalog_header">Каталог</div>
         <ul class="catalog_list"></ul>
+
     </div>
 
 </div>
@@ -85,6 +86,21 @@
             const listItem = getCatalogListItem(linkModel, linkSize, item);
             catalogList.append(listItem);
         });
+
+        const getVideoLink = () => {
+            const videoLi = document.createElement('li');
+            const videoA = document.createElement('a');
+            const videoSpan = document.createElement('span');
+            videoLi.classList.add('catalog_item');
+            videoA.classList.add('item_link_video');
+            videoSpan.classList.add('item_link_video_title');
+            videoSpan.textContent = 'Как это работает?';
+            videoA.href = 'video.html';
+            videoA.append(videoSpan);
+            videoLi.append(videoA);
+            catalogList.append(videoLi);
+        }
+        getVideoLink();
 
         const linksElements = document.querySelectorAll('#ar-link');
 

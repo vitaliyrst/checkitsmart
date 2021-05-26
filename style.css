@@ -88,6 +88,23 @@ body {
     border-top-right-radius: 0.5rem;
 }
 
+.item_link_video {
+    width: 100%;
+    height: 7.2rem;
+    background-color: #4B4B4B;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0.5rem;
+}
+
+.item_link_video_title {
+    margin-left: 1.7rem;
+    position: absolute;
+}
+
 /* size */
 
 .size_container {
@@ -307,7 +324,7 @@ body {
     color: #D0D0D0;
 }
 
-.android_link_container{
+.android_link_container {
     text-align: center;
     display: inline-block;
 }
@@ -338,7 +355,7 @@ video {
 
 .android_video_container {
     position: absolute;
-    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    top: 50%; /* position the top  edge of the element at the middle of the parent */
     left: 50%; /* position the left edge of the element at the middle of the parent */
 
     transform: translate(-50%, -50%);
