@@ -8,16 +8,17 @@
     <title>Video</title>
 </head>
 <body>
-<video preload="auto" controls="controls" poster="./assets/video/example.mp4">
-    <source src="./assets/video/example.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-</video>
-<script>
-    window.onload = () => {
-        const video = document.querySelector('video');
-        video.play();
-        video.requestFullscreen();
-    }
-</script>
+<div class="video_container" style="width: 100%; height: 100%">
+    <video preload="auto" controls="controls" poster="./assets/video/example.mp4">
+        <source src="./assets/video/example.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+    </video>
+</div>
 
+<script>
+    const video = document.querySelector('video');
+    video.style.width = screen.width + 'px';
+    video.style.height = screen.height + 'px';
+    video.play();
+</script>
 </body>
 </html>
