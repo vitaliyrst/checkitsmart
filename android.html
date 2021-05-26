@@ -17,10 +17,25 @@
         Но Вы можете посмотреть презентационный ролик о приложении
     </div>
     <div class="android_link_container">
-        <a class="android_button" href="#">Посмотреть промо ролик</a>
+        <a class="android_button">Посмотреть промо ролик</a>
     </div>
 </div>
-
+<div class="android_video_container hidden">
+    <video preload="auto" controls="controls" poster="./assets/video/example.mp4">
+        <source src="./assets/video/example.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+    </video>
+</div>
+<script>
+    const android = document.querySelector('.android_button');
+    android.addEventListener('click', () => {
+        const androidContainer = document.querySelector('.android_container');
+        androidContainer.classList.add('hidden');
+        const androidVideoContainer = document.querySelector('.android_video_container');
+        androidVideoContainer.classList.remove('hidden');
+        const video = document.querySelector('video');
+        video.play();
+    });
+</script>
 
 </body>
 </html>
