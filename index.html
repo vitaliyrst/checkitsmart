@@ -1,2 +1,121 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="./assets/icon/favicon.png"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content="Делайте виртуальную примерку предметов интерьера с помощью камеры на вашем телефоне.
-          Дополненная реальность поможет вам точно понять сколько места в пространстве займет та или иная вещь."/><link rel="stylesheet" type="font/ttf" href="./assets/fonts/Inter-Bold.ttf"><link rel="stylesheet" type="font/ttf" href="./assets/fonts/Inter-Medium.ttf"><link rel="stylesheet" type="font/ttf" href="./assets/fonts/Roboto-Bold.ttf"><link rel="stylesheet" type="font/ttf" href="./assets/fonts/Roboto-Regular.ttf"><title>Furniture</title><link href="/static/css/main.e42fd9dd.chunk.css" rel="stylesheet"></head><body><div id="root"></div><script>!function(e){function r(r){for(var n,f,i=r[0],l=r[1],a=r[2],c=0,s=[];c<i.length;c++)f=i[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in l)Object.prototype.hasOwnProperty.call(l,n)&&(e[n]=l[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,i=1;i<t.length;i++){var l=t[i];0!==o[l]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,"a",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p="/";var i=this.webpackJsonpfurniture=this.webpackJsonpfurniture||[],l=i.push.bind(i);i.push=r,i=i.slice();for(var a=0;a<i.length;a++)r(i[a]);var p=l;t()}([])</script><script src="/static/js/2.1809fb67.chunk.js"></script><script src="/static/js/main.a28a5176.chunk.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+          content="Делайте виртуальную примерку предметов интерьера с помощью камеры на вашем телефоне. Дополненная реальность поможет вам точно понять сколько места в пространстве займет та или иная вещь.">
+    <link rel="stylesheet" href="style.css">
+    <title>Примерка Мебели Виртуально</title>
+</head>
+<body>
+<div class="root">
+
+    <div class="catalog_container">
+        <div class="catalog_header">Каталог</div>
+        <ul class="catalog_list"></ul>
+
+    </div>
+
+</div>
+
+<script src="assets/data.js"></script>
+<script>
+    if (/Android|webOS|BlackBerry|BB|PlayBook|IEMobile|Windows Phone/i.test(navigator.userAgent)) {
+        window.location.href = 'https://checkitsmart.com/android.html'
+    } else {
+        localStorage.removeItem('categories');
+        localStorage.setItem('categories', JSON.stringify(data));
+
+        const catalogList = document.querySelector('.catalog_list');
+
+        const getCatalogListItem = (linkModel, linkSize, item) => {
+            const li = document.createElement('li');
+            li.classList.add('catalog_item');
+            li.append(linkModel);
+            li.append(linkSize);
+
+            li.addEventListener('click', () => {
+                localStorage.setItem('item', JSON.stringify(item));
+            });
+
+            return li;
+        }
+
+        const getItemLinkModel = (item) => {
+            const linkModel = document.createElement('a');
+            const img = document.createElement('img');
+            const title = document.createElement('span');
+
+            linkModel.id = item.id;
+            linkModel.href = item.linkModel;
+            linkModel.classList.add('item_link_model');
+            linkModel.setAttribute('rel', 'ar');
+            linkModel.setAttribute('id', 'ar-link');
+
+            img.src = item.image;
+            img.classList.add('item_link_model_image');
+
+            title.innerHTML = item.title;
+            title.classList.add('item_link_model_title');
+
+            linkModel.append(img);
+            linkModel.append(title);
+            return linkModel;
+        }
+
+        const getItemLinkSize = () => {
+            const linkSize = document.createElement('a');
+            const img = document.createElement('img');
+
+            linkSize.classList.add('item_link_size');
+            linkSize.href = 'size.html';
+
+            img.classList.add('item_link_size_img');
+            img.src = './assets/images/other/ruler.png';
+
+            linkSize.append(img);
+            return linkSize;
+        }
+
+        data.categories.map(item => {
+            const linkModel = getItemLinkModel(item);
+            const linkSize = getItemLinkSize();
+            const listItem = getCatalogListItem(linkModel, linkSize, item);
+            catalogList.append(listItem);
+        });
+
+        const getVideoLink = () => {
+            const videoLi = document.createElement('li');
+            const videoA = document.createElement('a');
+            const videoSpan = document.createElement('span');
+            videoLi.classList.add('catalog_item');
+            videoA.classList.add('item_link_video');
+            videoSpan.classList.add('item_link_video_title');
+            videoSpan.textContent = 'Как это работает?';
+            videoA.href = 'video.html';
+            videoA.append(videoSpan);
+            videoLi.append(videoA);
+            catalogList.append(videoLi);
+        }
+        getVideoLink();
+
+        const linksElements = document.querySelectorAll('#ar-link');
+
+        linksElements.forEach(link => {
+            link.addEventListener('message', (eo) => {
+                if (eo.data === "_apple_ar_quicklook_button_tapped") {
+                    data.categories.forEach(item => {
+                        if (link.children[1].textContent === item.title) {
+                            document.location.href = item.linkBuy;
+                        }
+                    })
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>

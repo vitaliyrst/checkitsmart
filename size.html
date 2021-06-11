@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+          content="Делайте виртуальную примерку предметов интерьера с помощью камеры на вашем телефоне. Дополненная реальность поможет вам точно понять сколько места в пространстве займет та или иная вещь.">
+    <link rel="stylesheet" href="style.css">
+    <title>Примерка Мебели Виртуально</title>
+</head>
+<body>
+<div class="root">
+    <div class="size_container">
+        <div class="size_control">
+            <div class="size_header">Введите размеры</div>
+            <div class="size_image">
+                <img class="image">
+            </div>
+            <div class="size_input_list">
+            </div>
+        </div>
+
+        <a id="ar-link-size" class="size_ar_link" rel="ar">
+            <img class="size_ar_image">
+        </a>
+    </div>
+    <div class="loader_container hidden">
+        <div class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="loader_text">Загрузка тестовой модели</div>
+        <div class="loader_subtext">Это может занять несколько минут...</div>
+    </div>
+</div>
+<script>
+    if (/Android|webOS|BlackBerry|BB|PlayBook|IEMobile|Windows Phone/i.test(navigator.userAgent)) {
+        window.location.href = 'https://checkitsmart.com/android.html'
+    } else {
+        const item = JSON.parse(localStorage.getItem('item'));
+        const img = document.querySelector('.image');
+        img.setAttribute('src', item.figure);
+
+        const getInputs = () => {
+            const container = document.querySelector('.size_input_list');
+
+            const keys = Object.keys(item.sizes);
+            keys.forEach(key => {
+                console.log(key)
+                const div = document.createElement('div');
+                div.classList.add('input_item');
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.inputMode = 'decimal';
+
+                const label = document.createElement('label');
+                const span = document.createElement('span');
+                span.textContent = 'см';
+
+                if (key === 'width') {
+                    input.setAttribute('id', 'width');
+                    input.value = item.sizes.width;
+                    label.htmlFor = 'width';
+                    label.textContent = 'Ширина:'
+                }
+                if (key === 'height') {
+                    input.setAttribute('id', 'height');
+                    input.value = item.sizes.height;
+                    label.htmlFor = 'height';
+                    label.textContent = 'Высота:'
+                }
+                if (key === 'depth') {
+                    input.setAttribute('id', 'depth');
+                    input.value = item.sizes.depth;
+                    label.htmlFor = 'depth';
+                    label.textContent = 'Глубина:'
+                }
+                if (key === 'length') {
+                    input.setAttribute('id', 'length');
+                    input.value = item.sizes.length;
+                    label.htmlFor = 'length';
+                    label.textContent = 'Длина:';
+                }
+                div.append(label);
+                div.append(input);
+                div.append(span);
+                container.append(div);
+            });
+        }
+
+        getInputs();
+
+        const handleClick = () => {
+            const loaderContainer = document.querySelector('.loader_container');
+            const sizeContainer = document.querySelector('.size_container');
+
+            sizeContainer.classList.add('hidden');
+            loaderContainer.classList.remove('hidden');
+            setTimeout(() => {
+                sizeContainer.classList.remove('hidden');
+                loaderContainer.classList.add('hidden');
+            }, 1000);
+        }
+
+        const getItemSize = (item) => {
+            const linkModel = document.querySelector('.size_ar_link');
+            const img = document.querySelector('.size_ar_image');
+
+            img.src = './assets/images/other/base.svg';
+            linkModel.href = item.linkSize;
+
+            linkModel.addEventListener('click', handleClick);
+        }
+        getItemSize(item);
+
+        const linksElements = document.querySelectorAll('#ar-link-size');
+
+        linksElements.forEach(link => {
+            link.addEventListener('message', (eo) => {
+                if (eo.data === "_apple_ar_quicklook_button_tapped") {
+                    document.location.href = 'https://checkitsmart.com/size.html';
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>
