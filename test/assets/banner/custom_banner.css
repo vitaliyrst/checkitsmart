@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Inter';
+    src: url("../fonts/Inter-Medium.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url("../fonts/Inter-Bold.ttf");
+    font-weight: 700;
+}
+
+html {
+    font-size: 12px;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0.65rem;
+}
+
+.banner_container {
+    text-align: left;
+    color: #FFFFFF;
+    border-radius: 0.5rem;
+}
+
+.banner_container > div {
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banner_header {
+    font-weight: 700;
+    font-size: 1.33rem;
+}
+
+.banner_price {
+    font-weight: 700;
+    font-size: 1.33rem;
+}
+
+.banner_color{
+    margin-top: 1rem;
+    margin-bottom: 0.66rem;
+}
+
+.banner_color,
+.banner_size {
+    font-size: 1.2rem;
+}
+
+.banner_href_container {
+    margin-top: 2rem;
+}
+
+.banner_href_buy {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 4rem;
+
+    background-color: #DF661C;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 0.5rem;
+    color: #FFFFFF;
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
