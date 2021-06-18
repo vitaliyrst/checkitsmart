@@ -1,0 +1,193 @@
+@keyframes show {
+    0% {
+        opacity: 0
+    }
+    25% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+.ar_support_container {
+    width: 21.4375rem;
+    height: 3rem;
+
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: ease-in-out 1s show;
+}
+
+.ar_info_close_container {
+    width: 4rem;
+    height: 3rem;
+
+    background-color: rgba(49, 49, 49, 0.8);
+    border-radius: 1rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ar_info_close {
+    position: absolute;
+    left: 2rem;
+    top: 0.925rem;
+}
+
+.ar_info_close:before,
+.ar_info_close:after {
+    position: absolute;
+    content: '';
+    height: 1.15rem;
+    width: 0.2rem;
+    background-color: #FFFFFF;
+}
+
+.ar_info_close:before {
+    transform: rotate(45deg);
+}
+
+.ar_info_close:after {
+    transform: rotate(-45deg);
+}
+
+.ar_info_reset_container {
+    width: 4rem;
+    height: 3rem;
+
+    background-color: rgba(49, 49, 49, 0.8);
+    border-radius: 1rem;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.ar_info_reset {
+    width: 1.15rem;
+    height: 1.15rem;
+
+    position: absolute;
+    left: 1.5rem;
+    top: 0.925rem;
+}
+
+.ar_info_container {
+    width: 21.4375rem;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    display: flex;
+    flex-direction: column;
+    animation: ease-in-out 1s show;
+}
+
+.ar_info {
+    box-sizing: border-box;
+
+    padding: 1rem;
+
+    background-color: rgba(49, 49, 49, 0.8);
+    border-radius: 0.625rem;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.ar_info_main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ar_info_main_title {
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+.ar_info_main_price {
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+
+    white-space: nowrap;
+}
+
+.ar_info_additional {
+    margin-top: 1rem;
+}
+
+.ar_info_additional div {
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.ar_info_additional span {
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.ar_info_button_buy {
+    height: 3rem;
+    margin-top: 1.5rem;
+
+    background-color: #DF661C;
+    color: #FFFFFF;
+
+    outline: none;
+    border: none;
+    border-radius: 0.625rem;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.ar_button_size_container {
+    width: 21.4375rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+}
+
+.ar_button_size {
+    width: 100%;
+    height: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+
+    background-color: #E7E3E9;
+    color: #524B55;
+
+    outline: none;
+    border: none;
+    border-radius: 0.625rem;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}

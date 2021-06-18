@@ -1,0 +1,317 @@
+{
+  "tables": {
+    "id": 1,
+    "title": "Столы",
+    "slug": "tables",
+    "image": "/assets/images/catalog/table.png",
+    "figure": "/assets/images/size/table/figure.svg",
+    "grayModel": {
+      "id": 1,
+      "title": "Стол",
+      "arGLTF": "/assets/models/tables/grayModel/grayModel.gltf",
+      "size": [
+        70,
+        35,
+        70
+      ]
+    },
+    "sides": [
+      [
+        "width",
+        "Ширина"
+      ],
+      [
+        "height",
+        "Высота"
+      ],
+      [
+        "depth",
+        "Глубина"
+      ]
+    ],
+    "products": [
+      {
+        "id": 1,
+        "title": "Стол раздвижной Jagger",
+        "image": "/assets/images/categories/tables/table_jagger.jpg",
+        "color": "Дуб монастырский",
+        "size": "Ш:132 X В:77 X Г:80",
+        "price": "337,19",
+        "mfrLink": "https://shop.anrex.by/product/stol_razdvizhnoy_jagger/",
+        "arGLTF": "/assets/models/tables/table_jagger/table.gltf",
+        "usdz": "/assets/models/tables/table_jagger/usdz/table.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_table.html&customHeight=large"
+      },
+      {
+        "id": 2,
+        "title": "Журнальный стол Olivia",
+        "image": "/assets/images/categories/tables/table_olivia.jpg",
+        "color": "Вудлайн кремовый",
+        "size": "Ш:110 X В:50 X Г:64",
+        "price": "134,69",
+        "mfrLink": "https://shop.anrex.by/product/olivia_stol_zhurnalnyy_/",
+        "arGLTF": "/assets/models/tables/table_olivia/table.gltf"
+      },
+      {
+        "id": 3,
+        "title": "Стол раздвижной Monako",
+        "image": "/assets/images/categories/tables/table_monaco.jpg",
+        "color": "Сосна винтаж / дуб анкона",
+        "size": "Ш:130 X В:77 X Г:80",
+        "price": "320,32",
+        "mfrLink": "https://shop.anrex.by/product/stol_razdvizhnoy_monako/",
+        "arGLTF": "/assets/models/tables/table_monaco/table.gltf"
+      }
+    ]
+  },
+  "beds": {
+    "id": 2,
+    "title": "Кровати",
+    "slug": "beds",
+    "image": "/assets/images/catalog/bed.png",
+    "figure": "/assets/images/size/bed/figure.svg",
+    "grayModel": {
+      "id": 1,
+      "title": "Кровать",
+      "arGLTF": "/assets/models/beds/grayModel/grayModel.gltf",
+      "size": [
+        203,
+        107,
+        229
+      ]
+    },
+    "sides": [
+      [
+        "width",
+        "Ширина"
+      ],
+      [
+        "height",
+        "Высота"
+      ],
+      [
+        "depth",
+        "Глубина"
+      ]
+    ],
+    "products": [
+      {
+        "id": 1,
+        "title": "Кровать Linate 160",
+        "image": "/assets/images/categories/beds/bed_linate.jpg",
+        "color": "Дуб санремо, ДСП ламинированная",
+        "size": "Ш:165 X В:87 X Г:206",
+        "price": "914,59",
+        "mfrLink": "https://shop.anrex.by/product/krovat_linate_160_s_podemnikom_typ_94_01_/",
+        "arGLTF": "/assets/models/beds/bed_linate/bed.gltf",
+        "usdz": "/assets/models/beds/bed_linate/usdz/bed.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_bed.html&customHeight=large"
+      },
+      {
+        "id": 2,
+        "title": "Кровать Torino 160",
+        "image": "/assets/images/categories/beds/bed_torino.jpg",
+        "color": "Дуб серый",
+        "size": "Ш:169 X В:100 X Г:208",
+        "price": "690,32",
+        "mfrLink" : "https://shop.anrex.by/product/torino_krovat_160_s_podemnikom/",
+        "arGLTF": "/assets/models/beds/bed_torino/bed.gltf"
+      },
+      {
+        "id": 3,
+        "title": "Кровать Jagger 160",
+        "image": "/assets/images/categories/beds/bed_jager.jpg",
+        "color": "Дуб монастырский / черный",
+        "size": "Ш:160 X В:92 X Г:200",
+        "price": "690,19",
+        "mfrLink" : "https://shop.anrex.by/product/krovat_jagger_160_s_podemnikom/",
+        "arGLTF": "/assets/models/beds/bed_jager/bed.gltf"
+      }
+    ]
+  },
+  "dressers": {
+    "id": 3,
+    "title": "Шкафы",
+    "slug": "dressers",
+    "image": "/assets/images/catalog/dresser.png",
+    "figure": "/assets/images/size/dresser/figure.svg",
+    "grayModel": {
+      "id": 1,
+      "title": "Шкаф",
+      "arGLTF": "/assets/models/dressers/grayModel/grayModel.gltf",
+      "size": [
+        90,
+        213,
+        43
+      ]
+    },
+    "sides": [
+      [
+        "width",
+        "Ширина"
+      ],
+      [
+        "height",
+        "Высота"
+      ],
+      [
+        "depth",
+        "Глубина"
+      ]
+    ],
+    "products": [
+      {
+        "id": 1,
+        "title": "Шкаф Diesel 2D1S/D1",
+        "image": "/assets/images/categories/dressers/dresser_diesel.jpg",
+        "color": "Дуб мадура / веллингтон",
+        "size": "Ш:56 X В:210 X Г:36",
+        "price": "336,96",
+        "mfrLink": "https://shop.anrex.by/product/shkaf_diesel_2d1s_d1/",
+        "arGLTF": "/assets/models/dressers/dresser_diesel/dresser.gltf",
+        "usdz": "/assets/models/dressers/dresser_diesel/usdz/dresser.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_dresser.html&customHeight=large"
+      },
+      {
+        "id": 2,
+        "title": "Шкаф Jagger 2DG2S",
+        "image": "/assets/images/categories/dressers/dresser_jagger.jpg",
+        "color": "Дуб монастырский / черный",
+        "size": "Ш:100 X В:210 X Г:58",
+        "price": "645,20",
+        "mfrLink": "https://shop.anrex.by/product/shkaf_jagger_2dg2s_s_komplektom_polok_2dg2s/",
+        "arGLTF": "/assets/models/dressers/dresser_jagger/dresser.gltf"
+      },
+      {
+        "id": 3,
+        "title": "Шкаф с витриной 1V3D L, Evora",
+        "image": "/assets/images/categories/dressers/dresser_evora.jpg",
+        "color": "Белый блеск / велингтон",
+        "size": "Ш:100 X В:159 X Г:38",
+        "price": "419,61",
+        "mfrLink": "https://shop.anrex.by/product/evora_shkaf_s_vitrinoy_1v3d_l/",
+        "arGLTF": "/assets/models/dressers/dresser_evora/dresser.gltf"
+      }
+    ]
+  },
+  "bedsides": {
+    "id": 4,
+    "title": "Комоды",
+    "slug": "bedsides",
+    "image": "/assets/images/catalog/bedside.png",
+    "figure": "/assets/images/size/bedside/figure.svg",
+    "grayModel": {
+      "id": 1,
+      "title": "Комод",
+      "arGLTF": "/assets/models/bedsides/grayModel/grayModel.gltf",
+      "size": [
+        226,
+        106,
+        81
+      ]
+    },
+    "sides": [
+      [
+        "width",
+        "Ширина"
+      ],
+      [
+        "height",
+        "Высота"
+      ],
+      [
+        "depth",
+        "Глубина"
+      ]
+    ],
+    "products": [
+      {
+        "id": 1,
+        "title": "Комод Jazz 4S",
+        "image": "/assets/images/categories/bedsides/bedside_jazz.jpg",
+        "color": "Каштан найроби / оникс",
+        "size": "Ш:85 X В:95 X Г:40",
+        "price": "280,31",
+        "mfrLink": "https://shop.anrex.by/product/komod_jazz_4s/",
+        "arGLTF": "/assets/models/bedsides/bedside_jazz/bedside.gltf",
+        "usdz": "/assets/models/bedsides/bedside_jazz/usdz/bedside.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_bedside.html&customHeight=large"
+      },
+      {
+        "id": 2,
+        "title": "Комод Jazz 5S/56",
+        "image": "/assets/images/categories/bedsides/bedside_jazz2.jpg",
+        "color": "Каштан найроби / оникс",
+        "size": "Ш:56 X В:116 Г:40",
+        "price": "266,31",
+        "mfrLink": "https://shop.anrex.by/product/komod_jazz_5s_56/",
+        "arGLTF": "/assets/models/bedsides/bedside_jazz2/bedside.gltf"
+      },
+      {
+        "id": 3,
+        "title": "Тумба прикроватная Linate 2S / TYP 96",
+        "image": "/assets/images/categories/bedsides/bedside_linate.jpg",
+        "color": "Белый блеск, велингтон",
+        "size": "Ш:50 X В:40 Г:42",
+        "price": "228,18",
+        "mfrLink": "https://shop.anrex.by/product/tumba_prikrovatnaya_linate_2s_typ_96_/",
+        "arGLTF": "/assets/models/bedsides/bedside_linate/bedside.gltf"
+      }
+    ]
+  },
+  "carpets": {
+    "id": 5,
+    "title": "Ковры",
+    "slug": "carpets",
+    "image": "/assets/images/catalog/carpet.png",
+    "figure": "/assets/images/size/carpet/figure.svg",
+    "grayModel": {
+      "id": 1,
+      "title": "Ковер",
+      "arGLTF": "/assets/models/carpets/grayModel/grayModel.gltf",
+      "size": [
+        100,
+        100
+      ]
+    },
+    "sides": [
+      [
+        "length",
+        "Длина"
+      ],
+      [
+        "width",
+        "Ширина"
+      ]
+    ],
+    "products": [
+      {
+        "id": 1,
+        "title": "Ковер Sintelon Vegas Home 61YKM",
+        "image": "/assets/images/categories/carpets/carpet_sintelon_vegas.jpg",
+        "color": "Высота ворса: 12мм",
+        "size": "Ш:120 X Д:170",
+        "price": "187,60",
+        "mfrLink": "https://www.21vek.by/carpets/vegashome61ykm331139285_sintelon.html",
+        "arGLTF": "/assets/models/carpets/carpet_sintelon_vegas/carpet.gltf",
+        "usdz": "/assets/models/carpets/carpet_sintelon_vegas/usdz/carpet.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_carpet.html&customHeight=large"
+      },
+      {
+        "id": 2,
+        "title": "Ковер Манхэттен овал 3254a6",
+        "image": "/assets/images/categories/carpets/carpet_manhattan_3254a6_oval.jpg",
+        "color": "Высота ворса: 7.5мм",
+        "size": "Ш:100 X Д:200",
+        "price": "69,79",
+        "mfrLink": "https://www.21vek.by/carpets/3254a6_vitcarpet_03.html",
+        "arGLTF": "/assets/models/carpets/carpet_manhattan_3254a6_oval/carpet.gltf"
+      },
+      {
+        "id": 3,
+        "title": "Ковер Манхэттен прямоугольник 3254a6",
+        "image": "/assets/images/categories/carpets/carpet_manhattan_3254a6_rect.jpg",
+        "color": "Высота ворса: 7.5мм",
+        "size": "Ш:100 X Д:200",
+        "price": "73,44",
+        "mfrLink": "https://www.21vek.by/carpets/3254a6_vitcarpet_07.html",
+        "arGLTF": "/assets/models/carpets/carpet_manhattan_3254a6_rect/carpet.gltf"
+      }
+    ]
+  }
+}

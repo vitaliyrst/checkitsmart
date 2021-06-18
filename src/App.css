@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 400;
+    src: local('Roboto'), url(./fonts/Roboto-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 500;
+    src: local('Roboto'), url(./fonts/Roboto-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 700;
+    src: local('Roboto'), url(./fonts/Roboto-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-weight: 400;
+    src: local('Roboto'), url(./fonts/Inter-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-weight: 500;
+    src: local('Roboto'), url(./fonts/Inter-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-weight: 700;
+    src: local('Roboto'), url(./fonts/Inter-Bold.ttf) format('truetype');
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+body,
+#root {
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #2D2D2D;
+    color: #FFFFFF;
+}
+
+#ARButton {
+    display: none;
+}

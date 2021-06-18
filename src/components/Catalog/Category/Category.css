@@ -1,0 +1,50 @@
+.category_container {
+    max-width: 26rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 7rem;
+
+    position: relative;
+}
+
+.category_header {
+    margin-top: 3rem;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+}
+
+.category_list {
+    margin-top: 1.5rem;
+    padding: 0;
+
+    list-style: none;
+}
+
+.category_link_size {
+    width: 92vw;
+    max-width: 26rem;
+    height: 3rem;
+
+    text-decoration: none;
+    text-align: center;
+    background-color: #E7E3E9;
+    color: #524B55;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.7);
+
+    position: fixed;
+    bottom: 3rem;
+}
