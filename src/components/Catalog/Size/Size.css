@@ -73,12 +73,16 @@
     text-align: center;
 
     background-color: #555456;
+    color: #888788;
+}
+
+/*.size_input_item input:focus{
     color: #FFFFFF;
 }
 
-.size_input_item input:focus{
+.size_input_item input:not(:focus) {
     color: #FFFFFF;
-}
+}*/
 
 .size_input_item input::-webkit-outer-spin-button,
 .size_input_item input::-webkit-inner-spin-button {

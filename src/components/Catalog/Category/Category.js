@@ -42,7 +42,7 @@ const Category = React.memo(({data}) => {
                     {getCategoryProducts()}
                 </ul>
 
-                {os &&
+                {!os.current &&
                 <Link className='category_link_size_container' to={`/size/${category}`}
                       onClick={() => handleGAEventClickSize(data[category].title)}>
                     <button className='category_link_size' type='button'>

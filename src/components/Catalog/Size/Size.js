@@ -20,12 +20,16 @@ const Size = React.memo(({data}) => {
     const handleClickInput = (eo) => {
         if (eo.target.value === '0') {
             eo.target.value = '';
+            eo.target.style.color = '#FFFFFF';
         }
     }
 
     const handleBlurInput = (eo) => {
         if (eo.target.value === '') {
             eo.target.value = '0';
+            eo.target.style.color = '#888788';
+        } else {
+            eo.target.style.color = '#FFFFFF';
         }
     }
 
@@ -73,8 +77,8 @@ const Size = React.memo(({data}) => {
         if (baseWidth && baseHeight && !baseDepth) {
             scale.current = {
                 x: (Number(width.current.value) === 0) ? 1 : Number(width.current.value) / baseWidth,
-                y: (Number(height.current.value) === 0) ? 1 : Number(height.current.value) / baseHeight,
-                z: 1
+                y: 1,
+                z: (Number(height.current.value) === 0) ? 1 : Number(height.current.value) / baseHeight
             }
         }
     }

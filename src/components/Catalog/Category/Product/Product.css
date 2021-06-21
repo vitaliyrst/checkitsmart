@@ -2,12 +2,12 @@
     box-sizing: border-box;
 
     height: 20.5625rem;
-    margin-top: 1rem;
+    margin-top: 2.25rem;
     padding-top: 0.75rem;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
 
-    border-radius: 0.81rem;
+    border-radius: 1rem;
     background-color: #4B4B4B;
 
     display: flex;
@@ -22,7 +22,7 @@
 
     text-align: center;
     background-color: #FFFFFF;
-    border-radius: 1.25rem;
+    border-radius: 0.5rem;
 
     position: relative;
 }

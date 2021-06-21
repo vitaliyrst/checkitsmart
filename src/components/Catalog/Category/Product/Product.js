@@ -2,6 +2,7 @@ import React from "react";
 import './Product.css';
 
 const Product = React.memo(({product: {title, image, color, size, price, usdz}, os, onSelectProduct, product}) => {
+    const handleClickLink = () => document.querySelector('#ar-link').click();
 
     return (
         <>
@@ -20,20 +21,21 @@ const Product = React.memo(({product: {title, image, color, size, price, usdz}, 
             </li>}
 
             {os &&
-            <li className='category_item'>
-                <a className='category_item_apple_link' id="ar-link" href={usdz} rel='ar'>
-                    <div className='category_item_image_container'>
+            <li className='category_item' onClick={handleClickLink}>
+                <div className='category_item_image_container'>
+                    <a className='category_item_apple_link' id="ar-link" href={usdz} rel='ar'>
                         <img className='category_item_image' src={image} alt={title}/>
                         <img className='category_item_ar_image' src='/assets/images/other/ar-link.svg'
                              alt='ar'/>
-                    </div>
-                    <div className='category_item_title'>{title}</div>
-                    <div className='category_additional_info_container'>
-                        <div className='category_item_color'><span>Цвет: </span>{color}</div>
-                        <div className='category_item_size'><span>Размеры, см: </span>{size}</div>
-                    </div>
-                    <div className='category_item_price'>{price} BYN</div>
-                </a>
+                    </a>
+                </div>
+                <div className='category_item_title'>{title}</div>
+                <div className='category_additional_info_container'>
+                    <div className='category_item_color'><span>Цвет: </span>{color}</div>
+                    <div className='category_item_size'><span>Размеры, см: </span>{size}</div>
+                </div>
+                <div className='category_item_price'>{price} BYN</div>
+
             </li>}
         </>
     );

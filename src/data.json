@@ -8,7 +8,7 @@
     "grayModel": {
       "id": 1,
       "title": "Стол",
-      "arGLTF": "/assets/models/tables/grayModel/grayModel.gltf",
+      "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/grayModels%2Ftable%2FgrayModel.gltf?alt=media&token=b44a43b6-132b-4f2d-92d8-c682c9bd30e4",
       "size": [
         70,
         35,
@@ -35,31 +35,33 @@
         "title": "Стол раздвижной Jagger",
         "image": "/assets/images/categories/tables/table_jagger.jpg",
         "color": "Дуб монастырский",
-        "size": "Ш:132 X В:77 X Г:80",
+        "size": "132 X 77 X 80",
         "price": "337,19",
         "mfrLink": "https://shop.anrex.by/product/stol_razdvizhnoy_jagger/",
-        "arGLTF": "/assets/models/tables/table_jagger/table.gltf",
-        "usdz": "/assets/models/tables/table_jagger/usdz/table.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_table.html&customHeight=large"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.gltf?alt=media&token=71f6206f-947a-43cc-8bdb-2dad4432f162",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.usdz?alt=media&token=b236c500-ef3d-437b-80a9-ee6d29f18559"
       },
       {
         "id": 2,
         "title": "Журнальный стол Olivia",
         "image": "/assets/images/categories/tables/table_olivia.jpg",
         "color": "Вудлайн кремовый",
-        "size": "Ш:110 X В:50 X Г:64",
+        "size": "110 X 50 X 64",
         "price": "134,69",
         "mfrLink": "https://shop.anrex.by/product/olivia_stol_zhurnalnyy_/",
-        "arGLTF": "/assets/models/tables/table_olivia/table.gltf"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_monaco%2Ftable.gltf?alt=media&token=22ff02bb-5f1b-406c-96a8-1466ebdcb850",
+        "usdz" : "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_olivia%2Ftable.usdz?alt=media&token=1a51d7d8-2cdf-4123-967d-521f4ac32a21"
       },
       {
         "id": 3,
         "title": "Стол раздвижной Monako",
         "image": "/assets/images/categories/tables/table_monaco.jpg",
         "color": "Сосна винтаж / дуб анкона",
-        "size": "Ш:130 X В:77 X Г:80",
+        "size": "130 X 77 X 80",
         "price": "320,32",
         "mfrLink": "https://shop.anrex.by/product/stol_razdvizhnoy_monako/",
-        "arGLTF": "/assets/models/tables/table_monaco/table.gltf"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_olivia%2Ftable.gltf?alt=media&token=b3739e72-615c-4778-8652-683fb543585e",
+        "usdz" : "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_monaco%2Ftable.usdz?alt=media&token=9cff4433-c976-4253-baad-bac92871e4b3"
       }
     ]
   },
@@ -72,7 +74,7 @@
     "grayModel": {
       "id": 1,
       "title": "Кровать",
-      "arGLTF": "/assets/models/beds/grayModel/grayModel.gltf",
+      "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/grayModels%2Fbed%2FgrayModel.gltf?alt=media&token=f64541f3-5b4d-46b4-abef-e7e166210075",
       "size": [
         203,
         107,
@@ -99,31 +101,33 @@
         "title": "Кровать Linate 160",
         "image": "/assets/images/categories/beds/bed_linate.jpg",
         "color": "Дуб санремо, ДСП ламинированная",
-        "size": "Ш:165 X В:87 X Г:206",
+        "size": "165 X 87 X 206",
         "price": "914,59",
         "mfrLink": "https://shop.anrex.by/product/krovat_linate_160_s_podemnikom_typ_94_01_/",
-        "arGLTF": "/assets/models/beds/bed_linate/bed.gltf",
-        "usdz": "/assets/models/beds/bed_linate/usdz/bed.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_bed.html&customHeight=large"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fbeds%2Fbed_linate%2Fbed.gltf?alt=media&token=7a40e736-faaf-47c0-9b7b-03549d10c748",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fbeds%2Fbed_linate%2Fbed.usdz?alt=media&token=fb0996e1-9556-41ac-ada3-b5745875ddc7"
       },
       {
         "id": 2,
         "title": "Кровать Torino 160",
         "image": "/assets/images/categories/beds/bed_torino.jpg",
         "color": "Дуб серый",
-        "size": "Ш:169 X В:100 X Г:208",
+        "size": "169 X 100 X 208",
         "price": "690,32",
-        "mfrLink" : "https://shop.anrex.by/product/torino_krovat_160_s_podemnikom/",
-        "arGLTF": "/assets/models/beds/bed_torino/bed.gltf"
+        "mfrLink": "https://shop.anrex.by/product/torino_krovat_160_s_podemnikom/",
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fbeds%2Fbed_torino%2Fbed.gltf?alt=media&token=8c9cf906-5150-455f-ac24-bc1afd3eb6fc",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fbeds%2Fbed_torino%2Fbed.usdz?alt=media&token=1beb5ce8-0a54-43ef-91c8-be0dc29ffe23"
       },
       {
         "id": 3,
         "title": "Кровать Jagger 160",
-        "image": "/assets/images/categories/beds/bed_jager.jpg",
+        "image": "/assets/images/categories/beds/bed_jagger.jpg",
         "color": "Дуб монастырский / черный",
-        "size": "Ш:160 X В:92 X Г:200",
+        "size": "160 X 92 X 200",
         "price": "690,19",
-        "mfrLink" : "https://shop.anrex.by/product/krovat_jagger_160_s_podemnikom/",
-        "arGLTF": "/assets/models/beds/bed_jager/bed.gltf"
+        "mfrLink": "https://shop.anrex.by/product/krovat_jagger_160_s_podemnikom/",
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fbeds%2Fbed_jager%2Fbed.gltf?alt=media&token=94c68088-8e17-4ab4-afc8-6ed1bc39dbde",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fbeds%2Fbed_jager%2Fbed.usdz?alt=media&token=d06112cd-7da6-4107-93e7-b559f331099a"
       }
     ]
   },
@@ -136,7 +140,7 @@
     "grayModel": {
       "id": 1,
       "title": "Шкаф",
-      "arGLTF": "/assets/models/dressers/grayModel/grayModel.gltf",
+      "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/grayModels%2Fdresser%2FgrayModel.gltf?alt=media&token=77de38d4-3c6d-44be-a7a2-cf4ffc2064ef",
       "size": [
         90,
         213,
@@ -163,31 +167,33 @@
         "title": "Шкаф Diesel 2D1S/D1",
         "image": "/assets/images/categories/dressers/dresser_diesel.jpg",
         "color": "Дуб мадура / веллингтон",
-        "size": "Ш:56 X В:210 X Г:36",
+        "size": "56 X 210 X 36",
         "price": "336,96",
         "mfrLink": "https://shop.anrex.by/product/shkaf_diesel_2d1s_d1/",
-        "arGLTF": "/assets/models/dressers/dresser_diesel/dresser.gltf",
-        "usdz": "/assets/models/dressers/dresser_diesel/usdz/dresser.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_dresser.html&customHeight=large"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fdressers%2Fdresser_diesel%2Fdresser.gltf?alt=media&token=10152748-2ff9-42c6-a7ae-93e7982b4744",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fdressers%2Fdresser_diesel%2Fdresser.usdz?alt=media&token=a3718c54-a45a-47ea-9208-e67ee9591b59"
       },
       {
         "id": 2,
         "title": "Шкаф Jagger 2DG2S",
         "image": "/assets/images/categories/dressers/dresser_jagger.jpg",
         "color": "Дуб монастырский / черный",
-        "size": "Ш:100 X В:210 X Г:58",
+        "size": "100 X 210 X 58",
         "price": "645,20",
         "mfrLink": "https://shop.anrex.by/product/shkaf_jagger_2dg2s_s_komplektom_polok_2dg2s/",
-        "arGLTF": "/assets/models/dressers/dresser_jagger/dresser.gltf"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fdressers%2Fdresser_jagger%2Fdresser.gltf?alt=media&token=1fd93049-fb8b-4192-b764-832586e2ebc8",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fdressers%2Fdresser_jagger%2Fdresser.usdz?alt=media&token=e3c123f5-ecf8-4286-9534-4a1df9f0ca44"
       },
       {
         "id": 3,
         "title": "Шкаф с витриной 1V3D L, Evora",
         "image": "/assets/images/categories/dressers/dresser_evora.jpg",
         "color": "Белый блеск / велингтон",
-        "size": "Ш:100 X В:159 X Г:38",
+        "size": "100 X 159 X 38",
         "price": "419,61",
         "mfrLink": "https://shop.anrex.by/product/evora_shkaf_s_vitrinoy_1v3d_l/",
-        "arGLTF": "/assets/models/dressers/dresser_evora/dresser.gltf"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fdressers%2Fdresser_evora%2Fdresser.gltf?alt=media&token=04d9e423-9b2e-40d1-9491-15e46a879e1f",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fdressers%2Fdresser_evora%2Fdresser.usdz?alt=media&token=d40268db-fb1e-4f0c-abd7-5bd56f4a616e"
       }
     ]
   },
@@ -200,10 +206,10 @@
     "grayModel": {
       "id": 1,
       "title": "Комод",
-      "arGLTF": "/assets/models/bedsides/grayModel/grayModel.gltf",
+      "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/grayModels%2Fbedside%2FgrayModel.gltf?alt=media&token=eab1fca5-f8f1-4c6b-97c8-55023adf8c78",
       "size": [
-        226,
         106,
+        226,
         81
       ]
     },
@@ -227,31 +233,33 @@
         "title": "Комод Jazz 4S",
         "image": "/assets/images/categories/bedsides/bedside_jazz.jpg",
         "color": "Каштан найроби / оникс",
-        "size": "Ш:85 X В:95 X Г:40",
+        "size": "85 X 95 X 40",
         "price": "280,31",
         "mfrLink": "https://shop.anrex.by/product/komod_jazz_4s/",
-        "arGLTF": "/assets/models/bedsides/bedside_jazz/bedside.gltf",
-        "usdz": "/assets/models/bedsides/bedside_jazz/usdz/bedside.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_bedside.html&customHeight=large"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fbedsides%2Fbedside_jazz%2Fbedside.gltf?alt=media&token=e3dfccb9-68a8-4a5e-bd28-eef6272c78c5",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fbedsides%2Fbedside_jazz%2Fbedside.usdz?alt=media&token=1e34448b-7268-460b-b34c-7bdcd3b71488"
       },
       {
         "id": 2,
         "title": "Комод Jazz 5S/56",
         "image": "/assets/images/categories/bedsides/bedside_jazz2.jpg",
         "color": "Каштан найроби / оникс",
-        "size": "Ш:56 X В:116 Г:40",
+        "size": "56 X 116 X 40",
         "price": "266,31",
         "mfrLink": "https://shop.anrex.by/product/komod_jazz_5s_56/",
-        "arGLTF": "/assets/models/bedsides/bedside_jazz2/bedside.gltf"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fbedsides%2Fbedside_jazz2%2Fbedside.gltf?alt=media&token=ceea7020-e48d-4fe4-949e-91f215ffcd64",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fbedsides%2Fbedside_jazz2%2Fbedside.usdz?alt=media&token=7fcd3a80-7106-407a-939b-bf06b0205281"
       },
       {
         "id": 3,
         "title": "Тумба прикроватная Linate 2S / TYP 96",
         "image": "/assets/images/categories/bedsides/bedside_linate.jpg",
         "color": "Белый блеск, велингтон",
-        "size": "Ш:50 X В:40 Г:42",
+        "size": "50 X 40 X 42",
         "price": "228,18",
         "mfrLink": "https://shop.anrex.by/product/tumba_prikrovatnaya_linate_2s_typ_96_/",
-        "arGLTF": "/assets/models/bedsides/bedside_linate/bedside.gltf"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fbedsides%2Fbedside_linate%2Fbedside.gltf?alt=media&token=15b4760a-e2de-4323-b201-d46914c17542",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fbedsides%2Fbedside_linate%2Fbedside.usdz?alt=media&token=e93e7bc7-10d6-445b-9d45-1bb82aca74e4"
       }
     ]
   },
@@ -264,7 +272,7 @@
     "grayModel": {
       "id": 1,
       "title": "Ковер",
-      "arGLTF": "/assets/models/carpets/grayModel/grayModel.gltf",
+      "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/grayModels%2Fcarpet%2FgrayModel.gltf?alt=media&token=f95c5bbc-9904-4457-9358-2d3560b1e505",
       "size": [
         100,
         100
@@ -286,31 +294,33 @@
         "title": "Ковер Sintelon Vegas Home 61YKM",
         "image": "/assets/images/categories/carpets/carpet_sintelon_vegas.jpg",
         "color": "Высота ворса: 12мм",
-        "size": "Ш:120 X Д:170",
+        "size": "120 X 170",
         "price": "187,60",
         "mfrLink": "https://www.21vek.by/carpets/vegashome61ykm331139285_sintelon.html",
-        "arGLTF": "/assets/models/carpets/carpet_sintelon_vegas/carpet.gltf",
-        "usdz": "/assets/models/carpets/carpet_sintelon_vegas/usdz/carpet.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_carpet.html&customHeight=large"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fcarpets%2Fcarpet_sintelon_vegas%2Fcarpet.gltf?alt=media&token=2b5c5130-2ec2-4480-a4e1-43375d481544",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fcarpets%2Fcarpet_sintelon_vegas%2Fcarpet.usdz?alt=media&token=a953e1a1-d9e7-4b7a-97bd-3e9202e3bd3e"
       },
       {
         "id": 2,
         "title": "Ковер Манхэттен овал 3254a6",
         "image": "/assets/images/categories/carpets/carpet_manhattan_3254a6_oval.jpg",
         "color": "Высота ворса: 7.5мм",
-        "size": "Ш:100 X Д:200",
+        "size": "100 X 200",
         "price": "69,79",
         "mfrLink": "https://www.21vek.by/carpets/3254a6_vitcarpet_03.html",
-        "arGLTF": "/assets/models/carpets/carpet_manhattan_3254a6_oval/carpet.gltf"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fcarpets%2Fcarpet_manhattan_3254a6_oval%2Fcarpet.gltf?alt=media&token=03d5165e-e93c-468b-a247-e34e2f977e64",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fcarpets%2Fcarpet_manhattan_3254a6_oval%2Fcarpet.usdz?alt=media&token=4d08adba-743c-4cc9-a485-3e43671f71dd"
       },
       {
         "id": 3,
         "title": "Ковер Манхэттен прямоугольник 3254a6",
         "image": "/assets/images/categories/carpets/carpet_manhattan_3254a6_rect.jpg",
         "color": "Высота ворса: 7.5мм",
-        "size": "Ш:100 X Д:200",
+        "size": "100 X 200",
         "price": "73,44",
         "mfrLink": "https://www.21vek.by/carpets/3254a6_vitcarpet_07.html",
-        "arGLTF": "/assets/models/carpets/carpet_manhattan_3254a6_rect/carpet.gltf"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fcarpets%2Fcarpet_manhattan_3254a6_rect%2Fcarpet.gltf?alt=media&token=df014853-2ecb-4c40-a41a-0310981f0dca",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fcarpets%2Fcarpet_manhattan_3254a6_rect%2Fcarpet.usdz?alt=media&token=edf000b3-3a01-47f6-90ad-b0aac075dccd"
       }
     ]
   }

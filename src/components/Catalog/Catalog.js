@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import {GAevent} from "../../ga/events";
 
 const Catalog = ({data}) => {
-    const handleGAEventClickSize = (title) => GAevent('SIZE', 'click size', title);
     const handleGAEventClickCategory = (title) => GAevent('CATEGORY', `click category`, title);
     const handleGAEventClickVideo = () => GAevent('VIDEO', 'click video', 'video');
 
@@ -23,17 +22,6 @@ const Catalog = ({data}) => {
                         onClick={() => handleGAEventClickCategory(title)}
                     >
                         <span className='item_link_category_title'>{title}</span>
-                    </Link>
-                    <Link
-                        className='item_link_category_size'
-                        to={`/size/${slug}`}
-                        onClick={() => handleGAEventClickSize(title)}
-                    >
-                        <img
-                            className='item_link_category_size_image'
-                            src='/assets/images/other/ruler.png'
-                            alt={title + ' size'}
-                        />
                     </Link>
                 </li>
             );
