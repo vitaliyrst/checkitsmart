@@ -33,7 +33,7 @@
       {
         "id": 1,
         "title": "Стол раздвижной Jagger",
-        "image": "/assets/images/categories/tables/table_jagger.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Ftables%2Ftable_jagger.png?alt=media&token=0aab6edd-232f-4a1e-979f-d22ec358a13b",
         "color": "Дуб монастырский",
         "size": "132 X 77 X 80",
         "price": "337,19",
@@ -44,7 +44,7 @@
       {
         "id": 2,
         "title": "Журнальный стол Olivia",
-        "image": "/assets/images/categories/tables/table_olivia.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Ftables%2Ftable_olivia.png?alt=media&token=c013ef81-1270-4232-8d85-f67f5d238d95",
         "color": "Вудлайн кремовый",
         "size": "110 X 50 X 64",
         "price": "134,69",
@@ -55,7 +55,7 @@
       {
         "id": 3,
         "title": "Стол раздвижной Monako",
-        "image": "/assets/images/categories/tables/table_monaco.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Ftables%2Ftable_monaco.png?alt=media&token=12fd9228-d2c5-4dfc-be29-177b83a509cd",
         "color": "Сосна винтаж / дуб анкона",
         "size": "130 X 77 X 80",
         "price": "320,32",
@@ -99,7 +99,7 @@
       {
         "id": 1,
         "title": "Кровать Linate 160",
-        "image": "/assets/images/categories/beds/bed_linate.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fbeds%2Fbed_linate.png?alt=media&token=ee11c99d-9a11-4767-93e6-866f3f0e9d29",
         "color": "Дуб санремо, ДСП ламинированная",
         "size": "165 X 87 X 206",
         "price": "914,59",
@@ -110,7 +110,7 @@
       {
         "id": 2,
         "title": "Кровать Torino 160",
-        "image": "/assets/images/categories/beds/bed_torino.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fbeds%2Fbed_torino.png?alt=media&token=34a70c16-72e5-4e05-af2f-205497ad24e2",
         "color": "Дуб серый",
         "size": "169 X 100 X 208",
         "price": "690,32",
@@ -121,7 +121,7 @@
       {
         "id": 3,
         "title": "Кровать Jagger 160",
-        "image": "/assets/images/categories/beds/bed_jagger.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fbeds%2Fbed_jagger.png?alt=media&token=b8b60098-894c-4dac-af89-aa5eab5284e6",
         "color": "Дуб монастырский / черный",
         "size": "160 X 92 X 200",
         "price": "690,19",
@@ -165,7 +165,7 @@
       {
         "id": 1,
         "title": "Шкаф Diesel 2D1S/D1",
-        "image": "/assets/images/categories/dressers/dresser_diesel.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fdressers%2Fdresser_diesel.png?alt=media&token=b0c96172-baf3-429e-8ea9-46403d890fd8",
         "color": "Дуб мадура / веллингтон",
         "size": "56 X 210 X 36",
         "price": "336,96",
@@ -176,7 +176,7 @@
       {
         "id": 2,
         "title": "Шкаф Jagger 2DG2S",
-        "image": "/assets/images/categories/dressers/dresser_jagger.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fdressers%2Fdresser_jagger.png?alt=media&token=59a23012-325c-4ed7-803c-9a7b5e4a5a80",
         "color": "Дуб монастырский / черный",
         "size": "100 X 210 X 58",
         "price": "645,20",
@@ -187,7 +187,7 @@
       {
         "id": 3,
         "title": "Шкаф с витриной 1V3D L, Evora",
-        "image": "/assets/images/categories/dressers/dresser_evora.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fdressers%2Fdresser_evora.png?alt=media&token=2baafcb5-2c9a-4084-8803-9f97702d1ebb",
         "color": "Белый блеск / велингтон",
         "size": "100 X 159 X 38",
         "price": "419,61",
@@ -231,7 +231,7 @@
       {
         "id": 1,
         "title": "Комод Jazz 4S",
-        "image": "/assets/images/categories/bedsides/bedside_jazz.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fbedsides%2Fbedside_jazz.png?alt=media&token=f05b3cad-f156-436c-927a-d78e31bf8f55",
         "color": "Каштан найроби / оникс",
         "size": "85 X 95 X 40",
         "price": "280,31",
@@ -242,7 +242,7 @@
       {
         "id": 2,
         "title": "Комод Jazz 5S/56",
-        "image": "/assets/images/categories/bedsides/bedside_jazz2.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fbedsides%2Fbedside_jazz2.png?alt=media&token=67c2b36a-9cfe-4cd7-8954-b0011c94a814",
         "color": "Каштан найроби / оникс",
         "size": "56 X 116 X 40",
         "price": "266,31",
@@ -253,7 +253,7 @@
       {
         "id": 3,
         "title": "Тумба прикроватная Linate 2S / TYP 96",
-        "image": "/assets/images/categories/bedsides/bedside_linate.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fbedsides%2Fbedside_linate.png?alt=media&token=939d6346-4add-4cd0-8e57-467918abc8bd",
         "color": "Белый блеск, велингтон",
         "size": "50 X 40 X 42",
         "price": "228,18",
@@ -292,7 +292,7 @@
       {
         "id": 1,
         "title": "Ковер Sintelon Vegas Home 61YKM",
-        "image": "/assets/images/categories/carpets/carpet_sintelon_vegas.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fcarpets%2Fcarpet_sintelon_vegas.png?alt=media&token=28596d37-76b3-4a11-a800-39614f501623",
         "color": "Высота ворса: 12мм",
         "size": "120 X 170",
         "price": "187,60",
@@ -303,7 +303,7 @@
       {
         "id": 2,
         "title": "Ковер Манхэттен овал 3254a6",
-        "image": "/assets/images/categories/carpets/carpet_manhattan_3254a6_oval.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fcarpets%2Fcarpet_manhattan_3254a6_oval.png?alt=media&token=8a6fa915-6372-48ec-a930-9ae9208a069f",
         "color": "Высота ворса: 7.5мм",
         "size": "100 X 200",
         "price": "69,79",
@@ -314,7 +314,7 @@
       {
         "id": 3,
         "title": "Ковер Манхэттен прямоугольник 3254a6",
-        "image": "/assets/images/categories/carpets/carpet_manhattan_3254a6_rect.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fcarpets%2Fcarpet_manhattan_3254a6_rect.png?alt=media&token=6d1bb87c-33e6-43b4-bdbb-f18d16053335",
         "color": "Высота ворса: 7.5мм",
         "size": "100 X 200",
         "price": "73,44",

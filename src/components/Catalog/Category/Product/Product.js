@@ -2,7 +2,7 @@ import React from "react";
 import './Product.css';
 
 const Product = React.memo(({product: {title, image, color, size, price, usdz}, os, onSelectProduct, product}) => {
-    const handleClickLink = () => document.querySelector('#ar-link').click();
+    const handleClickLink = (eo) => eo.currentTarget.querySelector('#ar-link').click();
 
     return (
         <>
