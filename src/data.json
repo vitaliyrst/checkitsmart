@@ -39,7 +39,7 @@
         "price": "337,19",
         "mfrLink": "https://shop.anrex.by/product/stol_razdvizhnoy_jagger/",
         "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.gltf?alt=media&token=71f6206f-947a-43cc-8bdb-2dad4432f162",
-        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.usdz?alt=media&token=b236c500-ef3d-437b-80a9-ee6d29f18559"
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.usdz?alt=media&token=b236c500-ef3d-437b-80a9-ee6d29f18559#custom=https://checkitsmart.com/assets/banner/custom_banner_table.html&customHeight=large\""
       },
       {
         "id": 2,
@@ -50,7 +50,7 @@
         "price": "134,69",
         "mfrLink": "https://shop.anrex.by/product/olivia_stol_zhurnalnyy_/",
         "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_monaco%2Ftable.gltf?alt=media&token=22ff02bb-5f1b-406c-96a8-1466ebdcb850",
-        "usdz" : "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_olivia%2Ftable.usdz?alt=media&token=1a51d7d8-2cdf-4123-967d-521f4ac32a21"
+        "usdz" : "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_olivia%2Ftable.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_table.html&customHeight=large\""
       },
       {
         "id": 3,
@@ -61,7 +61,7 @@
         "price": "320,32",
         "mfrLink": "https://shop.anrex.by/product/stol_razdvizhnoy_monako/",
         "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_olivia%2Ftable.gltf?alt=media&token=b3739e72-615c-4778-8652-683fb543585e",
-        "usdz" : "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_monaco%2Ftable.usdz?alt=media&token=9cff4433-c976-4253-baad-bac92871e4b3"
+        "usdz" : "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_monaco%2Ftable.usdz#custom=https://checkitsmart.com/assets/banner/custom_banner_table.html&customHeight=large\"?alt=media&token=9cff4433-c976-4253-baad-bac92871e4b3"
       }
     ]
   },
@@ -208,9 +208,9 @@
       "title": "Комод",
       "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/grayModels%2Fbedside%2FgrayModel.gltf?alt=media&token=eab1fca5-f8f1-4c6b-97c8-55023adf8c78",
       "size": [
-        106,
-        226,
-        81
+        45,
+        61,
+        48
       ]
     },
     "sides": [
