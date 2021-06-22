@@ -38,7 +38,7 @@ const AROverlay = ({product: {title, price, color, size, mfrLink}, onHit}) => {
         <>
             <div className='ar_support_container'>
                 <div className='ar_info_close_container' onClick={handleClickClose}>
-                    <span className='ar_info_close'/>
+                    <img className='ar_info_close' src='/assets/images/other/close.svg' alt='close'/>
                 </div>
                 <div className='ar_info_reset_container' onClick={handleClickReset}>
                     <img className='ar_info_reset' src='/assets/images/other/reset.svg' alt='reset'/>

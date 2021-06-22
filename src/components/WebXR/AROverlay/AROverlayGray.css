@@ -27,7 +27,7 @@
     animation: ease-in-out 1s show;
 }
 
-.ar_gray_info_close_container {
+.ar_info_close_container {
     width: 4rem;
     height: 3rem;
 
@@ -35,31 +35,17 @@
     border-radius: 1rem;
 
     position: absolute;
-    top: 0;
     left: 0;
+    top: 0;
 }
 
-.ar_gray_info_close {
-    position: absolute;
-    left: 2rem;
-    top: 0.925rem;
-}
-
-.ar_gray_info_close:before,
-.ar_gray_info_close:after {
-    position: absolute;
-    content: '';
+.ar_info_close {
+    width: 1.15rem;
     height: 1.15rem;
-    width: 0.2rem;
-    background-color: #FFFFFF;
-}
 
-.ar_gray_info_close:before {
-    transform: rotate(45deg);
-}
-
-.ar_gray_info_close:after {
-    transform: rotate(-45deg);
+    position: absolute;
+    left: 1.5rem;
+    top: 0.925rem;
 }
 
 .ar_gray_info_reset_container {

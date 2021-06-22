@@ -32,7 +32,7 @@ const AROverlayGray = ({product: {title, size}, onHit, scale}) => {
         <>
             <div className='ar_gray_support_container'>
                 <div className='ar_gray_info_close_container' onClick={handleClickClose}>
-                    <span className='ar_gray_info_close'/>
+                    <img className='ar_info_reset' src='/assets/images/other/reset.svg' alt='reset'/>
                 </div>
                 <div className='ar_gray_info_reset_container' onClick={handleClickReset}>
                     <img className='ar_gray_info_reset' src='/assets/images/other/reset.svg' alt='reset'/>

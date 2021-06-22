@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useRef} from "react";
 import './Product.css';
 
-const Product = React.memo(({product: {title, image, color, size, price, mfrLink, usdz}, os, onSelectProduct, product, category}) => {
-    console.log(mfrLink);
+const Product = React.memo(({
+                                product:
+                                    {title, image, color, size, price, mfrLink, usdz}
+                                , os, onSelectProduct, product, category
+                            }) => {
+    const ref = useRef();
     const handleClickLink = (eo) => {
         eo.currentTarget.querySelector('#ar-link').click();
-        const link = document.querySelector('#ar-link');
-        link.addEventListener('message', (eo) => {
+        ref.current.addEventListener('message', (eo) => {
             if (eo.data === "_apple_ar_quicklook_button_tapped") {
                 window.open(mfrLink);
             }
@@ -37,7 +40,7 @@ const Product = React.memo(({product: {title, image, color, size, price, mfrLink
             {os &&
             <li className='category_item' onClick={handleClickLink}>
                 <div className='category_item_image_container'>
-                    <a className='category_item_apple_link' id="ar-link" href={usdz} rel='ar'>
+                    <a ref={ref} className='category_item_apple_link' id="ar-link" href={usdz} rel='ar'>
                         <img className='category_item_image' src={image} alt={title}/>
                         <img className='category_item_ar_image' src='/assets/images/other/ar-link.svg'
                              alt='ar'/>
