@@ -1,8 +1,17 @@
 import React from "react";
 import './Product.css';
 
-const Product = React.memo(({product: {title, image, color, size, price, usdz}, os, onSelectProduct, product, category}) => {
-    const handleClickLink = (eo) => eo.currentTarget.querySelector('#ar-link').click();
+const Product = React.memo(({product: {title, image, color, size, price, mfrLink, usdz}, os, onSelectProduct, product, category}) => {
+    console.log(mfrLink);
+    const handleClickLink = (eo) => {
+        eo.currentTarget.querySelector('#ar-link').click();
+        const link = document.querySelector('#ar-link');
+        link.addEventListener('message', (eo) => {
+            if (eo.data === "_apple_ar_quicklook_button_tapped") {
+                window.open(mfrLink);
+            }
+        })
+    }
 
     const getProductColor = () => (category === 'carpets') ?
         <div className='category_item_color'><span>Высота ворса: </span>{color}</div> :

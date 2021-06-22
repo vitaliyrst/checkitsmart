@@ -33,22 +33,19 @@
 }
 
 .size_accept_button {
-    width: 92vw;
-    max-width: 26rem;
+    width: 100%;
     height: 3rem;
-
-    text-decoration: none;
-    text-align: center;
-    background-color: #DF661C;
-    color: #FFFFFF;
-
+    margin-top: 4rem;
 
     outline: none;
     border: none;
-    border-radius: 0.625rem;
+    border-radius: 0.5rem;
 
-    position: fixed;
-    bottom: 2rem;
+    background-color: #DF661C;
+    color: #FFFFFF;
+
+    font-weight: 400;
+    font-size: 1rem;
 }
 
 
