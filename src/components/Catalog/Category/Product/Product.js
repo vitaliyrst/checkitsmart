@@ -1,8 +1,13 @@
 import React from "react";
 import './Product.css';
 
-const Product = React.memo(({product: {title, image, color, size, price, usdz}, os, onSelectProduct, product}) => {
+const Product = React.memo(({product: {title, image, color, size, price, usdz}, os, onSelectProduct, product, category}) => {
     const handleClickLink = (eo) => eo.currentTarget.querySelector('#ar-link').click();
+
+    const getProductColor = () => (category === 'carpets') ?
+        <div className='category_item_color'><span>Высота ворса: </span>{color}</div> :
+        <div className='category_item_color'><span>Цвет: </span>{color}</div>
+
 
     return (
         <>
@@ -14,7 +19,7 @@ const Product = React.memo(({product: {title, image, color, size, price, usdz}, 
                 </div>
                 <div className='category_item_title'>{title}</div>
                 <div className='category_additional_info_container'>
-                    <div className='category_item_color'><span>Цвет: </span>{color}</div>
+                    {getProductColor()}
                     <div className='category_item_size'><span>Размеры, см: </span>{size}</div>
                 </div>
                 <div className='category_item_price'>{price} BYN</div>
@@ -31,7 +36,7 @@ const Product = React.memo(({product: {title, image, color, size, price, usdz}, 
                 </div>
                 <div className='category_item_title'>{title}</div>
                 <div className='category_additional_info_container'>
-                    <div className='category_item_color'><span>Цвет: </span>{color}</div>
+                    {getProductColor()}
                     <div className='category_item_size'><span>Размеры, см: </span>{size}</div>
                 </div>
                 <div className='category_item_price'>{price} BYN</div>

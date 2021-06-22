@@ -10,7 +10,6 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .size_header {
@@ -34,19 +33,22 @@
 }
 
 .size_accept_button {
-    width: 100%;
+    width: 92vw;
+    max-width: 26rem;
     height: 3rem;
-    margin-top: 4rem;
+
+    text-decoration: none;
+    text-align: center;
+    background-color: #DF661C;
+    color: #FFFFFF;
+
 
     outline: none;
     border: none;
     border-radius: 0.625rem;
 
-    background-color: #DF661C;
-    color: #FFFFFF;
-
-    font-weight: 400;
-    font-size: 1rem;
+    position: fixed;
+    bottom: 2rem;
 }
 
 

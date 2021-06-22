@@ -25,7 +25,13 @@ const Category = React.memo(({data}) => {
     const getCategoryProducts = () => {
         const {products} = data[category];
         return products.map(product => (
-            <Product key={product.id} product={product} os={os.current} onSelectProduct={handleSetProduct}/>)
+            <Product
+                key={product.id}
+                product={product}
+                os={os.current}
+                category={category}
+                onSelectProduct={handleSetProduct}
+            />)
         );
     }
 
