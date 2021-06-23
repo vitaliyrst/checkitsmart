@@ -2,10 +2,8 @@ import React, {useEffect, useRef} from 'react';
 import {useLoader, useThree} from "@react-three/fiber";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {DragControls} from "three/examples/jsm/controls/DragControls";
-import {OrbitControls} from "@react-three/drei";
 
 const ARModel = React.memo(({product, matrix, scale, mode}) => {
-
     const {camera, gl: {domElement}} = useThree();
     const gltf = useLoader(GLTFLoader, product.arGLTF);
     const overlay = useRef({
@@ -25,19 +23,35 @@ const ARModel = React.memo(({product, matrix, scale, mode}) => {
         controls.current = new DragControls([gltf.scene], camera, domElement);
         controls.current.transformGroup = true;
 
-        const handleDragMove = () => (gltf.scene.position.y = axisYPosition.current);
-        const handleDragStart = () => {
-            overlay.current.support.style.display = 'none';
-            overlay.current.info.style.display = 'none';
-        };
-        const handleDragEnd = () => {
-            overlay.current.support.style.display = 'block';
-            overlay.current.info.style.display = 'block';
-        };
+        const handleDragMove = () => {
+            if( overlay.current.support.style.display === 'flex') {
+                overlay.current.support.style.display = 'none';
+                overlay.current.info.style.display = 'none';
+            }
+            (gltf.scene.position.y = axisYPosition.current);
+        }
+
+        window.addEventListener('pointerdown', (eo) => {
+            const target = eo.target;
+
+            if (
+                overlay.current.support.style.display === 'none' &&
+                overlay.current.info.style.display === 'none'
+            ) {
+                overlay.current.support.style.display = 'block';
+                overlay.current.info.style.display = 'block';
+            } else if (
+                target.className !== 'ar_info_button_buy' &&
+                target.className !== 'ar_button_size' &&
+                target.className !== 'ar_info_reset' &&
+                target.className !== 'ar_info_close'
+            ) {
+                overlay.current.support.style.display = 'none';
+                overlay.current.info.style.display = 'none';
+            }
+        });
 
         controls.current.addEventListener('drag', handleDragMove);
-        controls.current.addEventListener('dragstart', handleDragStart);
-        controls.current.addEventListener('dragend', handleDragEnd);
     }, [camera, domElement, gltf.scene, matrix, scale]);
 
     return (

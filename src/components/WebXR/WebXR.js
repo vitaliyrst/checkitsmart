@@ -90,7 +90,7 @@ const WebXR = React.memo(({product, onSetProduct, scale, mode}) => {
                 <DefaultXRControllers/>
             </ARCanvas>
 
-                        {!planeDetected && sessionReady &&
+            {!planeDetected && sessionReady &&
             <ARHelper
                 classes={'ar_helper_plane'}
                 data={['Перемещайте устройство,', 'для определения поверхности']}
@@ -98,7 +98,7 @@ const WebXR = React.memo(({product, onSetProduct, scale, mode}) => {
             />
             }
 
-                  {planeDetected && sessionReady && !isHit &&
+            {planeDetected && sessionReady && !isHit &&
             <ARHelper data={['Кликни на круг,', 'чтобы поставить туда объект']}/>
             }
 

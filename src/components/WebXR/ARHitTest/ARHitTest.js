@@ -2,14 +2,11 @@ import React, {useRef} from 'react';
 import {useHitTest} from "@react-three/xr";
 import {Circle, Ring} from "@react-three/drei";
 
-const ARHitTest = React.memo(({onSetMatrix, onPlaneDetected, detected, canHitTest}) => {
+const ARHitTest = React.memo(({onSetMatrix, onPlaneDetected, detected}) => {
     const mesh = useRef();
     const material = useRef();
 
     useHitTest(hit => {
-        if (hit) {
-
-        }
         if (hit && !detected) {
             material.current.opacity = 0.9;
             onPlaneDetected(true);
@@ -30,7 +27,6 @@ const ARHitTest = React.memo(({onSetMatrix, onPlaneDetected, detected, canHitTes
                 <meshStandardMaterial transparent='true' opacity='0'/>
             </Circle>
         </mesh>
-
     );
 });
 

@@ -6,6 +6,7 @@ import {useHistory, useParams} from "react-router";
 const AROverlay = ({product: {title, price, color, size, mfrLink}, onHit}) => {
     const {category} = useParams();
     const history = useHistory();
+    const newSize = size.split('X');
 
     const handleGAEventClickClose = () => GAevent('AR MODEL', 'click close', title);
     const handleGAEventClickReset = () => GAevent('AR MODEL', 'click reset', title);
@@ -60,8 +61,10 @@ const AROverlay = ({product: {title, price, color, size, mfrLink}, onHit}) => {
                         <div>
                             <span>Цвет: </span>{color}
                         </div>
-                        <div>
-                            <span>Размеры, см: </span>{size}
+                        <div style={{display: 'flex', flexDirection: 'column'}}>
+                            <div><span>Длина: </span>{newSize[0]} см</div>
+                            <div><span>Ширина: </span>{newSize[1]} см</div>
+                            <div><span>Высота: </span>{newSize[2]} см</div>
                         </div>
                     </div>
 

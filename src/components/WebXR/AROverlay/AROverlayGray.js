@@ -47,8 +47,8 @@ const AROverlayGray = ({product: {title, size}, onHit, scale}) => {
                     <div className='ar_gray_info_size'>
                         <span>Размеры, см: </span> {
                         (scaleSizes[2]) ?
-                            `Ш:${scaleSizes[0]} X В:${scaleSizes[1]} X Г:${scaleSizes[2]}` :
-                            `Ш:${scaleSizes[0]} X Д:${scaleSizes[1]}`
+                            `${scaleSizes[0]} X ${scaleSizes[1]} X ${scaleSizes[2]}` :
+                            `${scaleSizes[0]} X ${scaleSizes[1]}`
                     }
                     </div>
                     <div className='ar_gray_info_test_model'>
