@@ -28,7 +28,7 @@
     animation: ease-in-out 1s show;
 }
 
-.ar_info_close_container {
+.ar_gray_info_close_container {
     width: 4rem;
     height: 3rem;
 
@@ -40,7 +40,7 @@
     top: 0;
 }
 
-.ar_info_close {
+.ar_gray_info_close {
     width: 1.15rem;
     height: 1.15rem;
 

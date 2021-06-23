@@ -43,7 +43,7 @@
 
 .ar_helper_plane_image {
     position: absolute;
-    top: 8rem;
+    top: 10rem;
     left: 50%;
     transform: translate(-50%, 0);
     animation: ease-out 8s helper-plane-image;

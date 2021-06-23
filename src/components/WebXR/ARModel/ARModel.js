@@ -43,7 +43,6 @@ const ARModel = React.memo(({product, matrix, scale, mode}) => {
     return (
         <>
             <primitive object={gltf.scene}/>
-            <OrbitControls args={[camera, domElement]}/>
         </>
     )
 });
