@@ -11,6 +11,7 @@ import ARLoader from "./ARLoader/ARLoader";
 import {ARButton} from "./ARButton";
 import AROverlayGray from "./AROverlay/AROverlayGray";
 import {GAevent} from "../../ga/events";
+import ARHelper from "./AROverlay/ARHelper";
 
 const WebXR = React.memo(({product, onSetProduct, scale, mode}) => {
     const canvas = useRef();
@@ -20,6 +21,7 @@ const WebXR = React.memo(({product, onSetProduct, scale, mode}) => {
     const [buttonReady, setButtonReady] = useState(false);
     const [sessionReady, setSessionReady] = useState(false);
     const [matrix, setMatrix] = useState(null);
+    const [planeDetected, setPlaneDetected] = useState(false);
 
     const handleGAEventSessionDuration = (time) => {
         GAevent('AR SESSION', 'duration session', `${time} seconds`);
@@ -31,7 +33,7 @@ const WebXR = React.memo(({product, onSetProduct, scale, mode}) => {
         setIsHit(true);
     }
     const handleSetButtonReady = (state) => setButtonReady(state);
-
+    const handleSetPlaneDetected = (state) => setPlaneDetected(state);
     const handleStartSession = (gl) => {
         const arConfig = {
             requiredFeatures: ['hit-test'],
@@ -75,14 +77,27 @@ const WebXR = React.memo(({product, onSetProduct, scale, mode}) => {
                 <directionalLight position={[0, -5, 0]} intensity={1}/>
                 <Suspense fallback={<ARLoader/>}>
                     {(!isHit && sessionReady) &&
-                    <ARHitTest onSetMatrix={handleSetMatrix}/>}
+                    <ARHitTest onSetMatrix={handleSetMatrix} onPlaneDetected={handleSetPlaneDetected}
+                               detected={planeDetected}/>}
 
                     {isHit &&
-                    <ARModel product={product} matrix={matrix} scale={scale} onHit={handleIsHit} mode={mode}/>}
+                    <ARModel product={product} matrix={matrix} scale={scale} mode={mode}/>}
                 </Suspense>
 
                 <DefaultXRControllers/>
             </ARCanvas>
+
+            {!planeDetected && sessionReady &&
+            <ARHelper
+                classes={'ar_helper_plane'}
+                data={['Перемещайте устройство,', 'для определения поверхности']}
+                img={'/assets/images/other/helper.svg'}
+            />
+            }
+
+            {planeDetected && sessionReady && !isHit &&
+            <ARHelper data={['Кликни на круг,', 'чтобы поставить туда объект']}/>
+            }
 
             {isHit && (mode === 'model') &&
             <AROverlay product={product} onHit={handleIsHit}/>}

@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import {useLoader, useThree} from "@react-three/fiber";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {DragControls} from "three/examples/jsm/controls/DragControls";
+import {OrbitControls} from "@react-three/drei";
 
 const ARModel = React.memo(({product, matrix, scale, mode}) => {
 
@@ -11,7 +12,7 @@ const ARModel = React.memo(({product, matrix, scale, mode}) => {
         support: document.querySelector((mode === 'model') ? '.ar_support_container' : '.ar_gray_support_container'),
         info: document.querySelector((mode === 'model') ? '.ar_info_container' : '.ar_gray_info_container')
     });
-    
+
     const controls = useRef({});
     const axisYPosition = useRef(0);
 
@@ -40,7 +41,10 @@ const ARModel = React.memo(({product, matrix, scale, mode}) => {
     }, [camera, domElement, gltf.scene, matrix, scale]);
 
     return (
-        <primitive object={gltf.scene}/>
+        <>
+            <primitive object={gltf.scene}/>
+            <OrbitControls args={[camera, domElement]}/>
+        </>
     )
 });
 

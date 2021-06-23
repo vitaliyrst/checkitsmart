@@ -2,13 +2,17 @@ import React, {useRef} from 'react';
 import {useHitTest} from "@react-three/xr";
 import {Circle, Ring} from "@react-three/drei";
 
-const ARHitTest = React.memo(({onSetMatrix}) => {
+const ARHitTest = React.memo(({onSetMatrix, onPlaneDetected, detected, canHitTest}) => {
     const mesh = useRef();
     const material = useRef();
 
     useHitTest(hit => {
-        if (hit && material.current && material.current.transparent) {
+        if (hit) {
+
+        }
+        if (hit && !detected) {
             material.current.opacity = 0.9;
+            onPlaneDetected(true);
         }
         if (mesh.current && hit) {
             hit.decompose(mesh.current.position, mesh.current.rotation, mesh.current.scale);
