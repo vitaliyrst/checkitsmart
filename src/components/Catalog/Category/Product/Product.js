@@ -15,7 +15,7 @@ const Product = React.memo(({product: {title, image, color, size, price, mfrLink
     }
 
     const getProductColor = () => (category === 'carpets') ?
-        <div className='category_item_color'><span>Высота ворса: </span>{color}</div> :
+        <div className='category_item_color'><span>Высота ворса, мм: </span>{color}</div> :
         <div className='category_item_color'><span>Цвет: </span>{color}</div>
 
     return (

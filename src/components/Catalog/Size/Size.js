@@ -18,7 +18,7 @@ const Size = React.memo(({data}) => {
         Ширина ${width.current && width.current.value ? width.current.value : 1} 
         Высота ${height.current && height.current.value ? height.current.value : 1}
         `);
-        console.log(length.current)
+
         setSelectProduct(data[category]);
     }
 

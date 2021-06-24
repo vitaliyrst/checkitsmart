@@ -32,9 +32,9 @@ const AROverlayGray = ({product: {title, size}, onHit, scale}) => {
                         модель имеет иллюстративный характер
                     </div>
                     <div className='ar_gray_info_size'>
-                        <div><span>Длина: </span>{scaleSizes[0]} см</div>
-                        <div><span>Ширина: </span>{scaleSizes[1]} см</div>
-                        {!isNaN(scaleSizes[2]) && <div><span>Высота: </span>{scaleSizes[2]} см</div>}
+                        <div><span>Длина, см: </span>{scaleSizes[0]}</div>
+                        <div><span>Ширина, см: </span>{scaleSizes[1]}</div>
+                        {!isNaN(scaleSizes[2]) && <div><span>Высота, см: </span>{scaleSizes[2]}</div>}
                     </div>
                 </div>
 

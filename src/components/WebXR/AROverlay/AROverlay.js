@@ -47,13 +47,15 @@ const AROverlay = ({product: {title, price, color, size, mfrLink}, onHit}) => {
                     </div>
 
                     <div className='ar_info_additional'>
-                        <div>
-                            <span>Цвет: </span>{color}
-                        </div>
                         <div style={{display: 'flex', flexDirection: 'column'}}>
-                            <div><span>Длина: </span>{newSize[0]} см</div>
-                            <div><span>Ширина: </span>{newSize[1]} см</div>
-                            {newSize[2] && <div><span>Высота: </span>{newSize[2]} см</div>}
+                            <div>{category === 'carpets' ?
+                                <span>Высота ворса, мм: </span> :
+                                <span>Цвет: </span>}
+                                {color}
+                            </div>
+                            <div><span>Длина, см: </span>{newSize[0]}</div>
+                            <div><span>Ширина, см: </span>{newSize[1]}</div>
+                            {newSize[2] && <div><span>Высота, см: </span>{newSize[2]}</div>}
                         </div>
                     </div>
 

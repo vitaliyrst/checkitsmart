@@ -16,7 +16,11 @@ const ARHitTest = React.memo(({onSetMatrix, onPlaneDetected, detected}) => {
         }
     });
 
-    const handlePointerDown = () => onSetMatrix(mesh.current.matrix);
+    const handlePointerDown = () => {
+        if (detected) {
+            onSetMatrix(mesh.current.matrix);
+        }
+    }
 
     return (
         <mesh ref={mesh} onPointerDown={handlePointerDown}>

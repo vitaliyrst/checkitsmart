@@ -209,8 +209,8 @@
       "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/grayModels%2Fbedside%2FgrayModel.gltf?alt=media&token=eab1fca5-f8f1-4c6b-97c8-55023adf8c78",
       "size": [
         45,
-        61,
-        48
+        48,
+        61
       ]
     },
     "sides": [
@@ -293,7 +293,7 @@
         "id": 1,
         "title": "Ковер Sintelon Vegas Home 61YKM",
         "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fcarpets%2Fcarpet_sintelon_vegas.png?alt=media&token=28596d37-76b3-4a11-a800-39614f501623",
-        "color": "12мм",
+        "color": "12",
         "size": "170 X 120",
         "price": "187.60",
         "mfrLink": "https://www.21vek.by/carpets/vegashome61ykm331139285_sintelon.html",
@@ -304,7 +304,7 @@
         "id": 2,
         "title": "Ковер Манхэттен овал 3254a6",
         "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fcarpets%2Fcarpet_manhattan_3254a6_oval.png?alt=media&token=8a6fa915-6372-48ec-a930-9ae9208a069f",
-        "color": "7.5мм",
+        "color": "7.5",
         "size": "200 X 100",
         "price": "69.79",
         "mfrLink": "https://www.21vek.by/carpets/3254a6_vitcarpet_03.html",
@@ -315,9 +315,9 @@
         "id": 3,
         "title": "Ковер Манхэттен прямоугольник 3254a6",
         "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Fcarpets%2Fcarpet_manhattan_3254a6_rect.png?alt=media&token=6d1bb87c-33e6-43b4-bdbb-f18d16053335",
-        "color": "7.5мм",
+        "color": "7.5",
         "size": "200 X 100",
-        "price": "73. 44",
+        "price": "73.44",
         "mfrLink": "https://www.21vek.by/carpets/3254a6_vitcarpet_07.html",
         "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fcarpets%2Fcarpet_manhattan_3254a6_rect%2Fcarpet.gltf?alt=media&token=df014853-2ecb-4c40-a41a-0310981f0dca",
         "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Fcarpets%2Fcarpet_manhattan_3254a6_rect%2Fcarpet.usdz?alt=media&token=edf000b3-3a01-47f6-90ad-b0aac075dccd#custom=https://checkitsmart.com/assets/banners/carpets/banner_manhattanRect.html&customHeight=large"
