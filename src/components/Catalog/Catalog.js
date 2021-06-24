@@ -4,8 +4,8 @@ import {Link} from "react-router-dom";
 import {GAevent} from "../../ga/events";
 
 const Catalog = ({data}) => {
-    const handleGAEventClickCategory = (title) => GAevent('CATEGORY', `click category`, title);
-    const handleGAEventClickVideo = () => GAevent('VIDEO', 'click video', 'video');
+    const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
+    const handleGAEventSelectVideo = () => GAevent('CATALOG', 'select video', 'video');
 
     const getCatalogList = () => {
         const categories = Object.keys(data);
@@ -19,7 +19,7 @@ const Catalog = ({data}) => {
                     <Link
                         className='item_link_category'
                         to={`/catalog/${slug}`}
-                        onClick={() => handleGAEventClickCategory(title)}
+                        onClick={() => handleGAEventSelectCategory(title)}
                     >
                         <span className='item_link_category_title'>{title}</span>
                     </Link>
@@ -38,7 +38,7 @@ const Catalog = ({data}) => {
             <ul className='catalog_list'>
                 {getCatalogList()}
 
-                <li className='catalog_item_video' onClick={() => handleGAEventClickVideo}>
+                <li className='catalog_item_video' onClick={() => handleGAEventSelectVideo}>
                     <Link className='item_link_video' to='/video'>
                         Как это работает?
                     </Link>

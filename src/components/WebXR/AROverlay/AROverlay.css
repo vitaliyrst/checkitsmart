@@ -2,15 +2,6 @@
     0% {
         opacity: 0
     }
-    25% {
-        opacity: 0.25;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    75% {
-        opacity: 0.75;
-    }
     100% {
         opacity: 1
     }
@@ -25,7 +16,7 @@
     top: 2rem;
     left: 50%;
     transform: translate(-50%, 0);
-    animation: ease-in-out 1s show;
+    animation: linear 0.3s show;
 }
 
 .ar_info_close_container {

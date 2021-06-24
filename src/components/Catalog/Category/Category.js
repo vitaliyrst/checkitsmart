@@ -11,8 +11,8 @@ const Category = React.memo(({data}) => {
     const os = useRef(/iPhone|iPad|iPod/i.test(window.navigator.userAgent));
     const [selectProduct, setSelectProduct] = useState(null);
 
-    const handleGAEventClickStartAR = (title) => GAevent('CATEGORY', 'click startAR', title);
-    const handleGAEventClickSize = (title) => GAevent('CATEGORY', 'click size', title);
+    const handleGAEventClickStartAR = (title) => GAevent(`CATEGORY ${data[category].title}`, 'select model', title);
+    const handleGAEventClickSize = (title) => GAevent(`CATEGORY ${data[category].title}`, 'select by size', title);
 
     const handleSetProduct = (product, title = '') => {
         if (!os.current) {

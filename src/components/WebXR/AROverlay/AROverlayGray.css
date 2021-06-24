@@ -2,15 +2,6 @@
     0% {
         opacity: 0
     }
-    25% {
-        opacity: 0.25;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    75% {
-        opacity: 0.75;
-    }
     100% {
         opacity: 1
     }
@@ -25,7 +16,7 @@
     top: 2rem;
     left: 50%;
     transform: translate(-50%, 0);
-    animation: ease-in-out 1s show;
+    animation: linear 0.3s show;
 }
 
 .ar_gray_info_close_container {
@@ -104,11 +95,14 @@
 }
 
 .ar_gray_info_size{
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     font-family: Roboto, sans-serif;
     font-weight: 400;
     font-size: 1rem;
-    line-height: 1.5rem;
+    line-height: 1.7rem;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .ar_gray_info_size span {

@@ -6,14 +6,19 @@ import WebXR from "../../WebXR/WebXR";
 
 const Size = React.memo(({data}) => {
     const {category} = useParams();
+    const length = useRef();
     const width = useRef();
     const height = useRef();
-    const depth = useRef();
     const scale = useRef({});
     const [selectProduct, setSelectProduct] = useState(null);
 
     const handleGAEventClickAcceptButton = () => {
-        GAevent('SIZE', 'click accept button', scale);
+        GAevent('SIZE', 'click accept button', `
+        Длина ${length.current && length.current.value ? length.current.value : 1} 
+        Ширина ${width.current && width.current.value ? width.current.value : 1} 
+        Высота ${height.current && height.current.value ? height.current.value : 1}
+        `);
+        console.log(length.current)
         setSelectProduct(data[category]);
     }
 
@@ -40,16 +45,17 @@ const Size = React.memo(({data}) => {
             let ref;
 
             if (index === 0) {
-                ref = width;
+                ref = length;
             }
 
             if (index === 1) {
-                ref = height;
+                ref = width;
             }
 
             if (index === 2) {
-                ref = depth;
+                ref = height;
             }
+
             return (
                 <div key={index} className='size_input_item'>
                     <label htmlFor={side[0]}>{side[1]}: </label>
@@ -64,21 +70,21 @@ const Size = React.memo(({data}) => {
 
     const modelScale = () => {
         const {grayModel} = data[category];
-        const [baseWidth, baseHeight, baseDepth] = grayModel.size;
+        const [baseLength, baseWidth, baseHeight] = grayModel.size;
 
-        if (baseWidth && baseHeight && baseDepth) {
+        if (baseLength && baseWidth && baseHeight) {
             scale.current = {
-                x: (Number(width.current.value) === 0) ? 1 : Number(width.current.value) / baseWidth,
+                z: (Number(length.current.value) === 0) ? 1 : Number(length.current.value) / baseLength,
                 y: (Number(height.current.value) === 0) ? 1 : Number(height.current.value) / baseHeight,
-                z: (Number(depth.current.value) === 0) ? 1 : Number(depth.current.value) / baseDepth
+                x: (Number(width.current.value) === 0) ? 1 : Number(width.current.value) / baseWidth
             }
         }
 
-        if (baseWidth && baseHeight && !baseDepth) {
+        if (baseLength && baseWidth && !baseHeight) {
             scale.current = {
-                x: (Number(width.current.value) === 0) ? 1 : Number(width.current.value) / baseWidth,
+                z: (Number(length.current.value) === 0) ? 1 : Number(length.current.value) / baseLength,
                 y: 1,
-                z: (Number(height.current.value) === 0) ? 1 : Number(height.current.value) / baseHeight
+                x: (Number(width.current.value) === 0) ? 1 : Number(width.current.value) / baseWidth,
             }
         }
     }

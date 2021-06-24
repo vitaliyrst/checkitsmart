@@ -8,20 +8,10 @@ const AROverlay = ({product: {title, price, color, size, mfrLink}, onHit}) => {
     const history = useHistory();
     const newSize = size.split('X');
 
-    const handleGAEventClickClose = () => GAevent('AR MODEL', 'click close', title);
-    const handleGAEventClickReset = () => GAevent('AR MODEL', 'click reset', title);
-    const handleGAEventClickRedirect = () => GAevent('AR MODEL', 'click redirect to store', title);
-    const handleGAEventClickSize = () => GAevent('AR MODEL', 'click size', title);
+    const handleGAEventClickRedirect = () => GAevent('AR SESSION', 'redirect to store', title);
 
-    const handleClickClose = async () => {
-        handleGAEventClickClose();
-        await document.getElementById('ARButton').click();
-    }
-
-    const handleClickReset = () => {
-        handleGAEventClickReset();
-        onHit(false);
-    }
+    const handleClickClose = async () => await document.getElementById('ARButton').click();
+    const handleClickReset = () => onHit(false);
 
     const handleClickBuy = async () => {
         handleGAEventClickRedirect();
@@ -30,7 +20,6 @@ const AROverlay = ({product: {title, price, color, size, mfrLink}, onHit}) => {
     }
 
     const handleClickSize = async () => {
-        handleGAEventClickSize();
         await document.getElementById('ARButton').click();
         history.push(`/size/${category}`);
     }
@@ -64,7 +53,7 @@ const AROverlay = ({product: {title, price, color, size, mfrLink}, onHit}) => {
                         <div style={{display: 'flex', flexDirection: 'column'}}>
                             <div><span>Длина: </span>{newSize[0]} см</div>
                             <div><span>Ширина: </span>{newSize[1]} см</div>
-                            <div><span>Высота: </span>{newSize[2]} см</div>
+                            {newSize[2] && <div><span>Высота: </span>{newSize[2]} см</div>}
                         </div>
                     </div>
 

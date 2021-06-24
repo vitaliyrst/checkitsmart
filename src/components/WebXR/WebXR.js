@@ -23,21 +23,25 @@ const WebXR = React.memo(({product, onSetProduct, scale, mode}) => {
     const [matrix, setMatrix] = useState(null);
     const [planeDetected, setPlaneDetected] = useState(false);
 
-    const handleGAEventSessionDuration = (time) => {
-        GAevent('AR SESSION', 'duration session', `${time} seconds`);
-    }
+    const handleGAEventStartSession = () => GAevent('AR SESSION', 'session has been started', time);
+    const handleGAEventSessionDuration = (time) => GAevent('AR SESSION', 'session duration', `${time} seconds`);
+    const handleGAEventClickByRing = () => GAevent('AR SESSION', 'place model', product.title);
 
     const handleIsHit = (hit) => {
         setIsHit(hit);
         setPlaneDetected(false);
+        handleGAEventClickByRing();
     }
     const handleSetMatrix = (matrix) => {
         setMatrix(matrix);
         setIsHit(true);
     }
+
     const handleSetButtonReady = (state) => setButtonReady(state);
     const handleSetPlaneDetected = (state) => setPlaneDetected(state);
     const handleStartSession = (gl) => {
+        handleGAEventStartSession();
+
         const arConfig = {
             requiredFeatures: ['hit-test'],
             optionalFeatures: ['dom-overlay'],
@@ -47,7 +51,6 @@ const WebXR = React.memo(({product, onSetProduct, scale, mode}) => {
         document.body.append(ARButton.createButton(gl, arConfig, handleSetButtonReady));
 
         gl.xr.addEventListener('sessionend', () => {
-            console.log('session end')
             const timeEnd = Date.now();
             handleGAEventSessionDuration((timeEnd - time.current) / 1000);
             onSetProduct(null, product.title);
@@ -102,10 +105,10 @@ const WebXR = React.memo(({product, onSetProduct, scale, mode}) => {
             <ARHelper data={['Кликни на круг,', 'чтобы поставить туда объект']}/>
             }
 
-            {isHit && (mode === 'model') &&
+            {isHit  && (mode === 'model') &&
             <AROverlay product={product} onHit={handleIsHit}/>}
 
-            {isHit && (mode === 'grayModel') &&
+            {isHit  && (mode === 'grayModel') &&
             <AROverlayGray product={product} onHit={handleIsHit} scale={scale}/>}
         </div>
     )

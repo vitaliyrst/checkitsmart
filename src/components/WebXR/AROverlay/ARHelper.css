@@ -26,7 +26,7 @@
 }
 
 .ar_helper_plane {
-    animation: 2s ease-out ar-helper-plane;
+    animation: 1s ease-out ar-helper-plane;
 }
 
 @keyframes ar-helper-plane {
@@ -46,7 +46,7 @@
     top: 10rem;
     left: 50%;
     transform: translate(-50%, 0);
-    animation: ease-out 8s helper-plane-image;
+    animation: 4s linear helper-plane-image;
 }
 
 @keyframes helper-plane-image {
@@ -54,7 +54,7 @@
         opacity: 0;
         left: 50%;
     }
-    23% {
+    20% {
         opacity: 0;
         left: 50%;
     }
@@ -66,7 +66,7 @@
         left: 30%;
     }
     81% {
-        left: 70%;
+        left: 68%;
     }
     100% {
         left: 50%;
