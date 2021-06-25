@@ -1,55 +1,15 @@
 import React, {useEffect, useRef} from 'react';
 import {useLoader, useThree} from "@react-three/fiber";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
-import {DragControls} from "three/examples/jsm/controls/DragControls";
+import {DragControls} from "../ARControls/ARDragControls";
 
-const ARModel = React.memo(({product: {arGLTF}, matrix, scale, mode}) => {
+const ARModel = ({product: {arGLTF}, matrix, scale, mode}) => {
     const {camera, gl: {domElement}} = useThree();
     const gltf = useLoader(GLTFLoader, arGLTF);
-    console.log(gltf)
-    const overlay = useRef({
-        support: document.querySelector((mode === 'model') ? '.ar_support_container' : '.ar_gray_support_container'),
-        info: document.querySelector((mode === 'model') ? '.ar_info_container' : '.ar_gray_info_container')
-    });
 
-    const controls = useRef({});
+    const dragControls = useRef({});
     const axisYPosition = useRef(0);
-
-    const handleDragMove = () => {
-        overlay.current.support.style.display = 'none';
-        overlay.current.info.style.display = 'none';
-
-        (gltf.scene.position.y = axisYPosition.current);
-    }
-
-    const handlePointerDown = (eo) => {
-        const target = eo.target;
-
-        if (
-            overlay.current.support.style.display === 'none' &&
-            overlay.current.info.style.display === 'none'
-        ) {
-            overlay.current.support.style.display = 'block';
-            overlay.current.info.style.display = 'block';
-        } else if (
-            target.className !== 'ar_gray_info_close_container' &&
-            target.className !== 'ar_info_close' &&
-            target.className !== 'ar_gray_info_reset_container' &&
-            target.className !== 'ar_gray_info_reset' &&
-            target.className !== 'ar_gray_button_size_container' &&
-            target.className !== 'ar_gray_button_size' &&
-            target.className !== 'ar_info_close_container' &&
-            target.className !== 'ar_info_close' &&
-            target.className !== 'ar_info_reset_container' &&
-            target.className !== 'ar_info_reset' &&
-            target.className !== 'ar_info_button_buy' &&
-            target.className !== 'ar_button_size_container' &&
-            target.className !== 'ar_button_size'
-        ) {
-            overlay.current.support.style.display = 'none';
-            overlay.current.info.style.display = 'none';
-        }
-    }
+    const startRotate = useRef({});
 
     useEffect(() => {
         if (scale && matrix) {
@@ -58,25 +18,97 @@ const ARModel = React.memo(({product: {arGLTF}, matrix, scale, mode}) => {
             axisYPosition.current = gltf.scene.position.y;
         }
 
-        controls.current = new DragControls([gltf.scene], camera, domElement);
-        controls.current.transformGroup = true;
+        dragControls.current = new DragControls([gltf.scene], camera, domElement);
+        dragControls.current.transformGroup = true;
 
         domElement.addEventListener('pointerdown', handlePointerDown);
-        controls.current.addEventListener('drag', handleDragMove);
-        overlay.current.support.style.display = 'block';
-        overlay.current.info.style.display = 'block';
+        /*        domElement.addEventListener('touchstart', (eo) => {
+                    if (eo.targetTouches.length === 2) {
+                        let dx = eo.targetTouches[1].pageX - eo.targetTouches[0].pageX;
+                        let dy = eo.targetTouches[1].pageY - eo.targetTouches[0].pageY;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        let angle = Math.atan2(dy, dx);
+                        startRotate.current = {touchStartDistance: distance, touchStartAngle: angle}
+                    }
+                })
+                domElement.addEventListener('touchmove', (eo) => {
+
+                    if (eo.targetTouches.length === 2) {
+                        let dx = eo.targetTouches[1].pageX - eo.targetTouches[0].pageX;
+                        let dy = eo.targetTouches[1].pageY - eo.targetTouches[0].pageY;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        let angle = Math.atan2(dy, dx);
+                        let touchAngle = angle - startRotate.current.touchStartAngle
+                        gltf.scene.rotateY(-touchAngle * 0.01)
+                        console.log(touchAngle)
+                        /!*console.log(gltf.scene.rotation);*!/
+                    }
+                })*/
+
+        domElement.addEventListener('touchstart', (eo) => {
+            eo.preventDefault();
+            if (eo.targetTouches.length === 2) {
+                startRotate.current.touchDown = true;
+                startRotate.current.touchX = eo.touches[0].pageX;
+                startRotate.current.touchY = eo.touches[0].pageY;
+
+                overlay.current.support.style.display = 'none';
+                overlay.current.info.style.display = 'none';
+            }
+        }, false);
+
+        domElement.addEventListener('touchend', (eo) => {
+            eo.preventDefault();
+            startRotate.current.touchDown = false;
+        }, false);
+
+        domElement.addEventListener('touchmove', (eo) => {
+            if (startRotate.current.touchDown) {
+                startRotate.current.deltaX = eo.touches[0].pageX - startRotate.current.touchX;
+                startRotate.current.deltaY = eo.touches[0].pageY - startRotate.current.touchY;
+                startRotate.current.touchX = eo.touches[0].pageX;
+                startRotate.current.touchY = eo.touches[0].pageY;
+                gltf.scene.rotation.y += startRotate.current.deltaX / 100;
+            }
+        })
+
+        dragControls.current.addEventListener('drag', handleDragMove);
 
         return () => {
             domElement.removeEventListener('pointerdown', handlePointerDown, false);
-            controls.current.removeEventListener('drag', handleDragMove, false);
+            dragControls.current.removeEventListener('drag', handleDragMove, false);
         }
     }, [camera, domElement, gltf.scene, matrix, scale]);
 
-    return (
-        <>
-            <primitive object={gltf.scene}/>
-        </>
-    )
-});
+    const overlay = useRef({
+        support: document.querySelector((mode === 'model') ? '.ar_support_container' : '.ar_gray_support_container'),
+        info: document.querySelector((mode === 'model') ? '.ar_info_container' : '.ar_gray_info_container')
+    });
+
+    const handleDragMove = () => {
+        if (!startRotate.current.touchDown) {
+            gltf.scene.position.y = axisYPosition.current;
+
+            overlay.current.support.style.display = 'none';
+            overlay.current.info.style.display = 'none';
+        }
+    }
+
+    const handlePointerDown = (eo) => {
+        const target = eo.target;
+        const overlayNormalModelDisplay = overlay.current.support.style;
+        const overlayGrayModelDisplay = overlay.current.info.style;
+
+        if (overlayNormalModelDisplay.display === 'none' && overlayGrayModelDisplay.display === 'none') {
+            overlayNormalModelDisplay.display = 'block';
+            overlayGrayModelDisplay.display = 'block';
+        } else if (target === document.querySelector('canvas')) {
+            overlayNormalModelDisplay.display = 'none';
+            overlayGrayModelDisplay.display = 'none';
+        }
+    }
+
+    return (<primitive object={gltf.scene}/>);
+}
 
 export default ARModel;

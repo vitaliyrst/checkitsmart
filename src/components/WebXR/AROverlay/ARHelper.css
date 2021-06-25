@@ -45,6 +45,7 @@
     position: absolute;
     top: 10rem;
     left: 50%;
+    opacity: 0;
     transform: translate(-50%, 0);
     animation: 4s linear helper-plane-image;
 }

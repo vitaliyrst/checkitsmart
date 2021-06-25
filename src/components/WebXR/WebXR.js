@@ -81,6 +81,7 @@ const WebXR = React.memo(({product, onSetProduct, scale, mode}) => {
                 <directionalLight position={[6, 1, 0]} intensity={1}/>
                 <directionalLight position={[-6, 2, 0]} intensity={1}/>
                 <directionalLight position={[0, -5, 0]} intensity={1}/>
+
                 <Suspense fallback={<ARLoader/>}>
                     {(!isHit && sessionReady) &&
                     <ARHitTest onSetMatrix={handleSetMatrix} onPlaneDetected={handleSetPlaneDetected}
