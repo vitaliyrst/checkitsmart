@@ -18,8 +18,9 @@ function App() {
                         <Component data={data}/>
                     </Route>
                 ))}
-                <Redirect from='/' to='/catalog'/>
+
             </Switch>
+            <Redirect from='/' to='/catalog'/>
         </Router>
     );
 }

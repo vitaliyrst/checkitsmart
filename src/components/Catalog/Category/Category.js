@@ -3,7 +3,7 @@ import './Category.css';
 import {Link, useParams} from 'react-router-dom';
 import {GAevent} from "../../../ga/events";
 import WebXR from "../../WebXR/WebXR";
-import Product from "./Product/Product";
+import CategoryItem from "./CategoryItem";
 
 const Category = React.memo(({data}) => {
     const {category} = useParams();
@@ -25,7 +25,7 @@ const Category = React.memo(({data}) => {
     const getCategoryProducts = () => {
         const {products} = data[category];
         return products.map(product => (
-            <Product
+            <CategoryItem
                 key={product.id}
                 product={product}
                 os={os.current}

@@ -3,7 +3,7 @@ import './AROverlay.css';
 import {GAevent} from "../../../ga/events";
 import {useHistory, useParams} from "react-router";
 
-const AROverlay = ({product: {title, price, color, size, mfrLink}, onHit}) => {
+const AROverlay = ({product: {id, title, price, color, size, mfrLink}, onHit}) => {
     const {category} = useParams();
     const history = useHistory();
     const newSize = size.split('X');
@@ -16,7 +16,7 @@ const AROverlay = ({product: {title, price, color, size, mfrLink}, onHit}) => {
     const handleClickBuy = async () => {
         handleGAEventClickRedirect();
         await document.getElementById('ARButton').click();
-        window.open(mfrLink);
+        history.push(`/product/${category}/${id}`);
     }
 
     const handleClickSize = async () => {
