@@ -1,9 +1,9 @@
-{
-  "tables": {
+[
+  {
     "id": 1,
     "title": "Столы",
     "slug": "tables",
-    "image": "/assets/images/catalog/table.svg",
+    "image": "/assets/images/catalog/table.png",
     "figure": "/assets/images/size/table/figure.svg",
     "grayModel": {
       "id": 1,
@@ -65,11 +65,11 @@
       }
     ]
   },
-  "beds": {
+  {
     "id": 2,
     "title": "Кровати",
     "slug": "beds",
-    "image": "/assets/images/catalog/bed.svg",
+    "image": "/assets/images/catalog/bed.png",
     "figure": "/assets/images/size/bed/figure.svg",
     "grayModel": {
       "id": 1,
@@ -131,11 +131,11 @@
       }
     ]
   },
-  "dressers": {
+  {
     "id": 3,
     "title": "Шкафы",
     "slug": "dressers",
-    "image": "/assets/images/catalog/dresser.svg",
+    "image": "/assets/images/catalog/dresser.png",
     "figure": "/assets/images/size/dresser/figure.svg",
     "grayModel": {
       "id": 1,
@@ -197,11 +197,11 @@
       }
     ]
   },
-  "bedsides": {
+  {
     "id": 4,
     "title": "Комоды",
     "slug": "bedsides",
-    "image": "/assets/images/catalog/bedside.svg",
+    "image": "/assets/images/catalog/bedside.png",
     "figure": "/assets/images/size/bedside/figure.svg",
     "grayModel": {
       "id": 1,
@@ -263,11 +263,11 @@
       }
     ]
   },
-  "carpets": {
+  {
     "id": 5,
     "title": "Ковры",
     "slug": "carpets",
-    "image": "/assets/images/catalog/carpet.svg",
+    "image": "/assets/images/catalog/carpet.png",
     "figure": "/assets/images/size/carpet/figure.svg",
     "grayModel": {
       "id": 1,
@@ -324,4 +324,4 @@
       }
     ]
   }
-}
+]

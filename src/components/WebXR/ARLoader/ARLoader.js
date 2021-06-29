@@ -3,22 +3,19 @@ import './ARLoader.css';
 import {Html} from '@react-three/drei'
 import {useThree} from "@react-three/fiber";
 
-
 const ARLoader = () => {
     const {camera} = useThree();
-    const ref = useRef();
+    const meshRef = useRef();
 
     useEffect(() => {
-        if (ref.current) {
-            camera.add(ref.current);
-        }
-        return () => {
-            camera.remove(ref.current);
-        }
-    }, []);
+        const {mesh} = meshRef;
+        camera.add(mesh);
+
+        return () => camera.remove(mesh);
+    }, [camera]);
 
     return (
-        <mesh ref={ref} position={[0, 0, -0.05]}>
+        <mesh ref={meshRef} position={[0, 0, -0.05]}>
             <Html>
                 <div className='ar_loader_content'>
                     <img src={'/assets/images/other/spinner.svg'} alt='loader'/>

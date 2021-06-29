@@ -2,16 +2,17 @@ import React from 'react';
 import './Catalog.css';
 import {Link} from "react-router-dom";
 import {GAevent} from "../../ga/events";
+import {useSelector} from "react-redux";
 
-const Catalog = ({data}) => {
+const Catalog = () => {
     const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
     const handleGAEventSelectVideo = () => GAevent('CATALOG', 'select video', 'video');
 
-    const getCatalogList = () => {
-        const categories = Object.keys(data);
+    const data = useSelector(({catalog: {catalog}}) => catalog);
 
-        return categories.map(category => {
-            const {id, slug, title, image} = data[category];
+    const getCatalogList = () => {
+        return data.map(category => {
+            const {id, slug, title, image} = category;
 
             return (
                 <li key={id} className='catalog_item'

@@ -9,15 +9,3 @@ export const GAevent = (categoryName, eventName, label = ' ', value = 10) => {
         nonInteraction: false
     });
 }
-
-export const GAtiming = (categoryName, variableName, valueNum) => {
-    ReactGA.timing({
-        category: categoryName,
-        variable: variableName,
-        value: valueNum
-    });
-};
-
-export const GAexception = (detail) => {
-    ReactGA.exception({ description: detail });
-};

@@ -1,17 +1,33 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './Size.css';
 import {useParams} from "react-router";
 import {GAevent} from "../../ga/events";
 import WebXR from "../WebXR/WebXR";
+import {useDispatch, useSelector} from "react-redux";
+import {getCatalog, getLoading} from "../../redux/selectors";
+import {hideLoader} from "../../redux/actions";
 
-const Size = React.memo(({data}) => {
-    const {category} = useParams();
+const Size = React.memo(() => {
+    const [selectProduct, setSelectProduct] = useState(null);
+    const dispatch = useDispatch();
+
+    const params = useParams();
     const length = useRef();
     const width = useRef();
     const height = useRef();
     const scale = useRef({});
-    const [selectProduct, setSelectProduct] = useState(null);
 
+    const loading = useSelector(getLoading);
+    const catalog = useSelector(getCatalog);
+    const category = catalog.find(item => item['slug'] === params.category);
+
+
+    useEffect(() => {
+        category && dispatch(hideLoader());
+    }, [category, dispatch]);
+
+
+    const handleSetProduct = (product) => setSelectProduct(product);
     const handleGAEventClickAcceptButton = () => {
         GAevent('SIZE', 'click accept button', `
         Длина ${length.current && length.current.value ? length.current.value : 1} 
@@ -19,7 +35,7 @@ const Size = React.memo(({data}) => {
         Высота ${height.current && height.current.value ? height.current.value : 1}
         `);
 
-        setSelectProduct(data[category]);
+        setSelectProduct(category);
     }
 
     const handleClickInput = (eo) => {
@@ -38,10 +54,8 @@ const Size = React.memo(({data}) => {
         }
     }
 
-    const handleSetProduct = (product) => setSelectProduct(product);
-
     const getInputs = () => {
-        return data[category].sides.map((side, index) => {
+        return category.sides.map((side, index) => {
             let ref;
 
             if (index === 0) {
@@ -69,8 +83,7 @@ const Size = React.memo(({data}) => {
     }
 
     const modelScale = () => {
-        const {grayModel} = data[category];
-        const [baseLength, baseWidth, baseHeight] = grayModel.size;
+        const [baseLength, baseWidth, baseHeight] = category['grayModel'].size;
 
         if (baseLength && baseWidth && baseHeight) {
             scale.current = {
@@ -91,15 +104,14 @@ const Size = React.memo(({data}) => {
 
     return (
         <>
-            {!selectProduct &&
+            {!selectProduct && !loading &&
             <div className='size_container'>
-
                 <div className='size_header'>
                     Введите размеры объекта
                 </div>
 
                 <div className='size_image_container'>
-                    <img className='size_image' src={data[category].figure} alt='size'/>
+                    <img className='size_image' src={category.figure} alt='size'/>
                 </div>
 
                 <div className='size_input_list'>
@@ -116,12 +128,8 @@ const Size = React.memo(({data}) => {
             }
 
             {selectProduct &&
-            <WebXR
-                product={data[category].grayModel}
-                onSetProduct={handleSetProduct}
-                scale={scale.current}
-                mode={'grayModel'}
-            />
+            <WebXR product={category['grayModel']} onSetProduct={handleSetProduct} scale={scale.current}
+                   mode={'grayModel'}/>
             }
         </>
     );
