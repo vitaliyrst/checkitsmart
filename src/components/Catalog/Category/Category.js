@@ -101,7 +101,7 @@ const Category = React.memo(() => {
 
                 <div className='category_header_container'>
                     <div className='category_header'>{category.title}</div>
-                    <Link to={'/cart'}>
+                    <Link className='category_header_link' to={'/cart'}>
                         <img src={'/assets/images/catalog/cart.svg'} alt='cart'/>
                     </Link>
                 </div>

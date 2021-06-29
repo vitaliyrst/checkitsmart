@@ -10,16 +10,24 @@
 }
 
 .category_header_container {
-    margin-top: 1.5rem;
+    margin-top: 1.3rem;
 
     display: flex;
     justify-content: space-between;
 }
 
 .category_header {
-    font-size: 1.5rem;
     font-weight: 700;
+    font-size: 1.5rem;
     line-height: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.category_header_link{
+    height: 30px;
 }
 
 .category_list {
