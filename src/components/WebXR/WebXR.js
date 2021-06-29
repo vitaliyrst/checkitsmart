@@ -12,7 +12,7 @@ import {ARButton} from "./ARButton";
 import {GAevent} from "../../ga/events";
 import ARHelper from "./AROverlay/ARHelper";
 
-const WebXR = React.memo(({product, onSetProduct, scale}) => {
+const WebXR = React.memo(({product, onSetProduct}) => {
     const canvas = useRef();
     const time = useRef(Date.now());
 
@@ -94,16 +94,12 @@ const WebXR = React.memo(({product, onSetProduct, scale}) => {
             </ARCanvas>
 
             {!planeDetected && sessionReady &&
-            <ARHelper
-                classes={'ar_helper_plane'}
-                data={['Перемещайте устройство,', 'для определения поверхности']}
-                img={'/assets/images/other/helper.svg'}
-            />
-            }
+            <ARHelper classes={'ar_helper_plane'}
+                data={['Перемещай устройство,', 'для определения поверхности']}
+                img={'/assets/images/other/helper.svg'}/>}
 
             {planeDetected && sessionReady && !isHit &&
-            <ARHelper data={['Кликни на круг,', 'чтобы поставить туда объект']}/>
-            }
+            <ARHelper data={['Кликни на круг,', 'чтобы поставить туда объект']}/>}
 
             {isHit  &&
             <AROverlay product={product} onHit={handleIsHit}/>}

@@ -3,7 +3,7 @@ import './AROverlay.css';
 import {GAevent} from "../../../ga/events";
 import {useHistory, useParams} from "react-router";
 
-const AROverlay = ({product: {id, title, price, color, size, mfrLink}, onHit}) => {
+const AROverlay = ({product: {id, title, price, color, size}, onHit}) => {
     const {category} = useParams();
     const history = useHistory();
     const newSize = size.split('X');
@@ -12,26 +12,33 @@ const AROverlay = ({product: {id, title, price, color, size, mfrLink}, onHit}) =
 
     const handleClickClose = async () => await document.getElementById('ARButton').click();
     const handleClickReset = () => onHit(false);
+    const handleClickCart = async () => {
+        await document.getElementById('ARButton').click();
+        history.push('/cart');
+    }
 
-    const handleClickBuy = async () => {
-        handleGAEventClickRedirect();
+    const handleAddToCart = async () => {
         await document.getElementById('ARButton').click();
         history.push(`/product/${category}/${id}`);
     }
 
-    const handleClickSize = async () => {
+    const handleGoToOrderForm = async () => {
         await document.getElementById('ARButton').click();
-        history.push(`/size/${category}`);
+        history.push(`/cart/form`);
     }
 
     return (
         <>
             <div className='ar_support_container'>
                 <div className='ar_info_close_container' onClick={handleClickClose}>
-                    <img className='ar_info_close' src='/assets/images/other/close.svg' alt='close'/>
+                    <img className='ar_info_close' src={'/assets/images/other/close.svg'} alt='close'/>
                 </div>
                 <div className='ar_info_reset_container' onClick={handleClickReset}>
-                    <img className='ar_info_reset' src='/assets/images/other/reset.svg' alt='reset'/>
+                    <img className='ar_info_reset' src={'/assets/images/other/reset.svg'} alt='reset'/>
+                </div>
+
+                <div className='ar_info_cart_container' onClick={handleClickCart}>
+                    <img className='ar_info_cart' src={'/assets/images/other/cart.svg'} alt='cart'/>
                 </div>
             </div>
 
@@ -59,11 +66,11 @@ const AROverlay = ({product: {id, title, price, color, size, mfrLink}, onHit}) =
                         </div>
                     </div>
 
-                    <button className='ar_info_button_buy' onClick={handleClickBuy}>Посмотреть карточку товара</button>
+                    <button className='ar_info_button_buy' onClick={handleAddToCart}>Положить в корзину</button>
                 </div>
 
                 <div className='ar_button_size_container'>
-                    <button className='ar_button_size' onClick={handleClickSize}>Подобрать по размерам</button>
+                    <button className='ar_button_size' onClick={handleGoToOrderForm}>Купить в 1 клик</button>
                 </div>
             </div>
         </>

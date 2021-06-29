@@ -44,6 +44,7 @@
 .ar_helper_plane_image {
     position: absolute;
     top: 13rem;
+    /*top: 0;*/
     left: 50%;
     transform: translate(-50%, 0);
     animation: 4s linear helper-plane-image;

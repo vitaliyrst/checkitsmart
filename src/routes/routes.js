@@ -3,6 +3,7 @@ import Video from "../components/Catalog/Video/Video";
 import Category from "../components/Catalog/Category/Category";
 import Product from "../components/Catalog/Category/Product/Product";
 import Cart from "../components/Cart/Cart";
+import Form from "../components/Cart/Form/Form";
 
 const routes = [
     {
@@ -12,7 +13,7 @@ const routes = [
         exact: true
     },
     {
-        path: '/video',
+        path: '/catalog/video',
         Component: Video,
         name: 'Video',
         exact: true
@@ -34,6 +35,12 @@ const routes = [
         path: '/cart',
         name: 'Cart',
         Component: Cart,
+        exact: true
+    },
+    {
+        path: '/cart/form',
+        name: 'Form',
+        Component: Form,
         exact: true
     }
 ];
