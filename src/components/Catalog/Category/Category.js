@@ -19,14 +19,14 @@ const Category = React.memo(() => {
     const category = catalog.find(item => item['slug'] === params.category);
 
     const handleGAEventClickStartAR = (title) => GAevent(`CATEGORY ${category.title}`, 'select model', title);
-    const handleGAEventClickSize = (title) => GAevent(`CATEGORY ${category.title}`, 'select by size', title);
-    const handleClickAppleAR = (eo, mfrLink) => {
+
+    const handleClickAppleAR = (eo, usdz) => {
         const button = eo.currentTarget.querySelector('#ar-link');
         button.click();
 
         appleARRef.current.addEventListener('message', (eo) => {
             if (eo.data === "_apple_ar_quicklook_button_tapped") {
-                window.open(mfrLink);
+                window.open(usdz);
             }
         });
     }
@@ -50,48 +50,31 @@ const Category = React.memo(() => {
     }
 
     const getIOSProducts = (product) => {
-        const {id, usdz, image, title, size, price, color, mfrLink} = product
+        const {id, usdz, image, title, price} = product
         return (
-            <li key={id} className='category_item' onClick={() => handleClickAppleAR(mfrLink)}>
+            <li key={id} className='category_item' onClick={(eo) => handleClickAppleAR(eo, usdz)}>
                 <div className='category_item_image_container'>
                     <a ref={appleARRef} className='category_item_apple_link' id="ar-link" href={usdz} rel='ar'>
                         <img className='category_item_image' src={image} alt={title}/>
-                        <img className='category_item_ar_image' src='/assets/images/other/ar-link.svg'
-                             alt='ar'/>
                     </a>
                 </div>
                 <div className='category_item_title'>{title}</div>
-                <div className='category_additional_info_container'>
-                    {getProductColor(color)}
-                    <div className='category_item_size'><span>Размеры, см: </span>{size}</div>
-                </div>
                 <div className='category_item_price'>{price} BYN</div>
             </li>
         );
     }
 
     const getAndroidProducts = (product) => {
-        const {id, title, image, price, size, color} = product;
+        const {id, title, image, price} = product;
         return (
             <li key={id} className='category_item' onClick={() => setSelectProduct(product)}>
                 <div className='category_item_image_container'>
                     <img className='category_item_image' src={image} alt={title}/>
-                    <img className='category_item_ar_image' src='/assets/images/other/ar-link.svg' alt='ar'/>
                 </div>
                 <div className='category_item_title'>{title}</div>
-                <div className='category_additional_info_container'>
-                    {getProductColor(color)}
-                    <div className='category_item_size'><span>Размеры, см: </span>{size}</div>
-                </div>
                 <div className='category_item_price'>{price} BYN</div>
             </li>
         );
-    }
-
-    const getProductColor = (color) => {
-        return category === 'carpets' ?
-            <div className='category_item_color'><span>Высота ворса, мм: </span>{color}</div> :
-            <div className='category_item_color'><span>Цвет: </span>{color}</div>
     }
 
     return (
@@ -100,23 +83,20 @@ const Category = React.memo(() => {
             <div className='category_container'>
 
                 <div className='category_header_container'>
-                    <div className='category_header'>{category.title}</div>
+                    <div className='category_header_wrapper'>
+                        <Link className='category_arrow_left_link' to={'/catalog'}>
+                            <img className='category_header_arrow_left' src={'/assets/images/other/arrow_left.svg'}
+                                 alt='arrow_left'/>
+                        </Link>
+                        <div className='category_header'>{category.title}</div>
+                    </div>
+
                     <Link className='category_header_link' to={'/cart'}>
                         <img src={'/assets/images/catalog/cart.svg'} alt='cart'/>
                     </Link>
                 </div>
 
                 <ul className='category_list'>{getCategoryProducts()}</ul>
-
-                {!os &&
-                <Link className='category_link_size_container' to={`/size/${category['slug']}`}
-                      onClick={() => handleGAEventClickSize(category.title)}>
-                    <button className='category_link_size' type='button'>
-                        Подобрать по размерам
-                    </button>
-                </Link>
-                }
-
             </div>
             }
 

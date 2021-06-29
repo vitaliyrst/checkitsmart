@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {GAevent} from "../../ga/events";
 import {useSelector} from "react-redux";
 
-const Catalog = () => {
+const Catalog = React.memo(() => {
     const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
     const handleGAEventSelectVideo = () => GAevent('CATALOG', 'select video', 'video');
 
@@ -57,6 +57,6 @@ const Catalog = () => {
             </ul>
         </div>
     );
-}
+});
 
 export default Catalog;

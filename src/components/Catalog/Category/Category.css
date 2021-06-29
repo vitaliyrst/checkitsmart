@@ -4,16 +4,28 @@
     padding-right: 1rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 7rem;
 
     position: relative;
 }
 
 .category_header_container {
-    margin-top: 1.3rem;
+    margin-top: 1.5rem;
 
     display: flex;
     justify-content: space-between;
+}
+
+.category_header_wrapper{
+    display: flex;
+}
+
+.category_arrow_left_link {
+    margin-left: 0;
+    height: 30px;
+}
+
+.category_header_link {
+    height: 30px;
 }
 
 .category_header {
@@ -26,50 +38,20 @@
     justify-content: center;
 }
 
-.category_header_link{
-    height: 30px;
-}
-
 .category_list {
-    margin-top: 1.5rem;
+    margin-top: 1.65375rem;
     padding: 0;
 
     list-style: none;
 }
 
-.category_link_size {
-    width: 92vw;
-    max-width: 26rem;
-    height: 3rem;
-
-    text-decoration: none;
-    text-align: center;
-    background-color: #E7E3E9;
-    color: #524B55;
-
-    font-family: Inter, sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.5rem;
-
-    outline: none;
-    border: none;
-    border-radius: 0.5rem;
-
-    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.7);
-
-    position: fixed;
-    bottom: 2rem;
-}
-
-
 .category_item {
     box-sizing: border-box;
 
-    margin-bottom: 2.25rem;
-    padding-top: 0.75rem;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    margin-bottom: 1.8125rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 
     border-radius: 1rem;
     background-color: #4B4B4B;
@@ -81,48 +63,21 @@
 .category_item_image_container {
     box-sizing: border-box;
 
-    height: 10.45rem;
+    height: 10.5rem;
 
     text-align: center;
     background-color: #FFFFFF;
     border-radius: 0.5rem;
-
-    position: relative;
 }
 
 .category_item_image {
     height: 100%;
 }
 
-.category_item_ar_image {
-    position: absolute;
-    top: -1rem;
-    right: 0;
-}
-
 .category_item_title {
-    margin-top: 1.125rem;
+    margin-top: 0.625rem;
 
-    font-family: Roboto, sans-serif;
-    font-size: 1.125rem;
-    font-weight: 700;
-}
-
-
-.category_additional_info_container {
-    margin-top: 0.5rem;
-
-    font-family: Roboto, sans-serif;
-    font-weight: 400;
-    font-size: 0.75rem;
-    line-height: 1.5rem;
-}
-
-.category_item_size > span,
-.category_item_color > span {
-    font-family: Roboto, sans-serif;
-    font-weight: 700;
-    font-size: 0.75rem;
+    font-size: 1rem;
     line-height: 1.5rem;
 }
 
@@ -131,10 +86,9 @@
     text-align: right;
     margin-bottom: 1rem;
 
-    font-family: Roboto, sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
-    line-height: 1.75rem;
+    line-height: 1.5rem;
 }
 
 .category_item_apple_link {
