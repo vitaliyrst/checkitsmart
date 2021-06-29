@@ -34,7 +34,7 @@ const Catalog = () => {
 
             <div className='catalog_header_container'>
                 <div className='catalog_header'>Каталог</div>
-                <Link to={'/cart'}>
+                <Link className='catalog_header_link' to={'/cart'}>
                     <img src={'./assets/images/catalog/cart.svg'} alt='cart'/>
                 </Link>
             </div>

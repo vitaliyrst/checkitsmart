@@ -98,7 +98,14 @@ const Category = React.memo(() => {
         <>
             {!selectProduct && !loading &&
             <div className='category_container'>
-                <div className='category_header'>{category.title}</div>
+
+                <div className='category_header_container'>
+                    <div className='category_header'>{category.title}</div>
+                    <Link to={'/cart'}>
+                        <img src={'/assets/images/catalog/cart.svg'} alt='cart'/>
+                    </Link>
+                </div>
+
                 <ul className='category_list'>{getCategoryProducts()}</ul>
 
                 {!os &&

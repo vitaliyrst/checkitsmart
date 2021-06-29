@@ -9,9 +9,14 @@
     position: relative;
 }
 
-.category_header {
+.category_header_container {
     margin-top: 1.5rem;
 
+    display: flex;
+    justify-content: space-between;
+}
+
+.category_header {
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.5rem;
