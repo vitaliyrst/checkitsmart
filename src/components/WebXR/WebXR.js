@@ -9,11 +9,10 @@ import AROverlay from "./AROverlay/AROverlay";
 
 import ARLoader from "./ARLoader/ARLoader";
 import {ARButton} from "./ARButton";
-import AROverlayGray from "./AROverlay/AROverlayGray";
 import {GAevent} from "../../ga/events";
 import ARHelper from "./AROverlay/ARHelper";
 
-const WebXR = React.memo(({product, onSetProduct, scale, mode}) => {
+const WebXR = React.memo(({product, onSetProduct, scale}) => {
     const canvas = useRef();
     const time = useRef(Date.now());
 
@@ -88,7 +87,7 @@ const WebXR = React.memo(({product, onSetProduct, scale, mode}) => {
                                detected={planeDetected}/>}
 
                     {isHit &&
-                    <ARModel product={product} matrix={matrix} scale={scale} mode={mode}/>}
+                    <ARModel product={product} matrix={matrix}/>}
                 </Suspense>
 
                 <DefaultXRControllers/>
@@ -106,11 +105,8 @@ const WebXR = React.memo(({product, onSetProduct, scale, mode}) => {
             <ARHelper data={['Кликни на круг,', 'чтобы поставить туда объект']}/>
             }
 
-            {isHit  && (mode === 'model') &&
+            {isHit  &&
             <AROverlay product={product} onHit={handleIsHit}/>}
-
-            {isHit  && (mode === 'grayModel') &&
-            <AROverlayGray product={product} onHit={handleIsHit} scale={scale}/>}
         </div>
     )
 });

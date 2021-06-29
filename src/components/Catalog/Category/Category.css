@@ -49,15 +49,14 @@
     box-sizing: border-box;
 
     margin-bottom: 1.8125rem;
-    padding-top: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 1rem;
 
     border-radius: 1rem;
     background-color: #4B4B4B;
 
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .category_item_image_container {
@@ -75,20 +74,23 @@
 }
 
 .category_item_title {
+    width: 53%;
     margin-top: 0.625rem;
 
     font-size: 1rem;
-    line-height: 1.5rem;
+    line-height: 1.6rem;
 }
 
 .category_item_price {
     margin-top: 0.625rem;
     text-align: right;
-    margin-bottom: 1rem;
 
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.5rem;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
 }
 
 .category_item_apple_link {

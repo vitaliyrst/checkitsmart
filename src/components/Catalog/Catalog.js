@@ -35,7 +35,7 @@ const Catalog = React.memo(() => {
             <div className='catalog_header_container'>
                 <div className='catalog_header'>Каталог</div>
                 <Link className='catalog_header_link' to={'/cart'}>
-                    <img src={'./assets/images/catalog/cart.svg'} alt='cart'/>
+                    <img src={'./assets/images/other/cart.svg'} alt='cart'/>
                 </Link>
             </div>
 
@@ -43,7 +43,7 @@ const Catalog = React.memo(() => {
                 {getCatalogList()}
 
                 <li className='catalog_item_video'
-                    style={{backgroundImage: (`url("/assets/images/catalog/how_its_work.png")`)}}
+                    style={{backgroundImage: (`url("/assets/images/catalog/how_its_work1.png")`)}}
                     onClick={() => handleGAEventSelectVideo}>
 
                     <Link className='item_link_video' to='/video'>

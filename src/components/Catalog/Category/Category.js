@@ -92,7 +92,7 @@ const Category = React.memo(() => {
                     </div>
 
                     <Link className='category_header_link' to={'/cart'}>
-                        <img src={'/assets/images/catalog/cart.svg'} alt='cart'/>
+                        <img src={'/assets/images/other/cart.svg'} alt='cart'/>
                     </Link>
                 </div>
 
@@ -101,7 +101,7 @@ const Category = React.memo(() => {
             }
 
             {selectProduct &&
-            <WebXR product={selectProduct} onSetProduct={handleSetProduct} scale={{x: 1, y: 1, z: 1}} mode={'model'}/>
+            <WebXR product={selectProduct} onSetProduct={handleSetProduct}/>
             }
         </>
     );

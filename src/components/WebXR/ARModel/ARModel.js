@@ -3,9 +3,14 @@ import {useLoader, useThree} from "@react-three/fiber";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {DragControls} from "../ARControls/ARDragControls";
 
-const ARModel = ({product: {arGLTF}, matrix, scale, mode}) => {
+const ARModel = ({product: {arGLTF}, matrix}) => {
     const {camera, gl: {domElement}} = useThree();
     const gltf = useLoader(GLTFLoader, arGLTF);
+
+    const overlay = useRef({
+        support: document.querySelector('.ar_support_container'),
+        info: document.querySelector('.ar_info_container')
+    });
 
     const dragControls = useRef({});
     const axisYPosition = useRef(0);
@@ -13,15 +18,16 @@ const ARModel = ({product: {arGLTF}, matrix, scale, mode}) => {
 
     const handlePointerDown = (eo) => {
         const target = eo.target;
-        const overlayNormalModelDisplay = overlay.current.support.style;
-        const overlayGrayModelDisplay = overlay.current.info.style;
 
-        if (overlayNormalModelDisplay.display === 'none' && overlayGrayModelDisplay.display === 'none') {
-            overlayNormalModelDisplay.display = 'block';
-            overlayGrayModelDisplay.display = 'block';
+        const overlayInfo = overlay.current.support.style;
+        const overlaySupport = overlay.current.info.style
+
+        if (overlayInfo.display === 'none' && overlaySupport.display === 'none') {
+            overlayInfo.display = 'block';
+            overlaySupport.display = 'block';
         } else if (target === document.querySelector('canvas')) {
-            overlayNormalModelDisplay.display = 'none';
-            overlayGrayModelDisplay.display = 'none';
+            overlayInfo.display = 'none';
+            overlaySupport.display = 'none';
         }
     }
 
@@ -40,8 +46,7 @@ const ARModel = ({product: {arGLTF}, matrix, scale, mode}) => {
 
 
     useEffect(() => {
-        if (scale && matrix) {
-            gltf.scene.scale.set(scale.x, scale.y, scale.z);
+        if (matrix) {
             gltf.scene.position.setFromMatrixPosition(matrix);
             axisYPosition.current = gltf.scene.position.y;
         }
@@ -80,14 +85,9 @@ const ARModel = ({product: {arGLTF}, matrix, scale, mode}) => {
             domElement.removeEventListener('touchstart', handleTouchStart, false);
             domElement.removeEventListener('touchend', handleTouchEnd, false);
             domElement.removeEventListener('touchmove', handleTouchMove, false);
-
         }
-    }, [camera, domElement, gltf.scene, matrix, scale]);
+    }, [camera, domElement, gltf.scene, matrix]);
 
-    const overlay = useRef({
-        support: document.querySelector((mode === 'model') ? '.ar_support_container' : '.ar_gray_support_container'),
-        info: document.querySelector((mode === 'model') ? '.ar_info_container' : '.ar_gray_info_container')
-    });
 
     return <primitive object={gltf.scene}/>;
 }

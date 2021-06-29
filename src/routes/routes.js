@@ -1,7 +1,6 @@
 import Catalog from "../components/Catalog/Catalog";
 import Video from "../components/Catalog/Video/Video";
 import Category from "../components/Catalog/Category/Category";
-import Size from "../components/Size/Size";
 import Product from "../components/Catalog/Category/Product/Product";
 import Cart from "../components/Cart/Cart";
 
@@ -31,13 +30,6 @@ const routes = [
         exact: true
 
     },
-    {
-        path: '/size/:category',
-        Component: Size,
-        name: 'Size',
-        exact: true
-    },
-
     {
         path: '/cart',
         name: 'Cart',

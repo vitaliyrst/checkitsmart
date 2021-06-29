@@ -97,7 +97,6 @@
 
     text-decoration: none;
     border-radius: 1rem;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 32.77%, rgba(0, 0, 0, 0.65) 64.54%, rgba(0, 0, 0, 0.9) 100%);
 
     display: flex;
     flex-direction: column;
