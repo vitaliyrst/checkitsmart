@@ -6,24 +6,34 @@
     margin-right: auto;
 }
 
-.catalog_header {
+.catalog_header_container {
     margin-top: 1.5rem;
 
+    display: flex;
+    justify-content: space-between;
+}
+
+.catalog_header {
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.5rem;
 }
 
 .catalog_list {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     padding: 0;
 
     list-style: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .catalog_item {
-    height: 5.375rem;
-    margin-top: 1rem;
+    flex-basis: 48%;
+    height: 12.5rem;
+    margin-bottom: 1rem;
 
     border-radius: 0.5rem;
     text-decoration: none;
@@ -33,60 +43,61 @@
     background-repeat: no-repeat;
 
     position: relative;
-    display: flex;
 }
 
 .item_link_category {
     width: 100%;
     height: 100%;
+
     text-decoration: none;
 
     display: flex;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .item_link_category_title {
-    margin-left: 1.25rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
 
-    font-size: 1.125rem;
+    font-size: 1.25rem;
+    line-height: 2rem;
     color: #FFFFFF;
-
-    position: absolute;
 }
 
-.item_link_category_size {
-    position: absolute;
-    right: 0
-}
-
-.item_link_category_size img {
-    border-top-right-radius: 0.5rem;
-}
-
-
-.catalog_item_video{
-    height: 5.375rem;
-    margin-top: 1rem;
+.catalog_item_video {
+    flex-basis: 48%;
+    height: 12.5rem;
+    margin-bottom: 1rem;
 
     border-radius: 0.5rem;
-    background-color: #4B4B4B;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
+
+    position: relative;
 }
 
-.item_link_video{
+.item_link_video {
+    width: 100%;
     height: 100%;
-    margin-left: 1.25rem;
 
     text-decoration: none;
-    color: #FFFFFF;
-
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 32.77%, rgba(0, 0, 0, 0.65) 64.54%, rgba(0, 0, 0, 0.9) 100%);
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
+
+    position: absolute;
+}
+
+.item_link_video > div {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+
+    font-size: 1.25rem;
+    line-height: 2rem;
+
+    color: #FFFFFF;
 }

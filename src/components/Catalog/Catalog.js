@@ -32,17 +32,26 @@ const Catalog = () => {
     return (
         <div className='catalog_container'>
 
-            <div className='catalog_header'>
-                Каталог
+            <div className='catalog_header_container'>
+                <div className='catalog_header'>Каталог</div>
+                <Link to={'/cart'}>
+                    <img src={'./assets/images/catalog/cart.svg'} alt='cart'/>
+                </Link>
             </div>
 
             <ul className='catalog_list'>
                 {getCatalogList()}
 
-                <li className='catalog_item_video' onClick={() => handleGAEventSelectVideo}>
+                <li className='catalog_item_video'
+                    style={{backgroundImage: (`url("/assets/images/catalog/how_its_work.png")`)}}
+                    onClick={() => handleGAEventSelectVideo}>
+
                     <Link className='item_link_video' to='/video'>
-                        Как это работает?
+                        <div>
+                            Как это работает?
+                        </div>
                     </Link>
+
                 </li>
 
             </ul>
