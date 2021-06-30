@@ -1,8 +1,9 @@
-import {HIDE_LOADER, SET_OS, SHOW_LOADER} from "../types";
+import {HIDE_LOADER, IS_CART, SET_OS, SHOW_LOADER} from "../types";
 
 const initialState = {
     os: '',
-    loading: true
+    loading: true,
+    isCart: false
 }
 
 export const appReducer = (state = initialState, action) => {
@@ -13,6 +14,8 @@ export const appReducer = (state = initialState, action) => {
             return {...state, loading: false}
         case SHOW_LOADER:
             return {...state, loading: true}
+        case IS_CART :
+            return {...state, isCart: action.payload}
         default :
             return state;
     }

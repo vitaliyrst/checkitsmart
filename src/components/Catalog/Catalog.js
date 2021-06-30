@@ -3,13 +3,15 @@ import './Catalog.css';
 import {Link} from "react-router-dom";
 import {GAevent} from "../../ga/events";
 import {useSelector} from "react-redux";
+import {getCartState} from "../../redux/selectors";
 
 const Catalog = React.memo(() => {
     const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
     const handleGAEventSelectVideo = () => GAevent('CATALOG', 'select video', 'video');
 
     const data = useSelector(({catalog: {catalog}}) => catalog);
-
+    const isCart = useSelector(getCartState);
+    console.log(isCart)
     const getCatalogList = () => {
         return data.map(category => {
             const {id, slug, title, image} = category;
@@ -35,7 +37,8 @@ const Catalog = React.memo(() => {
             <div className='catalog_header_container'>
                 <div className='catalog_header'>Каталог</div>
                 <Link className='catalog_header_link' to={'/cart'}>
-                    <img src={'./assets/images/other/cart.svg'} alt='cart'/>
+                    <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
+                         alt='cart'/>
                 </Link>
             </div>
 

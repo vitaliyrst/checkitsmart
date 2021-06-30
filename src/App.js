@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom
 import routes from "./routes/routes";
 import {initGA} from "./ga";
 import {useDispatch} from "react-redux";
-import {fetchData, setOs} from "./redux/actions";
+import {fetchData, setIsCart, setOs} from "./redux/actions";
 
 function App() {
     const dispatch = useDispatch();
@@ -13,12 +13,22 @@ function App() {
         initGA();
         dispatch(fetchData());
         dispatch(setOs(/iPhone|iPad|iPod/i.test(window.navigator.userAgent)));
+
+        if (localStorage.getItem('cart')) {
+            if (JSON.parse(localStorage.getItem('cart')).length) {
+                console.log(111);
+                dispatch(setIsCart(true));
+            }
+        } else {
+            localStorage.setItem('cart', JSON.stringify([]));
+            dispatch(setIsCart(false));
+        }
+
     }, [dispatch]);
 
     return (
         <Router>
             <Switch>
-
                 {routes.map(({path, Component, name, exact}) => (
                     <Route key={name} path={path} exact={exact}>
                         <Component/>

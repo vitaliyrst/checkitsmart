@@ -5,7 +5,7 @@ import {GAevent} from "../../../ga/events";
 import WebXR from "../../WebXR/WebXR";
 import {useDispatch, useSelector} from "react-redux";
 import {hideLoader} from "../../../redux/actions";
-import {getCatalog, getLoading, getOs} from "../../../redux/selectors";
+import {getCartState, getCatalog, getLoading, getOs} from "../../../redux/selectors";
 
 const Category = React.memo(() => {
     const [selectProduct, setSelectProduct] = useState(null);
@@ -16,6 +16,7 @@ const Category = React.memo(() => {
     const os = useSelector(getOs);
     const loading = useSelector(getLoading);
     const catalog = useSelector(getCatalog);
+    const isCart = useSelector(getCartState);
     const category = catalog.find(item => item['slug'] === params.category);
 
     const handleGAEventClickStartAR = (title) => GAevent(`CATEGORY ${category.title}`, 'select model', title);
@@ -92,17 +93,16 @@ const Category = React.memo(() => {
                     </div>
 
                     <Link className='category_header_link' to={'/cart'}>
-                        <img src={'/assets/images/other/cart.svg'} alt='cart'/>
+                        <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
+                             alt='cart'/>
                     </Link>
                 </div>
 
                 <ul className='category_list'>{getCategoryProducts()}</ul>
-            </div>
-            }
+            </div>}
 
             {selectProduct &&
-            <WebXR product={selectProduct} onSetProduct={handleSetProduct}/>
-            }
+            <WebXR product={selectProduct} onSetProduct={handleSetProduct}/>}
         </>
     );
 });

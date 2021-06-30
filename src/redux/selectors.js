@@ -7,6 +7,10 @@ export const getLoading = (state) => {
 }
 
 export const getCatalog = (state) => {
-        return state.catalog.catalog;
+    return state.catalog.catalog;
 
+}
+
+export const getCartState = (state) => {
+    return state.app.isCart;
 }

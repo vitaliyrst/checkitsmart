@@ -21,17 +21,18 @@
 
 .category_arrow_left_link {
     margin-left: 0;
-    height: 30px;
+    height: 32px;
 }
 
 .category_header_link {
-    height: 30px;
+    height: 32px;
 }
 
 .category_header {
     font-weight: 700;
     font-size: 1.5rem;
     line-height: 1.5rem;
+    margin-bottom: 4px;
 
     display: flex;
     flex-direction: column;
@@ -56,7 +57,6 @@
 
     display: flex;
     flex-direction: column;
-    position: relative;
 }
 
 .category_item_image_container {
@@ -74,7 +74,6 @@
 }
 
 .category_item_title {
-    width: 53%;
     margin-top: 0.625rem;
 
     font-size: 1rem;
@@ -88,9 +87,6 @@
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.5rem;
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
 }
 
 .category_item_apple_link {

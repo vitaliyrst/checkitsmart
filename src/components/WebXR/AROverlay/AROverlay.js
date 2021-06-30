@@ -1,14 +1,16 @@
 import React from 'react';
 import './AROverlay.css';
-import {GAevent} from "../../../ga/events";
 import {useHistory, useParams} from "react-router";
+import {useDispatch, useSelector} from "react-redux";
+import {getCartState} from "../../../redux/selectors";
+import {setIsCart} from "../../../redux/actions";
 
-const AROverlay = ({product: {id, title, price, color, size}, onHit}) => {
+const AROverlay = ({product, onHit}) => {
     const {category} = useParams();
     const history = useHistory();
-    const newSize = size.split('X');
-
-    const handleGAEventClickRedirect = () => GAevent('AR SESSION', 'redirect to store', title);
+    const isCart = useSelector(getCartState);
+    const newSize = product.size.split('X');
+    const dispatch = useDispatch();
 
     const handleClickClose = async () => await document.getElementById('ARButton').click();
     const handleClickReset = () => onHit(false);
@@ -17,9 +19,20 @@ const AROverlay = ({product: {id, title, price, color, size}, onHit}) => {
         history.push('/cart');
     }
 
-    const handleAddToCart = async () => {
-        await document.getElementById('ARButton').click();
-        history.push(`/product/${category}/${id}`);
+    const handleAddToCart = () => {
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        const temp = [];
+
+        if (cart) {
+            temp.push(...cart);
+            product.quantity = 1;
+            !temp.some(item => item.title === product.title) && temp.push(product);
+            localStorage.setItem('cart', JSON.stringify(temp));
+        } else {
+            product.quantity = 1;
+            localStorage.setItem('cart', JSON.stringify([product]));
+        }
+        dispatch(setIsCart(true));
     }
 
     const handleGoToOrderForm = async () => {
@@ -38,7 +51,10 @@ const AROverlay = ({product: {id, title, price, color, size}, onHit}) => {
                 </div>
 
                 <div className='ar_info_cart_container' onClick={handleClickCart}>
-                    <img className='ar_info_cart' src={'/assets/images/other/cart.svg'} alt='cart'/>
+                    <img className='ar_info_cart'
+                         src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
+                         alt='cart'
+                    />
                 </div>
             </div>
 
@@ -46,10 +62,10 @@ const AROverlay = ({product: {id, title, price, color, size}, onHit}) => {
                 <div className='ar_info'>
                     <div className='ar_info_main'>
                         <div className='ar_info_main_title'>
-                            {title}
+                            {product.title}
                         </div>
                         <div className='ar_info_main_price'>
-                            {price} BYN
+                            {product.price} BYN
                         </div>
                     </div>
 
@@ -58,7 +74,7 @@ const AROverlay = ({product: {id, title, price, color, size}, onHit}) => {
                             <div>{category === 'carpets' ?
                                 <span>Высота ворса, мм: </span> :
                                 <span>Цвет: </span>}
-                                {color}
+                                {product.color}
                             </div>
                             <div><span>Длина, см: </span>{newSize[0]}</div>
                             <div><span>Ширина, см: </span>{newSize[1]}</div>
