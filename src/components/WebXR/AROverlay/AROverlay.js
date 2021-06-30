@@ -19,6 +19,11 @@ const AROverlay = ({product, onHit}) => {
         history.push('/cart');
     }
 
+    const handleRedirectToCart = async () => {
+        await document.getElementById('ARButton').click();
+        history.push(`/cart`);
+    }
+
     const handleAddToCart = () => {
         const cart = JSON.parse(localStorage.getItem('cart'));
         const temp = [];
@@ -82,7 +87,10 @@ const AROverlay = ({product, onHit}) => {
                         </div>
                     </div>
 
-                    <button className='ar_info_button_buy' onClick={handleAddToCart}>Положить в корзину</button>
+                    {isCart ?
+                        <div className='ar_info_is_cart' onClick={handleRedirectToCart}>Уже в корзине</div> :
+                        <button className='ar_info_button_buy' onClick={handleAddToCart}>Положить в корзину</button>}
+
                 </div>
 
                 <div className='ar_button_size_container'>
