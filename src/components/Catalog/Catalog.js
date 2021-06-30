@@ -11,7 +11,7 @@ const Catalog = React.memo(() => {
 
     const data = useSelector(({catalog: {catalog}}) => catalog);
     const isCart = useSelector(getCartState);
-    console.log(isCart)
+
     const getCatalogList = () => {
         return data.map(category => {
             const {id, slug, title, image} = category;

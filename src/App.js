@@ -16,7 +16,6 @@ function App() {
 
         if (localStorage.getItem('cart')) {
             if (JSON.parse(localStorage.getItem('cart')).length) {
-                console.log(111);
                 dispatch(setIsCart(true));
             }
         } else {

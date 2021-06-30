@@ -21,7 +21,6 @@ export const showLoader = () => {
 }
 
 export const setIsCart = (bool) => {
-    console.log(bool)
     return {
         type: IS_CART,
         payload: bool
