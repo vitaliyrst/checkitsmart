@@ -49,7 +49,7 @@ const Catalog = React.memo(() => {
                     style={{backgroundImage: (`url("/assets/images/catalog/how_its_work1.png")`)}}
                     onClick={() => handleGAEventSelectVideo}>
 
-                    <Link className='item_link_video' to='/video'>
+                    <Link className='item_link_video' to='/catalog/video'>
                         <div>
                             Как это работает?
                         </div>
