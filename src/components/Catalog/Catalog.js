@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Catalog.css';
 import {Link} from "react-router-dom";
 import {GAevent} from "../../ga/events";

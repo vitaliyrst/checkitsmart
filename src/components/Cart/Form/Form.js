@@ -3,8 +3,11 @@ import './Form.css';
 import {Link} from "react-router-dom";
 import InputMask from 'react-input-mask';
 import emailjs from "emailjs-com";
+import {useDispatch} from "react-redux";
+import {setIsCart} from "../../../redux/actions";
 
 const Form = () => {
+    const dispatch = useDispatch();
     const products = JSON.parse(localStorage.getItem('cart'));
     const [orderDone, setOrderDone] = useState(false);
     const [inputValues, setInputValues] = useState({
@@ -181,6 +184,7 @@ const Form = () => {
 
             setOrderDone(true);
             localStorage.removeItem('cart');
+            dispatch(setIsCart(false));
         } else {
             setInputValues({...inputValues, nameDirty: true, phoneDirty: true, emailDirty: true});
         }
