@@ -131,6 +131,14 @@
     white-space: nowrap;
 }
 
+.ar_info_main_noprice{
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 160%;
+
+    white-space: nowrap;
+}
+
 .ar_info_additional {
     margin-top: 1rem;
 }

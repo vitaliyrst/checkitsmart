@@ -83,9 +83,11 @@ const AROverlay = ({product, onHit}) => {
                         <div className='ar_info_main_title'>
                             {product.title}
                         </div>
-                        <div className='ar_info_main_price'>
-                            {product.price} BYN
-                        </div>
+                        {typeof product.price === 'number' ?
+                            <div className='ar_info_main_price'>{product.price} BYN</div> :
+                            <div className='ar_info_main_noprice'>{product.price}</div>
+                        }
+
                     </div>
 
                     <div className='ar_info_additional'>

@@ -73,7 +73,10 @@ const Category = React.memo(() => {
                     <img className='category_item_image' src={image} alt={title}/>
                 </div>
                 <div className='category_item_title'>{title}</div>
-                <div className='category_item_price'>{price} BYN</div>
+                {typeof price === 'number' ?
+                    <div className='category_item_price'>{price} BYN</div> :
+                    <div className='category_item_noprice'>{price}</div>
+                }
             </li>
         );
     }
