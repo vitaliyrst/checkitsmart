@@ -261,5 +261,25 @@ input[type='number'] {
     transform: translateY(-50%);
 }
 
+.cart_form_after_order_message{
+    margin-top: 12.5rem;
+}
+
+.cart_form_after_order_title{
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    color: #FFFFFF;
+}
+
+.cart_form_after_order_text{
+    margin-top: 1.5rem;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 160%;
+    color: #FFFFFF;
+}
 
 

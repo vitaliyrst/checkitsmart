@@ -1,45 +1,39 @@
 import React, {useState} from "react";
 import './Form.css';
 import {Link} from "react-router-dom";
+import InputMask from 'react-input-mask';
 import emailjs from "emailjs-com";
 
 const Form = () => {
     const products = JSON.parse(localStorage.getItem('cart'));
+    const [orderDone, setOrderDone] = useState(false);
     const [inputValues, setInputValues] = useState({
-        name: '', phone: '',
-        nameDirty: false, phoneDirty: false,
+        name: '',
+        phone: '',
+        email: '',
+        nameDirty: false,
+        phoneDirty: false,
+        emailDirty: false,
         formErrors: {
-            name: 'Введите имя', phone: 'Введите телефон'
+            name: 'Введите имя', phone: 'Введите телефон', email: 'Введите email'
         },
         nameValid: false,
         phoneValid: false,
+        emailValid: false,
         formValid: false
     });
 
-    /* emailjs.send(
-                   'service_q5q2fnl',
-                   'template_dpwum5j',
-                   {
-                       'to_email': 'alexkovaluoff@gmail.com',
-                       'to_name': 'Александр',
-                       'message': `${products[0].title} - ${products[0].price} BYN`,
-                   },
-                   'user_6F5Ox5sigEyetq7qxDLRN')
-                   .then((response) => {
-                       console.log('SUCCESS!', response.status, response.text);
-                   }, (err) => {
-                       console.log('FAILED...', err);
-                   });*/
-
     const handleUserInput = (eo) => {
-        const name = eo.target.name;
-        const value = eo.target.value;
+        let name = eo.target.name;
+        let value = eo.target.value;
 
         let nameDirty = inputValues.nameDirty;
         let phoneDirty = inputValues.phoneDirty;
+        let emailDirty = inputValues.emailDirty;
 
         let nameValid = inputValues.nameValid;
         let phoneValid = inputValues.phoneValid;
+        let emailValid = inputValues.emailDirty;
 
         let formErrors = inputValues.formErrors;
         let formValid = inputValues.formValid;
@@ -51,9 +45,9 @@ const Form = () => {
                 if (value.trim().length === 0) {
                     nameValid = false;
                     formErrors.name = 'Введите имя'
-                } else if (value.trim().length  <= 4) {
+                } else if (!(/^[a-zA-ZА-Яа-яёЁ ]+$/i).test(value)) {
                     nameValid = false;
-                    formErrors.name = 'Слишком короткое имя';
+                    formErrors.name = 'Введите имя корректно';
                 } else {
                     nameValid = true;
                     formErrors.name = '';
@@ -65,19 +59,37 @@ const Form = () => {
                 if (value.trim().length === 0) {
                     phoneValid = false;
                     formErrors.phone = 'Введите телефон'
-                } else if (value.trim().length  <= 4) {
+                } else if (!(/^\+375 \((25|29|33|44)\) [0-9]{3}-[0-9]{2}-[0-9]{2}$/i).test(value)) {
                     phoneValid = false;
-                    formErrors.phone = 'Номер должен состоять из семи цифр';
+                    formErrors.phone = 'Введите телефон корректно';
                 } else {
                     phoneValid = true;
                     formErrors.phone = '';
+                }
+                break;
+            case 'email':
+                emailDirty = false;
+
+                if (value.trim().length === 0) {
+                    emailValid = false;
+                    formErrors.email = 'Введите email'
+                } else if (!(/[a-zAz].+@.+\..+/i).test(value)) {
+                    emailValid = false;
+                    formErrors.email = 'Введите email корректно';
+                } else {
+                    emailValid = true;
+                    formErrors.email = '';
                 }
                 break;
             default:
                 break;
         }
 
-        if (nameValid && phoneValid) {
+        if (name === 'phone' && value === '+375 (__) ___-__-__') {
+            value = '';
+        }
+
+        if (nameValid && phoneValid && emailValid) {
             formValid = true;
         }
 
@@ -86,62 +98,97 @@ const Form = () => {
             [name]: value,
             nameValid,
             phoneValid,
+            emailValid,
             formErrors,
             formValid,
             nameDirty,
-            phoneDirty
+            phoneDirty,
+            emailDirty
         });
     }
 
     const handleBlurInput = (eo) => {
         const name = eo.target.name;
+        const value = eo.target.value;
 
         let nameDirty = inputValues.nameDirty;
         let phoneDirty = inputValues.phoneDirty;
+        let emailDirty = inputValues.emailDirty;
 
-        switch (name) {
-            case 'name' :
-                nameDirty = true;
-                break;
-            case 'phone' :
-                phoneDirty = true;
-                break;
-            default:
-                break;
+        if (value.length > 0) {
+            switch (name) {
+                case 'name' :
+                    nameDirty = true;
+                    break;
+                case 'phone' :
+                    phoneDirty = true;
+                    break;
+                case 'email' :
+                    emailDirty = true;
+                    break;
+                default:
+                    break;
+            }
         }
 
         setInputValues({
             ...inputValues,
             nameDirty,
-            phoneDirty
+            phoneDirty,
+            emailDirty
         });
     }
 
     const handleSubmitForm = (eo) => {
         eo.preventDefault();
 
+        const totalPrice = products
+            .reduce((acc, {price, quantity}) => (acc + (Number(price) * quantity)), 0).toFixed(2);
+
+        const message = `
+            <table style="border-collapse:collapse;width:100%;height:20px;border-color:#ffffff" border="0">
+                <tbody>${products.map(product => (
+            `<tr style="height:10px">
+                        <td style="width:33.0739%;height:10px;text-align:left">
+                            <span style="font-size:14pt">${product.title}</span>
+                        </td>
+                        <td style="width:33.0739%;height:10px;text-align:center">
+                            <span style="font-size:14pt">${product.quantity} шт.</span>
+                        </td>
+                        <td style="width:33.0739%;height:10px;text-align:right">
+                            <span style="font-size:14pt">${(product.price * product.quantity).toFixed(2)} BYN</span>
+                        </td>
+                    </tr>`))} 
+                </tbody>
+            </table>`;
+
         if (inputValues.formValid) {
-            /*emailjs.send(
+            emailjs.send(
                 'service_q5q2fnl',
                 'template_dpwum5j',
                 {
-                    'to_email': 'alexkovaluoff@gmail.com',
-                    'to_name': 'Александр',
-                    'message': `${products[0].title} - ${products[0].price} BYN`,
+                    'to_email': inputValues.email,
+                    'to_name': inputValues.name,
+                    'message': message,
+                    'total': totalPrice
                 },
                 'user_6F5Ox5sigEyetq7qxDLRN')
                 .then((response) => {
                     console.log('SUCCESS!', response.status, response.text);
                 }, (err) => {
                     console.log('FAILED...', err);
-                });*/
+                });
+
+            setOrderDone(true);
+            localStorage.removeItem('cart');
         } else {
-            setInputValues({...inputValues, nameDirty: true, phoneDirty: true});
+            setInputValues({...inputValues, nameDirty: true, phoneDirty: true, emailDirty: true});
         }
     }
 
     return (
         <div className='cart_form_container'>
+            {!orderDone &&
             <div className='cart_form_header_container'>
                 <div className='cart_form_header_wrapper'>
                     <Link className='cart_form_arrow_left_link_back' to={'/catalog'}>
@@ -149,55 +196,90 @@ const Form = () => {
                              alt='arrow_left'
                         />
                     </Link>
-
                     <div className='cart_form_header'>
                         Оформление заказа
                     </div>
-
                 </div>
-            </div>
+            </div>}
 
-            <div className='cart_form_message'>
-                Мы свяжемся с Вами для уточнения деталей заказа
-            </div>
+            {orderDone ?
+                <div className='cart_form_after_order_message'>
+                    <div className='cart_form_after_order_title'>Спасибо за заказ</div>
+                    <div className='cart_form_after_order_text'>
+                        Скоро мы с Вами свяжемся для уточнения деталей заказа
+                    </div>
+                    <Link className='cart_link_button_container' to={'/catalog'}>
+                        <button className='cart_link_button' type='button'>
+                            Перейти в каталог
+                        </button>
+                    </Link>
+                </div> :
 
-            <form className='cart_form' onSubmit={handleSubmitForm}>
+                <>
+                    <div className='cart_form_message'>
+                        Мы свяжемся с Вами для уточнения деталей заказа
+                    </div>
 
-                <div className='cart_form_group'>
-                    <input id='name' name='name' type='text' placeholder=' ' value={inputValues.name}
-                           onChange={handleUserInput}
-                           onBlur={handleBlurInput}
-                           className={(inputValues.nameDirty && !inputValues.nameValid)
-                               ? 'cart_form_input error'
-                               : 'cart_form_input'}
-                    />
-                    <label className={(inputValues.nameDirty && !inputValues.nameValid)
-                        ? 'cart_form_group_label error'
-                        : 'cart_form_group_label'}>Имя
-                    </label>
-                    {inputValues.nameDirty && <span className='cart_form_error'>{inputValues.formErrors.name}</span>}
-                </div>
+                    <form className='cart_form' onSubmit={handleSubmitForm}>
 
-                <div className='cart_form_group'>
-                    <input id='phone' name='phone' type='number' placeholder=' '
-                           value={inputValues.phone}
-                           onChange={handleUserInput}
-                           onBlur={handleBlurInput}
-                           className={(inputValues.phoneDirty && !inputValues.phoneValid)
-                               ? 'cart_form_input error'
-                               : 'cart_form_input'}
-                    />
-                    <label className={(inputValues.phoneDirty && !inputValues.phoneValid)
-                        ? 'cart_form_group_label error'
-                        : 'cart_form_group_label'}>Телефон
-                    </label>
-                    {inputValues.phoneDirty && <span className='cart_form_error'>{inputValues.formErrors.phone}</span>}
-                </div>
+                        <div className='cart_form_group'>
+                            <input id='name' name='name' type='text' placeholder=' ' value={inputValues.name}
+                                   onChange={handleUserInput}
+                                   onBlur={handleBlurInput}
+                                   className={(inputValues.nameDirty && !inputValues.nameValid)
+                                       ? 'cart_form_input error'
+                                       : 'cart_form_input'}
+                            />
+                            <label className={(inputValues.nameDirty && !inputValues.nameValid)
+                                ? 'cart_form_group_label error'
+                                : 'cart_form_group_label'}>Имя
+                            </label>
+                            {inputValues.nameDirty &&
+                            <span className='cart_form_error'>{inputValues.formErrors.name}</span>}
+                        </div>
 
-                <button className='cart_form_button_submit' type='submit'>
-                    Оформить заказ
-                </button>
-            </form>
+                        <div className='cart_form_group'>
+                            <InputMask id='phone' name='phone' type='tel' placeholder=' '
+                                       mask="+375 (99) 999-99-99"
+                                       value={inputValues.phone}
+                                       onChange={handleUserInput}
+                                       onBlur={handleBlurInput}
+                                       className={(inputValues.phoneDirty && !inputValues.phoneValid)
+                                           ? 'cart_form_input error'
+                                           : 'cart_form_input'}
+                            />
+
+                            <label className={(inputValues.phoneDirty && !inputValues.phoneValid)
+                                ? 'cart_form_group_label error'
+                                : 'cart_form_group_label'}>Телефон
+                            </label>
+                            {inputValues.phoneDirty &&
+                            <span className='cart_form_error'>{inputValues.formErrors.phone}</span>}
+                        </div>
+
+                        <div className='cart_form_group'>
+                            <input id='email' name='email' type='text' placeholder=' '
+                                   value={inputValues.email}
+                                   onChange={handleUserInput}
+                                   onBlur={handleBlurInput}
+                                   className={(inputValues.emailDirty && !inputValues.emailValid)
+                                       ? 'cart_form_input error'
+                                       : 'cart_form_input'}
+                            />
+                            <label className={(inputValues.emailDirty && !inputValues.emailValid)
+                                ? 'cart_form_group_label error'
+                                : 'cart_form_group_label'}>Email
+                            </label>
+                            {inputValues.emailDirty &&
+                            <span className='cart_form_error'>{inputValues.formErrors.email}</span>}
+                        </div>
+
+                        <button className='cart_form_button_submit' type='submit'>
+                            Оформить заказ
+                        </button>
+                    </form>
+                </>
+            }
         </div>
     );
 }

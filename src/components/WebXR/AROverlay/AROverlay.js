@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './AROverlay.css';
 import {useHistory, useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
@@ -6,11 +6,13 @@ import {getCartState} from "../../../redux/selectors";
 import {setIsCart} from "../../../redux/actions";
 
 const AROverlay = ({product, onHit}) => {
+    const dispatch = useDispatch();
+
     const {category} = useParams();
     const history = useHistory();
+
     const isCart = useSelector(getCartState);
-    const newSize = product.size.split('X');
-    const dispatch = useDispatch();
+    const cart = JSON.parse(localStorage.getItem('cart'));
 
     const handleClickClose = async () => await document.getElementById('ARButton').click();
     const handleClickReset = () => onHit(false);
@@ -24,19 +26,31 @@ const AROverlay = ({product, onHit}) => {
         history.push(`/cart`);
     }
 
+    useEffect(() => {
+        const sameProduct = cart.some(item => item.title === product.title);
+        if (sameProduct) {
+            dispatch(setIsCart(true));
+        } else {
+            dispatch(setIsCart(false));
+        }
+    }, [cart, dispatch, product.title]);
+
     const handleAddToCart = () => {
-        const cart = JSON.parse(localStorage.getItem('cart'));
         const temp = [];
 
-        if (cart) {
+        if (cart.length) {
             temp.push(...cart);
             product.quantity = 1;
-            !temp.some(item => item.title === product.title) && temp.push(product);
+            if (!temp.some(item => item.title === product.title)) {
+                temp.push(product);
+            }
             localStorage.setItem('cart', JSON.stringify(temp));
+            dispatch(setIsCart(false));
         } else {
             product.quantity = 1;
             localStorage.setItem('cart', JSON.stringify([product]));
         }
+
         dispatch(setIsCart(true));
     }
 
@@ -81,9 +95,9 @@ const AROverlay = ({product, onHit}) => {
                                 <span>Цвет: </span>}
                                 {product.color}
                             </div>
-                            <div><span>Длина, см: </span>{newSize[0]}</div>
-                            <div><span>Ширина, см: </span>{newSize[1]}</div>
-                            {newSize[2] && <div><span>Высота, см: </span>{newSize[2]}</div>}
+                            <div><span>Длина, см: </span>{product.size[0]}</div>
+                            <div><span>Ширина, см: </span>{product.size[1]}</div>
+                            {product.size[2] && <div><span>Высота, см: </span>{product.size[2]}</div>}
                         </div>
                     </div>
 
