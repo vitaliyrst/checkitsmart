@@ -1,7 +1,7 @@
 import React, {useEffect, useState, Suspense, useRef} from 'react';
 import './WebXR.css';
 
-import {Provider, useSelector} from "react-redux";
+import {Provider} from "react-redux";
 import store from "../../redux/store";
 
 import {unmountComponentAtNode} from "@react-three/fiber";
@@ -34,7 +34,7 @@ const WebXR = React.memo(({product, onSetProduct}) => {
         setPlaneDetected(false);
         handleGAEventClickByRing();
     }
-    const handleSetMatrix = (matrix) => {
+    const handleSetMatrix = () => {
         setIsHit(true);
     }
 
@@ -90,7 +90,7 @@ const WebXR = React.memo(({product, onSetProduct}) => {
                                    detected={planeDetected}/>}
 
                         {isHit &&
-                        <ARModel product={product} matrix={matrix}/>}
+                        <ARModel product={product}/>}
                     </Suspense>
 
                     <DefaultXRControllers/>

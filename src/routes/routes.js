@@ -1,7 +1,6 @@
 import Catalog from "../components/Catalog/Catalog";
 import Video from "../components/Catalog/Video/Video";
 import Category from "../components/Catalog/Category/Category";
-import Product from "../components/Catalog/Category/Product/Product";
 import Cart from "../components/Cart/Cart";
 import Form from "../components/Cart/Form/Form";
 
@@ -23,13 +22,6 @@ const routes = [
         Component: Category,
         name: 'Category',
         exact: true
-    },
-    {
-        path: '/catalog/:category/:id',
-        Component: Product,
-        name: 'Product',
-        exact: true
-
     },
     {
         path: '/cart',
