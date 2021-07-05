@@ -33,3 +33,7 @@
     font-weight: 700;
     src: local('Inter'), url(./fonts/Inter-Bold.ttf) format('truetype');
 }
+
+* {
+    box-sizing: border-box;
+}

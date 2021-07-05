@@ -1,18 +1,22 @@
 import React, {useEffect, useRef, useState} from 'react';
 import './Category.css';
-import {Link, useParams} from 'react-router-dom';
-import {GAevent} from "../../../ga/events";
-import WebXR from "../../WebXR/WebXR";
+
 import {useDispatch, useSelector} from "react-redux";
 import {hideLoader} from "../../../redux/actions";
 import {getCartState, getCatalog, getLoading, getOs} from "../../../redux/selectors";
 
+import {Link, useParams} from 'react-router-dom';
+
+import {GAevent} from "../../../ga/events";
+import WebXR from "../../WebXR/WebXR";
+
 const Category = React.memo(() => {
-    const [selectProduct, setSelectProduct] = useState(null);
     const appleARRef = useRef();
     const params = useParams();
-    const dispatch = useDispatch();
 
+    const [selectProduct, setSelectProduct] = useState(null);
+
+    const dispatch = useDispatch();
     const os = useSelector(getOs);
     const loading = useSelector(getLoading);
     const catalog = useSelector(getCatalog);
@@ -75,8 +79,7 @@ const Category = React.memo(() => {
                 <div className='category_item_title'>{title}</div>
                 {typeof price === 'number' ?
                     <div className='category_item_price'>{price} BYN</div> :
-                    <div className='category_item_noprice'>{price}</div>
-                }
+                    <div className='category_item_noprice'>{price}</div>}
             </li>
         );
     }

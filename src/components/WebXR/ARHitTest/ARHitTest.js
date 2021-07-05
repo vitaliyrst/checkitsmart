@@ -1,8 +1,11 @@
 import React, {useRef} from 'react';
 import {useHitTest} from "@react-three/xr";
 import {Circle, Ring} from "@react-three/drei";
+import {useDispatch} from "react-redux";
+import {setMatrix} from "../../../redux/actions";
 
 const ARHitTest = React.memo(({onSetMatrix, onPlaneDetected, detected}) => {
+    const dispatch = useDispatch();
     const mesh = useRef();
     const material = useRef();
 
@@ -18,7 +21,9 @@ const ARHitTest = React.memo(({onSetMatrix, onPlaneDetected, detected}) => {
 
     const handlePointerDown = () => {
         if (detected) {
+            dispatch(setMatrix(mesh.current.matrix));
             onSetMatrix(mesh.current.matrix);
+
         }
     }
 

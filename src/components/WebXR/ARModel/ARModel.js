@@ -2,10 +2,14 @@ import React, {useEffect, useRef} from 'react';
 import {useLoader, useThree} from "@react-three/fiber";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {DragControls} from "../ARControls/ARDragControls";
+import {useSelector} from "react-redux";
+import {getMatrix} from "../../../redux/selectors";
 
-const ARModel = ({product: {arGLTF}, matrix}) => {
+const ARModel = ({product: {arGLTF}}) => {
     const {camera, gl: {domElement}} = useThree();
     const gltf = useLoader(GLTFLoader, arGLTF);
+
+    const matrix = useSelector(getMatrix);
 
     const overlay = useRef({
         support: document.querySelector('.ar_support_container'),

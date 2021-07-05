@@ -1,16 +1,19 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './Catalog.css';
-import {Link} from "react-router-dom";
-import {GAevent} from "../../ga/events";
+
 import {useSelector} from "react-redux";
 import {getCartState} from "../../redux/selectors";
 
+import {GAevent} from "../../ga/events";
+
+import {Link} from "react-router-dom";
+
 const Catalog = React.memo(() => {
+    const isCart = useSelector(getCartState);
+    const data = useSelector(({catalog: {catalog}}) => catalog);
+
     const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
     const handleGAEventSelectVideo = () => GAevent('CATALOG', 'select video', 'video');
-
-    const data = useSelector(({catalog: {catalog}}) => catalog);
-    const isCart = useSelector(getCartState);
 
     const getCatalogList = () => {
         return data.map(category => {

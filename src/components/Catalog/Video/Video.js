@@ -3,7 +3,6 @@ import './Video.css';
 import {GAevent} from "../../../ga/events";
 
 const Video = () => {
-
     const handleGAEventSendVideoDuration = (time) => {
         GAevent('VIDEO', 'duration video', `${time} seconds`);
     }

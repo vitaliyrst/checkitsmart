@@ -1,16 +1,19 @@
 import React, {useEffect, useState, Suspense, useRef} from 'react';
 import './WebXR.css';
+
+import {Provider, useSelector} from "react-redux";
+import store from "../../redux/store";
+
 import {unmountComponentAtNode} from "@react-three/fiber";
 import {ARCanvas, DefaultXRControllers} from "@react-three/xr";
 
-import ARModel from "./ARModel/ARModel";
-import ARHitTest from "./ARHitTest/ARHitTest";
-import AROverlay from "./AROverlay/AROverlay";
-
-import ARLoader from "./ARLoader/ARLoader";
 import {ARButton} from "./ARButton";
 import {GAevent} from "../../ga/events";
 import ARHelper from "./AROverlay/ARHelper";
+import ARModel from "./ARModel/ARModel";
+import ARHitTest from "./ARHitTest/ARHitTest";
+import AROverlay from "./AROverlay/AROverlay";
+import ARLoader from "./ARLoader/ARLoader";
 
 const WebXR = React.memo(({product, onSetProduct}) => {
     const canvas = useRef();
@@ -19,7 +22,7 @@ const WebXR = React.memo(({product, onSetProduct}) => {
     const [isHit, setIsHit] = useState(false);
     const [buttonReady, setButtonReady] = useState(false);
     const [sessionReady, setSessionReady] = useState(false);
-    const [matrix, setMatrix] = useState(null);
+
     const [planeDetected, setPlaneDetected] = useState(false);
 
     const handleGAEventStartSession = () => GAevent('AR SESSION', 'session has been started', time);
@@ -32,7 +35,6 @@ const WebXR = React.memo(({product, onSetProduct}) => {
         handleGAEventClickByRing();
     }
     const handleSetMatrix = (matrix) => {
-        setMatrix(matrix);
         setIsHit(true);
     }
 
@@ -75,34 +77,37 @@ const WebXR = React.memo(({product, onSetProduct}) => {
     return (
         <div className='canvas_container' ref={canvas}>
             <ARCanvas className='ARCanvas' onCreated={({gl}) => handleStartSession(gl)}>
-                <directionalLight position={[0, 1, 6]} intensity={1}/>
-                <directionalLight position={[0, 1, -6]} intensity={1}/>
-                <directionalLight position={[6, 1, 0]} intensity={1}/>
-                <directionalLight position={[-6, 2, 0]} intensity={1}/>
-                <directionalLight position={[0, -5, 0]} intensity={1}/>
+                <Provider store={store}>
+                    <directionalLight position={[0, 1, 6]} intensity={1}/>
+                    <directionalLight position={[0, 1, -6]} intensity={1}/>
+                    <directionalLight position={[6, 1, 0]} intensity={1}/>
+                    <directionalLight position={[-6, 2, 0]} intensity={1}/>
+                    <directionalLight position={[0, -5, 0]} intensity={1}/>
 
-                <Suspense fallback={<ARLoader/>}>
-                    {(!isHit && sessionReady) &&
-                    <ARHitTest onSetMatrix={handleSetMatrix} onPlaneDetected={handleSetPlaneDetected}
-                               detected={planeDetected}/>}
+                    <Suspense fallback={<ARLoader/>}>
+                        {(!isHit && sessionReady) &&
+                        <ARHitTest onSetMatrix={handleSetMatrix} onPlaneDetected={handleSetPlaneDetected}
+                                   detected={planeDetected}/>}
 
-                    {isHit &&
-                    <ARModel product={product} matrix={matrix}/>}
-                </Suspense>
+                        {isHit &&
+                        <ARModel product={product} matrix={matrix}/>}
+                    </Suspense>
 
-                <DefaultXRControllers/>
+                    <DefaultXRControllers/>
+                </Provider>
             </ARCanvas>
 
             {!planeDetected && sessionReady &&
             <ARHelper classes={'ar_helper_plane'}
-                data={['Перемещай устройство,', 'для определения поверхности']}
-                img={'/assets/images/other/helper.svg'}/>}
+                      data={['Перемещай устройство,', 'для определения поверхности']}
+                      img={'/assets/images/other/helper.svg'}/>}
 
             {planeDetected && sessionReady && !isHit &&
             <ARHelper data={['Кликни на круг,', 'чтобы поставить туда объект']}/>}
 
-            {isHit  &&
+            {isHit &&
             <AROverlay product={product} onHit={handleIsHit}/>}
+
         </div>
     )
 });

@@ -1,9 +1,12 @@
 .cart_form_container {
     max-width: 26rem;
+    height: calc(100vh - 60px);
     padding-left: 1rem;
     padding-right: 1rem;
     margin-left: auto;
     margin-right: auto;
+
+    overflow: hidden;
 
     position: relative;
 
@@ -15,7 +18,7 @@
 }
 
 .cart_form_header_container {
-    margin-top: 1.5rem;
+    padding-top: 1.5rem;
 
     display: flex;
     justify-content: space-between;
@@ -35,6 +38,7 @@
 }
 
 .cart_form_header {
+    box-sizing: border-box;
     font-weight: 700;
     font-size: 1.5rem;
     line-height: 1.5rem;
@@ -56,8 +60,14 @@
 }
 
 .cart_form {
+    width: 100%;
     position: relative;
     margin-top: 2.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .cart_form_button_submit {
@@ -84,21 +94,10 @@
     background-color: #DF661C;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
 
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
-    bottom: 1.5rem;
-}
-
-.cart_form {
-    width: 100%;
-    height: 100%;
-    margin-top: 2.5rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    top: 0;
 }
 
 .cart_form_group {
@@ -229,7 +228,7 @@ input[type='number'] {
     bottom: -1.140rem;
 }
 
-.cart_form_group_label.error{
+.cart_form_group_label.error {
     font-family: Roboto, sans-serif;
     font-weight: 400;
     font-size: 0.75rem;
@@ -240,7 +239,7 @@ input[type='number'] {
     transform: translateY(-50%);
 }
 
-.cart_form_input.error{
+.cart_form_input.error {
     color: #CF6679;
     border-color: #CF6679;
 }
@@ -261,11 +260,11 @@ input[type='number'] {
     transform: translateY(-50%);
 }
 
-.cart_form_after_order_message{
+.cart_form_after_order_message {
     margin-top: 12.5rem;
 }
 
-.cart_form_after_order_title{
+.cart_form_after_order_title {
     font-family: Inter, sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
@@ -273,7 +272,7 @@ input[type='number'] {
     color: #FFFFFF;
 }
 
-.cart_form_after_order_text{
+.cart_form_after_order_text {
     margin-top: 1.5rem;
     font-family: Inter, sans-serif;
     font-weight: 400;

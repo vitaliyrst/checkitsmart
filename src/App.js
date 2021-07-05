@@ -4,13 +4,14 @@ import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom
 import routes from "./routes/routes";
 import {initGA} from "./ga";
 import {useDispatch} from "react-redux";
-import {fetchData, setIsCart, setOs} from "./redux/actions";
+import {fetchData, setHeight, setIsCart, setOs} from "./redux/actions";
 
 function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
         initGA();
+        dispatch(setHeight(window.innerHeight));
         dispatch(fetchData());
         dispatch(setOs(/iPhone|iPad|iPod/i.test(window.navigator.userAgent)));
 
