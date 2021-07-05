@@ -27,13 +27,13 @@ const Category = () => {
     const handleGAEventClickStartAR = (title) => GAevent(`CATEGORY ${category.title}`, 'click start AR', title);
 
     const handleClickAppleAR = (eo, product) => {
-        const button = eo.currentTarget.querySelector('#ar-link');
-        button.click();
+        localStorage.setItem('cart', JSON.stringify(product));
+        eo.currentTarget.querySelector('#ar-link').click();
+
 
         appleARRef.current.addEventListener('message', (eo) => {
             if (eo.data === "_apple_ar_quicklook_button_tapped") {
-                localStorage.setItem('cart', JSON.stringify(product));
-                history.push('/cart/form');
+                document.location.href('https://checkitsmart.com/cart/form');
             }
         });
     }
