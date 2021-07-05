@@ -5,14 +5,15 @@ import {useDispatch, useSelector} from "react-redux";
 import {hideLoader} from "../../../redux/actions";
 import {getCartState, getCatalog, getLoading, getOs} from "../../../redux/selectors";
 
-import {Link, useParams} from 'react-router-dom';
+import {Link, useHistory, useParams} from 'react-router-dom';
 
 import {GAevent} from "../../../ga/events";
 import WebXR from "../../WebXR/WebXR";
 
-const Category = React.memo(() => {
+const Category = () => {
     const appleARRef = useRef();
     const params = useParams();
+    const history = useHistory();
 
     const [selectProduct, setSelectProduct] = useState(null);
 
@@ -23,15 +24,16 @@ const Category = React.memo(() => {
     const isCart = useSelector(getCartState);
     const category = catalog.find(item => item['slug'] === params.category);
 
-    const handleGAEventClickStartAR = (title) => GAevent(`CATEGORY ${category.title}`, 'select model', title);
+    const handleGAEventClickStartAR = (title) => GAevent(`CATEGORY ${category.title}`, 'click start AR', title);
 
-    const handleClickAppleAR = (eo, usdz) => {
+    const handleClickAppleAR = (eo, product) => {
         const button = eo.currentTarget.querySelector('#ar-link');
         button.click();
 
         appleARRef.current.addEventListener('message', (eo) => {
             if (eo.data === "_apple_ar_quicklook_button_tapped") {
-                window.open(usdz);
+                localStorage.setItem('cart', JSON.stringify(product));
+                history.push('/cart/form');
             }
         });
     }
@@ -57,7 +59,7 @@ const Category = React.memo(() => {
     const getIOSProducts = (product) => {
         const {id, usdz, image, title, price} = product
         return (
-            <li key={id} className='category_item' onClick={(eo) => handleClickAppleAR(eo, usdz)}>
+            <li key={id} className='category_item' onClick={(eo) => handleClickAppleAR(eo, product)}>
                 <div className='category_item_image_container'>
                     <a ref={appleARRef} className='category_item_apple_link' id="ar-link" href={usdz} rel='ar'>
                         <img className='category_item_image' src={image} alt={title}/>
@@ -111,6 +113,6 @@ const Category = React.memo(() => {
             <WebXR product={selectProduct} onSetProduct={handleSetProduct}/>}
         </>
     );
-});
+}
 
 export default Category;

@@ -1,54 +1,41 @@
 import React, {useEffect, useState, Suspense, useRef} from 'react';
 import './WebXR.css';
 
-import {Provider} from "react-redux";
+import {Provider, useSelector} from "react-redux";
 import store from "../../redux/store";
 
 import {unmountComponentAtNode} from "@react-three/fiber";
 import {ARCanvas, DefaultXRControllers} from "@react-three/xr";
 
-import {ARButton} from "./ARButton";
 import {GAevent} from "../../ga/events";
+
+import {ARButton} from "./ARButton";
 import ARHelper from "./AROverlay/ARHelper";
 import ARModel from "./ARModel/ARModel";
 import ARHitTest from "./ARHitTest/ARHitTest";
 import AROverlay from "./AROverlay/AROverlay";
 import ARLoader from "./ARLoader/ARLoader";
+import {getPlaneDetected, getReticleHit} from "../../redux/selectors";
 
 const WebXR = React.memo(({product, onSetProduct}) => {
     const canvas = useRef();
     const time = useRef(Date.now());
 
-    const [isHit, setIsHit] = useState(false);
     const [buttonReady, setButtonReady] = useState(false);
     const [sessionReady, setSessionReady] = useState(false);
 
-    const [planeDetected, setPlaneDetected] = useState(false);
+    const isHit = useSelector(getReticleHit);
+    const planeDetected = useSelector(getPlaneDetected);
 
-    const handleGAEventStartSession = () => GAevent('AR SESSION', 'session has been started', time);
     const handleGAEventSessionDuration = (time) => GAevent('AR SESSION', 'session duration', `${time} seconds`);
-    const handleGAEventClickByRing = () => GAevent('AR SESSION', 'place model', product.title);
-
-    const handleIsHit = (hit) => {
-        setIsHit(hit);
-        setPlaneDetected(false);
-        handleGAEventClickByRing();
-    }
-    const handleSetMatrix = () => {
-        setIsHit(true);
-    }
 
     const handleSetButtonReady = (state) => setButtonReady(state);
-    const handleSetPlaneDetected = (state) => setPlaneDetected(state);
     const handleStartSession = (gl) => {
-        handleGAEventStartSession();
-
         const arConfig = {
             requiredFeatures: ['hit-test'],
             optionalFeatures: ['dom-overlay'],
             domOverlay: {root: document.querySelector('.canvas_container')}
         }
-
         document.body.append(ARButton.createButton(gl, arConfig, handleSetButtonReady));
 
         gl.xr.addEventListener('sessionend', () => {
@@ -85,12 +72,8 @@ const WebXR = React.memo(({product, onSetProduct}) => {
                     <directionalLight position={[0, -5, 0]} intensity={1}/>
 
                     <Suspense fallback={<ARLoader/>}>
-                        {(!isHit && sessionReady) &&
-                        <ARHitTest onSetMatrix={handleSetMatrix} onPlaneDetected={handleSetPlaneDetected}
-                                   detected={planeDetected}/>}
-
-                        {isHit &&
-                        <ARModel product={product}/>}
+                        {(!isHit && sessionReady) && <ARHitTest/>}
+                        {isHit && <ARModel product={product}/>}
                     </Suspense>
 
                     <DefaultXRControllers/>
@@ -105,9 +88,7 @@ const WebXR = React.memo(({product, onSetProduct}) => {
             {planeDetected && sessionReady && !isHit &&
             <ARHelper data={['Кликни на круг,', 'чтобы поставить туда объект']}/>}
 
-            {isHit &&
-            <AROverlay product={product} onHit={handleIsHit}/>}
-
+            {isHit && <AROverlay product={product}/>}
         </div>
     )
 });

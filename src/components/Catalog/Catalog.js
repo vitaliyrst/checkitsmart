@@ -13,7 +13,6 @@ const Catalog = React.memo(() => {
     const data = useSelector(({catalog: {catalog}}) => catalog);
 
     const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
-    const handleGAEventSelectVideo = () => GAevent('CATALOG', 'select video', 'video');
 
     const getCatalogList = () => {
         return data.map(category => {
@@ -49,8 +48,7 @@ const Catalog = React.memo(() => {
                 {getCatalogList()}
 
                 <li className='catalog_item_video'
-                    style={{backgroundImage: (`url("/assets/images/catalog/how_it_works.png")`)}}
-                    onClick={() => handleGAEventSelectVideo}>
+                    style={{backgroundImage: (`url("/assets/images/catalog/how_it_works.png")`)}}>
 
                     <Link className='item_link_video' to='/catalog/video'>
                         <div>

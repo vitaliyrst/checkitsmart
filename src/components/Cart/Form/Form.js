@@ -1,17 +1,19 @@
 import React, {useEffect, useRef, useState} from "react";
 import './Form.css';
+
 import {Link} from "react-router-dom";
 import InputMask from 'react-input-mask';
-import emailjs from "emailjs-com";
+
 import {useDispatch, useSelector} from "react-redux";
 import {setIsCart} from "../../../redux/actions";
 import {getHeight} from "../../../redux/selectors";
 
+import emailjs from "emailjs-com";
+import {GAevent} from "../../../ga/events";
+
 const Form = () => {
     const buttonRef = useRef();
-    const dispatch = useDispatch();
     const products = JSON.parse(localStorage.getItem('cart'));
-    const height = useSelector(getHeight);
 
     const [orderDone, setOrderDone] = useState(false);
     const [inputValues, setInputValues] = useState({
@@ -30,9 +32,18 @@ const Form = () => {
         formValid: false
     });
 
+    const dispatch = useDispatch();
+    const height = useSelector(getHeight);
+
+    const handleGAEventCheckOut = (email) => {
+        if (inputValues.formValid) {
+            GAevent('CART', 'checkout', email);
+        }
+    }
+
     useEffect(() => {
         buttonRef.current.style.marginTop = height - 260 + 'px';
-    }, [height, buttonRef])
+    }, [height, buttonRef]);
 
     const handleUserInput = (eo) => {
         let name = eo.target.name;
@@ -286,7 +297,8 @@ const Form = () => {
                             <span className='cart_form_error'>{inputValues.formErrors.email}</span>}
                         </div>
 
-                        <button ref={buttonRef} className='cart_form_button_submit' type='submit'>
+                        <button ref={buttonRef} className='cart_form_button_submit' type='submit'
+                                onClick={() => handleGAEventCheckOut(inputValues.email)}>
                             Оформить заказ
                         </button>
                     </form>

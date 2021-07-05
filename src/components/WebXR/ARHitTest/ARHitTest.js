@@ -1,18 +1,23 @@
 import React, {useRef} from 'react';
+
+import {useDispatch, useSelector} from "react-redux";
+import {setMatrix, setPlaneDetected, setReticleHit} from "../../../redux/actions";
+import {getPlaneDetected} from "../../../redux/selectors";
+
 import {useHitTest} from "@react-three/xr";
 import {Circle, Ring} from "@react-three/drei";
-import {useDispatch} from "react-redux";
-import {setMatrix} from "../../../redux/actions";
 
-const ARHitTest = React.memo(({onSetMatrix, onPlaneDetected, detected}) => {
-    const dispatch = useDispatch();
+const ARHitTest = () => {
     const mesh = useRef();
     const material = useRef();
 
+    const dispatch = useDispatch();
+    const planeDetected = useSelector(getPlaneDetected);
+
     useHitTest(hit => {
-        if (hit && !detected) {
+        if (hit && !planeDetected) {
             material.current.opacity = 0.9;
-            onPlaneDetected(true);
+            dispatch(setPlaneDetected(true));
         }
         if (mesh.current && hit) {
             hit.decompose(mesh.current.position, mesh.current.rotation, mesh.current.scale);
@@ -20,10 +25,9 @@ const ARHitTest = React.memo(({onSetMatrix, onPlaneDetected, detected}) => {
     });
 
     const handlePointerDown = () => {
-        if (detected) {
+        if (planeDetected) {
             dispatch(setMatrix(mesh.current.matrix));
-            onSetMatrix(mesh.current.matrix);
-
+            dispatch(setReticleHit(true));
         }
     }
 
@@ -37,6 +41,6 @@ const ARHitTest = React.memo(({onSetMatrix, onPlaneDetected, detected}) => {
             </Circle>
         </mesh>
     );
-});
+}
 
 export default ARHitTest;

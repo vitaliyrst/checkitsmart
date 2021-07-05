@@ -1,9 +1,11 @@
 import React, {useEffect, useRef} from 'react';
+
+import {useSelector} from "react-redux";
+import {getMatrix} from "../../../redux/selectors";
+
 import {useLoader, useThree} from "@react-three/fiber";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {DragControls} from "../ARControls/ARDragControls";
-import {useSelector} from "react-redux";
-import {getMatrix} from "../../../redux/selectors";
 
 const ARModel = ({product: {arGLTF}}) => {
     const {camera, gl: {domElement}} = useThree();
@@ -47,7 +49,6 @@ const ARModel = ({product: {arGLTF}}) => {
     }
 
     const handleTouchEnd = () => startRotate.current.touchDown = false;
-
 
     useEffect(() => {
         if (matrix) {

@@ -22,3 +22,11 @@ export const getCartState = (state) => {
 export const getMatrix = (state) => {
     return state.webxr.matrix;
 }
+
+export const getPlaneDetected = (state) => {
+    return state.webxr.planeDetected;
+}
+
+export const getReticleHit = (state) => {
+    return state.webxr.reticleHit;
+}

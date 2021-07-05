@@ -1,4 +1,14 @@
-import {FETCH_DATA, HIDE_LOADER, IS_CART, SET_HEIGHT, SET_MATRIX, SET_OS, SHOW_LOADER} from "./types";
+import {
+    FETCH_DATA,
+    HIDE_LOADER,
+    IS_CART,
+    PLANE_DETECTED,
+    RETICLE_HIT,
+    SET_HEIGHT,
+    SET_MATRIX,
+    SET_OS,
+    SHOW_LOADER
+} from "./types";
 import data from '../data.json';
 
 export const setOs = (os) => {
@@ -42,9 +52,22 @@ export const fetchData = () => {
 }
 
 export const setMatrix = (matrix) => {
-    console.log(matrix)
     return {
         type: SET_MATRIX,
         payload: matrix
+    }
+}
+
+export const setPlaneDetected = (state) => {
+    return {
+        type: PLANE_DETECTED,
+        payload: state
+    }
+}
+
+export const setReticleHit = (state) => {
+    return {
+        type: RETICLE_HIT,
+        payload: state
     }
 }

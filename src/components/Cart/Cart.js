@@ -1,8 +1,12 @@
 import React, {useRef, useState} from "react";
 import './Cart.css';
+
 import {Link} from "react-router-dom";
+
 import {useDispatch} from "react-redux";
 import {setIsCart} from "../../redux/actions";
+
+import {GAevent} from "../../ga/events";
 
 const Cart = () => {
     if (!localStorage.getItem('cart')) {
@@ -12,6 +16,13 @@ const Cart = () => {
     const dispatch = useDispatch();
     const [changes, setChanges] = useState(0);
     const products = useRef(JSON.parse(localStorage.getItem('cart')));
+
+    const handleGAEventDeleteFromCart = (title) => GAevent('CART', 'delete from cart', title);
+    const handleGAEventGoToOrderForm = () => {
+        const price = products.current
+            .reduce((acc, {price, quantity}) => (acc + (Number(price) * quantity)), 0).toFixed(2);
+        GAevent('CART', 'go to order form', price);
+    }
 
 
     const handleClickMinus = (title) => {
@@ -49,9 +60,11 @@ const Cart = () => {
 
         products.current.forEach((item, index) => {
             if (item.title === title) {
+                handleGAEventDeleteFromCart(item.title);
                 newProducts.splice(index, 1);
             }
         });
+
 
         localStorage.setItem('cart', JSON.stringify(newProducts));
         setChanges(changes + 1);
@@ -143,7 +156,7 @@ const Cart = () => {
         } else {
             return (
                 <Link className='cart_link_button_container' to={'/cart/form'}>
-                    <button className='cart_link_button' type='button'>
+                    <button className='cart_link_button' type='button' onClick={handleGAEventGoToOrderForm}>
                         Перейти к оформлению заказа
                     </button>
                 </Link>

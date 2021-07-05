@@ -4,9 +4,11 @@ import './AROverlay.css';
 import {useHistory, useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {getCartState} from "../../../redux/selectors";
-import {setIsCart} from "../../../redux/actions";
+import {setIsCart, setPlaneDetected, setReticleHit} from "../../../redux/actions";
 
-const AROverlay = ({product, onHit}) => {
+import {GAevent} from "../../../ga/events";
+
+const AROverlay = ({product}) => {
     const {category} = useParams();
     const history = useHistory();
 
@@ -15,9 +17,27 @@ const AROverlay = ({product, onHit}) => {
 
     const cart = JSON.parse(localStorage.getItem('cart'));
 
+    const handleGAEventClickReset = () => GAevent('AR SESSION', 'reset', 'reset');
+    const handleGAEventClickAddToCart = (title) => GAevent('CART', 'add to cart', title);
+    const handleGAEventClickOneClickBuy = () => GAevent('CART', 'one click buy', 'one click buy');
+
+    useEffect(() => {
+        const sameProduct = cart.some(item => item.title === product.title);
+
+        if (sameProduct) {
+            dispatch(setIsCart(true));
+        } else {
+            dispatch(setIsCart(false));
+        }
+    }, [cart, dispatch, product.title]);
+
     const handleClickClose = async () => await document.getElementById('ARButton').click();
 
-    const handleClickReset = () => onHit(false);
+    const handleClickReset = () => {
+        handleGAEventClickReset()
+        dispatch(setReticleHit(false));
+        dispatch(setPlaneDetected(false));
+    }
 
     const handleClickCart = async () => {
         await document.getElementById('ARButton').click();
@@ -31,18 +51,9 @@ const AROverlay = ({product, onHit}) => {
 
     const handleGoToOrderForm = async () => {
         await document.getElementById('ARButton').click();
+        handleGAEventClickOneClickBuy()
         history.push(`/cart/form`);
     }
-
-    useEffect(() => {
-        const sameProduct = cart.some(item => item.title === product.title);
-
-        if (sameProduct) {
-            dispatch(setIsCart(true));
-        } else {
-            dispatch(setIsCart(false));
-        }
-    }, [cart, dispatch, product.title]);
 
     const handleAddToCart = () => {
         const temp = [];
@@ -56,10 +67,12 @@ const AROverlay = ({product, onHit}) => {
             }
 
             localStorage.setItem('cart', JSON.stringify(temp));
+            handleGAEventClickAddToCart(product.title);
             dispatch(setIsCart(false));
         } else {
             product.quantity = 1;
             localStorage.setItem('cart', JSON.stringify([product]));
+            handleGAEventClickAddToCart(product.title);
         }
 
         dispatch(setIsCart(true));
