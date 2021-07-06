@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import './Category.css';
 
 import {useDispatch, useSelector} from "react-redux";
-import {hideLoader} from "../../../redux/actions";
+import {hideLoader, setIsCart} from "../../../redux/actions";
 import {getCartState, getCatalog, getLoading, getOs} from "../../../redux/selectors";
 
 import {Link, useHistory, useParams} from 'react-router-dom';
@@ -31,11 +31,13 @@ const Category = () => {
         eo.currentTarget.querySelector('#ar-link').click();
 
 
-        appleARRefs.current.addEventListener('message', (eo) => {
-            if (eo.data === "_apple_ar_quicklook_button_tapped") {
-                document.location.href('https://checkitsmart.com/cart/form');
-            }
-        });
+        appleARRefs.current.forEach(item => {
+            item.addEventListener('message', (eo) => {
+                if (eo.data === "_apple_ar_quicklook_button_tapped") {
+                    history.push('/cart/form');
+                }
+            });
+        })
     }
 
     const handleSetProduct = (product, title = '') => {
@@ -63,7 +65,8 @@ const Category = () => {
     }
 
     const getIOSProducts = (product) => {
-        const {id, usdz, image, title, price} = product
+        const {id, usdz, image, title, price} = product;
+
         return (
             <li key={id} className='category_item' onClick={(eo) => handleClickAppleAR(eo, product, id)}>
                 <div className='category_item_image_container'>
@@ -72,7 +75,9 @@ const Category = () => {
                     </a>
                 </div>
                 <div className='category_item_title'>{title}</div>
-                <div className='category_item_price'>{price} BYN</div>
+                {typeof price === 'number' ?
+                    <div className='category_item_price'>{price.toFixed(2)} BYN</div> :
+                    <div className='category_item_noprice'>{price}</div>}
             </li>
         );
     }
@@ -86,7 +91,7 @@ const Category = () => {
                 </div>
                 <div className='category_item_title'>{title}</div>
                 {typeof price === 'number' ?
-                    <div className='category_item_price'>{price} BYN</div> :
+                    <div className='category_item_price'>{price.toFixed(2)} BYN</div> :
                     <div className='category_item_noprice'>{price}</div>}
             </li>
         );

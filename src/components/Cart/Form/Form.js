@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import './Form.css';
 
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import InputMask from 'react-input-mask';
 
 import {useDispatch, useSelector} from "react-redux";
@@ -10,10 +10,18 @@ import {getHeight} from "../../../redux/selectors";
 
 import emailjs from "emailjs-com";
 import {GAevent} from "../../../ga/events";
+import config from "../../../config/config";
 
 const Form = () => {
     const buttonRef = useRef();
+    const history = useHistory();
+
+    if (!localStorage.getItem('oneclickbuy')) {
+        localStorage.setItem('oneclickbuy', JSON.stringify([]));
+    }
+
     const products = JSON.parse(localStorage.getItem('cart'));
+    const productOneClickBuy = (JSON.parse(localStorage.getItem('oneclickbuy')));
 
     const [orderDone, setOrderDone] = useState(false);
     const [inputValues, setInputValues] = useState({
@@ -44,6 +52,14 @@ const Form = () => {
     useEffect(() => {
         buttonRef.current.style.marginTop = height - 260 + 'px';
     }, [height, buttonRef]);
+
+/*    useEffect(() => {
+        if (orderDone) {
+            setTimeout(() => {
+                history.push('/catalog');
+            }, 2000);
+        }
+    }, [orderDone]);*/
 
     const handleUserInput = (eo) => {
         let name = eo.target.name;
@@ -164,13 +180,37 @@ const Form = () => {
     const handleSubmitForm = (eo) => {
         eo.preventDefault();
 
-        const totalPrice = products
-            .reduce((acc, {price, quantity}) => (acc + (Number(price) * quantity)), 0).toFixed(2);
+        let message;
+        let totalPrice;
 
-        const message = `
-            <table style="border-collapse:collapse;width:100%;height:20px;border-color:#ffffff" border="0">
-                <tbody>${products.map(product => (
-            `<tr style="height:10px">
+        if (productOneClickBuy.length) {
+            const product = productOneClickBuy[0];
+            totalPrice = product.price.toFixed(2);
+
+            message = `
+            <table style="border-collapse:collapse;width:100%;height:20px;border-color:#ffffff">
+                <tbody>
+                    <tr style="height:10px">
+                        <td style="width:33.0739%;height:10px;text-align:left">
+                            <span style="font-size:14pt">${product.title}</span>
+                        </td>
+                        <td style="width:33.0739%;height:10px;text-align:center">
+                            <span style="font-size:14pt">${product.quantity} шт.</span>
+                        </td>
+                        <td style="width:33.0739%;height:10px;text-align:right">
+                            <span style="font-size:14pt">${(product.price).toFixed(2)} BYN</span>
+                        </td>
+                    </tr> 
+                </tbody>
+            </table>`;
+        } else {
+            totalPrice = products
+                .reduce((acc, {price, quantity}) => (acc + (Number(price) * quantity)), 0).toFixed(2);
+
+            message = `
+            <table style="border-collapse:collapse;width:100%;height:20px;border-color:#ffffff">
+                <tbody>${products.map(product => (`
+                    <tr style="height:10px">
                         <td style="width:33.0739%;height:10px;text-align:left">
                             <span style="font-size:14pt">${product.title}</span>
                         </td>
@@ -183,27 +223,53 @@ const Form = () => {
                     </tr>`))} 
                 </tbody>
             </table>`;
+        }
 
         if (inputValues.formValid) {
             emailjs.send(
-                'service_q5q2fnl',
-                'template_dpwum5j',
+                'service_snco71f',
+                'template_7fq1pnk',
                 {
-                    'to_email': inputValues.email,
-                    'to_name': inputValues.name,
+                    'email': inputValues.email,
+                    'name': inputValues.name,
                     'message': message,
                     'total': totalPrice
                 },
-                'user_6F5Ox5sigEyetq7qxDLRN')
+                'user_Y0fMGKRYdgRSGCmIgpPTC'
+            )
                 .then((response) => {
                     console.log('SUCCESS!', response.status, response.text);
                 }, (err) => {
                     console.log('FAILED...', err);
                 });
 
-            setOrderDone(true);
-            localStorage.removeItem('cart');
-            dispatch(setIsCart(false));
+            /*emailjs.send(
+                config.emailjs.serviceId,
+                config.emailjs.templateCustomerId,
+                {
+                    'to_email': 'checkitsmart.com@gmail.com',
+                    'customer_email': inputValues.email,
+                    'customer_phone': inputValues.phone,
+                    'customer_name': inputValues.name,
+                    'message': message,
+                    'total': totalPrice
+                },
+                config.emailjs.userId)
+                .then((response) => {
+                    console.log('SUCCESS!', response.status, response.text);
+                }, (err) => {
+                    console.log('FAILED...', err);
+                });*/
+
+            if (productOneClickBuy.length) {
+                localStorage.removeItem('oneclickbuy');
+                setOrderDone(true);
+            } else {
+                localStorage.removeItem('cart');
+                setOrderDone(true);
+                dispatch(setIsCart(false));
+            }
+
         } else {
             setInputValues({...inputValues, nameDirty: true, phoneDirty: true, emailDirty: true});
         }
@@ -302,8 +368,6 @@ const Form = () => {
                             Оформить заказ
                         </button>
                     </form>
-
-
                 </>
             }
         </div>

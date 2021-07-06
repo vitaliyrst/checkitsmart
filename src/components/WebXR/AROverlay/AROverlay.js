@@ -51,7 +51,9 @@ const AROverlay = ({product}) => {
 
     const handleGoToOrderForm = async () => {
         await document.getElementById('ARButton').click();
-        handleGAEventClickOneClickBuy()
+        handleGAEventClickOneClickBuy();
+        product.quantity = 1;
+        localStorage.setItem('oneclickbuy', JSON.stringify([product]));
         history.push(`/cart/form`);
     }
 

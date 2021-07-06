@@ -11,11 +11,11 @@
         "image": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_finn%2Ftable_finn.png?alt=media&token=7cd4140d-e992-43b1-be46-7630f137188f",
         "color": "Фанера",
         "size": [
-          1,
-          1,
-          1
+          100,
+          100,
+          45
         ],
-        "price": 383.00,
+        "price": 340.00,
         "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.gltf?alt=media&token=71f6206f-947a-43cc-8bdb-2dad4432f162",
         "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.usdz?alt=media&token=b236c500-ef3d-437b-80a9-ee6d29f18559#custom=https://checkitsmart.com/assets/banners/tables/banner_jagger.html&customHeight=large"
       },
@@ -63,22 +63,8 @@
       },
       {
         "id": 5,
-        "title": "Журнальный стол 1",
-        "image": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_noname1%2Ftable_noname1.png?alt=media&token=9ecb04ff-911c-4398-ab7e-69f21e029fd7",
-        "color": "Фанера",
-        "size": [
-          1,
-          1,
-          1
-        ],
-        "price": 343.00,
-        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.gltf?alt=media&token=71f6206f-947a-43cc-8bdb-2dad4432f162",
-        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.usdz?alt=media&token=b236c500-ef3d-437b-80a9-ee6d29f18559#custom=https://checkitsmart.com/assets/banners/tables/banner_jagger.html&customHeight=large"
-      },
-      {
-        "id": 6,
-        "title": "Журнальный стол 2",
-        "image": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_noname2%2Ftable_noname2.png?alt=media&token=e2975c13-8918-44b1-b784-45dd074e0479",
+        "title": "Журнальный стол Litsberry",
+        "image": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_litsberry%2Ftable_litsberry.png?alt=media&token=2cab645a-62f7-46d1-9900-d04bbb667901",
         "color": "Фанера",
         "size": [
           80,
@@ -90,7 +76,7 @@
         "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.usdz?alt=media&token=b236c500-ef3d-437b-80a9-ee6d29f18559#custom=https://checkitsmart.com/assets/banners/tables/banner_jagger.html&customHeight=large"
       },
       {
-        "id": 7,
+        "id": 6,
         "title": "Стол раздвижной Jagger",
         "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Ftables%2Ftable_jagger.png?alt=media&token=0aab6edd-232f-4a1e-979f-d22ec358a13b",
         "color": "Дуб монастырский",
@@ -104,7 +90,7 @@
         "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.usdz?alt=media&token=b236c500-ef3d-437b-80a9-ee6d29f18559#custom=https://checkitsmart.com/assets/banners/tables/banner_jagger.html&customHeight=large"
       },
       {
-        "id": 8,
+        "id": 7,
         "title": "Журнальный стол Olivia",
         "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Ftables%2Ftable_olivia.png?alt=media&token=c013ef81-1270-4232-8d85-f67f5d238d95",
         "color": "Вудлайн кремовый",
@@ -118,7 +104,7 @@
         "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_olivia%2Ftable.usdz?alt=media&token=1a51d7d8-2cdf-4123-967d-521f4ac32a21#custom=https://checkitsmart.com/assets/banners/tables/banner_olivia.html&customHeight=large"
       },
       {
-        "id": 9,
+        "id": 8,
         "title": "Стол раздвижной Monako",
         "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Ftables%2Ftable_monaco.png?alt=media&token=12fd9228-d2c5-4dfc-be29-177b83a509cd",
         "color": "Сосна винтаж, дуб анкона",

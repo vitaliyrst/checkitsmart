@@ -1,7 +1,7 @@
 import React, {useEffect, useState, Suspense, useRef} from 'react';
 import './WebXR.css';
 
-import {Provider, useSelector} from "react-redux";
+import {Provider, useDispatch, useSelector} from "react-redux";
 import store from "../../redux/store";
 
 import {unmountComponentAtNode} from "@react-three/fiber";
@@ -16,6 +16,7 @@ import ARHitTest from "./ARHitTest/ARHitTest";
 import AROverlay from "./AROverlay/AROverlay";
 import ARLoader from "./ARLoader/ARLoader";
 import {getPlaneDetected, getReticleHit} from "../../redux/selectors";
+import {setPlaneDetected, setReticleHit} from "../../redux/actions";
 
 const WebXR = React.memo(({product, onSetProduct}) => {
     const canvas = useRef();
@@ -24,6 +25,7 @@ const WebXR = React.memo(({product, onSetProduct}) => {
     const [buttonReady, setButtonReady] = useState(false);
     const [sessionReady, setSessionReady] = useState(false);
 
+    const dispatch = useDispatch();
     const isHit = useSelector(getReticleHit);
     const planeDetected = useSelector(getPlaneDetected);
 
@@ -42,6 +44,8 @@ const WebXR = React.memo(({product, onSetProduct}) => {
             const timeEnd = Date.now();
             handleGAEventSessionDuration((timeEnd - time.current) / 1000);
             onSetProduct(null, product.title);
+            dispatch(setReticleHit(false));
+            dispatch(setPlaneDetected(false));
         });
     }
 
