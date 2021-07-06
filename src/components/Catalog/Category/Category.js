@@ -26,8 +26,8 @@ const Category = () => {
 
     const handleGAEventClickStartAR = (title) => GAevent(`CATEGORY ${category.title}`, 'click start AR', title);
 
-    const handleClickAppleAR = (eo, product, id) => {
-        localStorage.setItem('cart', JSON.stringify(product));
+    const handleClickAppleAR = (eo, product) => {
+        localStorage.setItem('oneclickbuy', JSON.stringify([product]));
         eo.currentTarget.querySelector('#ar-link').click();
 
 
