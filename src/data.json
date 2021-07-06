@@ -17,7 +17,7 @@
         ],
         "price": 340.00,
         "arGLTF": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_finn%2Ftable.gltf?alt=media&token=ea62bc04-6fa6-4479-9132-a3299d1305b9",
-        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.usdz?alt=media&token=b236c500-ef3d-437b-80a9-ee6d29f18559#custom=https://checkitsmart.com/assets/banners/tables/banner_jagger.html&customHeight=large"
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_finn%2Ftable.gltf?alt=media&token=075fd54d-257f-4a0e-879e-bac84939d7cc#custom=https://checkitsmart.com/assets/banners/tables/banner_finn.html&customHeight=large"
       },
       {
         "id": 2,
@@ -31,7 +31,7 @@
         ],
         "price": 380.00,
         "arGLTF": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_niels%2Ftable.gltf?alt=media&token=a3f0e7f7-18b9-4888-87fa-d88c6f97aff1",
-        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.usdz?alt=media&token=b236c500-ef3d-437b-80a9-ee6d29f18559#custom=https://checkitsmart.com/assets/banners/tables/banner_jagger.html&customHeight=large"
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_niels%2Ftable.usdz?alt=media&token=6d34a8f9-45f8-42e6-9860-eb7175b41df5#custom=https://checkitsmart.com/assets/banners/tables/banner_niels.html&customHeight=large"
       },
       {
         "id": 3,
@@ -45,7 +45,7 @@
         ],
         "price": 190.00,
         "arGLTF": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_queens%2Ftable.gltf?alt=media&token=54a8ce90-594f-4e3d-867a-a586116df67c",
-        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.usdz?alt=media&token=b236c500-ef3d-437b-80a9-ee6d29f18559#custom=https://checkitsmart.com/assets/banners/tables/banner_jagger.html&customHeight=large"
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_queens%2Ftable.usdz?alt=media&token=551a4de8-5ff2-4a2b-a920-93bb7b0be1ac#custom=https://checkitsmart.com/assets/banners/tables/banner_queens.html&customHeight=large"
       },
       {
         "id": 4,
@@ -59,7 +59,7 @@
         ],
         "price": 180.00,
         "arGLTF": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_walnut%2Ftable.gltf?alt=media&token=b80d65aa-a1c5-49b5-b1bb-dfebd6a6db30",
-        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.usdz?alt=media&token=b236c500-ef3d-437b-80a9-ee6d29f18559#custom=https://checkitsmart.com/assets/banners/tables/banner_jagger.html&customHeight=large"
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_walnut%2Ftable.usdz?alt=media&token=8fe2862c-807d-484e-b7dd-634f31b815ec#custom=https://checkitsmart.com/assets/banners/tables/banner_walnut.html&customHeight=large"
       },
       {
         "id": 5,
@@ -72,8 +72,8 @@
           45
         ],
         "price": 240.00,
-        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_walnut%2Ftable.gltf?alt=media&token=b80d65aa-a1c5-49b5-b1bb-dfebd6a6db30",
-        "usdz": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/models%2Ftables%2Ftable_jagger%2Ftable.usdz?alt=media&token=b236c500-ef3d-437b-80a9-ee6d29f18559#custom=https://checkitsmart.com/assets/banners/tables/banner_jagger.html&customHeight=large"
+        "arGLTF": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_litsberry%2Ftable.gltf?alt=media&token=275e9053-2d6d-49d4-ad2e-7a5f183ffd12",
+        "usdz": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_litsberry%2Ftable.usdz?alt=media&token=ec1420a3-0f82-4eb6-954e-b44cf698ddda#custom=https://checkitsmart.com/assets/banners/tables/banner_litsberry.html&customHeight=large"
       },
       {
         "id": 6,
