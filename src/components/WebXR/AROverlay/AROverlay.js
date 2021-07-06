@@ -135,8 +135,14 @@ const AROverlay = ({product}) => {
                     {getFirstButton()}
                 </div>
 
-                <div className='ar_button_size_container'>
-                    <button className='ar_button_size' onClick={handleGoToOrderForm}>Купить в 1 клик</button>
+
+                <div className='ar_button_one_click_buy_container'>
+                    <button
+                        className={typeof product.price !== 'string' ? 'ar_button_one_click_buy' : 'ar_button_one_click_buy_not_visible'}
+                        onClick={handleGoToOrderForm}
+                    >
+                        Купить в 1 клик
+                    </button>
                 </div>
             </div>
         </>

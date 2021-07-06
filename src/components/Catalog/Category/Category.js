@@ -11,7 +11,7 @@ import {GAevent} from "../../../ga/events";
 import WebXR from "../../WebXR/WebXR";
 
 const Category = () => {
-    const appleARRef = useRef();
+    const appleARRefs = useRef([]);
     const params = useParams();
     const history = useHistory();
 
@@ -26,12 +26,12 @@ const Category = () => {
 
     const handleGAEventClickStartAR = (title) => GAevent(`CATEGORY ${category.title}`, 'click start AR', title);
 
-    const handleClickAppleAR = (eo, product) => {
+    const handleClickAppleAR = (eo, product, id) => {
         localStorage.setItem('cart', JSON.stringify(product));
         eo.currentTarget.querySelector('#ar-link').click();
 
 
-        appleARRef.current.addEventListener('message', (eo) => {
+        appleARRefs.current.addEventListener('message', (eo) => {
             if (eo.data === "_apple_ar_quicklook_button_tapped") {
                 document.location.href('https://checkitsmart.com/cart/form');
             }
@@ -47,6 +47,12 @@ const Category = () => {
         category && dispatch(hideLoader());
     }, [category, dispatch]);
 
+    const addToRefs = (element) => {
+        if (element && !appleARRefs.current.includes(element)) {
+            appleARRefs.current.push(element);
+        }
+    }
+
     const getCategoryProducts = () => {
         return category['products'].map(product => {
                 return !os ?
@@ -59,9 +65,9 @@ const Category = () => {
     const getIOSProducts = (product) => {
         const {id, usdz, image, title, price} = product
         return (
-            <li key={id} className='category_item' onClick={(eo) => handleClickAppleAR(eo, product)}>
+            <li key={id} className='category_item' onClick={(eo) => handleClickAppleAR(eo, product, id)}>
                 <div className='category_item_image_container'>
-                    <a ref={appleARRef} className='category_item_apple_link' id="ar-link" href={usdz} rel='ar'>
+                    <a ref={addToRefs} className='category_item_apple_link' id="ar-link" href={usdz} rel='ar'>
                         <img className='category_item_image' src={image} alt={title}/>
                     </a>
                 </div>

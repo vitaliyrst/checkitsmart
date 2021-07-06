@@ -165,14 +165,23 @@
 }
 
 .cart_list_item_counter_container {
-    width: 5.5rem;
     margin-top: 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.cart_list_price_by_item{
+    font-family: Inter,sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+    color: #E0E0E0;
+}
+
 .cart_list_item_counter_quantity {
+    width: 20px;
+    text-align: center;
     font-family: Inter, sans-serif;
     font-weight: 700;
     font-size: 1rem;

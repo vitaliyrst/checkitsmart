@@ -123,6 +123,9 @@ const Cart = () => {
                                                      src={'/assets/images/other/plus.svg'} alt={'plus'}
                                                      onClick={() => handleClickPlus(item.title)}
                                                 />
+                                                <div className='cart_list_price_by_item'>
+                                                    {(item.price).toFixed(2)} BYN/шт
+                                                </div>
                                             </div>
 
                                             <div className='cart_item_price'>

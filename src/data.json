@@ -8,7 +8,7 @@
       {
         "id": 1,
         "title": "Журнальный стол Finn",
-        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Ftables%2Ftable_finn.png?alt=media&token=3337547e-5f77-4645-8351-ae21141bbe5b",
+        "image": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_finn%2Ftable_finn.png?alt=media&token=7cd4140d-e992-43b1-be46-7630f137188f",
         "color": "Фанера",
         "size": [
           1,
@@ -22,7 +22,7 @@
       {
         "id": 2,
         "title": "Журнальный стол Niels",
-        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Ftables%2Ftable_niels.png?alt=media&token=5c168d12-cbe4-4187-8887-6cad72be5139",
+        "image": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_niels%2Ftable_niels.png?alt=media&token=70d7b4f7-a72b-479f-9a96-786c12cd8b02",
         "color": "Фанера",
         "size": [
           85,
@@ -36,7 +36,7 @@
       {
         "id": 3,
         "title": "Журнальный стол Queens",
-        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Ftables%2Ftable_queens.png?alt=media&token=92d09bfd-abbb-4a35-b5e5-fdcc3914b593",
+        "image": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_queens%2Ftable_queens.png?alt=media&token=8e89612f-8f31-4b3e-a0c0-a81ccb19be9b",
         "color": "Фанера",
         "size": [
           70,
@@ -50,7 +50,7 @@
       {
         "id": 4,
         "title": "Журнальный стол Walnut",
-        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Ftables%2Ftable_walnut.png?alt=media&token=d77fdf49-0704-4e76-b77d-2b88ad0f651b",
+        "image": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_walnut%2Ftable_walnut.png?alt=media&token=ea30cf2e-1d5c-4b07-95d6-e6831a148f70",
         "color": "Фанера",
         "size": [
           50,
@@ -64,7 +64,7 @@
       {
         "id": 5,
         "title": "Журнальный стол 1",
-        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Ftables%2Ftable_noname1.png?alt=media&token=45e52c93-d5b1-4a54-8474-36c97285c528",
+        "image": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_noname1%2Ftable_noname1.png?alt=media&token=9ecb04ff-911c-4398-ab7e-69f21e029fd7",
         "color": "Фанера",
         "size": [
           1,
@@ -78,7 +78,7 @@
       {
         "id": 6,
         "title": "Журнальный стол 2",
-        "image": "https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/images%2Fcategories%2Ftables%2Ftable_noname2.png?alt=media&token=3455c805-4a1e-4ef7-ad05-a2ed2aaae329",
+        "image": "https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/catalog%2Ftables%2Ftable_noname2%2Ftable_noname2.png?alt=media&token=e2975c13-8918-44b1-b784-45dd074e0479",
         "color": "Фанера",
         "size": [
           80,

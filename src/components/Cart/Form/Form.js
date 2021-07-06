@@ -227,7 +227,7 @@ const Form = () => {
 
             {orderDone ?
                 <div className='cart_form_after_order_message'>
-                    <div className='cart_form_after_order_title'>Спасибо за заказ</div>
+                    <div className='cart_form_after_order_title'>Спасибо за заказ!</div>
                     <div className='cart_form_after_order_text'>
                         Скоро мы с Вами свяжемся для уточнения деталей заказа
                     </div>
