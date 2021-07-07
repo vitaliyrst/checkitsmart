@@ -10,7 +10,6 @@ import {getHeight} from "../../../redux/selectors";
 
 import emailjs from "emailjs-com";
 import {GAevent} from "../../../ga/events";
-import config from "../../../config/config";
 
 const Form = () => {
     const buttonRef = useRef();
@@ -53,13 +52,11 @@ const Form = () => {
         buttonRef.current.style.marginTop = height - 260 + 'px';
     }, [height, buttonRef]);
 
-/*    useEffect(() => {
-        if (orderDone) {
-            setTimeout(() => {
-                history.push('/catalog');
-            }, 2000);
+    useEffect(() => {
+        if (!JSON.parse(localStorage.getItem('oneclickbuy')).length) {
+            history.push('/catalog');
         }
-    }, [orderDone]);*/
+    }, []);
 
     const handleUserInput = (eo) => {
         let name = eo.target.name;

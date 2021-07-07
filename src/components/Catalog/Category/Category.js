@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import './Category.css';
 
 import {useDispatch, useSelector} from "react-redux";
-import {hideLoader, setIsCart} from "../../../redux/actions";
+import {hideLoader} from "../../../redux/actions";
 import {getCartState, getCatalog, getLoading, getOs} from "../../../redux/selectors";
 
 import {Link, useHistory, useParams} from 'react-router-dom';
@@ -28,14 +28,17 @@ const Category = () => {
 
     const handleClickAppleAR = (eo, product) => {
         localStorage.setItem('oneclickbuy', JSON.stringify([product]));
+        product.quantity = 1;
         eo.currentTarget.querySelector('#ar-link').click();
 
 
         appleARRefs.current.forEach(item => {
             item.addEventListener('message', (eo) => {
                 if (eo.data === "_apple_ar_quicklook_button_tapped") {
-                    if(typeof product.price === 'number') {
+                    if (typeof product.price === 'number') {
                         history.push('/cart/form');
+                    } else {
+                        history.push('/catalog');
                     }
                 }
             });
@@ -113,10 +116,11 @@ const Category = () => {
                         <div className='category_header'>{category.title}</div>
                     </div>
 
+                    {!os &&
                     <Link className='category_header_link' to={'/cart'}>
                         <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
                              alt='cart'/>
-                    </Link>
+                    </Link>}
                 </div>
 
                 <ul className='category_list'>{getCategoryProducts()}</ul>

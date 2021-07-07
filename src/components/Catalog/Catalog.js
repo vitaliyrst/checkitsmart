@@ -2,7 +2,7 @@ import React from 'react';
 import './Catalog.css';
 
 import {useSelector} from "react-redux";
-import {getCartState} from "../../redux/selectors";
+import {getCartState, getOs} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
 
@@ -11,6 +11,7 @@ import {Link} from "react-router-dom";
 const Catalog = React.memo(() => {
     const isCart = useSelector(getCartState);
     const data = useSelector(({catalog: {catalog}}) => catalog);
+    const os = useSelector(getOs);
 
     const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
 
@@ -38,10 +39,11 @@ const Catalog = React.memo(() => {
 
             <div className='catalog_header_container'>
                 <div className='catalog_header'>Каталог</div>
+                {!os &&
                 <Link className='catalog_header_link' to={'/cart'}>
                     <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
                          alt='cart'/>
-                </Link>
+                </Link>}
             </div>
 
             <ul className='catalog_list'>
