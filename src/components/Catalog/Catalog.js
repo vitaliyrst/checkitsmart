@@ -7,6 +7,7 @@ import {getCartState, getOs} from "../../redux/selectors";
 import {GAevent} from "../../ga/events";
 
 import {Link} from "react-router-dom";
+import QR from "../QR/QR";
 
 const Catalog = React.memo(() => {
     const isCart = useSelector(getCartState);
@@ -35,33 +36,39 @@ const Catalog = React.memo(() => {
     }
 
     return (
-        <div className='catalog_container'>
+        <>
+            {os === 'pc' ?
+                <QR/> :
 
-            <div className='catalog_header_container'>
-                <div className='catalog_header'>Каталог</div>
-                {!os &&
-                <Link className='catalog_header_link' to={'/cart'}>
-                    <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
-                         alt='cart'/>
-                </Link>}
-            </div>
+                <div className='catalog_container'>
 
-            <ul className='catalog_list'>
-                {getCatalogList()}
+                    <div className='catalog_header_container'>
+                        <div className='catalog_header'>Каталог</div>
+                        {os === 'android' &&
+                        <Link className='catalog_header_link' to={'/cart'}>
+                            <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
+                                 alt='cart'/>
+                        </Link>}
+                    </div>
 
-                <li className='catalog_item_video'
-                    style={{backgroundImage: (`url("/assets/images/catalog/how_it_works.png")`)}}>
+                    <ul className='catalog_list'>
+                        {getCatalogList()}
 
-                    <Link className='item_link_video' to='/catalog/video'>
-                        <div>
-                            Как это работает?
-                        </div>
-                    </Link>
+                        <li className='catalog_item_video'
+                            style={{backgroundImage: (`url("/assets/images/catalog/how_it_works.png")`)}}>
 
-                </li>
+                            <Link className='item_link_video' to='/catalog/video'>
+                                <div>
+                                    Как это работает?
+                                </div>
+                            </Link>
 
-            </ul>
-        </div>
+                        </li>
+
+                    </ul>
+                </div>
+            }
+        </>
     );
 });
 

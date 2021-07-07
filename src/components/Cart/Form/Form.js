@@ -20,7 +20,7 @@ const Form = () => {
     }
 
     const products = JSON.parse(localStorage.getItem('cart'));
-    const productOneClickBuy = (JSON.parse(localStorage.getItem('oneclickbuy')));
+    const productOneClickBuy = JSON.parse(localStorage.getItem('oneclickbuy'));
 
     const [orderDone, setOrderDone] = useState(false);
     const [inputValues, setInputValues] = useState({
@@ -54,9 +54,9 @@ const Form = () => {
 
     useEffect(() => {
         if (!JSON.parse(localStorage.getItem('oneclickbuy')).length) {
-            history.push('/catalog');
+            history.goBack();
         }
-    }, []);
+    }, [history]);
 
     const handleUserInput = (eo) => {
         let name = eo.target.name;

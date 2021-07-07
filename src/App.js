@@ -13,7 +13,15 @@ function App() {
         initGA();
         dispatch(setHeight(window.innerHeight));
         dispatch(fetchData());
-        dispatch(setOs(/iPhone|iPad|iPod/i.test(window.navigator.userAgent)));
+
+        const apple = /iP(hone|od|ad)/i
+        const android = /Android/i
+        const pc = /Mobile/i;
+        const os = apple.test(window.navigator.userAgent) ? 'apple' :
+            android.test(window.navigator.userAgent) ? 'android' :
+                !pc.test(window.navigator.userAgent) ? 'pc' : null
+
+        dispatch(setOs(os));
 
         if (localStorage.getItem('cart')) {
             if (JSON.parse(localStorage.getItem('cart')).length) {
@@ -28,6 +36,7 @@ function App() {
 
     return (
         <Router>
+
             <Switch>
                 {routes.map(({path, Component, name, exact}) => (
                     <Route key={name} path={path} exact={exact}>

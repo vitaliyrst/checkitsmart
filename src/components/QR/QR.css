@@ -1,0 +1,42 @@
+.qr_container {
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr_header {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 160%;
+}
+
+.qr_wrapper {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 160%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qr_image {
+    margin-top: 1.1875rem;
+    margin-bottom: 1.1875rem;
+}
+
+.qr_link {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 160%;
+}

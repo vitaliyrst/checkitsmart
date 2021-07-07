@@ -62,7 +62,7 @@ const Category = () => {
 
     const getCategoryProducts = () => {
         return category['products'].map(product => {
-                return !os ?
+                return os === 'android' ?
                     getAndroidProducts(product) :
                     getIOSProducts(product)
             }
@@ -116,7 +116,7 @@ const Category = () => {
                         <div className='category_header'>{category.title}</div>
                     </div>
 
-                    {!os &&
+                    {os === 'android' &&
                     <Link className='category_header_link' to={'/cart'}>
                         <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
                              alt='cart'/>
