@@ -2,16 +2,18 @@ import React from 'react';
 import './Catalog.css';
 
 import {useSelector} from "react-redux";
-import {getCartState, getOs} from "../../redux/selectors";
+import {getCartState, getCatalog, getLoading, getOs} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
 
 import {Link} from "react-router-dom";
 import QR from "../QR/QR";
+import Fallback from "../Loader/Loader";
 
-const Catalog = React.memo(() => {
+const Catalog = () => {
+    const loading = useSelector(getLoading);
     const isCart = useSelector(getCartState);
-    const data = useSelector(({catalog: {catalog}}) => catalog);
+    const data = useSelector(getCatalog);
     const os = useSelector(getOs);
 
     const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
@@ -35,20 +37,25 @@ const Catalog = React.memo(() => {
         });
     }
 
+    if (loading) {
+        return <Fallback/>;
+    }
+
     return (
         <>
             {os === 'pc' ?
                 <QR/> :
 
                 <div className='catalog_container'>
-
                     <div className='catalog_header_container'>
                         <div className='catalog_header'>Каталог</div>
+
                         {os === 'android' &&
                         <Link className='catalog_header_link' to={'/cart'}>
                             <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
                                  alt='cart'/>
-                        </Link>}
+                        </Link>
+                        }
                     </div>
 
                     <ul className='catalog_list'>
@@ -64,12 +71,11 @@ const Catalog = React.memo(() => {
                             </Link>
 
                         </li>
-
                     </ul>
                 </div>
             }
         </>
     );
-});
+};
 
 export default Catalog;

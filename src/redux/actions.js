@@ -1,5 +1,6 @@
+import database from "../firebase/firebase";
 import {
-    FETCH_DATA,
+    FETCH_CATALOG, FETCH_CATEGORY,
     HIDE_LOADER,
     IS_CART,
     PLANE_DETECTED,
@@ -9,19 +10,13 @@ import {
     SET_OS,
     SHOW_LOADER
 } from "./types";
-import data from '../data.json';
+
+// APP
 
 export const setOs = (os) => {
     return {
         type: SET_OS,
         payload: os
-    }
-}
-
-export const setHeight = (height) => {
-    return {
-        type: SET_HEIGHT,
-        payload: height
     }
 }
 
@@ -37,6 +32,13 @@ export const showLoader = () => {
     }
 }
 
+export const setHeight = (height) => {
+    return {
+        type: SET_HEIGHT,
+        payload: height
+    }
+}
+
 export const setIsCart = (bool) => {
     return {
         type: IS_CART,
@@ -44,12 +46,47 @@ export const setIsCart = (bool) => {
     }
 }
 
-export const fetchData = () => {
-    return {
-        type: FETCH_DATA,
-        payload: data
+
+//CATALOG
+
+export const fetchData = () => async (dispatch) => {
+    try {
+        dispatch(showLoader());
+        const response = await database.collection('/furniture');
+        const data = await response.get();
+        const result = [];
+        data.docs.forEach(item => result.push(item.data()));
+
+        dispatch({type: FETCH_CATALOG, payload: result});
+
+        dispatch(hideLoader());
+    } catch (e) {
+        console.log('Fetch catalog error', e.message);
+        dispatch(hideLoader());
     }
 }
+
+export const fetchCategory = (slug) => async (dispatch) => {
+    try {
+        dispatch(hideLoader());
+        const response = await database.collection('/furniture').where('slug', '==', slug);
+        const data = await response.get();
+        const result = [];
+
+        data.docs.forEach(item => {
+           result.push(item.data());
+        });
+
+        dispatch({type: FETCH_CATEGORY, payload: result[0]});
+        dispatch(hideLoader());
+    } catch (e) {
+        console.log('Fetch category error', e.message);
+        dispatch(hideLoader());
+    }
+}
+
+
+//WEBXR
 
 export const setMatrix = (matrix) => {
     return {

@@ -1,13 +1,16 @@
-import {FETCH_DATA} from "../types";
+import {FETCH_CATALOG, FETCH_CATEGORY} from "../types";
 
 const initialState = {
-    catalog: []
+    catalog: [],
+    category: {}
 }
 
 export const catalogReducer = (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_DATA :
+        case FETCH_CATALOG :
             return {...state, catalog: action.payload}
+        case FETCH_CATEGORY:
+            return {...state, category: action.payload}
         default :
             return state;
     }

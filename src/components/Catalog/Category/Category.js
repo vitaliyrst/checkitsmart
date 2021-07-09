@@ -2,27 +2,31 @@ import React, {useEffect, useRef, useState} from 'react';
 import './Category.css';
 
 import {useDispatch, useSelector} from "react-redux";
-import {hideLoader} from "../../../redux/actions";
-import {getCartState, getCatalog, getLoading, getOs} from "../../../redux/selectors";
+import {fetchCategory, hideLoader} from "../../../redux/actions";
+import {getCartState, getCategory, getLoading, getOs} from "../../../redux/selectors";
 
 import {Link, useHistory, useParams} from 'react-router-dom';
 
 import {GAevent} from "../../../ga/events";
 import WebXR from "../../WebXR/WebXR";
+import Fallback from "../../Loader/Loader";
 
 const Category = () => {
-    const appleARRefs = useRef([]);
     const params = useParams();
     const history = useHistory();
+    const appleARRefs = useRef([]);
 
     const [selectProduct, setSelectProduct] = useState(null);
 
     const dispatch = useDispatch();
     const os = useSelector(getOs);
     const loading = useSelector(getLoading);
-    const catalog = useSelector(getCatalog);
     const isCart = useSelector(getCartState);
-    const category = catalog.find(item => item['slug'] === params.category);
+    const category = useSelector(getCategory);
+
+    useEffect(() => {
+        dispatch(fetchCategory(params.category));
+    }, [dispatch]);
 
     const handleGAEventClickStartAR = (title) => GAevent(`CATEGORY ${category.title}`, 'click start AR', title);
 
@@ -30,7 +34,6 @@ const Category = () => {
         localStorage.setItem('oneclickbuy', JSON.stringify([product]));
         product.quantity = 1;
         eo.currentTarget.querySelector('#ar-link').click();
-
 
         appleARRefs.current.forEach(item => {
             item.addEventListener('message', (eo) => {
@@ -102,9 +105,13 @@ const Category = () => {
         );
     }
 
+    if (loading) {
+        return <Fallback/>
+    }
+
     return (
         <>
-            {!selectProduct && !loading &&
+            {!selectProduct &&
             <div className='category_container'>
 
                 <div className='category_header_container'>

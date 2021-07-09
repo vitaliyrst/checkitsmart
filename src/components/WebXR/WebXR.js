@@ -34,8 +34,12 @@ const WebXR = React.memo(({product, onSetProduct}) => {
     const handleSetButtonReady = (state) => setButtonReady(state);
     const handleStartSession = (gl) => {
         const arConfig = {
-            requiredFeatures: ['hit-test'],
+            requiredFeatures: ['hit-test', 'depth-sensing'],
             optionalFeatures: ['dom-overlay'],
+            depthSensing: {
+                usagePreference: ["cpu-optimized"],
+                dataFormatPreference: ["luminance-alpha"],
+            },
             domOverlay: {root: document.querySelector('.canvas_container')}
         }
         document.body.append(ARButton.createButton(gl, arConfig, handleSetButtonReady));
@@ -43,10 +47,12 @@ const WebXR = React.memo(({product, onSetProduct}) => {
         gl.xr.addEventListener('sessionend', () => {
             const timeEnd = Date.now();
             handleGAEventSessionDuration((timeEnd - time.current) / 1000);
+
             onSetProduct(null, product.title);
             dispatch(setReticleHit(false));
             dispatch(setPlaneDetected(false));
         });
+
     }
 
     useEffect(() => {

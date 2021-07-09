@@ -12,7 +12,10 @@ export const getLoading = (state) => {
 
 export const getCatalog = (state) => {
     return state.catalog.catalog;
+}
 
+export const getCategory = (state) => {
+    return state.catalog.category;
 }
 
 export const getCartState = (state) => {
