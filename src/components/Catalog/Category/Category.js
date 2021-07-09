@@ -53,10 +53,6 @@ const Category = () => {
         handleGAEventClickStartAR(title);
     }
 
-    useEffect(() => {
-        category && dispatch(hideLoader());
-    }, [category, dispatch]);
-
     const addToRefs = (element) => {
         if (element && !appleARRefs.current.includes(element)) {
             appleARRefs.current.push(element);

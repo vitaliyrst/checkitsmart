@@ -234,7 +234,7 @@ const Form = () => {
                     console.log('FAILED...', err);
                 });
 
-            /*emailjs.send(
+            emailjs.send(
                 config.emailjs.serviceId,
                 config.emailjs.templateCustomerId,
                 {
@@ -250,7 +250,7 @@ const Form = () => {
                     console.log('SUCCESS!', response.status, response.text);
                 }, (err) => {
                     console.log('FAILED...', err);
-                });*/
+                });
 
             if (productOneClickBuy.length) {
                 localStorage.removeItem('oneclickbuy');

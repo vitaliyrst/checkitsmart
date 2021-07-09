@@ -52,7 +52,7 @@ export const setIsCart = (bool) => {
 export const fetchData = () => async (dispatch) => {
     try {
         dispatch(showLoader());
-        const response = await database.collection('/furniture');
+        const response = await database.collection('/furniture').orderBy('id');
         const data = await response.get();
         const result = [];
         data.docs.forEach(item => result.push(item.data()));
@@ -68,13 +68,13 @@ export const fetchData = () => async (dispatch) => {
 
 export const fetchCategory = (slug) => async (dispatch) => {
     try {
-        dispatch(hideLoader());
+        dispatch(showLoader());
         const response = await database.collection('/furniture').where('slug', '==', slug);
         const data = await response.get();
         const result = [];
 
         data.docs.forEach(item => {
-           result.push(item.data());
+            result.push(item.data());
         });
 
         dispatch({type: FETCH_CATEGORY, payload: result[0]});
