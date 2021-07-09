@@ -236,7 +236,7 @@ const Form = () => {
 
             emailjs.send(
                 config.emailjs.serviceId,
-                config.emailjs.templateCustomerId,
+                config.emailjs.templateSellerId,
                 {
                     'to_email': 'vitaliy.klubkou@gmail.com',
                     'customer_email': inputValues.email,
