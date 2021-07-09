@@ -238,7 +238,7 @@ const Form = () => {
                 config.emailjs.serviceId,
                 config.emailjs.templateCustomerId,
                 {
-                    'to_email': 'alexkovaluoff@gmail.com',
+                    'to_email': 'vitaliy.klubkou@gmail.com',
                     'customer_email': inputValues.email,
                     'customer_phone': inputValues.phone,
                     'customer_name': inputValues.name,
