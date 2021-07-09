@@ -8,10 +8,9 @@ const ARLoader = () => {
     const meshRef = useRef();
 
     useEffect(() => {
-        const {mesh} = meshRef;
-        camera.add(mesh);
+        camera.add(meshRef.current);
 
-        return () => camera.remove(mesh);
+        return () => camera.remove(meshRef.current);
     }, [camera]);
 
     return (

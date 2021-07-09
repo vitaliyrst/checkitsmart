@@ -3,18 +3,11 @@ import React, {useEffect, useRef} from 'react';
 import {useSelector} from "react-redux";
 import {getMatrix} from "../../../redux/selectors";
 
-import {useFrame, useLoader, useThree} from "@react-three/fiber";
+import {useLoader, useThree} from "@react-three/fiber";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {DragControls} from "../ARControls/ARDragControls";
 
 const ARModel = ({product: {arGLTF}}) => {
-    const three = useThree();
-    console.log(three)
-    useFrame((state, delta) => {
-        console.log(state, delta);
-
-    })
-
     const {camera, gl: {domElement}, } = useThree();
     const gltf = useLoader(GLTFLoader, arGLTF);
 

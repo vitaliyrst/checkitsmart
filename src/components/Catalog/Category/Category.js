@@ -64,12 +64,14 @@ const Category = () => {
     }
 
     const getCategoryProducts = () => {
-        return category['products'].map(product => {
-                return os === 'android' ?
-                    getAndroidProducts(product) :
-                    getIOSProducts(product)
-            }
-        );
+        if (category['products']) {
+            return category['products'].map(product => {
+                    return os === 'android' ?
+                        getAndroidProducts(product) :
+                        getIOSProducts(product)
+                }
+            );
+        }
     }
 
     const getIOSProducts = (product) => {

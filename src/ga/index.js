@@ -1,7 +1,8 @@
 import ReactGA from "react-ga";
+import config from "../config/config";
 
 export const initGA = () => {
-    ReactGA.initialize('UA-201313502-1');
+    ReactGA.initialize(config.ga.serviceId);
 }
 
 export const GApageView = (page) => {

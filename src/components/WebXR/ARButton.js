@@ -43,7 +43,6 @@ class ARButton {
                 button.textContent = 'STOP AR';
                 sessionInit.domOverlay.root.style.display = '';
                 currentSession = session;
-                console.log(session)
             }
 
             function onSessionEnded() {
