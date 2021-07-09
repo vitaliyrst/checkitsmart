@@ -10,8 +10,8 @@ const config = {
     },
     emailjs: {
         serviceId: process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        templateCustomerId: process.env.REACT_APP_EMAILJS_TEMPLATE_CUSTOMER_ID,
         templateSellerId: process.env.REACT_APP_EMAILJS_TEMPLATE_SELLER_ID,
-        templateCustomerId: process.env.REACT_APP_EMAILJS_TEMPLATE_CUTOMER_ID,
         userId: process.env.REACT_APP_EMAILJS_USER_ID
     },
     ga: {

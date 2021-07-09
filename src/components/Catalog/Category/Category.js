@@ -26,7 +26,7 @@ const Category = () => {
 
     useEffect(() => {
         dispatch(fetchCategory(params.category));
-    }, [dispatch]);
+    }, [dispatch, params.category]);
 
     const handleGAEventClickStartAR = (title) => GAevent(`CATEGORY ${category.title}`, 'click start AR', title);
 

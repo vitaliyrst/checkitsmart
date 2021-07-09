@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import './Form.css';
 
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 import InputMask from 'react-input-mask';
 
 import {useDispatch, useSelector} from "react-redux";
@@ -10,10 +10,10 @@ import {getHeight} from "../../../redux/selectors";
 
 import emailjs from "emailjs-com";
 import {GAevent} from "../../../ga/events";
+import config from "../../../config/config";
 
 const Form = () => {
     const buttonRef = useRef();
-    const history = useHistory();
 
     if (!localStorage.getItem('oneclickbuy')) {
         localStorage.setItem('oneclickbuy', JSON.stringify([]));
@@ -51,12 +51,6 @@ const Form = () => {
     useEffect(() => {
         buttonRef.current.style.marginTop = height - 260 + 'px';
     }, [height, buttonRef]);
-
-    useEffect(() => {
-        if (!JSON.parse(localStorage.getItem('oneclickbuy')).length) {
-            history.goBack();
-        }
-    }, [history]);
 
     const handleUserInput = (eo) => {
         let name = eo.target.name;
@@ -224,15 +218,15 @@ const Form = () => {
 
         if (inputValues.formValid) {
             emailjs.send(
-                'service_snco71f',
-                'template_7fq1pnk',
+                config.emailjs.serviceId,
+                config.emailjs.templateCustomerId,
                 {
                     'email': inputValues.email,
                     'name': inputValues.name,
                     'message': message,
                     'total': totalPrice
                 },
-                'user_Y0fMGKRYdgRSGCmIgpPTC'
+                config.emailjs.userId
             )
                 .then((response) => {
                     console.log('SUCCESS!', response.status, response.text);

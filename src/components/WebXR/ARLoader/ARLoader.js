@@ -6,12 +6,13 @@ import {useThree} from "@react-three/fiber";
 const ARLoader = () => {
     const {camera} = useThree();
     const meshRef = useRef();
+    const mesh = meshRef.current
 
     useEffect(() => {
-        camera.add(meshRef.current);
+        camera.add(mesh);
 
-        return () => camera.remove(meshRef.current);
-    }, [camera]);
+        return () => camera.remove(mesh);
+    }, [camera, mesh]);
 
     return (
         <mesh ref={meshRef} position={[0, 0, -0.05]}>
