@@ -5,17 +5,19 @@ html {
 }
 
 body {
+    height: 100%;
     background-color: rgba(49, 49, 49, 0.8);
     margin: 0;
     padding: 0;
 }
 
 .wrapper {
-    box-sizing: border-box;
+    height: 100%;
+    padding: 1rem;
     text-align: center;
-    padding: 0.65rem;
-    height: 150px;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .banner_container {
@@ -33,12 +35,12 @@ body {
 
 .banner_header {
     font-weight: 700;
-    font-size: 1.33rem;
+    font-size: 1.3rem;
 }
 
 .banner_price {
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .banner_color {
@@ -48,7 +50,7 @@ body {
 
 .banner_color,
 .banner_size {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .banner_href_container {
@@ -60,10 +62,9 @@ body {
 
     width: 100%;
     height: 4rem;
-    margin-top: 20px;
 
     background-color: #DF661C;
-    font-size: 1rem;
+    font-size: 1.1rem;
     outline: none;
     border-radius: 0.5rem;
     color: #FFFFFF;
@@ -72,7 +73,4 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    position: absolute;
-    bottom: 5px;
 }
