@@ -100,7 +100,7 @@ const Form = () => {
                 if (value.trim().length === 0) {
                     emailValid = false;
                     formErrors.email = 'Введите email'
-                } else if (!(/[a-zAz].+@.+\..+/i).test(value)) {
+                } else if (!(/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/i).test(value)) {
                     emailValid = false;
                     formErrors.email = 'Введите email корректно';
                 } else {

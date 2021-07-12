@@ -21,10 +21,10 @@ const Video = () => {
             <video autoPlay='autoPlay'
                    preload='auto'
                    controls='controls'
-                   poster='https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/video%2Fexample.mp4?alt=media&token=740ddaf0-4a51-48be-b454-6b67dbfb1748'
+                   poster='https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/video%2Fexample.mp4?alt=media&token=821f9eb3-f856-47b2-af3e-17226cd0b13d'
             >
                 <source
-                    src='https://firebasestorage.googleapis.com/v0/b/check-it-smart.appspot.com/o/video%2Fexample.mp4?alt=media&token=740ddaf0-4a51-48be-b454-6b67dbfb1748'
+                    src='https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/video%2Fexample.mp4?alt=media&token=821f9eb3-f856-47b2-af3e-17226cd0b13d'
                     type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
                 />
             </video>

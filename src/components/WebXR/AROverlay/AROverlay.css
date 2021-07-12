@@ -120,14 +120,12 @@
     margin-right: 5px;
     font-size: 1.125rem;
     line-height: 160%;
-    text-transform: capitalize;
 }
 
 .ar_info_main_price {
     font-weight: 700;
     font-size: 1.5rem;
     line-height: 1.5rem;
-    text-transform: capitalize;
 
     white-space: nowrap;
 }
