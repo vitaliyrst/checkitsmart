@@ -35,8 +35,13 @@ const Category = () => {
     const handleGAEventClickStartAR = (title) => GAevent(`CATEGORY ${category.title}`, 'click start AR', title);
 
     const handleClickAppleAR = (eo, product) => {
-        localStorage.setItem('oneclickbuy', JSON.stringify([product]));
         product.quantity = 1;
+        if (!product.outofstock) {
+            localStorage.setItem('oneclickbuy', JSON.stringify([product]));
+        } else {
+            localStorage.setItem('leaveorder', JSON.stringify([product]));
+        }
+
         eo.currentTarget.querySelector('#ar-link').click();
 
         appleARRefs.current.forEach(item => {

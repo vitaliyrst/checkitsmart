@@ -84,7 +84,7 @@ const AROverlay = ({product}) => {
     const handleLeaveOrder = async () => {
         await document.getElementById('ARButton').click();
         handleGAEventLeaveOrder();
-
+        product.quantity = 1;
         localStorage.setItem('leaveorder', JSON.stringify([product]));
         history.push(`/cart/form`);
     }

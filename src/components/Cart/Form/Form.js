@@ -11,6 +11,7 @@ import {getHeight} from "../../../redux/selectors";
 import emailjs from "emailjs-com";
 import {GAevent} from "../../../ga/events";
 import config from "../../../config/config";
+import {onLog} from "firebase";
 
 const Form = () => {
     const buttonRef = useRef();
@@ -192,7 +193,7 @@ const Form = () => {
                 </tbody>
             </table>`;
         } else if (productLeaveOrder.length) {
-            const product = productOneClickBuy[0];
+            const product = productLeaveOrder[0];
             totalPrice = product.price.toFixed(2);
 
             message = `
@@ -234,40 +235,66 @@ const Form = () => {
         }
 
         if (inputValues.formValid) {
-            emailjs.send(
-                config.emailjs.serviceId,
-                config.emailjs.templateCustomerId,
-                {
-                    'email': inputValues.email,
-                    'name': inputValues.name,
-                    'message': message,
-                    'total': totalPrice
-                },
-                config.emailjs.userId
-            )
-                .then((response) => {
-                    console.log('SUCCESS!', response.status, response.text);
-                }, (err) => {
-                    console.log('FAILED...', err);
-                });
+            if (!productLeaveOrder.length) {
+                emailjs.send(
+                    config.emailjs.serviceId,
+                    config.emailjs.templateCustomerId,
+                    {
+                        'email': inputValues.email,
+                        'name': inputValues.name,
+                        'message': message,
+                        'total': totalPrice
+                    },
+                    config.emailjs.userId
+                )
+                    .then((response) => {
+                        console.log('SUCCESS!', response.status, response.text);
+                    }, (err) => {
+                        console.log('FAILED...', err);
+                    });
+            }
 
-            emailjs.send(
-                config.emailjs.serviceId,
-                config.emailjs.templateSellerId,
-                {
-                    'to_email': 'vitaliy.klubkou@gmail.com',
-                    'customer_email': inputValues.email,
-                    'customer_phone': inputValues.phone,
-                    'customer_name': inputValues.name,
-                    'message': message,
-                    'total': totalPrice
-                },
-                config.emailjs.userId)
-                .then((response) => {
-                    console.log('SUCCESS!', response.status, response.text);
-                }, (err) => {
-                    console.log('FAILED...', err);
-                });
+
+            if (productLeaveOrder.length) {
+                emailjs.send(
+                    config.emailjs.serviceId,
+                    config.emailjs.templateSellerId,
+                    {
+                        'theme': 'CheckItSmart Оформление заявки',
+                        'to_email': 'vitaliy.klubkou@gmail.com',
+                        'customer_email': inputValues.email,
+                        'customer_phone': inputValues.phone,
+                        'customer_name': inputValues.name,
+                        'message': message,
+                        'total': totalPrice
+                    },
+                    config.emailjs.userId)
+                    .then((response) => {
+                        console.log('SUCCESS!', response.status, response.text);
+                    }, (err) => {
+                        console.log('FAILED...', err);
+                    });
+            } else {
+                emailjs.send(
+                    config.emailjs.serviceId,
+                    config.emailjs.templateSellerId,
+                    {
+                        'theme' : 'CheckItSmart Информация о заказе',
+                        'to_email': 'vitaliy.klubkou@gmail.com',
+                        'customer_email': inputValues.email,
+                        'customer_phone': inputValues.phone,
+                        'customer_name': inputValues.name,
+                        'message': message,
+                        'total': totalPrice
+                    },
+                    config.emailjs.userId)
+                    .then((response) => {
+                        console.log('SUCCESS!', response.status, response.text);
+                    }, (err) => {
+                        console.log('FAILED...', err);
+                    });
+            }
+
 
             if (productOneClickBuy.length) {
                 localStorage.removeItem('oneclickbuy');
