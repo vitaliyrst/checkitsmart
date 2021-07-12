@@ -47,11 +47,7 @@ const Category = () => {
         appleARRefs.current.forEach(item => {
             item.addEventListener('message', (eo) => {
                 if (eo.data === "_apple_ar_quicklook_button_tapped") {
-                    if (typeof product.price === 'number') {
-                        history.push('/cart/form');
-                    } else {
-                        history.push('/catalog');
-                    }
+                    history.push('/cart/form');
                 }
             });
         })

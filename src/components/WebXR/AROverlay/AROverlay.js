@@ -51,6 +51,7 @@ const AROverlay = ({product}) => {
     }
 
     const handleGoToOrderForm = async () => {
+        product.quantity = 1;
         await document.getElementById('ARButton').click();
         handleGAEventClickOneClickBuy();
 
