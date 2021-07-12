@@ -15,12 +15,9 @@ import config from "../../../config/config";
 const Form = () => {
     const buttonRef = useRef();
 
-    if (!localStorage.getItem('oneclickbuy')) {
-        localStorage.setItem('oneclickbuy', JSON.stringify([]));
-    }
-
     const products = JSON.parse(localStorage.getItem('cart'));
     const productOneClickBuy = JSON.parse(localStorage.getItem('oneclickbuy'));
+    const productLeaveOrder = JSON.parse(localStorage.getItem('leaveorder'));
 
     const [orderDone, setOrderDone] = useState(false);
     const [inputValues, setInputValues] = useState({
@@ -277,16 +274,24 @@ const Form = () => {
                         />
                     </Link>
                     <div className='cart_form_header'>
-                        Оформление заказа
+                        {productLeaveOrder.length ? 'Оставить заявку' : 'Оформление заказа'}
                     </div>
                 </div>
             </div>}
 
             {orderDone ?
                 <div className='cart_form_after_order_message'>
-                    <div className='cart_form_after_order_title'>Спасибо за заказ!</div>
+                    <div className='cart_form_after_order_title'>
+                        {productLeaveOrder.length ?
+                            'Спасибо!' :
+                            'Спасибо за заказ!'
+                        }
+                    </div>
                     <div className='cart_form_after_order_text'>
-                        Скоро мы с Вами свяжемся для уточнения деталей заказа
+                        {productLeaveOrder.length ?
+                            'Мы свяжемся с Вами, когда товар появится в наличии' :
+                            'Скоро мы с Вами свяжемся для уточнения деталей заказа'
+                        }
                     </div>
                     <Link className='cart_link_button_container' to={'/catalog'}>
                         <button className='cart_link_button' type='button'>
@@ -297,7 +302,10 @@ const Form = () => {
 
                 <>
                     <div className='cart_form_message'>
-                        Мы свяжемся с Вами для уточнения деталей заказа
+                        {productLeaveOrder.length ?
+                            'Мы свяжемся с Вами, когда товар появится в наличии' :
+                            'Мы свяжемся с Вами для уточнения деталей заказа'
+                        }
                     </div>
 
                     <form className='cart_form' onSubmit={handleSubmitForm}>
@@ -356,7 +364,10 @@ const Form = () => {
 
                         <button ref={buttonRef} className='cart_form_button_submit' type='submit'
                                 onClick={() => handleGAEventCheckOut(inputValues.email)}>
-                            Оформить заказ
+                            {productLeaveOrder.length ?
+                                'Оставить заявку' :
+                                'Оформить заказ'
+                            }
                         </button>
                     </form>
                 </>

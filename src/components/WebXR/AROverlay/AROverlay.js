@@ -20,6 +20,7 @@ const AROverlay = ({product}) => {
     const handleGAEventClickReset = () => GAevent('AR SESSION', 'reset', 'reset');
     const handleGAEventClickAddToCart = (title) => GAevent('CART', 'add to cart', title);
     const handleGAEventClickOneClickBuy = () => GAevent('CART', 'one click buy', 'one click buy');
+    const handleGAEventLeaveOrder = () => GAevent('CART', 'leave order', 'leave order');
 
     useEffect(() => {
         const sameProduct = cart.some(item => item.title === product.title);
@@ -80,11 +81,19 @@ const AROverlay = ({product}) => {
         dispatch(setIsCart(true));
     }
 
+    const handleLeaveOrder = async () => {
+        await document.getElementById('ARButton').click();
+        handleGAEventLeaveOrder();
+
+        localStorage.setItem('leaveorder', JSON.stringify([product]));
+        history.push(`/cart/form`);
+    }
+
     const getFirstButton = () => {
-        if (isCart && typeof product.price === 'number') {
+        if (isCart && !product.outofstock) {
             return <div className='ar_info_now_in_cart' onClick={handleRedirectToCart}>Уже в корзине</div>
-        } else if (typeof product.price === 'string') {
-            return <div className='ar_info_not_in_store'> Нет в наличии </div>
+        } else if (product.outofstock) {
+            return <button className='ar_info_button_buy' onClick={handleLeaveOrder}>Оставить заявку</button>
         } else {
             return <button className='ar_info_button_buy' onClick={handleAddToCart}>Положить в корзину</button>
         }
@@ -115,8 +124,9 @@ const AROverlay = ({product}) => {
                             {product.title}
                         </div>
 
-                        {typeof product.price === 'number' &&
-                        <div className='ar_info_main_price'>{product.price} BYN</div>}
+                        {product.outofstock ?
+                            <div className='ar_info_main_noprice'>Нет в наличии</div> :
+                            <div className='ar_info_main_price'>{(product.price).toFixed(2)} BYN</div>}
                     </div>
 
                     <div className='ar_info_additional'>
@@ -140,7 +150,7 @@ const AROverlay = ({product}) => {
 
                 <div className='ar_button_one_click_buy_container'>
                     <button
-                        className={typeof product.price !== 'string' ? 'ar_button_one_click_buy' : 'ar_button_one_click_buy_not_visible'}
+                        className={!product.outofstock ? 'ar_button_one_click_buy' : 'ar_button_one_click_buy_not_visible'}
                         onClick={handleGoToOrderForm}
                     >
                         Купить в 1 клик

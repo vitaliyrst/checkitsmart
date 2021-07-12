@@ -56,9 +56,7 @@ export const fetchData = () => async (dispatch) => {
         const data = await response.get();
         const result = [];
         data.docs.forEach(item => result.push(item.data()));
-
         dispatch({type: FETCH_CATALOG, payload: result});
-
         dispatch(hideLoader());
     } catch (e) {
         console.log('Fetch catalog error', e.message);

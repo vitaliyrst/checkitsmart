@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import './Category.css';
 
 import {useDispatch, useSelector} from "react-redux";
-import {fetchCategory, hideLoader} from "../../../redux/actions";
+import {fetchCategory} from "../../../redux/actions";
 import {getCartState, getCategory, getLoading, getOs} from "../../../redux/selectors";
 
 import {Link, useHistory, useParams} from 'react-router-dom';
@@ -10,6 +10,7 @@ import {Link, useHistory, useParams} from 'react-router-dom';
 import {GAevent} from "../../../ga/events";
 import WebXR from "../../WebXR/WebXR";
 import Fallback from "../../Loader/Loader";
+import QR from "../../QR/QR";
 
 const Category = () => {
     const params = useParams();
@@ -25,6 +26,8 @@ const Category = () => {
     const category = useSelector(getCategory);
 
     useEffect(() => {
+        localStorage.setItem('oneclickbuy', JSON.stringify([]));
+        localStorage.setItem('leaveorder', JSON.stringify([]));
         dispatch(fetchCategory(params.category));
     }, [dispatch, params.category]);
 
@@ -81,9 +84,7 @@ const Category = () => {
                     </a>
                 </div>
                 <div className='category_item_title'>{title}</div>
-                {typeof price === 'number' ?
-                    <div className='category_item_price'>{price.toFixed(2)} BYN</div> :
-                    <div className='category_item_noprice'>{price}</div>}
+                <div className='category_item_price'>{price.toFixed(2)} BYN</div>
             </li>
         );
     }
@@ -96,11 +97,13 @@ const Category = () => {
                     <img className='category_item_image' src={image} alt={title}/>
                 </div>
                 <div className='category_item_title'>{title}</div>
-                {typeof price === 'number' ?
-                    <div className='category_item_price'>{price.toFixed(2)} BYN</div> :
-                    <div className='category_item_noprice'>{price}</div>}
+                <div className='category_item_price'>{price.toFixed(2)} BYN</div>
             </li>
         );
+    }
+
+    if (os === 'pc') {
+        return <QR/>
     }
 
     if (loading) {

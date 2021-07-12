@@ -21,7 +21,7 @@
 
     font-family: Inter, sans-serif;
     font-weight: 400;
-    font-size: 1.125rem;
+    font-size: 1rem;
     line-height: 160%;
 
     display: flex;
@@ -30,8 +30,8 @@
 }
 
 .qr_image {
-    margin-top: 1.1875rem;
-    margin-bottom: 1.1875rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .qr_link {

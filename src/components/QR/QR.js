@@ -13,7 +13,10 @@ const QR = () => {
                 </div>
                 <img className='qr_image' src={'./assets/images/other/QR.svg'} alt='qr'/>
                 <div>
-                    или введи в адресной строке
+                    или
+                </div>
+                <div>
+                     переключитесь на мобильную версию сайта
                 </div>
             </div>
             <div className='qr_link'>
