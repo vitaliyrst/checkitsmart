@@ -11,7 +11,7 @@ const QR = () => {
                 <div className=''>
                     Отсканируйте на телефоне QR-код, чтобы открыть сайт
                 </div>
-                <img className='qr_image' src={'./assets/images/other/QR.svg'} alt='qr'/>
+                <img className='qr_image' src={'/assets/images/other/QR.svg'} alt='qr'/>
                 <div>
                     или
                 </div>

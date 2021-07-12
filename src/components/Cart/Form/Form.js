@@ -191,6 +191,26 @@ const Form = () => {
                     </tr> 
                 </tbody>
             </table>`;
+        } else if (productLeaveOrder.length) {
+            const product = productOneClickBuy[0];
+            totalPrice = product.price.toFixed(2);
+
+            message = `
+            <table style="border-collapse:collapse;width:100%;height:20px;border-color:#ffffff">
+                <tbody>
+                    <tr style="height:10px">
+                        <td style="width:33.0739%;height:10px;text-align:left">
+                            <span style="font-size:14pt">${product.title}</span>
+                        </td>
+                        <td style="width:33.0739%;height:10px;text-align:center">
+                            <span style="font-size:14pt">${product.quantity} шт.</span>
+                        </td>
+                        <td style="width:33.0739%;height:10px;text-align:right">
+                            <span style="font-size:14pt">${(product.price).toFixed(2)} BYN</span>
+                        </td>
+                    </tr> 
+                </tbody>
+            </table>`;
         } else {
             totalPrice = products
                 .reduce((acc, {price, quantity}) => (acc + (Number(price) * quantity)), 0).toFixed(2);

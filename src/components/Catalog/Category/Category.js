@@ -13,6 +13,7 @@ import Fallback from "../../Loader/Loader";
 import QR from "../../QR/QR";
 
 const Category = () => {
+
     const params = useParams();
     const history = useHistory();
     const appleARRefs = useRef([]);
