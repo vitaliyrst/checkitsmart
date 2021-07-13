@@ -5,50 +5,76 @@ html {
 }
 
 body {
+    height: 100%;
     background-color: rgba(49, 49, 49, 0.8);
     margin: 0;
     padding: 0;
 }
 
+.container {
+    width: 95vw;
+    margin: 50px auto;
+    height: 153px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+}
+
 .wrapper {
     box-sizing: border-box;
-    text-align: center;
-    padding: 0.65rem;
-    height: 150px;
-    position: relative;
+
+    height: 100vh;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .banner_container {
-    text-align: left;
     color: #FFFFFF;
     border-radius: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .banner_container > div {
-    font-size: 1rem;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+}
+
+.banner_second{
+    color: #FFFFFF;
 }
 
 .banner_header {
     font-weight: 700;
-    font-size: 1.33rem;
+    font-size: 1.3rem;
+    line-height: 160%;
+    flex-basis: 68%;
 }
 
 .banner_price {
+    font-size: 18px;
+    font-family: Inter, sans-serif;
     font-weight: 700;
-    font-size: 1.33rem;
+    flex-basis: 30%;
+}
+
+.banner_no_price{
+    font-weight: 400;
+    font-size: 1.1rem;
+    flex-basis: 27%;
 }
 
 .banner_color {
-    margin-top: 1rem;
     margin-bottom: 0.66rem;
 }
 
 .banner_color,
 .banner_size {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .banner_href_container {
@@ -56,23 +82,19 @@ body {
 }
 
 .banner_href_buy {
-    box-sizing: border-box;
-
     width: 100%;
-    height: 4rem;
-    margin-top: 20px;
+    height: 3rem;
 
     background-color: #DF661C;
-    font-size: 1rem;
+
+    font-size: 1.1rem;
     outline: none;
     border-radius: 0.5rem;
     color: #FFFFFF;
     text-decoration: none;
+    text-align: center;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    position: absolute;
-    bottom: 5px;
 }

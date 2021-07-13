@@ -11,7 +11,6 @@ import {getHeight} from "../../../redux/selectors";
 import emailjs from "emailjs-com";
 import {GAevent} from "../../../ga/events";
 import config from "../../../config/config";
-import {onLog} from "firebase";
 
 const Form = () => {
     const buttonRef = useRef();
