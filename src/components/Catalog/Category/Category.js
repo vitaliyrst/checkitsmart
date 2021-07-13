@@ -83,6 +83,7 @@ const Category = () => {
                 <div className='category_item_image_container'>
                     <a ref={addToRefs} className='category_item_apple_link' id="ar-link" href={usdz} rel='ar'>
                         <img className='category_item_image' src={image} alt={title}/>
+                        <img className='category_item_arlink' src={'/assets/images/other/ar-link.svg'} alt='ar'/>
                     </a>
                 </div>
                 <div className='category_item_title'>{title}</div>
@@ -97,6 +98,7 @@ const Category = () => {
             <li key={id} className='category_item' onClick={() => setSelectProduct(product)}>
                 <div className='category_item_image_container'>
                     <img className='category_item_image' src={image} alt={title}/>
+                    <img className='category_item_arlink' src={'/assets/images/other/ar-link.svg'} alt='ar'/>
                 </div>
                 <div className='category_item_title'>{title}</div>
                 <div className='category_item_price'>{price.toFixed(2)} BYN</div>

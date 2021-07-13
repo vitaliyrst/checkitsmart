@@ -8,7 +8,7 @@ import {
     SET_HEIGHT,
     SET_MATRIX,
     SET_OS,
-    SHOW_LOADER
+    SHOW_LOADER, TEST
 } from "./types";
 
 // APP
@@ -104,5 +104,24 @@ export const setReticleHit = (state) => {
     return {
         type: RETICLE_HIT,
         payload: state
+    }
+}
+
+export const setTest = () => async (dispatch) => {
+    try {
+        dispatch(showLoader());
+        const response = await database.collection('/en').doc('furniture');
+        const data = await response.get();
+        let result;
+
+        if (data.exists) {
+            result = data.data();
+        }
+
+        dispatch({type: TEST, payload: result});
+        dispatch(hideLoader());
+    } catch (e) {
+        console.log('Fetch category error', e.message);
+        dispatch(hideLoader());
     }
 }

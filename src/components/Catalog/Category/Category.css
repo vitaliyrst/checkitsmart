@@ -73,6 +73,12 @@
     height: 100%;
 }
 
+.category_item_arlink {
+    position: absolute;
+    right: 1rem;
+    top: -0.25rem;
+}
+
 .category_item_title {
     margin-top: 0.625rem;
 

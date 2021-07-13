@@ -33,3 +33,7 @@ export const getPlaneDetected = (state) => {
 export const getReticleHit = (state) => {
     return state.webxr.reticleHit;
 }
+
+export const getTest = (state) => {
+    return state.catalog.test;
+}

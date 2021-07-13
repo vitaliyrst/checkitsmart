@@ -10,3 +10,6 @@ export const FETCH_CATEGORY = 'CATALOG/FETCH_CATEGORY';
 export const SET_MATRIX = 'WEBXR/SET_MATRIX';
 export const PLANE_DETECTED = 'WEBXR/PLANE_DETECTED';
 export const RETICLE_HIT = 'WEBXR/RETICLE_HIT';
+
+
+export const TEST = 'TEST';

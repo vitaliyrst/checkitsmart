@@ -4,15 +4,16 @@ import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom
 import routes from "./routes/routes";
 import {initGA} from "./ga";
 import {useDispatch} from "react-redux";
-import {fetchData, setHeight, setIsCart, setOs} from "./redux/actions";
+import {fetchData, setHeight, setIsCart, setOs, setTest} from "./redux/actions";
 
 function App() {
     const dispatch = useDispatch();
-
+    console.log(window.navigator.languages)
     useEffect(() => {
         initGA();
         dispatch(setHeight(window.innerHeight));
         dispatch(fetchData());
+        dispatch(setTest());
 
         const apple = /iP(hone|od|ad)/i
         const android = /Android/i
