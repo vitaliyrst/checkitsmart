@@ -5,16 +5,12 @@ import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom
 import routes from "./routes/routes";
 
 import {useDispatch} from "react-redux";
-import {fetchData, setHeight, setIsCart, setOs, setTest} from "./redux/actions";
+import {fetchAppDescription, fetchCatalog, setHeight, setIsCart, setLanguage, setOs} from "./redux/actions";
 
 function App() {
     const dispatch = useDispatch();
-
+    console.log(window.navigator.language)
     useEffect(() => {
-        dispatch(setHeight(window.innerHeight));
-        dispatch(fetchData());
-        dispatch(setTest());
-
         const apple = /iP(hone|od|ad)/i
         const android = /Android/i
         const pc = /Mobile/i;
@@ -23,6 +19,11 @@ function App() {
                 !pc.test(window.navigator.userAgent) ? 'pc' : null
 
         dispatch(setOs(os));
+        dispatch(setLanguage(window.navigator.language));
+        dispatch(setHeight(window.innerHeight));
+        dispatch(fetchAppDescription(window.navigator.language));
+        dispatch(fetchCatalog(window.navigator.language));
+
 
         if (localStorage.getItem('cart')) {
             if (JSON.parse(localStorage.getItem('cart')).length) {

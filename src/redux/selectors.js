@@ -1,3 +1,5 @@
+// APP
+
 export const getOs = (state) => {
     return state.app.os;
 }
@@ -10,6 +12,21 @@ export const getLoading = (state) => {
     return state.app.loading;
 }
 
+export const getCartState = (state) => {
+    return state.app.isCart;
+}
+
+export const getLanguage = (state) => {
+    return state.app.language;
+}
+
+export const getAppDescription = (path) => (state) => {
+    return state.app.appDescription[path];
+}
+
+
+// CATALOG
+
 export const getCatalog = (state) => {
     return state.catalog.catalog;
 }
@@ -18,9 +35,8 @@ export const getCategory = (state) => {
     return state.catalog.category;
 }
 
-export const getCartState = (state) => {
-    return state.app.isCart;
-}
+
+// WEBXR
 
 export const getMatrix = (state) => {
     return state.webxr.matrix;
@@ -32,8 +48,4 @@ export const getPlaneDetected = (state) => {
 
 export const getReticleHit = (state) => {
     return state.webxr.reticleHit;
-}
-
-export const getTest = (state) => {
-    return state.catalog.test;
 }

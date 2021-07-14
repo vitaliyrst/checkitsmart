@@ -32,7 +32,10 @@ const AROverlay = ({product}) => {
         }
     }, [cart, dispatch, product.title]);
 
-    const handleClickClose = async () => await document.getElementById('ARButton').click();
+    const handleClickClose = async () => {
+        await document.getElementById('ARButton').click();
+        history.back();
+    }
 
     const handleClickReset = () => {
         handleGAEventClickReset()

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import './Catalog.css';
 
 import {useSelector} from "react-redux";
-import {getCartState, getCatalog, getLoading, getOs} from "../../redux/selectors";
+import {getAppDescription, getCartState, getCatalog, getLoading, getOs} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
 import {GApageView} from "../../ga";
@@ -16,6 +16,7 @@ const Catalog = () => {
     const isCart = useSelector(getCartState);
     const data = useSelector(getCatalog);
     const os = useSelector(getOs);
+    const description = useSelector(getAppDescription('catalog'));
 
     useEffect(() => {
         GApageView(window.location.pathname);
@@ -24,6 +25,7 @@ const Catalog = () => {
     const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
 
     const getCatalogList = () => {
+
         return data.map(category => {
             const {id, slug, title, image} = category;
 
@@ -50,7 +52,7 @@ const Catalog = () => {
         <div className='catalog_container'>
 
             <div className='catalog_header_container'>
-                <div className='catalog_header'>Каталог</div>
+                <div className='catalog_header'>{description.header}</div>
 
                 {(os === 'android' || os === 'pc') &&
                 <Link className='catalog_header_link' to={'/cart'}>
@@ -63,13 +65,13 @@ const Catalog = () => {
             <ul className='catalog_list'>
                 {getCatalogList()}
 
-                <li className='catalog_item_video'
+                <li className='catalog_item'
                     style={{backgroundImage: (`url("/assets/images/catalog/how_it_works.png")`)}}>
 
-                    <Link className='item_link_video' to='/catalog/video'>
-                        <div>
-                            Как это работает?
-                        </div>
+                    <Link className='item_link_category' to='/catalog/video'>
+                        <span className='item_link_category_title'>
+                            {description.video}
+                        </span>
                     </Link>
 
                 </li>

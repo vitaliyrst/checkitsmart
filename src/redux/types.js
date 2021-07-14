@@ -1,15 +1,22 @@
+// APP
+
 export const SET_OS = 'APP/SET_OS';
-export const SET_HEIGHT = 'APP/SET_HEIGHT';
+export const SET_LANGUAGE = 'APP/SET_LANGUAGE';
+export const FETCH_APP_DESCRIPTION = 'APP/FETCH_APP_DESCRIPTION';
+
 export const HIDE_LOADER = 'APP/HIDE_LOADER';
 export const SHOW_LOADER = 'APP/SHOW_LOADER';
+
+export const SET_HEIGHT = 'APP/SET_HEIGHT';
 export const IS_CART = 'APP/IS_CART';
 
+
+// CATALOG
 export const FETCH_CATALOG = 'CATALOG/FETCH_CATALOG';
 export const FETCH_CATEGORY = 'CATALOG/FETCH_CATEGORY';
 
+
+// WEBXR
 export const SET_MATRIX = 'WEBXR/SET_MATRIX';
 export const PLANE_DETECTED = 'WEBXR/PLANE_DETECTED';
 export const RETICLE_HIT = 'WEBXR/RETICLE_HIT';
-
-
-export const TEST = 'TEST';
