@@ -3,6 +3,7 @@ import Video from "../components/Catalog/Video/Video";
 import Category from "../components/Catalog/Category/Category";
 import Cart from "../components/Cart/Cart";
 import Form from "../components/Cart/Form/Form";
+import QR from "../components/QR/QR";
 
 const routes = [
     {
@@ -33,6 +34,12 @@ const routes = [
         path: '/cart/form',
         name: 'Form',
         Component: Form,
+        exact: true
+    },
+    {
+        path: '/qr',
+        name: 'QR',
+        Component: QR,
         exact: true
     }
 ];

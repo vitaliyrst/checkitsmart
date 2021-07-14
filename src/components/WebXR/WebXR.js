@@ -20,7 +20,7 @@ import AROverlay from "./AROverlay/AROverlay";
 import ARLoader from "./ARLoader/ARLoader";
 
 
-const WebXR = React.memo(({product, onSetProduct}) => {
+const WebXR = React.memo(({product}) => {
     const canvas = useRef();
     const time = useRef(Date.now());
 
@@ -50,7 +50,6 @@ const WebXR = React.memo(({product, onSetProduct}) => {
             const timeEnd = Date.now();
             handleGAEventSessionDuration((timeEnd - time.current) / 1000);
 
-            onSetProduct(null, product.title);
             dispatch(setReticleHit(false));
             dispatch(setPlaneDetected(false));
         });

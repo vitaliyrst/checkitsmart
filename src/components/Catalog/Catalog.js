@@ -9,7 +9,6 @@ import {GApageView} from "../../ga";
 
 import {Link} from "react-router-dom";
 
-import QR from "../QR/QR";
 import Fallback from "../Loader/Loader";
 
 const Catalog = () => {
@@ -20,7 +19,7 @@ const Catalog = () => {
 
     useEffect(() => {
         GApageView(window.location.pathname);
-    }, [])
+    }, []);
 
     const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
 
@@ -48,39 +47,33 @@ const Catalog = () => {
     }
 
     return (
-        <>
-            {os === 'pc' ?
-                <QR/> :
+        <div className='catalog_container'>
+            <div className='catalog_header_container'>
+                <div className='catalog_header'>Каталог</div>
 
-                <div className='catalog_container'>
-                    <div className='catalog_header_container'>
-                        <div className='catalog_header'>Каталог</div>
+                {os === 'android' &&
+                <Link className='catalog_header_link' to={'/cart'}>
+                    <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
+                         alt='cart'/>
+                </Link>
+                }
+            </div>
 
-                        {os === 'android' &&
-                        <Link className='catalog_header_link' to={'/cart'}>
-                            <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
-                                 alt='cart'/>
-                        </Link>
-                        }
-                    </div>
+            <ul className='catalog_list'>
+                {getCatalogList()}
 
-                    <ul className='catalog_list'>
-                        {getCatalogList()}
+                <li className='catalog_item_video'
+                    style={{backgroundImage: (`url("/assets/images/catalog/how_it_works.png")`)}}>
 
-                        <li className='catalog_item_video'
-                            style={{backgroundImage: (`url("/assets/images/catalog/how_it_works.png")`)}}>
+                    <Link className='item_link_video' to='/catalog/video'>
+                        <div>
+                            Как это работает?
+                        </div>
+                    </Link>
 
-                            <Link className='item_link_video' to='/catalog/video'>
-                                <div>
-                                    Как это работает?
-                                </div>
-                            </Link>
-
-                        </li>
-                    </ul>
-                </div>
-            }
-        </>
+                </li>
+            </ul>
+        </div>
     );
 };
 
