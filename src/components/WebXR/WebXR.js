@@ -93,7 +93,7 @@ const WebXR = React.memo(({product, onSetProduct}) => {
             {!planeDetected && sessionReady &&
             <ARHelper classes={'ar_helper_plane'}
                       data={['Перемещай устройство,', 'для определения поверхности']}
-                      img={'/assets/images/other/helper.svg'}/>}
+                      img={'/assets/images/other/hand.svg'}/>}
 
             {planeDetected && sessionReady && !isHit &&
             <ARHelper data={['Кликни на круг,', 'чтобы поставить туда объект']}/>}

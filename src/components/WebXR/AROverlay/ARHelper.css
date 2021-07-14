@@ -33,7 +33,7 @@
     0% {
         opacity: 0
     }
-    90% {
+    99% {
         opacity: 0;
     }
     100% {
@@ -43,32 +43,6 @@
 
 .ar_helper_plane_image {
     position: absolute;
-    top: 12rem;
-    left: 50%;
-    transform: translate(-50%, 0);
-    animation: 4s linear helper-plane-image;
-}
-
-@keyframes helper-plane-image {
-    0% {
-        opacity: 0;
-        left: 50%;
-    }
-    20% {
-        opacity: 0;
-        left: 50%;
-    }
-    25% {
-        opacity: 1;
-        left: 50%;
-    }
-    44% {
-        left: 30%;
-    }
-    81% {
-        left: 68%;
-    }
-    100% {
-        left: 50%;
-    }
+    width: 250px;
+    top: 11rem;
 }
