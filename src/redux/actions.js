@@ -110,12 +110,13 @@ export const setReticleHit = (state) => {
 export const setTest = () => async (dispatch) => {
     try {
         dispatch(showLoader());
-        const response = await database.collection('/en').doc('furniture');
+        const response = await database.collection('/en').doc('description');
         const data = await response.get();
         let result;
 
         if (data.exists) {
             result = data.data();
+            console.log(result)
         }
 
         dispatch({type: TEST, payload: result});

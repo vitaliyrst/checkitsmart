@@ -67,6 +67,7 @@
     text-align: center;
     background-color: #FFFFFF;
     border-radius: 0.5rem;
+    position: relative;
 }
 
 .category_item_image {
@@ -75,8 +76,8 @@
 
 .category_item_arlink {
     position: absolute;
-    right: 1rem;
-    top: -0.25rem;
+    top: -1.25rem;
+    right: 0;
 }
 
 .category_item_title {
