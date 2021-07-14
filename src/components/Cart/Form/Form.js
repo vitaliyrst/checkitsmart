@@ -8,8 +8,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {setIsCart} from "../../../redux/actions";
 import {getHeight} from "../../../redux/selectors";
 
-import emailjs from "emailjs-com";
 import {GAevent} from "../../../ga/events";
+import {GApageView} from "../../../ga";
+
+import emailjs from "emailjs-com";
+
 import config from "../../../config/config";
 
 const Form = () => {
@@ -46,6 +49,8 @@ const Form = () => {
     }
 
     useEffect(() => {
+        GApageView(window.location.pathname);
+
         buttonRef.current.style.marginTop = height - 260 + 'px';
     }, [height, buttonRef]);
 

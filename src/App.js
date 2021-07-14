@@ -1,25 +1,16 @@
 import React, {useEffect} from 'react';
 import './App.css';
+
 import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import routes from "./routes/routes";
-import {initGA} from "./ga";
+
 import {useDispatch} from "react-redux";
 import {fetchData, setHeight, setIsCart, setOs, setTest} from "./redux/actions";
-import {createBrowserHistory} from "history";
-import ReactGA from "react-ga";
 
 function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        initGA();
-
-        const browserHistory = createBrowserHistory();
-        browserHistory.listen((location, action) => {
-            ReactGA.pageview(location.pathname + location.search);
-        });
-        ReactGA.pageview(window.location.pathname + window.location.search);
-
         dispatch(setHeight(window.innerHeight));
         dispatch(fetchData());
         dispatch(setTest());

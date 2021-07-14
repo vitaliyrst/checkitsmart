@@ -8,12 +8,13 @@ import {getCartState, getCategory, getLoading, getOs} from "../../../redux/selec
 import {Link, useHistory, useParams} from 'react-router-dom';
 
 import {GAevent} from "../../../ga/events";
+import {GApageView} from "../../../ga";
+
 import WebXR from "../../WebXR/WebXR";
 import Fallback from "../../Loader/Loader";
 import QR from "../../QR/QR";
 
 const Category = () => {
-
     const params = useParams();
     const history = useHistory();
     const appleARRefs = useRef([]);
@@ -27,6 +28,8 @@ const Category = () => {
     const category = useSelector(getCategory);
 
     useEffect(() => {
+        GApageView(window.location.pathname);
+
         localStorage.setItem('oneclickbuy', JSON.stringify([]));
         localStorage.setItem('leaveorder', JSON.stringify([]));
         dispatch(fetchCategory(params.category));

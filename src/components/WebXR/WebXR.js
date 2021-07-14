@@ -1,13 +1,16 @@
 import React, {useEffect, useState, Suspense, useRef} from 'react';
 import './WebXR.css';
 
-import {Provider, useDispatch, useSelector} from "react-redux";
 import store from "../../redux/store";
+import {Provider, useDispatch, useSelector} from "react-redux";
+import {getPlaneDetected, getReticleHit} from "../../redux/selectors";
+import {setPlaneDetected, setReticleHit} from "../../redux/actions";
 
 import {unmountComponentAtNode} from "@react-three/fiber";
 import {ARCanvas, DefaultXRControllers} from "@react-three/xr";
 
 import {GAevent} from "../../ga/events";
+import {GApageView} from "../../ga";
 
 import {ARButton} from "./ARButton";
 import ARHelper from "./AROverlay/ARHelper";
@@ -15,8 +18,7 @@ import ARModel from "./ARModel/ARModel";
 import ARHitTest from "./ARHitTest/ARHitTest";
 import AROverlay from "./AROverlay/AROverlay";
 import ARLoader from "./ARLoader/ARLoader";
-import {getPlaneDetected, getReticleHit} from "../../redux/selectors";
-import {setPlaneDetected, setReticleHit} from "../../redux/actions";
+
 
 const WebXR = React.memo(({product, onSetProduct}) => {
     const canvas = useRef();
@@ -56,6 +58,8 @@ const WebXR = React.memo(({product, onSetProduct}) => {
     }
 
     useEffect(() => {
+        GApageView(window.location.pathname);
+
         return () => {
             if (document.getElementById('ARButton')) {
                 document.body.removeChild(document.getElementById('ARButton'));

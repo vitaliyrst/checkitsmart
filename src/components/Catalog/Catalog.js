@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Catalog.css';
 
 import {useSelector} from "react-redux";
 import {getCartState, getCatalog, getLoading, getOs} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
+import {GApageView} from "../../ga";
 
 import {Link} from "react-router-dom";
+
 import QR from "../QR/QR";
 import Fallback from "../Loader/Loader";
 
@@ -15,6 +17,10 @@ const Catalog = () => {
     const isCart = useSelector(getCartState);
     const data = useSelector(getCatalog);
     const os = useSelector(getOs);
+
+    useEffect(() => {
+        GApageView(window.location.pathname);
+    }, [])
 
     const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
 

@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import './Cart.css';
 
 import {Link} from "react-router-dom";
@@ -7,12 +7,9 @@ import {useDispatch} from "react-redux";
 import {setIsCart} from "../../redux/actions";
 
 import {GAevent} from "../../ga/events";
+import {GApageView} from "../../ga";
 
 const Cart = () => {
-    if (!localStorage.getItem('cart')) {
-        localStorage.setItem('cart', JSON.stringify([]));
-    }
-
     const dispatch = useDispatch();
     const [changes, setChanges] = useState(0);
     const products = useRef(JSON.parse(localStorage.getItem('cart')));
@@ -24,6 +21,13 @@ const Cart = () => {
         GAevent('CART', 'go to order form', price);
     }
 
+    useEffect(() => {
+        if (!localStorage.getItem('cart')) {
+            localStorage.setItem('cart', JSON.stringify([]));
+        }
+
+        GApageView(window.location.pathname);
+    }, []);
 
     const handleClickMinus = (title) => {
         const newProducts = products.current;

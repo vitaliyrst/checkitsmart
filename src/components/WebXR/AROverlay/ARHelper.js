@@ -17,7 +17,7 @@ const ARHelper = ({data, classes, img}) => {
             {data.map((text, index) => (
                 <div key={index} className='ar_helper'>{text}</div>
             ))}
-            {img && active && <object className='ar_helper_plane_image' data={img} type='image/svg+xml'/>}
+            {img && active && <object className='ar_helper_plane_image' data={img} type='image/svg+xml'>ar</object>}
         </div>
     );
 }

@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react';
 import './Video.css';
+
 import {GAevent} from "../../../ga/events";
+import {GApageView} from "../../../ga";
 
 const Video = () => {
     const handleGAEventSendVideoDuration = (time) => {
@@ -8,6 +10,8 @@ const Video = () => {
     }
 
     useEffect(() => {
+        GApageView(window.location.pathname);
+
         const time = Date.now();
 
         return () => {
