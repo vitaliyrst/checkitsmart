@@ -128,16 +128,17 @@ const Category = () => {
             <div className='category_container'>
 
                 <div className='category_header_container'>
+
                     <div className='category_header_wrapper'>
-                        <Link className='category_arrow_left_link' to={'/catalog'}>
-                            <img className='category_header_arrow_left' src={'/assets/images/other/arrow_left.svg'}
+                        <Link className='category_header_arrow_left_link' to={'/catalog'}>
+                            <img src={'/assets/images/other/arrow_left.svg'}
                                  alt='arrow_left'/>
                         </Link>
                         <div className='category_header'>{category.title}</div>
                     </div>
 
                     {(os === 'android' || os === 'pc') &&
-                    <Link className='category_header_link' to={'/cart'}>
+                    <Link className='category_header_cart_link' to={'/cart'}>
                         <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
                              alt='cart'/>
                     </Link>

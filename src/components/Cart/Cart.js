@@ -175,9 +175,8 @@ const Cart = () => {
         <div className='cart_container'>
             <div className='cart_header_container'>
                 <div className='cart_header_wrapper'>
-                    <Link className='cart_arrow_left_link_back' to={'/catalog'}>
-                        <img className='cart_header_arrow_left' src={'/assets/images/other/arrow_left.svg'}
-                             alt='arrow_left'/>
+                    <Link className='cart_header_arrow_left_link' to={'/catalog'}>
+                        <img  src={'/assets/images/other/arrow_left.svg'} alt='arrow_left'/>
                     </Link>
                     <div className='cart_header'>
                         Корзина

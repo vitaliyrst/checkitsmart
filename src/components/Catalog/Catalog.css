@@ -8,7 +8,23 @@
 }
 
 .catalog_header_container {
-    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 26rem;
+    height: 4rem;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    background-color: #2D2D2D;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
 
     display: flex;
     justify-content: space-between;
@@ -18,18 +34,27 @@
     font-weight: 700;
     font-size: 1.5rem;
     line-height: 1.5rem;
+    margin-top: 1.5rem;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.catalog_header_link{
-    height: 30px;
+.catalog_header_link {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.catalog_header_link > img {
+    margin-top: 1.5rem;
 }
 
 .catalog_list {
-    margin-top: 1.5rem;
+    margin-top: 5rem;
     padding: 0;
 
     list-style: none;

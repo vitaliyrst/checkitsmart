@@ -319,8 +319,8 @@ const Form = () => {
             {!orderDone &&
             <div className='cart_form_header_container'>
                 <div className='cart_form_header_wrapper'>
-                    <Link className='cart_form_arrow_left_link_back' to={'/catalog'}>
-                        <img className='cart_form_header_arrow_left' src={'/assets/images/other/arrow_left.svg'}
+                    <Link className='cart_form_arrow_left_link' to={'/catalog'}>
+                        <img src={'/assets/images/other/arrow_left.svg'}
                              alt='arrow_left'
                         />
                     </Link>

@@ -48,10 +48,11 @@ const Catalog = () => {
 
     return (
         <div className='catalog_container'>
+
             <div className='catalog_header_container'>
                 <div className='catalog_header'>Каталог</div>
 
-                {os === 'android' &&
+                {(os === 'android' || os === 'pc') &&
                 <Link className='catalog_header_link' to={'/cart'}>
                     <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
                          alt='cart'/>
