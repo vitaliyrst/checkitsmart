@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import './Catalog.css';
 
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {getAppDescription, getCartState, getCatalog, getLoading, getOs} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
@@ -10,8 +10,10 @@ import {GApageView} from "../../ga";
 import {Link} from "react-router-dom";
 
 import Fallback from "../Loader/Loader";
+import {setLanguage} from "../../redux/actions";
 
 const Catalog = () => {
+    const dispatch = useDispatch();
     const loading = useSelector(getLoading);
     const isCart = useSelector(getCartState);
     const data = useSelector(getCatalog);
@@ -42,6 +44,12 @@ const Catalog = () => {
                 </li>
             );
         });
+    }
+
+    const handleSwitchLanguage = (language) => {
+        console.log(111);
+        localStorage.setItem('language', JSON.stringify(language));
+        dispatch(setLanguage(language))
     }
 
     if (loading) {
@@ -75,6 +83,11 @@ const Catalog = () => {
                     </Link>
 
                 </li>
+            </ul>
+            <ul>
+                <li onClick={() => handleSwitchLanguage('en')}>en</li>
+                <li onClick={() => handleSwitchLanguage('ru')}>ru</li>
+                <li onClick={() => handleSwitchLanguage('pl')}>pl</li>
             </ul>
         </div>
     );

@@ -6,7 +6,7 @@ import InputMask from 'react-input-mask';
 
 import {useDispatch, useSelector} from "react-redux";
 import {setIsCart} from "../../../redux/actions";
-import {getHeight} from "../../../redux/selectors";
+import {getAppDescription, getHeight, getLoading} from "../../../redux/selectors";
 
 import {GAevent} from "../../../ga/events";
 import {GApageView} from "../../../ga";
@@ -14,14 +14,19 @@ import {GApageView} from "../../../ga";
 import emailjs from "emailjs-com";
 
 import config from "../../../config/config";
+import Fallback from "../../Loader/Loader";
 
 const Form = () => {
-    const buttonRef = useRef();
-
     const products = JSON.parse(localStorage.getItem('cart'));
     const productOneClickBuy = JSON.parse(localStorage.getItem('oneclickbuy'));
     const productLeaveOrder = JSON.parse(localStorage.getItem('leaveorder'));
 
+    const dispatch = useDispatch();
+    const height = useSelector(getHeight);
+    const loading = useSelector(getLoading);
+    const description = useSelector(getAppDescription('form'));
+
+    const buttonRef = useRef();
     const [orderDone, setOrderDone] = useState(false);
     const [inputValues, setInputValues] = useState({
         name: '',
@@ -31,16 +36,13 @@ const Form = () => {
         phoneDirty: false,
         emailDirty: false,
         formErrors: {
-            name: 'Введите имя', phone: 'Введите телефон', email: 'Введите email'
+            name: description.errorNameEmpty, phone: description.errorPhoneEmpty, email: description.errorEmailEmpty
         },
         nameValid: false,
         phoneValid: false,
         emailValid: false,
         formValid: false
     });
-
-    const dispatch = useDispatch();
-    const height = useSelector(getHeight);
 
     const handleGAEventCheckOut = (email) => {
         if (inputValues.formValid) {
@@ -75,10 +77,10 @@ const Form = () => {
 
                 if (value.trim().length === 0) {
                     nameValid = false;
-                    formErrors.name = 'Введите имя'
+                    formErrors.name = description.errorNameEmpty
                 } else if (!(/^[a-zA-ZА-Яа-яёЁ ]+$/i).test(value)) {
                     nameValid = false;
-                    formErrors.name = 'Введите имя корректно';
+                    formErrors.name = description.errorNameWrong;
                 } else {
                     nameValid = true;
                     formErrors.name = '';
@@ -89,10 +91,10 @@ const Form = () => {
 
                 if (value.trim().length === 0) {
                     phoneValid = false;
-                    formErrors.phone = 'Введите телефон'
+                    formErrors.phone = description.errorPhoneEmpty;
                 } else if (!(/^\+375 \((25|29|33|44)\) [0-9]{3}-[0-9]{2}-[0-9]{2}$/i).test(value)) {
                     phoneValid = false;
-                    formErrors.phone = 'Введите телефон корректно';
+                    formErrors.phone = description.errorPhoneWrong;
                 } else {
                     phoneValid = true;
                     formErrors.phone = '';
@@ -103,10 +105,10 @@ const Form = () => {
 
                 if (value.trim().length === 0) {
                     emailValid = false;
-                    formErrors.email = 'Введите email'
+                    formErrors.email = description.errorEmailEmpty;
                 } else if (!(/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/i).test(value)) {
                     emailValid = false;
-                    formErrors.email = 'Введите email корректно';
+                    formErrors.email = description.errorEmailWrong;
                 } else {
                     emailValid = true;
                     formErrors.email = '';
@@ -208,10 +210,10 @@ const Form = () => {
                             <span style="font-size:14pt">${product.title}</span>
                         </td>
                         <td style="width:33.0739%;height:10px;text-align:center">
-                            <span style="font-size:14pt">${product.quantity} шт.</span>
+                            <span style="font-size:14pt">${product.quantity} ${description.quantity}</span>
                         </td>
                         <td style="width:33.0739%;height:10px;text-align:right">
-                            <span style="font-size:14pt">${(product.price).toFixed(2)} BYN</span>
+                            <span style="font-size:14pt">${(product.price).toFixed(2)} ${description.price}</span>
                         </td>
                     </tr> 
                 </tbody>
@@ -228,10 +230,10 @@ const Form = () => {
                             <span style="font-size:14pt">${product.title}</span>
                         </td>
                         <td style="width:33.0739%;height:10px;text-align:center">
-                            <span style="font-size:14pt">${product.quantity} шт.</span>
+                            <span style="font-size:14pt">${product.quantity} ${description.quantity}</span>
                         </td>
                         <td style="width:33.0739%;height:10px;text-align:right">
-                            <span style="font-size:14pt">${(product.price * product.quantity).toFixed(2)} BYN</span>
+                            <span style="font-size:14pt">${(product.price * product.quantity).toFixed(2)} ${description.price}</span>
                         </td>
                     </tr>`))} 
                 </tbody>
@@ -283,7 +285,7 @@ const Form = () => {
                     config.emailjs.serviceId,
                     config.emailjs.templateSellerId,
                     {
-                        'theme' : 'CheckItSmart Информация о заказе',
+                        'theme': 'CheckItSmart Информация о заказе',
                         'to_email': 'vitaliy.klubkou@gmail.com',
                         'customer_email': inputValues.email,
                         'customer_phone': inputValues.phone,
@@ -314,6 +316,10 @@ const Form = () => {
         }
     }
 
+    if (loading) {
+        return <Fallback/>
+    }
+
     return (
         <div className='cart_form_container'>
             {!orderDone &&
@@ -325,7 +331,7 @@ const Form = () => {
                         />
                     </Link>
                     <div className='cart_form_header'>
-                        {productLeaveOrder.length ? 'Оставить заявку' : 'Оформление заказа'}
+                        {productLeaveOrder.length ? description.leaveRequest : description.checkout}
                     </div>
                 </div>
             </div>}
@@ -334,19 +340,19 @@ const Form = () => {
                 <div className='cart_form_after_order_message'>
                     <div className='cart_form_after_order_title'>
                         {productLeaveOrder.length ?
-                            'Спасибо!' :
-                            'Спасибо за заказ!'
+                            description.thx :
+                            description.txhRequest
                         }
                     </div>
                     <div className='cart_form_after_order_text'>
                         {productLeaveOrder.length ?
-                            'Мы свяжемся с Вами, когда товар появится в наличии' :
-                            'Скоро мы с Вами свяжемся для уточнения деталей заказа'
+                            description.outOfStock :
+                            description.outOfStockRequest
                         }
                     </div>
                     <Link className='cart_link_button_container' to={'/catalog'}>
                         <button className='cart_link_button' type='button'>
-                            Перейти в каталог
+                            {description.goToCatalog}
                         </button>
                     </Link>
                 </div> :
@@ -354,8 +360,8 @@ const Form = () => {
                 <>
                     <div className='cart_form_message'>
                         {productLeaveOrder.length ?
-                            'Мы свяжемся с Вами, когда товар появится в наличии' :
-                            'Мы свяжемся с Вами для уточнения деталей заказа'
+                            description.outOfStock :
+                            description.outOfStockRequest
                         }
                     </div>
 
@@ -371,7 +377,7 @@ const Form = () => {
                             />
                             <label className={(inputValues.nameDirty && !inputValues.nameValid)
                                 ? 'cart_form_group_label error'
-                                : 'cart_form_group_label'}>Имя
+                                : 'cart_form_group_label'}>{description.name}
                             </label>
                             {inputValues.nameDirty &&
                             <span className='cart_form_error'>{inputValues.formErrors.name}</span>}
@@ -390,7 +396,7 @@ const Form = () => {
 
                             <label className={(inputValues.phoneDirty && !inputValues.phoneValid)
                                 ? 'cart_form_group_label error'
-                                : 'cart_form_group_label'}>Телефон
+                                : 'cart_form_group_label'}>{description.phone}
                             </label>
                             {inputValues.phoneDirty &&
                             <span className='cart_form_error'>{inputValues.formErrors.phone}</span>}
@@ -407,7 +413,7 @@ const Form = () => {
                             />
                             <label className={(inputValues.emailDirty && !inputValues.emailValid)
                                 ? 'cart_form_group_label error'
-                                : 'cart_form_group_label'}>Email
+                                : 'cart_form_group_label'}>{description.email}
                             </label>
                             {inputValues.emailDirty &&
                             <span className='cart_form_error'>{inputValues.formErrors.email}</span>}
@@ -416,8 +422,8 @@ const Form = () => {
                         <button ref={buttonRef} className='cart_form_button_submit' type='submit'
                                 onClick={() => handleGAEventCheckOut(inputValues.email)}>
                             {productLeaveOrder.length ?
-                                'Оставить заявку' :
-                                'Оформить заказ'
+                                description.buttonRequest :
+                                description.buttonOrder
                             }
                         </button>
                     </form>

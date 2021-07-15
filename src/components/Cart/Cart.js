@@ -3,16 +3,23 @@ import './Cart.css';
 
 import {Link} from "react-router-dom";
 
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setIsCart} from "../../redux/actions";
+import {getAppDescription, getLoading} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
 import {GApageView} from "../../ga";
 
+import Fallback from "../Loader/Loader";
+
 const Cart = () => {
-    const dispatch = useDispatch();
-    const [changes, setChanges] = useState(0);
     const products = useRef(JSON.parse(localStorage.getItem('cart')));
+
+    const [changes, setChanges] = useState(0);
+
+    const dispatch = useDispatch();
+    const description = useSelector(getAppDescription('cart'));
+    const loading = useSelector(getLoading);
 
     const handleGAEventDeleteFromCart = (title) => GAevent('CART', 'delete from cart', title);
     const handleGAEventGoToOrderForm = () => {
@@ -69,7 +76,6 @@ const Cart = () => {
             }
         });
 
-
         localStorage.setItem('cart', JSON.stringify(newProducts));
         setChanges(changes + 1);
 
@@ -80,7 +86,7 @@ const Cart = () => {
 
     const getProductsList = () => {
         if (!products.current.length) {
-            return <div className='cart_no_items'>В корзине ничего нет</div>
+            return <div className='cart_no_items'>{description.nocart}</div>
         } else {
             const quantity = products.current.reduce((acc, {quantity}) => (acc + quantity), 0);
             const price = products.current
@@ -90,10 +96,10 @@ const Cart = () => {
                 <div className='cart_items_list_container'>
                     <div className='class_items_list_counter'>
                         <div className='class_items_list_counter_additional'>
-                            В корзине {quantity} товара на сумму
+                            {description.incart} {quantity} {description.incart2}
                         </div>
                         <div className='class_items_list_counter_price'>
-                            {price} BYN
+                            {price} {description.price}
                         </div>
                     </div>
                     <ul className='cart_items_list'>
@@ -128,12 +134,12 @@ const Cart = () => {
                                                      onClick={() => handleClickPlus(item.title)}
                                                 />
                                                 <div className='cart_list_price_by_item'>
-                                                    {(item.price).toFixed(2)} BYN/шт
+                                                    {(item.price).toFixed(2)} ${description.price2}
                                                 </div>
                                             </div>
 
                                             <div className='cart_item_price'>
-                                                {(item.price * item.quantity).toFixed(2)} BYN
+                                                {(item.price * item.quantity).toFixed(2)} {description.price}
                                             </div>
                                         </div>
                                     </div>
@@ -143,8 +149,8 @@ const Cart = () => {
                     </ul>
                     <div className='cart_list_items_line'/>
                     <div className='cart_list_items_summary_container'>
-                        <div className='cart_list_items_total'>Итог</div>
-                        <div className='cart_list_items_total_price'>{price} BYN</div>
+                        <div className='cart_list_items_total'>{description.summary}</div>
+                        <div className='cart_list_items_total_price'>{price} {description.price}</div>
                     </div>
                 </div>
             );
@@ -156,7 +162,7 @@ const Cart = () => {
             return (
                 <Link className='cart_link_button_container' to={'/catalog'}>
                     <button className='cart_link_button' type='button'>
-                        Перейти в каталог
+                        {description.gotocatalog}
                     </button>
                 </Link>
             );
@@ -164,11 +170,15 @@ const Cart = () => {
             return (
                 <Link className='cart_link_button_container' to={'/cart/form'}>
                     <button className='cart_link_button' type='button' onClick={handleGAEventGoToOrderForm}>
-                        Перейти к оформлению заказа
+                        {description.gotoorderform}
                     </button>
                 </Link>
             );
         }
+    }
+
+    if (loading) {
+        return <Fallback/>
     }
 
     return (
@@ -176,10 +186,10 @@ const Cart = () => {
             <div className='cart_header_container'>
                 <div className='cart_header_wrapper'>
                     <Link className='cart_header_arrow_left_link' to={'/catalog'}>
-                        <img  src={'/assets/images/other/arrow_left.svg'} alt='arrow_left'/>
+                        <img src={'/assets/images/other/arrow_left.svg'} alt='arrow_left'/>
                     </Link>
                     <div className='cart_header'>
-                        Корзина
+                        {description.cart}
                     </div>
                 </div>
             </div>

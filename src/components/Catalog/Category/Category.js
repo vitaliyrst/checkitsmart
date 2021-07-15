@@ -3,7 +3,7 @@ import './Category.css';
 
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCategory} from "../../../redux/actions";
-import {getCartState, getCategory, getLoading, getOs} from "../../../redux/selectors";
+import {getAppDescription, getCartState, getCategory, getLoading, getOs} from "../../../redux/selectors";
 
 import {Link, useHistory, useParams} from 'react-router-dom';
 
@@ -25,6 +25,7 @@ const Category = () => {
     const loading = useSelector(getLoading);
     const isCart = useSelector(getCartState);
     const category = useSelector(getCategory);
+    const description = useSelector(getAppDescription('category'));
 
     useEffect(() => {
         GApageView(window.location.pathname);
@@ -98,7 +99,7 @@ const Category = () => {
                     </a>
                 </div>
                 <div className='category_item_title'>{title}</div>
-                <div className='category_item_price'>{price.toFixed(2)} BYN</div>
+                <div className='category_item_price'>{price.toFixed(2)} {description.price}</div>
             </li>
         );
     }
@@ -113,7 +114,7 @@ const Category = () => {
                     <img className='category_item_arlink' src={'/assets/images/other/ar-link.svg'} alt='ar'/>
                 </div>
                 <div className='category_item_title'>{title}</div>
-                <div className='category_item_price'>{price.toFixed(2)} BYN</div>
+                <div className='category_item_price'>{price.toFixed(2)} {description.price}</div>
             </li>
         );
     }

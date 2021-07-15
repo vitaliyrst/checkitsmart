@@ -1,7 +1,7 @@
 import {FETCH_APP_DESCRIPTION, HIDE_LOADER, IS_CART, SET_HEIGHT, SET_LANGUAGE, SET_OS, SHOW_LOADER} from "../types";
 
 const initialState = {
-    language: '',
+    language: window.navigator.language,
     os: '',
     appDescription: [],
     height: 0,
