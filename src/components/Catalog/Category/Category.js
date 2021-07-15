@@ -29,7 +29,6 @@ const Category = () => {
 
     useEffect(() => {
         GApageView(window.location.pathname);
-
         localStorage.setItem('oneclickbuy', JSON.stringify([]));
         localStorage.setItem('leaveorder', JSON.stringify([]));
         dispatch(fetchCategory(params.category));
@@ -121,7 +120,7 @@ const Category = () => {
 
     const handleSetProduct = (product) => setSelectProduct(product);
 
-    if (loading) {
+    if (loading || !description) {
         return <Fallback/>
     }
 

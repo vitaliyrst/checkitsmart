@@ -79,7 +79,6 @@ export const setIsCart = (bool) => {
 
 export const fetchCatalog = (language) => async (dispatch) => {
     try {
-        console.log(language)
         dispatch(showLoader());
         const response = await database.collection(`/${language}`).doc('furniture');
         const data = await response.get();

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import './Catalog.css';
 
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {getAppDescription, getCartState, getCatalog, getLoading, getOs} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
@@ -10,10 +10,8 @@ import {GApageView} from "../../ga";
 import {Link} from "react-router-dom";
 
 import Fallback from "../Loader/Loader";
-import {setLanguage} from "../../redux/actions";
 
 const Catalog = () => {
-    const dispatch = useDispatch();
     const loading = useSelector(getLoading);
     const isCart = useSelector(getCartState);
     const data = useSelector(getCatalog);
@@ -27,7 +25,6 @@ const Catalog = () => {
     const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
 
     const getCatalogList = () => {
-
         return data.map(category => {
             const {id, slug, title, image} = category;
 

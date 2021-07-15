@@ -81,6 +81,10 @@
     flex-direction: column;
 }
 
+.category_item:last-child {
+    margin-bottom: 0;
+}
+
 .category_item_image_container {
     box-sizing: border-box;
 

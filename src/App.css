@@ -24,3 +24,16 @@ body,
 #ARButton {
     display: none;
 }
+
+.app_main {
+    box-sizing: border-box;
+
+    width: 100%;
+    max-width: 26rem;
+    margin-right: auto;
+    margin-left: auto;
+
+
+    flex: 1 0 auto;
+    position: relative;
+}

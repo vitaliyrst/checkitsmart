@@ -37,3 +37,11 @@
 * {
     box-sizing: border-box;
 }
+
+#root {
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+}
