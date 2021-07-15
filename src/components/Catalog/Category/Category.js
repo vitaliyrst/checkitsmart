@@ -46,7 +46,7 @@ const Category = () => {
             } else {
                 localStorage.setItem('leaveorder', JSON.stringify([product]));
             }
-
+            handleGAEventClickStartAR(product.title);
             eo.currentTarget.querySelector('#ar-link').click();
 
             appleARRefs.current.forEach(item => {
@@ -118,6 +118,8 @@ const Category = () => {
         );
     }
 
+    const handleSetProduct = (product) => setSelectProduct(product);
+
     if (loading) {
         return <Fallback/>
     }
@@ -150,7 +152,7 @@ const Category = () => {
             }
 
             {selectProduct &&
-            <WebXR product={selectProduct}/>}
+            <WebXR product={selectProduct} onSetProduct={handleSetProduct}/>}
         </>
     );
 }

@@ -34,7 +34,7 @@ const AROverlay = ({product}) => {
 
     const handleClickClose = async () => {
         await document.getElementById('ARButton').click();
-        history.back();
+
     }
 
     const handleClickReset = () => {

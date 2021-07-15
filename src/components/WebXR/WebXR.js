@@ -20,7 +20,7 @@ import AROverlay from "./AROverlay/AROverlay";
 import ARLoader from "./ARLoader/ARLoader";
 
 
-const WebXR = React.memo(({product}) => {
+const WebXR = React.memo(({product, onSetProduct}) => {
     const canvas = useRef();
     const time = useRef(Date.now());
 
@@ -52,8 +52,8 @@ const WebXR = React.memo(({product}) => {
 
             dispatch(setReticleHit(false));
             dispatch(setPlaneDetected(false));
+            onSetProduct(null);
         });
-
     }
 
     useEffect(() => {
