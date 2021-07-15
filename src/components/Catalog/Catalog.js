@@ -46,12 +46,6 @@ const Catalog = () => {
         });
     }
 
-    const handleSwitchLanguage = (language) => {
-        console.log(111);
-        localStorage.setItem('language', JSON.stringify(language));
-        dispatch(setLanguage(language))
-    }
-
     if (loading) {
         return <Fallback/>;
     }
@@ -83,11 +77,6 @@ const Catalog = () => {
                     </Link>
 
                 </li>
-            </ul>
-            <ul>
-                <li onClick={() => handleSwitchLanguage('en')}>en</li>
-                <li onClick={() => handleSwitchLanguage('ru')}>ru</li>
-                <li onClick={() => handleSwitchLanguage('pl')}>pl</li>
             </ul>
         </div>
     );

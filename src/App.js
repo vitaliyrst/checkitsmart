@@ -6,18 +6,22 @@ import routes from "./routes/routes";
 
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAppDescription, fetchCatalog, setHeight, setIsCart, setLanguage, setOs} from "./redux/actions";
-import {getLanguage} from "./redux/selectors";
+import {getLanguage, getLoading} from "./redux/selectors";
+import Footer from "./components/Footer/Footer";
 
 function App() {
     const dispatch = useDispatch();
     const language = useSelector(getLanguage);
+    const loading = useSelector(getLoading);
 
     useEffect(() => {
-        if (JSON.parse(localStorage.getItem('language'))) {
-            dispatch(setLanguage(JSON.parse(localStorage.getItem('language'))));
+        const lang = (window.navigator.language).substring(0, 2);
+
+        if (JSON.parse(localStorage.getItem('languageApp'))) {
+            dispatch(setLanguage(JSON.parse(localStorage.getItem('languageApp'))));
         } else {
-            localStorage.setItem('language', JSON.stringify(window.navigator.language));
-            dispatch(setLanguage(window.navigator.language));
+            localStorage.setItem('languageApp', JSON.stringify(lang));
+            dispatch(setLanguage(lang));
         }
 
         const apple = /iP(hone|od|ad)/i
@@ -26,7 +30,7 @@ function App() {
         const os = apple.test(window.navigator.userAgent) ? 'apple' :
             android.test(window.navigator.userAgent) ? 'android' :
                 !pc.test(window.navigator.userAgent) ? 'pc' : null
-
+        console.log(language)
         dispatch(setOs(os));
         dispatch(setHeight(window.innerHeight));
         dispatch(fetchAppDescription(language));
@@ -55,6 +59,7 @@ function App() {
                 <Redirect from='/' to='/catalog'/>
             </Switch>
 
+            {!loading && <Footer/>}
         </Router>
     );
 }

@@ -1,0 +1,43 @@
+.footer_container {
+    max-width: 26rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.footer_header{
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+}
+
+.footer_list {
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_list_item {
+    height: 2rem;
+    text-align: center;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    flex-basis: 6rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
