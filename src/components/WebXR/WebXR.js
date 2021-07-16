@@ -3,7 +3,7 @@ import './WebXR.css';
 
 import store from "../../redux/store";
 import {Provider, useDispatch, useSelector} from "react-redux";
-import {getPlaneDetected, getReticleHit} from "../../redux/selectors";
+import {getAppDescription, getPlaneDetected, getReticleHit} from "../../redux/selectors";
 import {setPlaneDetected, setReticleHit} from "../../redux/actions";
 
 import {unmountComponentAtNode} from "@react-three/fiber";
@@ -19,7 +19,6 @@ import ARHitTest from "./ARHitTest/ARHitTest";
 import AROverlay from "./AROverlay/AROverlay";
 import ARLoader from "./ARLoader/ARLoader";
 
-
 const WebXR = React.memo(({product, onSetProduct}) => {
     const canvas = useRef();
     const time = useRef(Date.now());
@@ -30,6 +29,7 @@ const WebXR = React.memo(({product, onSetProduct}) => {
     const dispatch = useDispatch();
     const isHit = useSelector(getReticleHit);
     const planeDetected = useSelector(getPlaneDetected);
+    const description = useSelector(getAppDescription('webxr'));
 
     const handleGAEventSessionDuration = (time) => GAevent('AR SESSION', 'session duration', `${time} seconds`);
 
@@ -95,11 +95,11 @@ const WebXR = React.memo(({product, onSetProduct}) => {
 
             {!planeDetected && sessionReady &&
             <ARHelper classes={'ar_helper_plane'}
-                      data={['Перемещай устройство,', 'для определения поверхности']}
+                      data={[description.moveObj, description.moveObj2]}
                       img={'/assets/images/other/hand.svg'}/>}
 
             {planeDetected && sessionReady && !isHit &&
-            <ARHelper data={['Кликни на круг,', 'чтобы поставить туда объект']}/>}
+            <ARHelper data={[description.clickObj, description.clickObj2]}/>}
 
             {isHit && <AROverlay product={product}/>}
         </div>

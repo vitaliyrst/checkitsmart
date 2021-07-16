@@ -18,8 +18,8 @@ const Cart = () => {
     const [changes, setChanges] = useState(0);
 
     const dispatch = useDispatch();
-    const description = useSelector(getAppDescription('cart'));
     const loading = useSelector(getLoading);
+    const description = useSelector(getAppDescription('cart'));
 
     const handleGAEventDeleteFromCart = (title) => GAevent('CART', 'delete from cart', title);
     const handleGAEventGoToOrderForm = () => {

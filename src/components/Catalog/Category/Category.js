@@ -3,7 +3,7 @@ import './Category.css';
 
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCategory} from "../../../redux/actions";
-import {getAppDescription, getCartState, getCategory, getLoading, getOs} from "../../../redux/selectors";
+import {getAppDescription, getCartState, getCategory, getLanguage, getLoading, getOs} from "../../../redux/selectors";
 
 import {Link, useHistory, useParams} from 'react-router-dom';
 
@@ -14,25 +14,26 @@ import WebXR from "../../WebXR/WebXR";
 import Fallback from "../../Loader/Loader";
 
 const Category = () => {
+    const dispatch = useDispatch();
+    const loading = useSelector(getLoading);
+    const os = useSelector(getOs);
+    const language = useSelector(getLanguage);
+
+    const isCart = useSelector(getCartState);
+    const description = useSelector(getAppDescription('category'));
+    const category = useSelector(getCategory);
+
     const params = useParams();
     const history = useHistory();
     const appleARRefs = useRef([]);
-
     const [selectProduct, setSelectProduct] = useState(null);
-
-    const dispatch = useDispatch();
-    const os = useSelector(getOs);
-    const loading = useSelector(getLoading);
-    const isCart = useSelector(getCartState);
-    const category = useSelector(getCategory);
-    const description = useSelector(getAppDescription('category'));
 
     useEffect(() => {
         GApageView(window.location.pathname);
         localStorage.setItem('oneclickbuy', JSON.stringify([]));
         localStorage.setItem('leaveorder', JSON.stringify([]));
-        dispatch(fetchCategory(params.category));
-    }, [dispatch, params.category]);
+        dispatch(fetchCategory(params.category, language));
+    }, [dispatch, params.category, language]);
 
     const handleGAEventClickStartAR = (title) => GAevent(`CATEGORY ${category.title}`, 'click start AR', title);
 

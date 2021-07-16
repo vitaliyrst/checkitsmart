@@ -22,8 +22,8 @@ const Form = () => {
     const productLeaveOrder = JSON.parse(localStorage.getItem('leaveorder'));
 
     const dispatch = useDispatch();
-    const height = useSelector(getHeight);
     const loading = useSelector(getLoading);
+    const height = useSelector(getHeight);
     const description = useSelector(getAppDescription('form'));
 
     const buttonRef = useRef();
@@ -44,17 +44,17 @@ const Form = () => {
         formValid: false
     });
 
-    const handleGAEventCheckOut = (email) => {
-        if (inputValues.formValid) {
-            GAevent('CART', 'checkout', email);
-        }
-    }
-
     useEffect(() => {
         GApageView(window.location.pathname);
 
         buttonRef.current.style.marginTop = height - 260 + 'px';
     }, [height, buttonRef]);
+
+    const handleGAEventCheckOut = (email) => {
+        if (inputValues.formValid) {
+            GAevent('CART', 'checkout', email);
+        }
+    }
 
     const handleUserInput = (eo) => {
         let name = eo.target.name;
@@ -377,7 +377,7 @@ const Form = () => {
                             />
                             <label className={(inputValues.nameDirty && !inputValues.nameValid)
                                 ? 'cart_form_group_label error'
-                                : 'cart_form_group_label'}>{description.name}
+                                : 'cart_form_group_label'}>{description.inputName}
                             </label>
                             {inputValues.nameDirty &&
                             <span className='cart_form_error'>{inputValues.formErrors.name}</span>}
@@ -396,7 +396,7 @@ const Form = () => {
 
                             <label className={(inputValues.phoneDirty && !inputValues.phoneValid)
                                 ? 'cart_form_group_label error'
-                                : 'cart_form_group_label'}>{description.phone}
+                                : 'cart_form_group_label'}>{description.inputPhone}
                             </label>
                             {inputValues.phoneDirty &&
                             <span className='cart_form_error'>{inputValues.formErrors.phone}</span>}
@@ -413,7 +413,7 @@ const Form = () => {
                             />
                             <label className={(inputValues.emailDirty && !inputValues.emailValid)
                                 ? 'cart_form_group_label error'
-                                : 'cart_form_group_label'}>{description.email}
+                                : 'cart_form_group_label'}>{description.inputEmail}
                             </label>
                             {inputValues.emailDirty &&
                             <span className='cart_form_error'>{inputValues.formErrors.email}</span>}

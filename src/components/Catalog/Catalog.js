@@ -13,10 +13,11 @@ import Fallback from "../Loader/Loader";
 
 const Catalog = () => {
     const loading = useSelector(getLoading);
-    const isCart = useSelector(getCartState);
-    const data = useSelector(getCatalog);
     const os = useSelector(getOs);
+
+    const isCart = useSelector(getCartState);
     const description = useSelector(getAppDescription('catalog'));
+    const data = useSelector(getCatalog);
 
     useEffect(() => {
         GApageView(window.location.pathname);

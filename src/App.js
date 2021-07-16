@@ -20,7 +20,7 @@ function App() {
         if (JSON.parse(localStorage.getItem('languageApp'))) {
             dispatch(setLanguage(JSON.parse(localStorage.getItem('languageApp'))));
         } else {
-            localStorage.setItem('languageApp', JSON.stringify(lang));
+            localStorage.setItem('languageApp', JSON.stringify((window.navigator.language).substring(0, 2)));
             dispatch(setLanguage(lang));
         }
 

@@ -1,8 +1,8 @@
 import {FETCH_APP_DESCRIPTION, HIDE_LOADER, IS_CART, SET_HEIGHT, SET_LANGUAGE, SET_OS, SHOW_LOADER} from "../types";
 
 const initialState = {
-    language: (window.navigator.language).substring(0, 2),
-    os: '',
+    language: 'ru',
+    os: 'pc',
     appDescription: [],
     height: 0,
     loading: true,

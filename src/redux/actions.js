@@ -95,16 +95,16 @@ export const fetchCatalog = (language) => async (dispatch) => {
     }
 }
 
-export const fetchCategory = (slug) => async (dispatch) => {
+export const fetchCategory = (slug, language) => async (dispatch) => {
     try {
         dispatch(showLoader());
-        const response = await database.collection('/furniture').where('slug', '==', slug);
+        const response = await database.collection(`/${language}`).doc('furniture');
         const data = await response.get();
-        const result = [];
+        let result;
 
-        data.docs.forEach(item => {
-            result.push(item.data());
-        });
+        if (data.exists) {
+            result = data.data().data.filter(item => item.slug === slug);
+        }
 
         dispatch({type: FETCH_CATEGORY, payload: result[0]});
         dispatch(hideLoader());

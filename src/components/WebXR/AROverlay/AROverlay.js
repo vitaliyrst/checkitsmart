@@ -2,8 +2,9 @@ import React, {useEffect} from 'react';
 import './AROverlay.css';
 
 import {useHistory, useParams} from "react-router";
+
 import {useDispatch, useSelector} from "react-redux";
-import {getCartState} from "../../../redux/selectors";
+import {getAppDescription, getCartState} from "../../../redux/selectors";
 import {setIsCart, setPlaneDetected, setReticleHit} from "../../../redux/actions";
 
 import {GAevent} from "../../../ga/events";
@@ -14,6 +15,7 @@ const AROverlay = ({product}) => {
 
     const dispatch = useDispatch();
     const isCart = useSelector(getCartState);
+    const description = useSelector(getAppDescription('webxroverlay'));
 
     const cart = JSON.parse(localStorage.getItem('cart'));
 
@@ -95,11 +97,11 @@ const AROverlay = ({product}) => {
 
     const getFirstButton = () => {
         if (isCart && !product.outofstock) {
-            return <div className='ar_info_now_in_cart' onClick={handleRedirectToCart}>Уже в корзине</div>
+            return <div className='ar_info_now_in_cart' onClick={handleRedirectToCart}>{description.nowInCart}</div>
         } else if (product.outofstock) {
-            return <button className='ar_info_button_buy' onClick={handleLeaveOrder}>Оставить заявку</button>
+            return <button className='ar_info_button_buy' onClick={handleLeaveOrder}>{description.leaveRequest}</button>
         } else {
-            return <button className='ar_info_button_buy' onClick={handleAddToCart}>Положить в корзину</button>
+            return <button className='ar_info_button_buy' onClick={handleAddToCart}>{description.addToCart}</button>
         }
     }
 
@@ -129,21 +131,37 @@ const AROverlay = ({product}) => {
                         </div>
 
                         {product.outofstock ?
-                            <div className='ar_info_main_noprice'>Нет в наличии</div> :
-                            <div className='ar_info_main_price'>{(product.price).toFixed(2)} BYN</div>}
+                            <div className='ar_info_main_noprice'>{description.notInStock}</div> :
+                            <div className='ar_info_main_price'>
+                                {(product.price).toFixed(2)} {description.price}
+                            </div>}
                     </div>
 
                     <div className='ar_info_additional'>
                         <div style={{display: 'flex', flexDirection: 'column'}}>
-                            <div>{category === 'carpets' ? <span>Высота ворса, мм: </span> : <span>Цвет: </span>}
+                            <div>{category === 'carpets' ?
+                                <span>{description.pileHeight}</span> :
+                                <span>{description.color}</span>}
                                 {product.color}
                             </div>
-                            <div><span>Длина, см: </span>{product.size[0]}</div>
-                            <div><span>Ширина, см: </span>{product.size[1]}</div>
+                            <div>
+                                <span>
+                                    {description.length}
+                                </span>
+                                {product.size[0]}
+                            </div>
+
+                            <div>
+                                <span>
+                                    {description.width}
+                                </span>
+                                {product.size[1]}
+                            </div>
 
                             {product.size[2] &&
                             <div>
-                                <span>Высота, см: </span>{product.size[2]}
+                                <span>{description.height}</span>
+                                {product.size[2]}
                             </div>}
                         </div>
                     </div>
@@ -157,7 +175,7 @@ const AROverlay = ({product}) => {
                         className={!product.outofstock ? 'ar_button_one_click_buy' : 'ar_button_one_click_buy_not_visible'}
                         onClick={handleGoToOrderForm}
                     >
-                        Купить в 1 клик
+                        {description.oneClickBuy}
                     </button>
                 </div>
             </div>
