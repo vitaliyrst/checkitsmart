@@ -11,6 +11,7 @@ import {GAevent} from "../../ga/events";
 import {GApageView} from "../../ga";
 
 import Fallback from "../Loader/Loader";
+import Footer from "../Footer/Footer";
 
 const Cart = () => {
     const products = useRef(JSON.parse(localStorage.getItem('cart')));
@@ -147,10 +148,16 @@ const Cart = () => {
                             )
                         })}
                     </ul>
-                    <div className='cart_list_items_line'/>
+                    <div className='cart_footer'>
+                        <Footer/>
+                    </div>
                     <div className='cart_list_items_summary_container'>
-                        <div className='cart_list_items_total'>{description.summary}</div>
-                        <div className='cart_list_items_total_price'>{price} {description.price}</div>
+                        <div className='cart_list_items_line'/>
+                        <div className='cart_list_items_summary_wrapper'>
+                            <div className='cart_list_items_total'>{description.summary}</div>
+                            <div className='cart_list_items_total_price'>{price} {description.price}</div>
+                        </div>
+                        {getButtonLink()}
                     </div>
                 </div>
             );
@@ -194,7 +201,6 @@ const Cart = () => {
                 </div>
             </div>
             {getProductsList()}
-            {getButtonLink()}
         </div>
     )
 }

@@ -58,8 +58,6 @@ function App() {
                 <Redirect from='/' to='/catalog'/>
             </Switch>
             </main>
-
-            {!loading && <Footer/>}
         </Router>
     );
 }

@@ -10,6 +10,7 @@ import {GApageView} from "../../ga";
 import {Link} from "react-router-dom";
 
 import Fallback from "../Loader/Loader";
+import Footer from "../Footer/Footer";
 
 const Catalog = () => {
     const loading = useSelector(getLoading);
@@ -76,6 +77,7 @@ const Catalog = () => {
 
                 </li>
             </ul>
+            {!loading && <Footer/>}
         </div>
     );
 };

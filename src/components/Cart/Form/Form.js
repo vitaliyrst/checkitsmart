@@ -15,6 +15,7 @@ import emailjs from "emailjs-com";
 
 import config from "../../../config/config";
 import Fallback from "../../Loader/Loader";
+import Footer from "../../Footer/Footer";
 
 const Form = () => {
     const products = JSON.parse(localStorage.getItem('cart'));
@@ -27,6 +28,7 @@ const Form = () => {
     const description = useSelector(getAppDescription('form'));
 
     const buttonRef = useRef();
+    const footerRef = useRef();
     const [orderDone, setOrderDone] = useState(false);
     const [inputValues, setInputValues] = useState({
         name: '',
@@ -48,7 +50,8 @@ const Form = () => {
         GApageView(window.location.pathname);
 
         buttonRef.current.style.marginTop = height - 260 + 'px';
-    }, [height, buttonRef]);
+        footerRef.current.style.marginTop = height - 260 + 'px';
+    }, [height, buttonRef, footerRef]);
 
     const handleGAEventCheckOut = (email) => {
         if (inputValues.formValid) {
@@ -429,6 +432,9 @@ const Form = () => {
                     </form>
                 </>
             }
+            <div ref={footerRef} className='form_footer'>
+                <Footer/>
+            </div>
         </div>
     );
 }

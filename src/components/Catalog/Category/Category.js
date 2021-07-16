@@ -12,6 +12,7 @@ import {GApageView} from "../../../ga";
 
 import WebXR from "../../WebXR/WebXR";
 import Fallback from "../../Loader/Loader";
+import Footer from "../../Footer/Footer";
 
 const Category = () => {
     const dispatch = useDispatch();
@@ -149,8 +150,8 @@ const Category = () => {
                 </div>
 
                 <ul className='category_list'>{getCategoryProducts()}</ul>
-            </div>
-            }
+                {!loading && !selectProduct && <Footer/>}
+            </div>}
 
             {selectProduct &&
             <WebXR product={selectProduct} onSetProduct={handleSetProduct}/>}
