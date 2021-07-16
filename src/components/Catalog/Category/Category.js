@@ -96,7 +96,7 @@ const Category = () => {
                     <a ref={addToRefs} className='category_item_apple_link' id="ar-link"
                        href={os === 'pc' ? '/qr' : usdz} rel='ar'>
                         <img className='category_item_image' src={image} alt={title}/>
-                        <img className='category_item_arlink' src={'/assets/images/other/ar-link.svg'} alt='ar'/>
+                        <img className='category_item_arlink' src={description.arImage} alt='ar'/>
                     </a>
                 </div>
                 <div className='category_item_title'>{title}</div>
@@ -112,7 +112,7 @@ const Category = () => {
             <li key={id} className='category_item' onClick={(eo) => handleClickAndroidAR(eo, product)}>
                 <div className='category_item_image_container'>
                     <img className='category_item_image' src={image} alt={title}/>
-                    <img className='category_item_arlink' src={'/assets/images/other/ar-link.svg'} alt='ar'/>
+                    <img className='category_item_arlink' src={description.arImage} alt='ar'/>
                 </div>
                 <div className='category_item_title'>{title}</div>
                 <div className='category_item_price'>{price.toFixed(2)} {description.price}</div>

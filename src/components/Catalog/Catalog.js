@@ -45,7 +45,7 @@ const Catalog = () => {
         });
     }
 
-    if (loading) {
+    if (loading || !description) {
         return <Fallback/>;
     }
 

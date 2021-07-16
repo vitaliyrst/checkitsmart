@@ -3,11 +3,12 @@ import './Footer.css';
 
 import {useDispatch, useSelector} from "react-redux";
 import {setLanguage} from "../../redux/actions";
-import {getLanguage} from "../../redux/selectors";
+import {getAppDescription, getLanguage} from "../../redux/selectors";
 
 const Footer = () => {
     const dispatch = useDispatch();
     const language = useSelector(getLanguage);
+    const description = useSelector(getAppDescription('footer'));
 
     const handleSwitchLanguage = (language) => {
         localStorage.setItem('languageApp', JSON.stringify(language));
@@ -24,9 +25,13 @@ const Footer = () => {
         setSelected({...selected, [language]: true});
     }, [language]);
 
+    if (!description) {
+        return null;
+    }
+
     return (
         <div className='footer_container'>
-            <div className='footer_header'>Перевести на</div>
+            <div className='footer_header'>{description.switchLanguage}</div>
             <ul className='footer_list'>
                 <li className={selected.ru ? 'footer_list_item_selected' : 'footer_list_item'}
                     onClick={() => handleSwitchLanguage('ru')}>Русский

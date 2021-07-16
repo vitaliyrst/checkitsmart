@@ -319,7 +319,7 @@ const Form = () => {
         }
     }
 
-    if (loading) {
+    if (loading || !description) {
         return <Fallback/>
     }
 

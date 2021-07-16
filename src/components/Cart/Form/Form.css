@@ -297,7 +297,6 @@ select:-webkit-autofill:focus {
     width: 100%;
     max-width: 26rem;
     height: 3rem;
-
     margin: 0 auto;
 
     text-decoration: none;
