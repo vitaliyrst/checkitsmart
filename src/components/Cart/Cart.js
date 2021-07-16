@@ -135,7 +135,7 @@ const Cart = () => {
                                                      onClick={() => handleClickPlus(item.title)}
                                                 />
                                                 <div className='cart_list_price_by_item'>
-                                                    {(item.price).toFixed(2)} ${description.price2}
+                                                    {(item.price).toFixed(2)} {description.price2}
                                                 </div>
                                             </div>
 
