@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import './Form.css';
 
 import {Link} from "react-router-dom";
@@ -6,7 +6,7 @@ import InputMask from 'react-input-mask';
 
 import {useDispatch, useSelector} from "react-redux";
 import {setIsCart} from "../../../redux/actions";
-import {getAppDescription, getHeight, getLoading} from "../../../redux/selectors";
+import {getAppDescription, getHeight, getLanguage, getLoading} from "../../../redux/selectors";
 
 import {GAevent} from "../../../ga/events";
 import {GApageView} from "../../../ga";
@@ -25,10 +25,9 @@ const Form = () => {
     const dispatch = useDispatch();
     const loading = useSelector(getLoading);
     const height = useSelector(getHeight);
+    const language = useSelector(getLanguage);
     const description = useSelector(getAppDescription('form'));
 
-    const buttonRef = useRef();
-    const footerRef = useRef();
     const [orderDone, setOrderDone] = useState(false);
     const [inputValues, setInputValues] = useState({
         name: '',
@@ -38,7 +37,9 @@ const Form = () => {
         phoneDirty: false,
         emailDirty: false,
         formErrors: {
-            name: description.errorNameEmpty, phone: description.errorPhoneEmpty, email: description.errorEmailEmpty
+            name: '',
+            phone: '',
+            email: ''
         },
         nameValid: false,
         phoneValid: false,
@@ -48,10 +49,7 @@ const Form = () => {
 
     useEffect(() => {
         GApageView(window.location.pathname);
-
-        buttonRef.current.style.marginTop = height - 260 + 'px';
-        footerRef.current.style.marginTop = height - 260 + 'px';
-    }, [height, buttonRef, footerRef]);
+    }, [language]);
 
     const handleGAEventCheckOut = (email) => {
         if (inputValues.formValid) {
@@ -422,7 +420,8 @@ const Form = () => {
                             <span className='cart_form_error'>{inputValues.formErrors.email}</span>}
                         </div>
 
-                        <button ref={buttonRef} className='cart_form_button_submit' type='submit'
+                        <button className='cart_form_button_submit' type='submit'
+                                style={{marginTop: height - 260 + 'px'}}
                                 onClick={() => handleGAEventCheckOut(inputValues.email)}>
                             {productLeaveOrder.length ?
                                 description.buttonRequest :
@@ -432,7 +431,7 @@ const Form = () => {
                     </form>
                 </>
             }
-            <div ref={footerRef} className='form_footer'>
+            <div style={{marginTop: height - 260 + 'px'}} className='form_footer'>
                 <Footer/>
             </div>
         </div>

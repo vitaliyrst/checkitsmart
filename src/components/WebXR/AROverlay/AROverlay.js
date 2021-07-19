@@ -16,7 +16,6 @@ const AROverlay = ({product}) => {
     const dispatch = useDispatch();
     const isCart = useSelector(getCartState);
     const description = useSelector(getAppDescription('webxroverlay'));
-
     const cart = JSON.parse(localStorage.getItem('cart'));
 
     const handleGAEventClickReset = () => GAevent('AR SESSION', 'reset', 'reset');
@@ -25,18 +24,15 @@ const AROverlay = ({product}) => {
     const handleGAEventLeaveOrder = () => GAevent('CART', 'leave order', 'leave order');
 
     useEffect(() => {
-        const sameProduct = cart.some(item => item.title === product.title);
-
-        if (sameProduct) {
+        if (cart.length) {
             dispatch(setIsCart(true));
         } else {
             dispatch(setIsCart(false));
         }
-    }, [cart, dispatch, product.title]);
+    }, [cart, dispatch, product.title, isCart]);
 
     const handleClickClose = async () => {
         await document.getElementById('ARButton').click();
-
     }
 
     const handleClickReset = () => {
@@ -77,7 +73,6 @@ const AROverlay = ({product}) => {
 
             localStorage.setItem('cart', JSON.stringify(temp));
             handleGAEventClickAddToCart(product.title);
-            dispatch(setIsCart(false));
         } else {
             product.quantity = 1;
             localStorage.setItem('cart', JSON.stringify([product]));

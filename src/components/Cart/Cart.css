@@ -84,11 +84,11 @@
 }
 
 .class_items_list_counter_additional {
-    display: block;
+display: inline-block;
 }
 
 .class_items_list_counter_price {
-    display: block;
+    display: inline-block;
 }
 
 .cart_items_list {

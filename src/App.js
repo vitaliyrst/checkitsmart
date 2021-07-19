@@ -6,13 +6,11 @@ import routes from "./routes/routes";
 
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAppDescription, fetchCatalog, setHeight, setIsCart, setLanguage, setOs} from "./redux/actions";
-import {getLanguage, getLoading} from "./redux/selectors";
-import Footer from "./components/Footer/Footer";
+import {getLanguage} from "./redux/selectors";
 
 function App() {
     const dispatch = useDispatch();
     const language = useSelector(getLanguage);
-    const loading = useSelector(getLoading);
 
     useEffect(() => {
         const lang = (window.navigator.language).substring(0, 2);

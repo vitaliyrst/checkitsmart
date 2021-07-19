@@ -1,6 +1,7 @@
 .cart_form_container {
     max-width: 26rem;
-    height: calc(100vh);
+    height: 100vh;
+    min-height: 100vh;
     padding-left: 1rem;
     padding-right: 1rem;
     margin-left: auto;
