@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import './Cart.css';
 
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 import {useDispatch, useSelector} from "react-redux";
 import {setIsCart} from "../../redux/actions";
@@ -16,12 +16,11 @@ import Footer from "../Footer/Footer";
 const Cart = () => {
     const products = useRef(JSON.parse(localStorage.getItem('cart')));
 
-    const containerRef = useRef();
     const [changes, setChanges] = useState(0);
+    const history = useHistory();
 
     const dispatch = useDispatch();
     const loading = useSelector(getLoading);
-    const height = useSelector(getHeight);
     const description = useSelector(getAppDescription('cart'));
 
     const handleGAEventDeleteFromCart = (title) => GAevent('CART', 'delete from cart', title);
@@ -191,9 +190,7 @@ const Cart = () => {
         <div className='cart_container'>
             <div className='cart_header_container'>
                 <div className='cart_header_wrapper'>
-                    <Link className='cart_header_arrow_left_link' to={'/catalog'}>
-                        <img src={'/assets/images/other/arrow_left.svg'} alt='arrow_left'/>
-                    </Link>
+                    <img src={'/assets/images/other/arrow_left.svg'} alt='arrow_left' onClick={() => history.goBack()}/>
                     <div className='cart_header'>
                         {description.cart}
                     </div>

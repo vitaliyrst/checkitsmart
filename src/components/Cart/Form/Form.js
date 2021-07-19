@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './Form.css';
 
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import InputMask from 'react-input-mask';
 
 import {useDispatch, useSelector} from "react-redux";
@@ -21,6 +21,8 @@ const Form = () => {
     const products = JSON.parse(localStorage.getItem('cart'));
     const productOneClickBuy = JSON.parse(localStorage.getItem('oneclickbuy'));
     const productLeaveOrder = JSON.parse(localStorage.getItem('leaveorder'));
+
+    const history = useHistory();
 
     const dispatch = useDispatch();
     const loading = useSelector(getLoading);
@@ -326,11 +328,7 @@ const Form = () => {
             {!orderDone &&
             <div className='cart_form_header_container'>
                 <div className='cart_form_header_wrapper'>
-                    <Link className='cart_form_arrow_left_link' to={'/catalog'}>
-                        <img src={'/assets/images/other/arrow_left.svg'}
-                             alt='arrow_left'
-                        />
-                    </Link>
+                    <img src={'/assets/images/other/arrow_left.svg'} alt='arrow_left' onClick={() => history.goBack()}/>
                     <div className='cart_form_header'>
                         {productLeaveOrder.length ? description.leaveRequest : description.checkout}
                     </div>
