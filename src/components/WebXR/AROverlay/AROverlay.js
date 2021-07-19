@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './AROverlay.css';
 
 import {useHistory, useParams} from "react-router";
@@ -12,6 +12,7 @@ import {GAevent} from "../../../ga/events";
 const AROverlay = ({product}) => {
     const {category} = useParams();
     const history = useHistory();
+    const [changes, setChanges] = useState(false);
 
     const dispatch = useDispatch();
     const isCart = useSelector(getCartState);
@@ -29,7 +30,7 @@ const AROverlay = ({product}) => {
         } else {
             dispatch(setIsCart(false));
         }
-    }, [cart, dispatch, product.title, isCart]);
+    }, [cart, dispatch, changes]);
 
     const handleClickClose = async () => {
         await document.getElementById('ARButton').click();
@@ -79,7 +80,7 @@ const AROverlay = ({product}) => {
             handleGAEventClickAddToCart(product.title);
         }
 
-        dispatch(setIsCart(true));
+        setChanges(true);
     }
 
     const handleLeaveOrder = async () => {
@@ -91,7 +92,7 @@ const AROverlay = ({product}) => {
     }
 
     const getFirstButton = () => {
-        if (isCart && !product.outofstock) {
+        if (cart.find(item => item.title === product.title) && !product.outofstock) {
             return <div className='ar_info_now_in_cart' onClick={handleRedirectToCart}>{description.nowInCart}</div>
         } else if (product.outofstock) {
             return <button className='ar_info_button_buy' onClick={handleLeaveOrder}>{description.leaveRequest}</button>

@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 import {useDispatch, useSelector} from "react-redux";
 import {setIsCart} from "../../redux/actions";
-import {getAppDescription, getLoading} from "../../redux/selectors";
+import {getAppDescription, getHeight, getLoading} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
 import {GApageView} from "../../ga";
@@ -16,10 +16,12 @@ import Footer from "../Footer/Footer";
 const Cart = () => {
     const products = useRef(JSON.parse(localStorage.getItem('cart')));
 
+    const containerRef = useRef();
     const [changes, setChanges] = useState(0);
 
     const dispatch = useDispatch();
     const loading = useSelector(getLoading);
+    const height = useSelector(getHeight);
     const description = useSelector(getAppDescription('cart'));
 
     const handleGAEventDeleteFromCart = (title) => GAevent('CART', 'delete from cart', title);
@@ -97,10 +99,7 @@ const Cart = () => {
                 <div className='cart_items_list_container'>
                     <div className='class_items_list_counter'>
                         <div className='class_items_list_counter_additional'>
-                            {description.incart} {quantity} {description.incart2}
-                        </div>
-                        <div className='class_items_list_counter_price'>
-                            {price} {description.price}
+                            {description.incart} {quantity} {description.incart2} {price} {description.price}
                         </div>
                     </div>
                     <ul className='cart_items_list'>
@@ -148,7 +147,7 @@ const Cart = () => {
                             )
                         })}
                     </ul>
-                    <div className='cart_footer'>
+                    <div className={products.current.length >= 3 ? 'cart_footer_fixed' : 'cart_footer'}>
                         <Footer/>
                     </div>
                     <div className='cart_list_items_summary_container'>
