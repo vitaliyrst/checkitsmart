@@ -4,7 +4,7 @@ import './AROverlay.css';
 import {useHistory, useParams} from "react-router";
 
 import {useDispatch, useSelector} from "react-redux";
-import {getAppDescription, getCartState} from "../../../redux/selectors";
+import {getAppDescription, getCartState, getReticleHit} from "../../../redux/selectors";
 import {setIsCart, setPlaneDetected, setReticleHit} from "../../../redux/actions";
 
 import {GAevent} from "../../../ga/events";
@@ -17,6 +17,7 @@ const AROverlay = ({product}) => {
     const dispatch = useDispatch();
     const isCart = useSelector(getCartState);
     const description = useSelector(getAppDescription('webxroverlay'));
+    const isHit = useSelector(getReticleHit);
     const cart = JSON.parse(localStorage.getItem('cart'));
 
     const handleGAEventClickReset = () => GAevent('AR SESSION', 'reset', 'reset');
@@ -118,6 +119,7 @@ const AROverlay = ({product}) => {
                 </div>
             </div>
 
+            {isHit &&
             <div className='ar_info_container'>
                 <div className='ar_info'>
 
@@ -174,7 +176,7 @@ const AROverlay = ({product}) => {
                         {description.oneClickBuy}
                     </button>
                 </div>
-            </div>
+            </div>}
         </>
     );
 }

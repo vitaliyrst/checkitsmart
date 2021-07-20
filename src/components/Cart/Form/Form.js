@@ -340,7 +340,7 @@ const Form = () => {
                     <div className='cart_form_after_order_title'>
                         {productLeaveOrder.length ?
                             description.thx :
-                            description.txhRequest
+                            description.thxRequest
                         }
                     </div>
                     <div className='cart_form_after_order_text'>
@@ -349,8 +349,8 @@ const Form = () => {
                             description.outOfStockRequest
                         }
                     </div>
-                    <Link className='cart_link_button_container' to={'/catalog'}>
-                        <button className='cart_link_button' type='button'>
+                    <Link className='cart_form_link_button_container' to={'/catalog'}>
+                        <button className='cart_form_link_button' type='button'>
                             {description.goToCatalog}
                         </button>
                     </Link>

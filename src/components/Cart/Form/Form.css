@@ -1,7 +1,7 @@
 .cart_form_container {
     max-width: 26rem;
-    height: 100vh;
-    min-height: 100vh;
+
+
     padding-left: 1rem;
     padding-right: 1rem;
     margin-left: auto;
@@ -295,7 +295,7 @@ select:-webkit-autofill:focus {
 }
 
 .cart_form_button_submit {
-    width: 100%;
+    width: 92vw;
     max-width: 26rem;
     height: 3rem;
     margin: 0 auto;
@@ -321,4 +321,33 @@ select:-webkit-autofill:focus {
     left: 0;
     right: 0;
     top: -6rem;
+}
+
+.cart_form_link_button {
+    width: 92vw;
+    max-width: 26rem;
+    height: 3rem;
+    margin: 0 auto;
+
+    text-decoration: none;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 160%;
+
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+
+    background-color: #DF661C;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 7.5rem;
 }

@@ -36,12 +36,8 @@ const WebXR = React.memo(({product, onSetProduct}) => {
     const handleSetButtonReady = (state) => setButtonReady(state);
     const handleStartSession = (gl) => {
         const arConfig = {
-            requiredFeatures: ['hit-test', 'depth-sensing'],
+            requiredFeatures: ['hit-test'],
             optionalFeatures: ['dom-overlay'],
-            depthSensing: {
-                usagePreference: ["cpu-optimized"],
-                dataFormatPreference: ["luminance-alpha"],
-            },
             domOverlay: {root: document.querySelector('.canvas_container')}
         }
         document.body.append(ARButton.createButton(gl, arConfig, handleSetButtonReady));
@@ -101,7 +97,7 @@ const WebXR = React.memo(({product, onSetProduct}) => {
             {planeDetected && sessionReady && !isHit &&
             <ARHelper data={[description.clickObj, description.clickObj2]}/>}
 
-            {isHit && <AROverlay product={product}/>}
+            <AROverlay product={product}/>
         </div>
     )
 });

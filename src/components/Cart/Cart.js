@@ -90,17 +90,11 @@ const Cart = () => {
         if (!products.current.length) {
             return <div className='cart_no_items'>{description.nocart}</div>
         } else {
-            const quantity = products.current.reduce((acc, {quantity}) => (acc + quantity), 0);
             const price = products.current
                 .reduce((acc, {price, quantity}) => (acc + (Number(price) * quantity)), 0).toFixed(2);
 
             return (
                 <div className='cart_items_list_container'>
-                    <div className='class_items_list_counter'>
-                        <div className='class_items_list_counter_additional'>
-                            {description.incart} {quantity} {description.incart2} {price} {description.price}
-                        </div>
-                    </div>
                     <ul className='cart_items_list'>
                         {products.current.map((item, index) => {
                             return (
@@ -121,17 +115,19 @@ const Cart = () => {
                                             </div>
 
                                             <div className='cart_list_item_counter_container'>
-                                                <img className='cart_list_item_counter_minus'
-                                                     src={'/assets/images/other/minus.svg'} alt={'minus'}
-                                                     onClick={() => handleClickMinus(item.title)}
-                                                />
-                                                <div className='cart_list_item_counter_quantity'>
-                                                    {item.quantity}
+                                                <div className='cart_list_item_counter_wrapper'>
+                                                    <img className='cart_list_item_counter_minus'
+                                                         src={'/assets/images/other/minus.svg'} alt={'minus'}
+                                                         onClick={() => handleClickMinus(item.title)}
+                                                    />
+                                                    <div className='cart_list_item_counter_quantity'>
+                                                        {item.quantity}
+                                                    </div>
+                                                    <img className='cart_list_item_counter_plus'
+                                                         src={'/assets/images/other/plus.svg'} alt={'plus'}
+                                                         onClick={() => handleClickPlus(item.title)}
+                                                    />
                                                 </div>
-                                                <img className='cart_list_item_counter_plus'
-                                                     src={'/assets/images/other/plus.svg'} alt={'plus'}
-                                                     onClick={() => handleClickPlus(item.title)}
-                                                />
                                                 <div className='cart_list_price_by_item'>
                                                     {(item.price).toFixed(2)} {description.price2}
                                                 </div>
