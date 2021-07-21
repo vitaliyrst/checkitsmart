@@ -42,6 +42,7 @@ body {
 .banner_container > div {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
 }
 
 .banner_second{
@@ -59,13 +60,13 @@ body {
     font-size: 18px;
     font-family: Inter, sans-serif;
     font-weight: 700;
-    flex-basis: 21.1%;
+    flex-basis: 25%;
 }
 
 .banner_no_price{
     font-weight: 400;
     font-size: 1.1rem;
-    flex-basis: 20.07%;
+    flex-basis: 25%;
 }
 
 .banner_color {
