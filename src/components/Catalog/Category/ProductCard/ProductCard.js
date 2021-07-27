@@ -226,9 +226,10 @@ const ProductCard = () => {
                     </div>
                 </div>
 
-                <div className='product_button_wrapper'>
+
                     {getARButton()}
                     {getCartButton()}
+                <div className='product_button_wrapper'>
                 </div>
             </div>}
 

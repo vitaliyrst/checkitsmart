@@ -304,18 +304,18 @@ const Form = () => {
                     });
             }
 
-
             if (productOneClickBuy.length) {
                 localStorage.removeItem('oneclickbuy');
                 setOrderDone(true);
                 localStorage.setItem('oneclickbuy', JSON.stringify([]));
-            } else {
+            }
+
+            if (products.length) {
                 localStorage.removeItem('cart');
                 setOrderDone(true);
                 dispatch(setIsCart(false));
                 localStorage.setItem('cart', JSON.stringify([]));
             }
-
         } else {
             setInputValues({...inputValues, nameDirty: true, phoneDirty: true, emailDirty: true});
         }
