@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import './Footer.css';
 
 import {useDispatch, useSelector} from "react-redux";
@@ -9,21 +9,12 @@ const Footer = () => {
     const dispatch = useDispatch();
     const language = useSelector(getLanguage);
     const description = useSelector(getAppDescription('footer'));
-
     const handleSwitchLanguage = (language) => {
         localStorage.setItem('languageApp', JSON.stringify(language));
         dispatch(setLanguage(language));
     }
 
-    const [selected, setSelected] = useState({
-        ru: false,
-        en: false,
-        pl: false
-    });
-
-    useEffect(() => {
-        setSelected({...selected, [language]: true});
-    }, [language]);
+    useEffect(() => {}, [language]);
 
     if (!description) {
         return null;
@@ -33,13 +24,13 @@ const Footer = () => {
         <div className='footer_container'>
             <div className='footer_header'>{description.switchLanguage}</div>
             <ul className='footer_list'>
-                <li className={selected.ru ? 'footer_list_item_selected' : 'footer_list_item'}
+                <li className={language === 'ru' ? 'footer_list_item_selected' : 'footer_list_item'}
                     onClick={() => handleSwitchLanguage('ru')}>Русский
                 </li>
-                <li className={selected.en ? 'footer_list_item_selected' : 'footer_list_item'}
+                <li className={language === 'en' ? 'footer_list_item_selected' : 'footer_list_item'}
                     onClick={() => handleSwitchLanguage('en')}>English
                 </li>
-                <li className={selected.pl ? 'footer_list_item_selected' : 'footer_list_item'}
+                <li className={language === 'pl' ? 'footer_list_item_selected' : 'footer_list_item'}
                     onClick={() => handleSwitchLanguage('pl')}>Polski
                 </li>
             </ul>

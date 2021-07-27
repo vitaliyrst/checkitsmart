@@ -5,7 +5,7 @@ import {Link, useHistory} from "react-router-dom";
 
 import {useDispatch, useSelector} from "react-redux";
 import {setIsCart} from "../../redux/actions";
-import {getAppDescription, getHeight, getLoading} from "../../redux/selectors";
+import {getAppDescription, getLoading} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
 import {GApageView} from "../../ga";

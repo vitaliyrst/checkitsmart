@@ -1,7 +1,11 @@
 import {FETCH_APP_DESCRIPTION, HIDE_LOADER, IS_CART, SET_HEIGHT, SET_LANGUAGE, SET_OS, SHOW_LOADER} from "../types";
 
+const language = JSON.parse(localStorage.getItem('languageApp')) ?
+    JSON.parse(localStorage.getItem('languageApp')) :
+    'ru'
+
 const initialState = {
-    language: 'ru',
+    language: language,
     os: 'pc',
     appDescription: [],
     height: 0,

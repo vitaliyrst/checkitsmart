@@ -35,6 +35,10 @@ export const getCategory = (state) => {
     return state.catalog.category;
 }
 
+export const getProduct = (state) => {
+    return state.catalog.product;
+}
+
 
 // WEBXR
 

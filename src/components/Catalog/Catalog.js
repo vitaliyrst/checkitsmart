@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import './Catalog.css';
 
 import {useSelector} from "react-redux";
-import {getAppDescription, getCartState, getCatalog, getLoading, getOs} from "../../redux/selectors";
+import {getAppDescription, getCartState, getCatalog, getLoading} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
 import {GApageView} from "../../ga";
@@ -14,7 +14,6 @@ import Footer from "../Footer/Footer";
 
 const Catalog = () => {
     const loading = useSelector(getLoading);
-    const os = useSelector(getOs);
 
     const isCart = useSelector(getCartState);
     const description = useSelector(getAppDescription('catalog'));
@@ -55,12 +54,10 @@ const Catalog = () => {
             <div className='catalog_header_container'>
                 <div className='catalog_header'>{description.header}</div>
 
-                {(os === 'android' || os === 'pc') &&
                 <Link className='catalog_header_link' to={'/cart'}>
                     <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
                          alt='cart'/>
                 </Link>
-                }
             </div>
 
             <ul className='catalog_list'>

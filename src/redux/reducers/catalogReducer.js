@@ -1,8 +1,9 @@
-import {FETCH_CATALOG, FETCH_CATEGORY} from "../types";
+import {FETCH_CATALOG, FETCH_CATEGORY, FETCH_PRODUCT} from "../types";
 
 const initialState = {
     catalog: [],
     category: [],
+    product: {}
 }
 
 export const catalogReducer = (state = initialState, action) => {
@@ -11,6 +12,8 @@ export const catalogReducer = (state = initialState, action) => {
             return {...state, catalog: action.payload}
         case FETCH_CATEGORY:
             return {...state, category: action.payload}
+        case FETCH_PRODUCT:
+            return {...state, product: action.payload}
         default :
             return state;
     }

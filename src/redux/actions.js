@@ -1,7 +1,7 @@
 import database from "../firebase/firebase";
 import {
     FETCH_APP_DESCRIPTION,
-    FETCH_CATALOG, FETCH_CATEGORY,
+    FETCH_CATALOG, FETCH_CATEGORY, FETCH_PRODUCT,
     HIDE_LOADER,
     IS_CART,
     PLANE_DETECTED,
@@ -95,7 +95,7 @@ export const fetchCatalog = (language) => async (dispatch) => {
     }
 }
 
-export const fetchCategory = (slug, language) => async (dispatch) => {
+export const fetchCategory = (category, language) => async (dispatch) => {
     try {
         dispatch(showLoader());
         const response = await database.collection(`/${language}`).doc('furniture');
@@ -103,13 +103,34 @@ export const fetchCategory = (slug, language) => async (dispatch) => {
         let result;
 
         if (data.exists) {
-            result = data.data().data.filter(item => item.slug === slug);
+            result = data.data().data.filter(item => item.slug === category);
         }
 
         dispatch({type: FETCH_CATEGORY, payload: result[0]});
         dispatch(hideLoader());
     } catch (e) {
         console.log('Fetch category error', e.message);
+        dispatch(hideLoader());
+    }
+}
+
+export const fetchProduct = (category, id, language) => async (dispatch) => {
+    try {
+        dispatch(showLoader());
+        const response = await database.collection(`/${language}`).doc('furniture');
+        const data = await response.get();
+        let result;
+
+        if (data.exists) {
+            let tempCategory = data.data().data.filter(item => item.slug === category);
+            result = tempCategory[0].products.filter(item => item.id === Number(id));
+            result[0].category = tempCategory[0].title;
+        }
+
+        dispatch({type: FETCH_PRODUCT, payload: result[0]});
+        dispatch(hideLoader());
+    } catch (e) {
+        console.log('Fetch product error', e.message);
         dispatch(hideLoader());
     }
 }
