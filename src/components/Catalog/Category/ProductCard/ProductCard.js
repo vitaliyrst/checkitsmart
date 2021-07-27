@@ -61,7 +61,7 @@ const ProductCard = () => {
                    onClick={handleClickAppleAR}
                    href={os === 'pc' ? '/qr' : product.usdz} rel='ar'>
                     {description.tryAr}
-                    <img alt='img'/>
+                    <img src={'/assets/images/other/fake.png'} alt='img'/>
                 </a>
             );
         }
