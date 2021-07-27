@@ -89,7 +89,13 @@ const Cart = () => {
 
     const getProductsList = () => {
         if (!products.current.length) {
-            return <div className='cart_no_items'>{description.nocart}</div>
+            return (
+                <div className='cart_no_items_container'>
+                    <div className='cart_no_items'>
+                        {description.nocart}
+                    </div>
+                </div>
+            );
         } else {
             const price = products.current
                 .reduce((acc, {price, quantity}) => (acc + (Number(price) * quantity)), 0).toFixed(2);

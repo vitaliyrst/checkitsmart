@@ -215,3 +215,7 @@
     position: fixed;
     bottom: 0;
 }
+
+.product_item_button_ar_apple > img{
+    position: absolute;
+}
