@@ -61,7 +61,7 @@ const ProductCard = () => {
                    onClick={handleClickAppleAR}
                    href={os === 'pc' ? '/qr' : product.usdz} rel='ar'>
                     {description.tryAr}
-                    <img/>
+                    <img alt='img'/>
                 </a>
             );
         }
@@ -114,6 +114,12 @@ const ProductCard = () => {
                     {description.nowInCart}
                 </div>
             );
+        } else if (product.outofstock) {
+            return (
+                <button className='product_item_button_to_cart' type='button' onClick={handleLeaveOrder}>
+                    Оставить заказ
+                </button>
+            );
         } else {
             return (
                 <button className='product_item_button_to_cart' type='button' onClick={handleAddToCart}>
@@ -145,6 +151,12 @@ const ProductCard = () => {
 
     const handleRedirectToCart = () => {
         history.push(`/cart`);
+    }
+
+    const handleLeaveOrder = () => {
+        product.quantity = 1;
+        localStorage.setItem('leaveorder', JSON.stringify([product]));
+        history.push(`/cart/form`);
     }
 
     if (loading || Object.keys(product).length === 0 || !description) {

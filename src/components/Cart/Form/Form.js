@@ -308,10 +308,12 @@ const Form = () => {
             if (productOneClickBuy.length) {
                 localStorage.removeItem('oneclickbuy');
                 setOrderDone(true);
+                localStorage.setItem('oneclickbuy', JSON.stringify([]));
             } else {
                 localStorage.removeItem('cart');
                 setOrderDone(true);
                 dispatch(setIsCart(false));
+                localStorage.setItem('cart', JSON.stringify([]));
             }
 
         } else {

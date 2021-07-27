@@ -31,6 +31,7 @@ const Cart = () => {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         if (!localStorage.getItem('cart')) {
             localStorage.setItem('cart', JSON.stringify([]));
         }
