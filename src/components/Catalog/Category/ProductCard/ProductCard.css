@@ -205,3 +205,11 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.product_button_wrapper{
+    width: 100%;
+    height: 14.3125rem;
+    background: linear-gradient(180deg, rgba(49, 49, 49, 0) 24.59%, #313131 64.99%);
+    position: fixed;
+    bottom: 0;
+}

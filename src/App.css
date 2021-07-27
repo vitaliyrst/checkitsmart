@@ -3,7 +3,6 @@ body {
     height: calc(100vh - 60px);
     margin: 0;
     padding: 0;
-    overflow: auto;
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;

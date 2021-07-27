@@ -61,6 +61,7 @@ const ProductCard = () => {
                    onClick={handleClickAppleAR}
                    href={os === 'pc' ? '/qr' : product.usdz} rel='ar'>
                     {description.tryAr}
+                    <img/>
                 </a>
             );
         }
@@ -213,8 +214,10 @@ const ProductCard = () => {
                     </div>
                 </div>
 
-                {getARButton()}
-                {getCartButton()}
+                <div className='product_button_wrapper'>
+                    {getARButton()}
+                    {getCartButton()}
+                </div>
             </div>}
 
             {selectProduct &&
