@@ -184,12 +184,15 @@ const ProductCard = () => {
                 </div>
 
                 <div className='product_item'>
-                    <div className='product_item_image' style={{backgroundImage: `url("${product.image}")`}}/>
+                    <div className='product_item_image' style={{
+                        backgroundImage: `url("${product.image}")`,
+                        marginLeft: os === 'pc' ? 0 : '-1rem'
+                    }}/>
                     <div className='product_item_title'>
                         {product.title}
                     </div>
                     <div className='product_item_price'>
-                        {product.price} {description.price}
+                        {product.price.toFixed(2)} {description.price}
                     </div>
                     <div className='product_item_color'>
                         {params.category === 'carpets' ?
@@ -229,7 +232,7 @@ const ProductCard = () => {
                 {getARButton()}
                 {getCartButton()}
 
-                <div className='product_button_wrapper' />
+                <div className='product_button_wrapper'/>
             </div>}
 
             {selectProduct &&

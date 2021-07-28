@@ -76,15 +76,13 @@
 
 .product_item_image {
     width: 100vw;
-    height: 15.75rem;
-    margin-left: -1rem;
     max-width: 26rem;
+    height: 15.75rem;
 
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     background-color: #FFFFFF;
-
 }
 
 .product_item_title {
@@ -128,6 +126,9 @@
 .product_item_no_description {
     margin-top: 1rem;
     color: rgba(255, 255, 255, 0.4);
+}
+
+.product_item_no_description:first-letter {
     text-transform: capitalize;
 }
 
@@ -207,7 +208,7 @@
     justify-content: center;
 }
 
-.product_button_wrapper{
+.product_button_wrapper {
     width: 100%;
     margin-left: -1rem;
     height: 14.3125rem;
@@ -216,6 +217,6 @@
     bottom: 0;
 }
 
-.product_item_button_ar_apple > img{
+.product_item_button_ar_apple > img {
     position: absolute;
 }
