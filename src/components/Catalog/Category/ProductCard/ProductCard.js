@@ -41,12 +41,12 @@ const ProductCard = () => {
             dispatch(fetchProduct(params.category, params.id, language));
         }
 
-        if (cart.length) {
+        if (JSON.parse(localStorage.getItem('cart')).length) {
             dispatch(setIsCart(true));
         } else {
             dispatch(setIsCart(false));
         }
-    }, [dispatch, params.id, params.category, language, changes, cart.length]);
+    }, [dispatch, params.id, params.category, language, changes]);
 
     const getARButton = () => {
         if (os === 'android' || os === 'pc') {
@@ -89,7 +89,7 @@ const ProductCard = () => {
                 localStorage.setItem('leaveorder', JSON.stringify([product]));
             }
             handleGAEventClickStartAR(product.title);
-            eo.currentTarget.querySelector('#ar-link').click();
+            eo.currentTarget.click();
 
             appleARRefs.current.forEach(item => {
                 item.addEventListener('message', (eo) => {
