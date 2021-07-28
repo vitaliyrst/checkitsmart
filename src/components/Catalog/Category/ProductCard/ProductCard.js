@@ -58,7 +58,7 @@ const ProductCard = () => {
         } else {
             return (
                 <a ref={addToRefs} className='product_item_button_ar_apple' id="ar-link"
-                   onClick={handleClickAppleAR}
+                   onClick={(eo) => handleClickAppleAR(eo, product)}
                    href={os === 'pc' ? '/qr' : product.usdz} rel='ar'>
                     {description.tryAr}
                     <img src={'/assets/images/other/fake.png'} alt='img'/>
