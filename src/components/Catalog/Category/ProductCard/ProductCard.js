@@ -117,7 +117,7 @@ const ProductCard = () => {
         } else if (product.outofstock) {
             return (
                 <button className='product_item_button_to_cart' type='button' onClick={handleLeaveOrder}>
-                    Оставить заказ
+                    {description.leaveRequest}
                 </button>
             );
         } else {
@@ -226,11 +226,10 @@ const ProductCard = () => {
                     </div>
                 </div>
 
+                {getARButton()}
+                {getCartButton()}
 
-                    {getARButton()}
-                    {getCartButton()}
-                <div className='product_button_wrapper'>
-                </div>
+                <div className='product_button_wrapper' />
             </div>}
 
             {selectProduct &&

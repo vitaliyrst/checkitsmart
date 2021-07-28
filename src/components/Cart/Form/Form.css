@@ -287,6 +287,8 @@ select:-webkit-autofill:focus {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
 
     position: absolute;
     top: 8.5rem;
