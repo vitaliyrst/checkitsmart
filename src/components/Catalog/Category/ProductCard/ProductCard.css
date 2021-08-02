@@ -78,12 +78,15 @@
     width: 100vw;
     max-width: 26rem;
     height: 15.75rem;
+    margin-left: -1rem;
 
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     background-color: #FFFFFF;
 }
+
+
 
 .product_item_title {
     margin-top: 1rem;
@@ -219,4 +222,46 @@
 
 .product_item_button_ar_apple > img {
     position: absolute;
+}
+
+
+@media screen and (min-width: 900px) {
+    .product_item_image {
+        width: 92vw;
+        max-width: 24rem;
+        height: 15.75rem;
+        margin-left: 0;
+        margin-right: 2rem;
+
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        background-color: #FFFFFF;
+    }
+
+    .product_item_button_ar,
+    .product_item_button_to_cart,
+    .product_item_button_ar_apple,
+    .product_now_in_cart {
+        width: 92vw;
+        max-width: 24rem;
+        height: 3rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+
+        text-decoration: none;
+        text-align: center;
+
+        font-family: Inter, sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 160%;
+
+        outline: none;
+        border: none;
+        border-radius: 0.5rem;
+
+        position: fixed;
+        z-index: 5;
+    }
 }

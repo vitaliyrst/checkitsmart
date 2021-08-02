@@ -5,7 +5,7 @@ import {Link, useHistory} from "react-router-dom";
 
 import {useDispatch, useSelector} from "react-redux";
 import {setIsCart} from "../../redux/actions";
-import {getAppDescription, getLoading} from "../../redux/selectors";
+import {getAppDescription, getLanguage, getLoading} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
 import {GApageView} from "../../ga";
@@ -22,6 +22,7 @@ const Cart = () => {
     const dispatch = useDispatch();
     const loading = useSelector(getLoading);
     const description = useSelector(getAppDescription('cart'));
+    const language = useSelector(getLanguage);
 
     const handleGAEventDeleteFromCart = (title) => GAevent('CART', 'delete from cart', title);
     const handleGAEventGoToOrderForm = () => {
@@ -87,6 +88,10 @@ const Cart = () => {
         }
     }
 
+    const handleClickProduct = (category, id) => {
+        history.push(`/catalog/${category.toLowerCase()}/${id}`);
+    }
+
     const getProductsList = () => {
         if (!products.current.length) {
             return (
@@ -108,13 +113,17 @@ const Cart = () => {
                                 <li key={index} className='cart_list_item'>
                                     <div className='cart_list_item_wrapper'>
 
-                                        <div className='cart_list_item_image_container'>
+                                        <div className='cart_list_item_image_container'
+                                             onClick={() => handleClickProduct(item.category, item.id)}>
                                             <img className='cart_list_item_image' src={item.image} alt={item.title}/>
                                         </div>
 
                                         <div className='cart_list_item_description_wrapper'>
                                             <div className='cart_list_item_title_container'>
-                                                <div className='cart_item_title'>{item.title}</div>
+                                                <div className='cart_item_title'
+                                                     onClick={() => handleClickProduct(item.category, item.id)}>
+                                                    {item.title}
+                                                </div>
                                                 <img className='cart_list_item_button_delete'
                                                      src={'/assets/images/other/delete.svg'} alt={'delete'}
                                                      onClick={() => handleClickDelete(item.title)}
@@ -135,14 +144,26 @@ const Cart = () => {
                                                          onClick={() => handleClickPlus(item.title)}
                                                     />
                                                 </div>
-                                                <div className='cart_list_price_by_item'>
-                                                    {(item.price).toFixed(2)} {description.price2}
-                                                </div>
+                                                {
+                                                    language === 'en' || language === 'EN' ?
+                                                        <div className='cart_list_price_by_item'>
+                                                            {description.price2} {(item.price).toFixed(2)}
+                                                        </div> :
+                                                        <div className='cart_list_price_by_item'>
+                                                            {(item.price).toFixed(2)} {description.price2}
+                                                        </div>
+                                                }
                                             </div>
 
-                                            <div className='cart_item_price'>
-                                                {(item.price * item.quantity).toFixed(2)} {description.price}
-                                            </div>
+                                            {
+                                                language === 'en' || language === 'EN' ?
+                                                    <div className='cart_item_price'>
+                                                        {description.price} {(item.price * item.quantity).toFixed(2)}
+                                                    </div> :
+                                                    <div className='cart_item_price'>
+                                                        {(item.price * item.quantity).toFixed(2)} {description.price}
+                                                    </div>
+                                            }
                                         </div>
                                     </div>
                                 </li>
@@ -156,7 +177,11 @@ const Cart = () => {
                         <div className='cart_list_items_line'/>
                         <div className='cart_list_items_summary_wrapper'>
                             <div className='cart_list_items_total'>{description.summary}</div>
-                            <div className='cart_list_items_total_price'>{price} {description.price}</div>
+                            {
+                                language === 'en' || language === 'EN' ?
+                                    <div className='cart_list_items_total_price'>{description.price} {price} </div> :
+                                    <div className='cart_list_items_total_price'>{price} {description.price}</div>
+                            }
                         </div>
                         {getButtonLink()}
                     </div>

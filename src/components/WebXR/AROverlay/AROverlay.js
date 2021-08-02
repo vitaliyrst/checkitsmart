@@ -4,7 +4,7 @@ import './AROverlay.css';
 import {useHistory, useParams} from "react-router";
 
 import {useDispatch, useSelector} from "react-redux";
-import {getAppDescription, getCartState, getReticleHit} from "../../../redux/selectors";
+import {getAppDescription, getCartState, getLanguage, getReticleHit} from "../../../redux/selectors";
 import {setIsCart, setPlaneDetected, setReticleHit} from "../../../redux/actions";
 
 import {GAevent} from "../../../ga/events";
@@ -19,6 +19,7 @@ const AROverlay = ({product}) => {
     const description = useSelector(getAppDescription('webxroverlay'));
     const isHit = useSelector(getReticleHit);
     const cart = JSON.parse(localStorage.getItem('cart'));
+    const language = useSelector(getLanguage);
 
     const handleGAEventClickReset = () => GAevent('AR SESSION', 'reset', 'reset');
     const handleGAEventClickAddToCart = (title) => GAevent('CART', 'add to cart', title);
@@ -130,9 +131,14 @@ const AROverlay = ({product}) => {
 
                         {product.outofstock ?
                             <div className='ar_info_main_noprice'>{description.notInStock}</div> :
-                            <div className='ar_info_main_price'>
-                                {(product.price).toFixed(2)} {description.price}
-                            </div>}
+                            language === 'en' || language === 'EN' ?
+                                <div className='ar_info_main_price'>
+                                    {description.price} {(product.price).toFixed(2)}
+                                </div> :
+                                <div className='ar_info_main_price'>
+                                    {(product.price).toFixed(2)} {description.price}
+                                </div>
+                        }
                     </div>
 
                     <div className='ar_info_additional'>

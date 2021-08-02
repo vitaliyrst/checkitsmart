@@ -192,15 +192,17 @@ const ProductCard = () => {
 
                 <div className='product_item'>
                     <div className='product_item_image' style={{
-                        backgroundImage: `url("${product.image}")`,
-                        marginLeft: os === 'pc' ? 0 : '-1rem'
+                        backgroundImage: `url("${product.image}")`
                     }}/>
                     <div className='product_item_title'>
                         {product.title}
                     </div>
                     {product.outofstock ?
                         <div className='product_item_price'>{description.noPrice}</div> :
-                        <div className='product_item_price'>{product.price.toFixed(2)} {description.price}</div>}
+                        language === 'en' || language === 'EN' ?
+                            <div className='product_item_price'>{description.price} {product.price.toFixed(2)} </div> :
+                            <div className='product_item_price'>{product.price.toFixed(2)} {description.price}</div>
+                    }
                     <div className='product_item_color'>
                         {params.category === 'carpets' ?
                             <span className='product_item_additional_text'>{description.pileHeight}</span> :

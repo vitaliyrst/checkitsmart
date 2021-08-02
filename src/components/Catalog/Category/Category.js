@@ -57,10 +57,22 @@ const Category = () => {
                     <img className='category_item_image' src={image} alt={title}/>
                 </div>
                 <div className='category_item_title'>{title}</div>
-                <div className='category_item_price'>{price.toFixed(2)} {description.price}</div>
+                {
+                    language === 'en' || language === 'EN' ?
+                        <div className='category_item_price'>{description.price} {price.toFixed(2)} </div>:
+                        <div className='category_item_price'>{price.toFixed(2)} {description.price}</div>
+                }
             </li>
         );
     }
+/*
+    navigator.permissions.query({name: 'xr'}).then(function (result) {
+        if (result.state === 'granted') {
+            console.log('free')
+        } else if (result.state === 'prompt') {
+            console.log('close')
+        }
+    });*/
 
     if (loading || !description || !category.products) {
         return <Fallback/>
