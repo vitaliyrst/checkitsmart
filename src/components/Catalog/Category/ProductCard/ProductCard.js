@@ -6,7 +6,14 @@ import {useHistory, useParams} from "react-router";
 
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProduct, setIsCart} from "../../../../redux/actions";
-import {getAppDescription, getCartState, getLanguage, getLoading, getOs, getProduct} from "../../../../redux/selectors";
+import {
+    getAppDescription,
+    getCartState,
+    getLanguage,
+    getLoading,
+    getOs,
+    getProduct,
+} from "../../../../redux/selectors";
 
 import {GAevent} from "../../../../ga/events";
 import {GApageView} from "../../../../ga";
@@ -191,9 +198,9 @@ const ProductCard = () => {
                     <div className='product_item_title'>
                         {product.title}
                     </div>
-                    <div className='product_item_price'>
-                        {product.price.toFixed(2)} {description.price}
-                    </div>
+                    {product.outofstock ?
+                        <div className='product_item_price'>{description.noPrice}</div> :
+                        <div className='product_item_price'>{product.price.toFixed(2)} {description.price}</div>}
                     <div className='product_item_color'>
                         {params.category === 'carpets' ?
                             <span className='product_item_additional_text'>{description.pileHeight}</span> :

@@ -5,7 +5,7 @@ import {
     HIDE_LOADER,
     IS_CART,
     PLANE_DETECTED,
-    RETICLE_HIT,
+    RETICLE_HIT, SCROLL_CATEGORY,
     SET_HEIGHT, SET_LANGUAGE,
     SET_MATRIX,
     SET_OS,
@@ -77,6 +77,13 @@ export const setIsCart = (bool) => {
 
 //CATALOG
 
+export const setScrollCategory = (scroll) => {
+    return {
+        type: SCROLL_CATEGORY,
+        payload: scroll
+    }
+}
+
 export const fetchCatalog = (language) => async (dispatch) => {
     try {
         dispatch(showLoader());
@@ -95,7 +102,7 @@ export const fetchCatalog = (language) => async (dispatch) => {
     }
 }
 
-export const fetchCategory = (category, language) => async (dispatch) => {
+export const fetchCategory = (category, language, scroll) => async (dispatch) => {
     try {
         dispatch(showLoader());
         const response = await database.collection(`/${language}`).doc('furniture');
@@ -108,6 +115,7 @@ export const fetchCategory = (category, language) => async (dispatch) => {
 
         dispatch({type: FETCH_CATEGORY, payload: result[0]});
         dispatch(hideLoader());
+        window.scrollTo(0, scroll);
     } catch (e) {
         console.log('Fetch category error', e.message);
         dispatch(hideLoader());

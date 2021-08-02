@@ -1,6 +1,7 @@
-import {FETCH_CATALOG, FETCH_CATEGORY, FETCH_PRODUCT} from "../types";
+import {FETCH_CATALOG, FETCH_CATEGORY, FETCH_PRODUCT, SCROLL_CATEGORY} from "../types";
 
 const initialState = {
+    scroll: 0,
     catalog: [],
     category: [],
     product: {}
@@ -8,6 +9,8 @@ const initialState = {
 
 export const catalogReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SCROLL_CATEGORY:
+            return {...state, scroll: action.payload}
         case FETCH_CATALOG :
             return {...state, catalog: action.payload}
         case FETCH_CATEGORY:

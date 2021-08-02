@@ -27,6 +27,10 @@ export const getAppDescription = (path) => (state) => {
 
 // CATALOG
 
+export const getScrollCategory = (state) => {
+    return state.catalog.scroll;
+}
+
 export const getCatalog = (state) => {
     return state.catalog.catalog;
 }

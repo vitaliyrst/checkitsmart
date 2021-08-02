@@ -2,8 +2,15 @@ import React, {useEffect} from 'react';
 import './Category.css';
 
 import {useDispatch, useSelector} from "react-redux";
-import {fetchCategory} from "../../../redux/actions";
-import {getAppDescription, getCartState, getCategory, getLanguage, getLoading} from "../../../redux/selectors";
+import {fetchCategory, setScrollCategory} from "../../../redux/actions";
+import {
+    getAppDescription,
+    getCartState,
+    getCategory,
+    getLanguage,
+    getLoading,
+    getScrollCategory
+} from "../../../redux/selectors";
 
 import {Link, useHistory, useParams} from 'react-router-dom';
 
@@ -21,20 +28,22 @@ const Category = () => {
     const isCart = useSelector(getCartState);
     const description = useSelector(getAppDescription('category'));
     const category = useSelector(getCategory);
+    const scroll = useSelector(getScrollCategory);
 
     const params = useParams();
     const history = useHistory();
 
     useEffect(() => {
         GApageView(window.location.pathname);
-        dispatch(fetchCategory(params.category, language));
-    }, [dispatch, params.category, language]);
+        dispatch(fetchCategory(params.category, language, scroll));
+    }, [dispatch, params.category, language, scroll]);
 
     const handleGAEventClickProduct = (title) => GAevent('CATEGORY', 'click product', title);
 
     const handleClickProduct = (eo, product) => {
         handleGAEventClickProduct(product.title);
         history.push(`/catalog/${params.category}/${product.id}`);
+        dispatch(setScrollCategory(window.scrollY));
     }
 
     const getProduct = (product) => {
