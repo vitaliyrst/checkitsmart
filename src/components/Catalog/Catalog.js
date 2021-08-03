@@ -24,6 +24,10 @@ const Catalog = () => {
     const width = useRef(window.innerWidth >= 416 ? ((416 - 48) / 2) : (window.innerWidth - 48) / 2);
 
     useEffect(() => {
+        if(navigator.userAgent.includes("Instagram")){
+           document.body.style.backgroundColor = '#FFFFFF';
+        }
+
         GApageView(window.location.pathname);
     }, []);
 
