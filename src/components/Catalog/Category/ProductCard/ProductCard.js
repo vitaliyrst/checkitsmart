@@ -86,10 +86,14 @@ const ProductCard = () => {
     }
 
     const handleClickAppleAR = (eo, product) => {
-        if(navigator.userAgent.includes("Instagram")){
-            document.body.style.backgroundColor = '#ff0000';
-            document.querySelector('#root').style.backgroundColor = '#ff0000';
-        }
+
+        /**
+         * INSTAGRAM DETECTOR
+         */
+        /*  if(navigator.userAgent.includes("Instagram")){
+              document.body.style.backgroundColor = '#ff0000';
+              document.querySelector('#root').style.backgroundColor = '#ff0000';
+          }*/
 
         if (os === 'pc') {
             history.push('/qr');

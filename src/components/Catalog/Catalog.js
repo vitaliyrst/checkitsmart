@@ -115,7 +115,6 @@ const Catalog = () => {
                     </video>
                 </div>
             </div>
-            <a href={'https://onliner.by'}>Onliner</a>
         </div>
     );
 };
