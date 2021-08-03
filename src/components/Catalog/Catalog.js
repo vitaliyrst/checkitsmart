@@ -67,7 +67,7 @@ const Catalog = () => {
     }
 
     return (
-        <div className='catalog_container'>
+        <div className='catalog_container' style={{overflowY: openVideo ? 'hidden' : 'auto'}}>
 
             <div className='catalog_header_container'>
                 <div className='catalog_header'>{description.header}</div>
