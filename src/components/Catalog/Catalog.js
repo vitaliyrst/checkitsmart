@@ -25,7 +25,8 @@ const Catalog = () => {
 
     useEffect(() => {
         if(navigator.userAgent.includes("Instagram")){
-           document.body.style.backgroundColor = '#FFFFFF';
+           document.body.style.backgroundColor = '#ff0000';
+           document.querySelector('#root').style.backgroundColor = '#ff0000';
         }
 
         GApageView(window.location.pathname);
