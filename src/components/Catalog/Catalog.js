@@ -30,10 +30,13 @@ const Catalog = () => {
 
     const handleClickVideo = () => {
         setOpenVideo(true);
-        console.log(videoRef)
         videoRef.current.play();
     }
-    const handleClickCloseVideo = () => setOpenVideo(false);
+    const handleClickCloseVideo = () => {
+        setOpenVideo(false);
+        videoRef.current.pause();
+        videoRef.current.currentTime = 0;
+    }
 
     const getCatalogList = () => {
         return data.map(category => {
@@ -86,7 +89,7 @@ const Catalog = () => {
             </ul>
             {!loading && <Footer/>}
 
-            <div  className='video_container' style={{display: openVideo ? 'block' : 'none'}}>
+            <div className='video_container' style={{display: openVideo ? 'block' : 'none'}}>
                 <div className='video_wrapper'>
                     <div className='video_close'>
                         <img src={'./assets/images/catalog/video_close.svg'} alt='video_close'
