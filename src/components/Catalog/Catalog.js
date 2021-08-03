@@ -21,6 +21,7 @@ const Catalog = () => {
 
     const [openVideo, setOpenVideo] = useState(false);
     const videoRef = useRef();
+    const width = useRef(window.innerWidth >= 416 ? ((416 - 48) / 2) : (window.innerWidth - 48) / 2);
 
     useEffect(() => {
         GApageView(window.location.pathname);
@@ -44,7 +45,11 @@ const Catalog = () => {
 
             return (
                 <li key={id} className='catalog_item'
-                    style={{backgroundImage: (`url("${image}")`)}}>
+                    style={{
+                        backgroundImage: (`url("${image}")`),
+                        flexBasis: width.current,
+                        height: 1.22 * width.current
+                    }}>
                     <Link
                         className='item_link_category'
                         to={`/catalog/${slug}`}
@@ -77,7 +82,11 @@ const Catalog = () => {
                 {getCatalogList()}
 
                 <li className='catalog_item'
-                    style={{backgroundImage: (`url("/assets/images/catalog/how_it_works.png")`)}}>
+                    style={{
+                        backgroundImage: (`url("/assets/images/catalog/how_it_works.png")`),
+                        flexBasis: width.current,
+                        height: 1.22 * width.current
+                    }}>
 
                     <div className='item_link_category' onClick={handleClickVideo}>
                         <span className='item_link_category_title'>
@@ -89,7 +98,8 @@ const Catalog = () => {
             </ul>
             {!loading && <Footer/>}
 
-            <div className='video_container' style={{display: openVideo ? 'block' : 'none'}}>
+            <div className='video_container' style={{display: openVideo ? 'block' : 'none'}}
+                 onClick={handleClickCloseVideo}>
                 <div className='video_wrapper'>
                     <div className='video_close'>
                         <img src={'./assets/images/catalog/video_close.svg'} alt='video_close'
