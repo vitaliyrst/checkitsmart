@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './Catalog.css';
 
 import {useSelector} from "react-redux";
@@ -19,11 +19,21 @@ const Catalog = () => {
     const description = useSelector(getAppDescription('catalog'));
     const data = useSelector(getCatalog);
 
+    const [openVideo, setOpenVideo] = useState(false);
+    const videoRef = useRef();
+
     useEffect(() => {
         GApageView(window.location.pathname);
     }, []);
 
     const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
+
+    const handleClickVideo = () => {
+        setOpenVideo(true);
+        console.log(videoRef)
+        videoRef.current.play();
+    }
+    const handleClickCloseVideo = () => setOpenVideo(false);
 
     const getCatalogList = () => {
         return data.map(category => {
@@ -66,15 +76,31 @@ const Catalog = () => {
                 <li className='catalog_item'
                     style={{backgroundImage: (`url("/assets/images/catalog/how_it_works.png")`)}}>
 
-                    <Link className='item_link_category' to='/catalog/video'>
+                    <div className='item_link_category' onClick={handleClickVideo}>
                         <span className='item_link_category_title'>
                             {description.video}
                         </span>
-                    </Link>
+                    </div>
 
                 </li>
             </ul>
             {!loading && <Footer/>}
+
+            <div  className='video_container' style={{display: openVideo ? 'block' : 'none'}}>
+                <div className='video_wrapper'>
+                    <div className='video_close'>
+                        <img src={'./assets/images/catalog/video_close.svg'} alt='video_close'
+                             onClick={handleClickCloseVideo}/>
+                    </div>
+                    <video ref={videoRef} preload='auto' controls='controls'>
+                        <source
+                            src='https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/video%2Fexample.mp4?alt=media&token=821f9eb3-f856-47b2-af3e-17226cd0b13d'
+                            type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+                        />
+                    </video>
+                </div>
+            </div>
+
         </div>
     );
 };
