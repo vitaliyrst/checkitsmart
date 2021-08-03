@@ -30,10 +30,12 @@ const Catalog = () => {
     const handleGAEventSelectCategory = (title) => GAevent('CATALOG', `select category`, title);
 
     const handleClickVideo = () => {
+        document.body.style.overflowY = 'hidden';
         setOpenVideo(true);
         videoRef.current.play();
     }
     const handleClickCloseVideo = () => {
+        document.body.style.overflowY = 'auto';
         setOpenVideo(false);
         videoRef.current.pause();
         videoRef.current.currentTime = 0;
@@ -67,7 +69,7 @@ const Catalog = () => {
     }
 
     return (
-        <div className='catalog_container' style={{overflowY: openVideo ? 'hidden' : 'auto'}}>
+        <div className='catalog_container'>
 
             <div className='catalog_header_container'>
                 <div className='catalog_header'>{description.header}</div>
