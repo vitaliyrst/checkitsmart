@@ -88,8 +88,7 @@ const Cart = () => {
         }
     }
 
-    const handleClickProduct = (category, id, item) => {
-        console.log(category)
+    const handleClickProduct = (category, id) => {
         history.push(`/catalog/${category.toLowerCase()}/${id}`);
     }
 
@@ -100,6 +99,11 @@ const Cart = () => {
                     <div className='cart_no_items'>
                         {description.nocart}
                     </div>
+                    <Link className='cart_link_button_container' to={'/catalog'}>
+                        <button className='cart_link_button_no_products' type='button'>
+                            {description.gotocatalog}
+                        </button>
+                    </Link>
                 </div>
             );
         } else {
