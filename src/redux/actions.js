@@ -133,6 +133,7 @@ export const fetchProduct = (category, id, language) => async (dispatch) => {
             let tempCategory = data.data().data.filter(item => item.slug === category);
             result = tempCategory[0].products.filter(item => item.id === Number(id));
             result[0].category = tempCategory[0].title;
+            result[0].slug = tempCategory[0].slug;
         }
 
         dispatch({type: FETCH_PRODUCT, payload: result[0]});

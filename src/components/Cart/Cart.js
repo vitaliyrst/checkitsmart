@@ -88,7 +88,8 @@ const Cart = () => {
         }
     }
 
-    const handleClickProduct = (category, id) => {
+    const handleClickProduct = (category, id, item) => {
+        console.log(category)
         history.push(`/catalog/${category.toLowerCase()}/${id}`);
     }
 
@@ -114,14 +115,14 @@ const Cart = () => {
                                     <div className='cart_list_item_wrapper'>
 
                                         <div className='cart_list_item_image_container'
-                                             onClick={() => handleClickProduct(item.category, item.id)}>
+                                             onClick={() => handleClickProduct(item.slug, item.id)}>
                                             <img className='cart_list_item_image' src={item.image} alt={item.title}/>
                                         </div>
 
                                         <div className='cart_list_item_description_wrapper'>
                                             <div className='cart_list_item_title_container'>
                                                 <div className='cart_item_title'
-                                                     onClick={() => handleClickProduct(item.category, item.id)}>
+                                                     onClick={() => handleClickProduct(item.slug, item.id)}>
                                                     {item.title}
                                                 </div>
                                                 <img className='cart_list_item_button_delete'
