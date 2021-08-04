@@ -7,6 +7,12 @@ import {getPlaneDetected} from "../../../redux/selectors";
 import {useHitTest} from "@react-three/xr";
 import {Circle, Ring} from "@react-three/drei";
 
+/**
+ * HitTest - нужен для обнаружения position scale rotation того, где пользователь нажал на камеру и установки реального объекта
+ * @returns {JSX.Element}
+ * @constructor
+ */
+
 const ARHitTest = () => {
     const mesh = useRef();
     const material = useRef();
@@ -14,8 +20,12 @@ const ARHitTest = () => {
     const dispatch = useDispatch();
     const planeDetected = useSelector(getPlaneDetected);
 
+    /**
+     * @property hit.decompose - сеттит position scale rotation на временный круг,
+     * куда далее устанавливается реальный объект в компоненте WebXR
+     */
     useHitTest(hit => {
-        if (hit && !planeDetected) {
+        if (hit && !planeDetected) { // Нужно, чтобы после нажатия hit-test переставал работать (производительность)
             material.current.opacity = 0.9;
             dispatch(setPlaneDetected(true));
         }

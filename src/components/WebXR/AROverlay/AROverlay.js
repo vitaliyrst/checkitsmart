@@ -9,6 +9,13 @@ import {setIsCart, setPlaneDetected, setReticleHit} from "../../../redux/actions
 
 import {GAevent} from "../../../ga/events";
 
+/**
+ * Overlay - интерфейс поверх камеры, для бизнес логики с корзиной, заказом и т.д.
+ * @param product
+ * @returns {JSX.Element}
+ * @constructor
+ */
+
 const AROverlay = ({product}) => {
     const {category} = useParams();
     const history = useHistory();

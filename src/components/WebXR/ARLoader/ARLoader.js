@@ -3,6 +3,12 @@ import './ARLoader.css';
 import {Html} from '@react-three/drei'
 import {useThree} from "@react-three/fiber";
 
+/**
+ * Loader отображается пока модель еще не загружена, рендерим в fallback suspense в компоненте WebXR
+ * @returns {JSX.Element}
+ * @constructor
+ */
+
 const ARLoader = () => {
     const {camera} = useThree();
     const meshRef = useRef();

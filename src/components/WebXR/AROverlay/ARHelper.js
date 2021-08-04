@@ -1,6 +1,15 @@
 import React, {useEffect, useState} from "react";
 import './ARHelper.css';
 
+/**
+ * ARHelper - обертка для анимационных подсказок на экране
+ * @param data
+ * @param classes
+ * @param img
+ * @returns {JSX.Element}
+ * @constructor
+ */
+
 const ARHelper = ({data, classes, img}) => {
     const [active, setActive] = useState(false);
 

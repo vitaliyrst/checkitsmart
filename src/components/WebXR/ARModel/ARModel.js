@@ -7,8 +7,15 @@ import {useLoader, useThree} from "@react-three/fiber";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {DragControls} from "../ARControls/ARDragControls";
 
+/**
+ *
+ * @param arGLTF - url на модель из firebase
+ * @returns {JSX.Element}
+ * @constructor
+ */
+
 const ARModel = ({product: {arGLTF}}) => {
-    const {camera, gl: {domElement}, } = useThree();
+    const {camera, gl: {domElement},} = useThree();
     const gltf = useLoader(GLTFLoader, arGLTF);
 
     const matrix = useSelector(getMatrix);
@@ -21,6 +28,11 @@ const ARModel = ({product: {arGLTF}}) => {
     const dragControls = useRef({});
     const axisYPosition = useRef(0);
     const startRotate = useRef({});
+
+    /**
+     * Управление моделью
+     * @param eo
+     */
 
     const handlePointerDown = (eo) => {
         const target = eo.target;
@@ -37,6 +49,11 @@ const ARModel = ({product: {arGLTF}}) => {
         }
     }
 
+    /**
+     * Управление моделью
+     * @param eo
+     */
+
     const handleTouchStart = (eo) => {
         if (eo.targetTouches.length === 2) {
             startRotate.current.touchDown = true;
@@ -52,12 +69,16 @@ const ARModel = ({product: {arGLTF}}) => {
 
     useEffect(() => {
         if (matrix) {
-            gltf.scene.position.setFromMatrixPosition(matrix);
+            gltf.scene.position.setFromMatrixPosition(matrix); // сеттинг значений полученных из hit-test
             axisYPosition.current = gltf.scene.position.y;
         }
 
         dragControls.current = new DragControls([gltf.scene], camera, domElement);
         dragControls.current.transformGroup = true;
+
+        /**
+         * Управление моделью
+         */
 
         const handleDragMove = () => {
             if (!startRotate.current.touchDown) {
@@ -67,6 +88,11 @@ const ARModel = ({product: {arGLTF}}) => {
                 overlay.current.info.style.display = 'none';
             }
         }
+
+        /**
+         * Управление моделью
+         * @param eo
+         */
 
         const handleTouchMove = (eo) => {
             if (startRotate.current.touchDown) {

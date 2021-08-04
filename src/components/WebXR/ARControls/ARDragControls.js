@@ -8,6 +8,10 @@ const _intersection = new Vector3();
 const _worldPosition = new Vector3();
 const _inverseMatrix = new Matrix4();
 
+/**
+ * Доработка DragControls относительно исходного класса из Three.js
+ */
+
 class DragControls extends EventDispatcher {
 
     constructor(_objects, _camera, _domElement) {

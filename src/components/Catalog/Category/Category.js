@@ -65,14 +65,6 @@ const Category = () => {
             </li>
         );
     }
-/*
-    navigator.permissions.query({name: 'xr'}).then(function (result) {
-        if (result.state === 'granted') {
-            console.log('free')
-        } else if (result.state === 'prompt') {
-            console.log('close')
-        }
-    });*/
 
     if (loading || !description || !category.products) {
         return <Fallback/>

@@ -29,6 +29,10 @@ function App() {
             android.test(window.navigator.userAgent) ? 'android' :
                 !pc.test(window.navigator.userAgent) ? 'pc' : null;
 
+        /**
+         * Заполнение начальными данными
+         */
+
         dispatch(setOs(os));
         dispatch(setHeight(window.innerHeight));
         dispatch(fetchAppDescription(language));

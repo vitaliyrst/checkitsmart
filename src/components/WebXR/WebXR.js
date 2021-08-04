@@ -33,7 +33,20 @@ const WebXR = React.memo(({product, onSetProduct}) => {
 
     const handleGAEventSessionDuration = (time) => GAevent('AR SESSION', 'session duration', `${time} seconds`);
 
+    /**
+     * cb - передается в ARButton, для того, чтобы знать когда кнопка реально будет в DOM
+     * @param state
+     */
     const handleSetButtonReady = (state) => setButtonReady(state);
+
+    /**
+     * arConfig - конфиг для инициализации AR
+     * -hit-test - для размещения объекта на найденной плоскости
+     * (результат работы хит теста - position, rotation, scale) - после сеттится на объект
+     * -dom-overlay - чтобы можно было использовать HTML поверх камеры телефона
+     * -!!!! depth-sensing - для карты глубины, в данный момент отключен
+     * @param gl
+     */
     const handleStartSession = (gl) => {
         const arConfig = {
             requiredFeatures: ['hit-test'],
