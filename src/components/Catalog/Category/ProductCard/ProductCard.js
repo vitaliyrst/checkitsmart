@@ -151,6 +151,7 @@ const ProductCard = () => {
         if (cart.length) {
             temp.push(...cart);
             product.quantity = 1;
+            product.lang = language;
 
             if (!temp.some(item => item.title === product.title)) {
                 temp.push(product);
@@ -159,6 +160,8 @@ const ProductCard = () => {
             localStorage.setItem('cart', JSON.stringify(temp));
         } else {
             product.quantity = 1;
+            product.lang = language;
+
             localStorage.setItem('cart', JSON.stringify([product]));
         }
 

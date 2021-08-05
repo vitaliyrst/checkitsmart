@@ -4,8 +4,8 @@ import './Cart.css';
 import {Link, useHistory} from "react-router-dom";
 
 import {useDispatch, useSelector} from "react-redux";
-import {setIsCart} from "../../redux/actions";
-import {getAppDescription, getLanguage, getLoading} from "../../redux/selectors";
+import {fetchCartProducts, setIsCart} from "../../redux/actions";
+import {getAppDescription, getCartProducts, getLanguage, getLoading} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
 import {GApageView} from "../../ga";
@@ -14,8 +14,7 @@ import Fallback from "../Loader/Loader";
 import Footer from "../Footer/Footer";
 
 const Cart = () => {
-    const products = useRef(JSON.parse(localStorage.getItem('cart')));
-
+    const [products, setProducts] = useState(JSON.parse(localStorage.getItem('cart')))
     const [changes, setChanges] = useState(0);
     const history = useHistory();
 
@@ -23,26 +22,46 @@ const Cart = () => {
     const loading = useSelector(getLoading);
     const description = useSelector(getAppDescription('cart'));
     const language = useSelector(getLanguage);
+    const cartProducts = useSelector(getCartProducts);
 
     const handleGAEventDeleteFromCart = (title) => GAevent('CART', 'delete from cart', title);
     const handleGAEventGoToOrderForm = () => {
-        const price = products.current
+        const price = products
             .reduce((acc, {price, quantity}) => (acc + (Number(price) * quantity)), 0).toFixed(2);
         GAevent('CART', 'go to order form', price);
     }
 
     useEffect(() => {
+        const tempProducts = [];
+// Добавить индикатор в Actions что продукты засеттились
+        products.forEach(product => {
+            if (product.lang !== language) {
+                tempProducts.push({
+                    id: product.id,
+                    category: product.slug,
+                    language: language,
+                    quantity: product.quantity
+                });
+                dispatch(fetchCartProducts(tempProducts));
+            }
+        });
+
+        if (cartProducts.length > 0) {
+            localStorage.setItem('cart', JSON.stringify(cartProducts));
+            setProducts((JSON.parse(localStorage.getItem('cart'))));
+        }
+
         window.scrollTo(0, 0);
         if (!localStorage.getItem('cart')) {
             localStorage.setItem('cart', JSON.stringify([]));
         }
 
         GApageView(window.location.pathname);
-    }, []);
+    }, [dispatch, language]);
 
     const handleClickMinus = (title) => {
-        const newProducts = products.current;
-        products.current.forEach((item, index) => {
+        const newProducts = products;
+        products.forEach((item, index) => {
             if (item.title === title) {
                 if (item.quantity > 1) {
                     item.quantity = item.quantity - 1;
@@ -56,8 +75,8 @@ const Cart = () => {
     }
 
     const handleClickPlus = (title) => {
-        const newProducts = products.current;
-        products.current.forEach((item, index) => {
+        const newProducts = products;
+        products.forEach((item, index) => {
             if (item.title === title) {
                 if (item.quantity < 999) {
                     item.quantity = item.quantity + 1;
@@ -71,9 +90,9 @@ const Cart = () => {
     }
 
     const handleClickDelete = (title) => {
-        const newProducts = products.current;
+        const newProducts = products;
 
-        products.current.forEach((item, index) => {
+        products.forEach((item, index) => {
             if (item.title === title) {
                 handleGAEventDeleteFromCart(item.title);
                 newProducts.splice(index, 1);
@@ -93,7 +112,7 @@ const Cart = () => {
     }
 
     const getProductsList = () => {
-        if (!products.current.length) {
+        if (!products.length) {
             return (
                 <div className='cart_no_items_container'>
                     <div className='cart_no_items'>
@@ -107,13 +126,13 @@ const Cart = () => {
                 </div>
             );
         } else {
-            const price = products.current
+            const price = products
                 .reduce((acc, {price, quantity}) => (acc + (Number(price) * quantity)), 0).toFixed(2);
 
             return (
                 <div className='cart_items_list_container'>
                     <ul className='cart_items_list'>
-                        {products.current.map((item, index) => {
+                        {products.map((item, index) => {
                             return (
                                 <li key={index} className='cart_list_item'>
                                     <div className='cart_list_item_wrapper'>
@@ -175,7 +194,7 @@ const Cart = () => {
                             )
                         })}
                     </ul>
-                    <div className={products.current.length >= 3 ? 'cart_footer_fixed' : 'cart_footer'}>
+                    <div className={products.length >= 3 ? 'cart_footer_fixed' : 'cart_footer'}>
                         <Footer/>
                     </div>
                     <div className='cart_list_items_summary_container'>
@@ -196,7 +215,7 @@ const Cart = () => {
     }
 
     const getButtonLink = () => {
-        if (!products.current.length) {
+        if (!products.length) {
             return (
                 <Link className='cart_link_button_container' to={'/catalog'}>
                     <button className='cart_link_button' type='button'>

@@ -1,6 +1,6 @@
 import database from "../firebase/firebase";
 import {
-    FETCH_APP_DESCRIPTION,
+    FETCH_APP_DESCRIPTION, FETCH_CART_PRODUCTS,
     FETCH_CATALOG, FETCH_CATEGORY, FETCH_PRODUCT,
     HIDE_LOADER,
     IS_CART,
@@ -140,6 +140,36 @@ export const fetchProduct = (category, id, language) => async (dispatch) => {
         dispatch(hideLoader());
     } catch (e) {
         console.log('Fetch product error', e.message);
+        dispatch(hideLoader());
+    }
+}
+
+export const fetchCartProducts = (product) => async (dispatch) => {
+    try {
+        dispatch(showLoader());
+
+        let result;
+        const newArray = [];
+
+        for (let i = 0; i < product.length; i++) {
+            const response = await database.collection(`/${product[i].language}`).doc('furniture');
+            const data = await response.get();
+
+            if (data.exists) {
+                let tempCategory = data.data().data.filter(item => item.slug === product[i].category);
+                result = tempCategory[0].products.filter(item => item.id === product[i].id);
+                result[0].category = tempCategory[0].title;
+                result[0].slug = tempCategory[0].slug;
+                result[0].lang = product[i].lang;
+                result[0].quantity = product[i].quantity;
+                newArray.push(result[0]);
+            }
+        }
+
+        dispatch({type: FETCH_CART_PRODUCTS, payload: newArray});
+        dispatch(hideLoader());
+    } catch (e) {
+        console.log('Fetch cart products error', e.message);
         dispatch(hideLoader());
     }
 }
