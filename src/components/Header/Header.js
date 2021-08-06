@@ -52,11 +52,11 @@ const Header = () => {
 
     const getMenu = () => {
         return (catalog.map((item, index) => (
-            <Link className={'menu_category_list_item_link'}
+            <Link key={index} className={'menu_category_list_item_link'}
                   to={`/catalog/${item.slug}`}
                   onClick={() => handleClickOpenMenu(false)}
             >
-                <div key={index} className='menu_category_list_item'>
+                <div className='menu_category_list_item'>
                     {item.title}
                 </div>
             </Link>
