@@ -25,9 +25,9 @@ const Header = () => {
         setOpenMenu(state);
 
         if (state) {
-            document.body.style.overflowY = 'hidden';
+            document.querySelector('.app_main').style.display = 'none';
         } else {
-            document.body.style.overflowY = 'auto';
+            document.querySelector('.app_main').style.display = 'block';
         }
     }
 
