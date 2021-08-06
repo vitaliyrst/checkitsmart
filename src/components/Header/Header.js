@@ -21,7 +21,15 @@ const Header = () => {
 
     useEffect(() => {}, [language]);
 
-    const handleClickOpenMenu = () => setOpenMenu(!openMenu);
+    const handleClickOpenMenu = () => {
+        if (openMenu) {
+            document.body.style.overflowY = 'hidden';
+        } else {
+            document.body.style.overflowY = 'auto';
+        }
+
+        setOpenMenu(!openMenu);
+    }
 
     const handleSwitchLanguage = (language) => {
         localStorage.setItem('languageApp', JSON.stringify(language));
