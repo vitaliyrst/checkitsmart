@@ -70,9 +70,9 @@ const Header = () => {
         <header className='app_header'>
             {!openMenu ?
                 <div className='menu_container'>
-                    <img src={'./assets/images/header/header_menu.svg'} alt='menu'
-                         onClick={handleClickOpenMenu}
-                    />
+                    <div>
+                        <img src={'/assets/images/header/menu.svg'} alt='menu' onClick={handleClickOpenMenu}/>
+                    </div>
 
                     <Link to={'/cart'}>
                         <img src={isCart ? '/assets/images/header/is_cart.svg' : '/assets/images/header/cart.svg'}
@@ -81,7 +81,7 @@ const Header = () => {
                 </div> :
 
                 <div className='menu_open_container'>
-                    <img src={'./assets/images/header/header_close.svg'} alt='close menu'
+                    <img src={'/assets/images/header/header_close.svg'} alt='close menu'
                          onClick={handleClickOpenMenu}
                     />
 

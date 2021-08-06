@@ -327,13 +327,8 @@ const Form = () => {
     return (
         <div className='cart_form_container'>
             {!orderDone &&
-            <div className='cart_form_header_container'>
-                <div className='cart_form_header_wrapper'>
-                    <img src={'/assets/images/other/arrow_left.svg'} alt='arrow_left' onClick={() => history.goBack()}/>
-                    <div className='cart_form_header'>
-                        {productLeaveOrder.length ? description.leaveRequest : description.checkout}
-                    </div>
-                </div>
+            <div className='cart_form_header'>
+                {productLeaveOrder.length ? description.leaveRequest : description.checkout}
             </div>}
 
             {orderDone ?
