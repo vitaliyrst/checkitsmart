@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './Form.css';
 
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 import InputMask from 'react-input-mask';
 
 import {useDispatch, useSelector} from "react-redux";
@@ -20,8 +20,6 @@ const Form = () => {
     const products = JSON.parse(localStorage.getItem('cart'));
     const productOneClickBuy = JSON.parse(localStorage.getItem('oneclickbuy'));
     const productLeaveOrder = JSON.parse(localStorage.getItem('leaveorder'));
-
-    const history = useHistory();
 
     const dispatch = useDispatch();
     const loading = useSelector(getLoading);

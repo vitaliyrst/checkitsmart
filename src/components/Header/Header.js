@@ -114,7 +114,7 @@ const Header = () => {
                  onClick={handleClickCloseVideo}>
                 <div className='video_wrapper'>
                     <div className='video_close'>
-                        <img src={'./assets/images/catalog/video_close.svg'} alt='video_close'
+                        <img src={'/assets/images/catalog/video_close.svg'} alt='video_close'
                              onClick={handleClickCloseVideo}/>
                     </div>
                     <video ref={videoRef} preload='auto' controls='controls'>
