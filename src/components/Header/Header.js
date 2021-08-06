@@ -21,14 +21,14 @@ const Header = () => {
 
     useEffect(() => {}, [language]);
 
-    const handleClickOpenMenu = () => {
-        if (openMenu) {
+    const handleClickOpenMenu = (state) => {
+        setOpenMenu(state);
+
+        if (state) {
             document.body.style.overflowY = 'hidden';
         } else {
             document.body.style.overflowY = 'auto';
         }
-
-        setOpenMenu(!openMenu);
     }
 
     const handleSwitchLanguage = (language) => {
@@ -54,7 +54,7 @@ const Header = () => {
         return (catalog.map((item, index) => (
             <Link className={'menu_category_list_item_link'}
                   to={`/catalog/${item.slug}`}
-                  onClick={handleClickOpenMenu}
+                  onClick={() => handleClickOpenMenu(false)}
             >
                 <div key={index} className='menu_category_list_item'>
                     {item.title}
@@ -91,7 +91,7 @@ const Header = () => {
             {!openMenu ?
                 <div className='menu_container'>
                     <div>
-                        <img src={'/assets/images/header/menu.svg'} alt='menu' onClick={handleClickOpenMenu}/>
+                        <img src={'/assets/images/header/menu.svg'} alt='menu' onClick={() => handleClickOpenMenu(true)}/>
                     </div>
 
                     <Link to={'/cart'}>
@@ -102,7 +102,7 @@ const Header = () => {
 
                 <div className='menu_open_container'>
                     <img src={'/assets/images/header/header_close.svg'} alt='close menu'
-                         onClick={handleClickOpenMenu}
+                         onClick={() => handleClickOpenMenu(false)}
                     />
 
                     <div className='menu_category_list'>
