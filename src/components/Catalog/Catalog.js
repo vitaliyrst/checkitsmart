@@ -16,7 +16,6 @@ const Catalog = () => {
 
     const description = useSelector(getAppDescription('catalog'));
     const data = useSelector(getCatalog);
-    console.log(description, data)
 
     const [openVideo, setOpenVideo] = useState(false);
     const videoRef = useRef();

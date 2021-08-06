@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './Header.css';
 
 import {Link} from "react-router-dom";
@@ -8,9 +8,9 @@ import {getAppDescription, getCartState, getCatalog, getLanguage} from "../../re
 import {setLanguage} from "../../redux/actions";
 
 const Header = () => {
+    const videoRef = useRef();
     const [openMenu, setOpenMenu] = useState(false);
-
-
+    const [openVideo, setOpenVideo] = useState(false);
 
     const dispatch = useDispatch();
     const isCart = useSelector(getCartState);
@@ -26,6 +26,20 @@ const Header = () => {
     const handleSwitchLanguage = (language) => {
         localStorage.setItem('languageApp', JSON.stringify(language));
         dispatch(setLanguage(language));
+    }
+
+    const handleClickVideo = () => {
+        setOpenMenu(false);
+        document.body.style.overflowY = 'hidden';
+        setOpenVideo(true);
+        videoRef.current.play();
+    }
+
+    const handleClickCloseVideo = () => {
+        document.body.style.overflowY = 'auto';
+        setOpenVideo(false);
+        videoRef.current.pause();
+        videoRef.current.currentTime = 0;
     }
 
     const getMenu = () => {
@@ -60,8 +74,6 @@ const Header = () => {
         );
     }
 
-
-
     if (!descriptionLang) {
         return null;
     }
@@ -90,7 +102,7 @@ const Header = () => {
                     </div>
 
                     <div className='menu_line'/>
-                    <div>
+                    <div className='menu_how_its_work' onClick={handleClickVideo}>
                         {description.video}
                     </div>
                     <div className='menu_line'/>
@@ -98,6 +110,21 @@ const Header = () => {
                     {getLanguages()}
                 </div>
             }
+            <div className='video_container' style={{display: openVideo ? 'block' : 'none'}}
+                 onClick={handleClickCloseVideo}>
+                <div className='video_wrapper'>
+                    <div className='video_close'>
+                        <img src={'./assets/images/catalog/video_close.svg'} alt='video_close'
+                             onClick={handleClickCloseVideo}/>
+                    </div>
+                    <video ref={videoRef} preload='auto' controls='controls'>
+                        <source
+                            src='https://firebasestorage.googleapis.com/v0/b/checkitsmartcom.appspot.com/o/video%2Fexample.mp4?alt=media&token=821f9eb3-f856-47b2-af3e-17226cd0b13d'
+                            type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+                        />
+                    </video>
+                </div>
+            </div>
         </header>
     );
 };
