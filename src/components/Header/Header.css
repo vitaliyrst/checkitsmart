@@ -43,7 +43,8 @@
 
 .menu_open_container {
     width: 100%;
-    height: calc(100vh + 300px);
+    height: 1500px;
+    overflow-y: hidden;
 
     padding-left: 1rem;
     margin-top: 1.5rem;
