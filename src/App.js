@@ -53,7 +53,7 @@ function App() {
         <Router>
             <Header/>
 
-            <main className='app_main'>
+            <main className='app_main' style={{display: 'none'}}>
 
             <Switch>
                 {routes.map(({path, Component, name, exact}) => (

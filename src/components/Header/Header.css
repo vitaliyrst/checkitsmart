@@ -43,12 +43,11 @@
 
 .menu_open_container {
     width: 100%;
-    height: max-content;
+    height: 100vh;
     overflow-y: hidden;
 
     padding-left: 1rem;
     margin-top: 1.5rem;
-    padding-bottom: 25rem;
 
     background-color: #2D2D2D;
 
