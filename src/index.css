@@ -33,15 +33,3 @@
     font-weight: 700;
     src: local('Inter'), url(./fonts/Inter-Bold.ttf) format('truetype');
 }
-
-* {
-    box-sizing: border-box;
-}
-
-#root {
-    height: calc(100vh - 60px);
-    margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
-}

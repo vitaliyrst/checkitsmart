@@ -1,17 +1,16 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import './Cart.css';
 
 import {Link, useHistory} from "react-router-dom";
 
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCartProducts, setIsCart} from "../../redux/actions";
-import {getAppDescription, getCartProducts, getLanguage, getLoading} from "../../redux/selectors";
+import {getAppDescription, getCartProducts, getLanguage, getLoading, getProductLoading} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
 import {GApageView} from "../../ga";
 
 import Fallback from "../Loader/Loader";
-import Footer from "../Footer/Footer";
 
 const Cart = () => {
     const [products, setProducts] = useState(JSON.parse(localStorage.getItem('cart')))
@@ -23,6 +22,7 @@ const Cart = () => {
     const description = useSelector(getAppDescription('cart'));
     const language = useSelector(getLanguage);
     const cartProducts = useSelector(getCartProducts);
+    const productLoading = useSelector(getProductLoading);
 
     const handleGAEventDeleteFromCart = (title) => GAevent('CART', 'delete from cart', title);
     const handleGAEventGoToOrderForm = () => {
@@ -33,7 +33,7 @@ const Cart = () => {
 
     useEffect(() => {
         const tempProducts = [];
-// Добавить индикатор в Actions что продукты засеттились
+
         products.forEach(product => {
             if (product.lang !== language) {
                 tempProducts.push({
@@ -46,11 +46,6 @@ const Cart = () => {
             }
         });
 
-        if (cartProducts.length > 0) {
-            localStorage.setItem('cart', JSON.stringify(cartProducts));
-            setProducts((JSON.parse(localStorage.getItem('cart'))));
-        }
-
         window.scrollTo(0, 0);
         if (!localStorage.getItem('cart')) {
             localStorage.setItem('cart', JSON.stringify([]));
@@ -58,6 +53,13 @@ const Cart = () => {
 
         GApageView(window.location.pathname);
     }, [dispatch, language]);
+
+    useEffect(() => {
+        if (cartProducts.length === products.length) {
+            localStorage.setItem('cart', JSON.stringify(cartProducts));
+            setProducts((JSON.parse(localStorage.getItem('cart'))));
+        }
+    }, [productLoading, cartProducts]);
 
     const handleClickMinus = (title) => {
         const newProducts = products;
@@ -194,9 +196,6 @@ const Cart = () => {
                             )
                         })}
                     </ul>
-                    <div className={products.length >= 3 ? 'cart_footer_fixed' : 'cart_footer'}>
-                        <Footer/>
-                    </div>
                     <div className='cart_list_items_summary_container'>
                         <div className='cart_list_items_line'/>
                         <div className='cart_list_items_summary_wrapper'>
@@ -240,13 +239,8 @@ const Cart = () => {
 
     return (
         <div className='cart_container'>
-            <div className='cart_header_container'>
-                <div className='cart_header_wrapper'>
-                    <img src={'/assets/images/other/arrow_left.svg'} alt='arrow_left' onClick={() => history.goBack()}/>
-                    <div className='cart_header'>
-                        {description.cart}
-                    </div>
-                </div>
+            <div className='cart_header'>
+                {description.cart}
             </div>
             {getProductsList()}
         </div>

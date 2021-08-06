@@ -1,4 +1,11 @@
-html,
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
 body {
     /*height: calc(100vh - 60px);*/
     height: 100%;
@@ -23,8 +30,12 @@ body,
     color: #FFFFFF;
 }
 
-#ARButton {
-    display: none;
+#root {
+    /*height: calc(100vh - 60px);*/
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .app_main {
@@ -38,4 +49,8 @@ body,
 
     display: flex;
     justify-content: center;
+}
+
+#ARButton {
+    display: none;
 }

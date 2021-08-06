@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import './Catalog.css';
 
 import {useSelector} from "react-redux";
-import {getAppDescription, getCartState, getCatalog, getLoading} from "../../redux/selectors";
+import {getAppDescription, getCatalog, getLoading} from "../../redux/selectors";
 
 import {GAevent} from "../../ga/events";
 import {GApageView} from "../../ga";
@@ -10,14 +10,13 @@ import {GApageView} from "../../ga";
 import {Link} from "react-router-dom";
 
 import Fallback from "../Loader/Loader";
-import Footer from "../Footer/Footer";
 
 const Catalog = () => {
     const loading = useSelector(getLoading);
 
-    const isCart = useSelector(getCartState);
     const description = useSelector(getAppDescription('catalog'));
     const data = useSelector(getCatalog);
+    console.log(description, data)
 
     const [openVideo, setOpenVideo] = useState(false);
     const videoRef = useRef();
@@ -70,14 +69,8 @@ const Catalog = () => {
 
     return (
         <div className='catalog_container'>
-
-            <div className='catalog_header_container'>
-                <div className='catalog_header'>{description.header}</div>
-
-                <Link className='catalog_header_link' to={'/cart'}>
-                    <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
-                         alt='cart'/>
-                </Link>
+            <div className='catalog_header'>
+                {description.header}
             </div>
 
             <ul className='catalog_list'>
@@ -95,10 +88,8 @@ const Catalog = () => {
                             {description.video}
                         </span>
                     </div>
-
                 </li>
             </ul>
-            {!loading && <Footer/>}
 
             <div className='video_container' style={{display: openVideo ? 'block' : 'none'}}
                  onClick={handleClickCloseVideo}>

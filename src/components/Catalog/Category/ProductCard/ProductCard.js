@@ -1,19 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import './ProductCard.css';
 
-import {Link} from "react-router-dom";
 import {useHistory, useParams} from "react-router";
 
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProduct, setIsCart} from "../../../../redux/actions";
-import {
-    getAppDescription,
-    getCartState,
-    getLanguage,
-    getLoading,
-    getOs,
-    getProduct,
-} from "../../../../redux/selectors";
+import {getAppDescription, getLanguage, getLoading, getOs, getProduct,} from "../../../../redux/selectors";
 
 import {GAevent} from "../../../../ga/events";
 import {GApageView} from "../../../../ga";
@@ -29,7 +21,6 @@ const ProductCard = () => {
     const loading = useSelector(getLoading);
     const language = useSelector(getLanguage);
     const os = useSelector(getOs);
-    const isCart = useSelector(getCartState);
     const product = useSelector(getProduct);
     const description = useSelector(getAppDescription('product'));
 
@@ -186,20 +177,8 @@ const ProductCard = () => {
         <>
             {!selectProduct &&
             <div className='product_container'>
-                <div className='product_header_container'>
-
-                    <div className='product_header_wrapper'>
-                        <div className='product_header_arrow_left_link' onClick={() => history.goBack()}>
-                            <img src={'/assets/images/other/arrow_left.svg'}
-                                 alt='arrow_left'/>
-                        </div>
-                        <div className='product_header'>{product.category}</div>
-                    </div>
-
-                    <Link className='product_header_cart_link' to={'/cart'}>
-                        <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
-                             alt='cart'/>
-                    </Link>
+                <div className='product_header'>
+                    {product.category}
                 </div>
 
                 <div className='product_item'>

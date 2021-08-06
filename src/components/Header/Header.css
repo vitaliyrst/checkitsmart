@@ -1,0 +1,142 @@
+.app_header {
+    width: 100%;
+    max-width: 26rem;
+    height: 4rem;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: #2D2D2D;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.menu_container {
+    width: 100%;
+    max-width: 26rem;
+    height: 32px;
+
+    margin-top: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.menu_container img {
+    width: 32px;
+    height: 32px;
+}
+
+.menu_open_container {
+    width: 100%;
+    height: 100vh;
+
+    padding-left: 1rem;
+    padding-top: 1.5rem;
+
+    background-color: #2D2D2D;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.menu_category_list {
+    margin-top: 1.5rem;
+}
+
+.menu_category_list_item_link {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+
+    text-decoration: none;
+
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: #FFFFFF;
+}
+
+.menu_category_list_item_link:last-child {
+    margin-bottom: 0;
+}
+
+.menu_line {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    margin-right: 1rem;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.footer_header {
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+}
+
+.footer_list {
+    margin: 1.5rem 0 0;
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+}
+
+.footer_list_item {
+    height: 2rem;
+    margin-right: 1rem;
+
+    text-align: center;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    flex-basis: 6.125rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer_list_item_selected {
+    height: 2rem;
+    margin-right: 1rem;
+
+    text-align: center;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    flex-basis: 6.125rem;
+
+    background-color: #4B4B4B;
+    border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

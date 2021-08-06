@@ -47,6 +47,10 @@ export const getCartProducts = (state) => {
     return state.catalog.cartProducts;
 }
 
+export const getProductLoading = (state) => {
+    return state.catalog.productLoading;
+}
+
 
 // WEBXR
 

@@ -5,27 +5,24 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchCategory, setScrollCategory} from "../../../redux/actions";
 import {
     getAppDescription,
-    getCartState,
     getCategory,
     getLanguage,
     getLoading,
     getScrollCategory
 } from "../../../redux/selectors";
 
-import {Link, useHistory, useParams} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 
 import {GAevent} from "../../../ga/events";
 import {GApageView} from "../../../ga";
 
 import Fallback from "../../Loader/Loader";
-import Footer from "../../Footer/Footer";
 
 const Category = () => {
     const dispatch = useDispatch();
     const loading = useSelector(getLoading);
     const language = useSelector(getLanguage);
 
-    const isCart = useSelector(getCartState);
     const description = useSelector(getAppDescription('category'));
     const category = useSelector(getCategory);
     const scroll = useSelector(getScrollCategory);
@@ -72,27 +69,13 @@ const Category = () => {
 
     return (
         <div className='category_container'>
-            <div className='category_header_container'>
-
-                <div className='category_header_wrapper'>
-                    <Link className='category_header_arrow_left_link' to={'/catalog'}>
-                        <img src={'/assets/images/other/arrow_left.svg'}
-                             alt='arrow_left'/>
-                    </Link>
-                    <div className='category_header'>{category.title}</div>
-                </div>
-
-                <Link className='category_header_cart_link' to={'/cart'}>
-                    <img src={isCart ? '/assets/images/other/is_cart.svg' : '/assets/images/other/cart.svg'}
-                         alt='cart'/>
-                </Link>
+            <div className='category_header'>
+                {category.title}
             </div>
 
             <ul className='category_list'>
                 {category.products.map(product => getProduct(product))}
             </ul>
-
-            <Footer/>
         </div>
     );
 }

@@ -7,6 +7,7 @@ import routes from "./routes/routes";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAppDescription, fetchCatalog, setHeight, setIsCart, setLanguage, setOs} from "./redux/actions";
 import {getLanguage} from "./redux/selectors";
+import Header from "./components/Header/Header";
 
 function App() {
     const dispatch = useDispatch();
@@ -50,7 +51,10 @@ function App() {
 
     return (
         <Router>
+            <Header/>
+
             <main className='app_main'>
+
             <Switch>
                 {routes.map(({path, Component, name, exact}) => (
                         <Route key={name} path={path} exact={exact}>
@@ -59,6 +63,7 @@ function App() {
                 ))}
                 <Redirect from='/' to='/catalog'/>
             </Switch>
+
             </main>
         </Router>
     );

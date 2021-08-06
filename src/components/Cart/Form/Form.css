@@ -1,7 +1,6 @@
 .cart_form_container {
     max-width: 26rem;
 
-
     padding-left: 1rem;
     padding-right: 1rem;
     margin-left: auto;
@@ -283,19 +282,6 @@ select:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s;
 }
 
-.form_footer {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-right: 1rem;
-    padding-left: 1rem;
-
-    position: absolute;
-    top: 8.5rem;
-    right: 0;
-    left: 0;
-}
-
 .cart_form_button_submit {
     width: 92vw;
     max-width: 100%;
@@ -322,7 +308,7 @@ select:-webkit-autofill:focus {
     position: absolute;
     left: 0;
     right: 0;
-    top: -6rem;
+    top: 0;
 }
 
 .cart_form_link_button {
@@ -351,5 +337,5 @@ select:-webkit-autofill:focus {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 7.5rem;
+    bottom: 1.5rem;
 }

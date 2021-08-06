@@ -1,11 +1,19 @@
-import {FETCH_CART_PRODUCTS, FETCH_CATALOG, FETCH_CATEGORY, FETCH_PRODUCT, SCROLL_CATEGORY} from "../types";
+import {
+    FETCH_CART_PRODUCTS,
+    FETCH_CATALOG,
+    FETCH_CATEGORY,
+    FETCH_PRODUCT,
+    PRODUCT_LOADING,
+    SCROLL_CATEGORY
+} from "../types";
 
 const initialState = {
     scroll: 0,
     catalog: [],
     category: [],
     product: {},
-    cartProducts: []
+    cartProducts: [],
+    productLoading: false
 }
 
 export const catalogReducer = (state = initialState, action) => {
@@ -19,7 +27,9 @@ export const catalogReducer = (state = initialState, action) => {
         case FETCH_PRODUCT:
             return {...state, product: action.payload}
         case FETCH_CART_PRODUCTS :
-            return  {...state, cartProducts: action.payload}
+            return {...state, cartProducts: action.payload}
+        case PRODUCT_LOADING:
+            return {...state, productLoading: action.payload}
         default :
             return state;
     }

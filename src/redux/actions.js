@@ -4,7 +4,7 @@ import {
     FETCH_CATALOG, FETCH_CATEGORY, FETCH_PRODUCT,
     HIDE_LOADER,
     IS_CART,
-    PLANE_DETECTED,
+    PLANE_DETECTED, PRODUCT_LOADING,
     RETICLE_HIT, SCROLL_CATEGORY,
     SET_HEIGHT, SET_LANGUAGE,
     SET_MATRIX,
@@ -144,9 +144,17 @@ export const fetchProduct = (category, id, language) => async (dispatch) => {
     }
 }
 
+export const productLoading = (state) => {
+    return {
+        type: PRODUCT_LOADING,
+        payload: state
+    }
+}
+
 export const fetchCartProducts = (product) => async (dispatch) => {
     try {
         dispatch(showLoader());
+        dispatch(productLoading(true));
 
         let result;
         const newArray = [];
@@ -168,6 +176,7 @@ export const fetchCartProducts = (product) => async (dispatch) => {
 
         dispatch({type: FETCH_CART_PRODUCTS, payload: newArray});
         dispatch(hideLoader());
+        dispatch(productLoading(false));
     } catch (e) {
         console.log('Fetch cart products error', e.message);
         dispatch(hideLoader());

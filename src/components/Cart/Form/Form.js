@@ -15,7 +15,6 @@ import emailjs from "emailjs-com";
 
 import config from "../../../config/config";
 import Fallback from "../../Loader/Loader";
-import Footer from "../../Footer/Footer";
 
 const Form = () => {
     const products = JSON.parse(localStorage.getItem('cart'));
@@ -431,9 +430,6 @@ const Form = () => {
                     </form>
                 </>
             }
-            <div style={{marginTop: height - 260 + 'px'}} className='form_footer'>
-                <Footer/>
-            </div>
         </div>
     );
 }
