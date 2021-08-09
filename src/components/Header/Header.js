@@ -105,6 +105,14 @@ const Header = () => {
                          onClick={() => handleClickOpenMenu(false)}
                     />
 
+
+                    <Link className='menu_link_catalog' to={'/catalog'} onClick={() => handleClickOpenMenu(false)}>
+                        <div className='menu_catalog'>
+                            Каталог
+                        </div>
+                    </Link>
+                    <div className='menu_line'/>
+
                     <div className='menu_category_list'>
                         {getMenu()}
                     </div>

@@ -57,6 +57,23 @@
     z-index: 10;
 }
 
+.menu_link_catalog {
+    display: block;
+
+    margin-top: 1.5rem;
+
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.menu_catalog {
+
+}
+
 .menu_category_list {
     margin-top: 1.5rem;
 }
@@ -69,7 +86,7 @@
     text-decoration: none;
 
     font-family: Inter, sans-serif;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 1.25rem;
     line-height: 1.5rem;
     color: #FFFFFF;
@@ -87,7 +104,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.menu_how_its_work{
+.menu_how_its_work {
     font-family: Inter, sans-serif;
     font-weight: 400;
     font-size: 1.25rem;
