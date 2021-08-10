@@ -38,14 +38,15 @@ const Header = () => {
 
     const handleClickVideo = () => {
         setOpenMenu(false);
-        document.body.style.overflowY = 'hidden';
         setOpenVideo(true);
+        document.body.style.overflowY = 'hidden';
         videoRef.current.play();
     }
 
     const handleClickCloseVideo = () => {
         document.body.style.overflowY = 'auto';
         setOpenVideo(false);
+        document.querySelector('.app_main').style.display = 'block';
         videoRef.current.pause();
         videoRef.current.currentTime = 0;
     }
