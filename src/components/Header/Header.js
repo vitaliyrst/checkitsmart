@@ -109,7 +109,7 @@ const Header = () => {
 
                     <Link className='menu_link_catalog' to={'/catalog'} onClick={() => handleClickOpenMenu(false)}>
                         <div className='menu_catalog'>
-                            Каталог
+                            {description.header}
                         </div>
                     </Link>
                     <div className='menu_line'/>
